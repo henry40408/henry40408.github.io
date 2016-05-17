@@ -46,7 +46,11 @@ end
 ignore "stylesheets/**/.git"
 
 activate :blog do |blog|
-  # empty
+  MAX = 100
+  blog.summary_generator = Proc.new{ |_, content|
+    s = Sanitize.fragment(content)[0..MAX]
+    "#{s}#{s.length > MAX ? "..." : ""}"
+  }
 end
 
 activate :deploy do |deploy|
@@ -55,5 +59,5 @@ activate :deploy do |deploy|
 end
 
 set :markdown_engine, :redcarpet
-set :markdown, :fenced_code_blocks => true, :smartypants => true
+set :markdown, autolink: true, fenced_code_blocks: true, smartypants: true
 activate :syntax

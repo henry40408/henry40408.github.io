@@ -7,9 +7,14 @@ title: 首頁
 <section class="article list">
   <% blog.articles.each do |article| %>
     <div class="article">
-      <span><%= link_to article.title, article.url %></span>
-      <span>//</span>
-      <span class="date"><%= article.date.strftime "%Y-%m-%d %H:%M:%S" %></span>
+      <div class="title">
+        <span><%= link_to article.title, article.url %></span>
+        <small class="date"><%= article.date.strftime "%Y-%m-%d %H:%M:%S" %></small>
+      </div>
+      <div class="tags"><%= article.tags.join ', ' %></div>
+      <div class="summary">
+        <%= article.summary %>
+      </div>
     </div>
   <% end %>
 </section>
