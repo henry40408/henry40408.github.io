@@ -43,6 +43,8 @@ configure :build do
   # activate :minify_javascript
 end
 
+ignore "stylesheets/**/.git"
+
 activate :blog do |blog|
   # empty
 end
