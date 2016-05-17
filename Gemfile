@@ -10,6 +10,9 @@ gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
 
 # Middleman Gems
 gem 'middleman', '>= 4.0.0'
+gem 'middleman-blog'
 gem 'middleman-compass', '>= 4.0.0'
-gem 'middleman-deploy', git: 'https://github.com/middleman-contrib/middleman-deploy.git', ref: '751c11'
+gem 'middleman-deploy', github: 'middleman-contrib/middleman-deploy', ref: '751c11'
 gem 'middleman-livereload'
+gem 'middleman-syntax'
+gem 'redcarpet'
