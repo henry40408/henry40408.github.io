@@ -1,11 +1,25 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,700|Noto+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,700|Lora:400:700);
 
 html {
-    font-size: 75%;
+    font-size: 12px;
+}
+
+footer {
+    p {
+        font-size: 100%;
+    }
 }
 
 .container {
     padding: 4rem 0;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+@media screen and (min-width: 320px) {
+    .container {
+        padding: 4rem 10px;
+    }
 }
 
 .article.list {
@@ -17,8 +31,26 @@ html {
 
 .article.single {
     .title {
-        .text { margin: 0; }
+        .text { font-size: 200%; margin: 0; }
         .date { color: #666; }
         margin: 0 0 3rem;
+    }
+
+    .content {
+        h2 {
+            font-size: 150%;
+            margin: 1rem 0;
+            letter-spacing: .05rem;
+        }
+        p {
+            margin-after: 0.5em;
+            text-align: justify; 
+            text-justify: inter-ideographic;
+        }
+
+        font-family: Lora, serif;
+        font-size: 90%;
+        line-height: 1.7;
+        margin: 0 0 1rem;
     }
 }
