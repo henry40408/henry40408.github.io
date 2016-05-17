@@ -37,10 +37,10 @@ end
 # Build-specific configuration
 configure :build do
   # Minify CSS on build
-  # activate :minify_css
+  activate :minify_css
 
   # Minify Javascript on build
-  # activate :minify_javascript
+  activate :minify_javascript
 end
 
 ignore "stylesheets/**/.git"
@@ -54,6 +54,6 @@ activate :deploy do |deploy|
   deploy.branch = :master
 end
 
-activate :syntax
 set :markdown_engine, :redcarpet
 set :markdown, :fenced_code_blocks => true, :smartypants => true
+activate :syntax
