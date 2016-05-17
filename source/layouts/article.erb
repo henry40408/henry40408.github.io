@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <%= partial "header" %>
+  <body class="<%= page_classes %>">
+    <div class="container">
+      <p><%= link_to "Home", "/" %></p>
+      <div class="article single">
+        <div class="title">
+          <h1 class="text"><%= current_page.data.title %></h1>
+          <span class="date"><%= current_page.data.date %></span>
+        </div>
+        <div class="markdown-body">
+          <%= yield %>
+        </div>
+      </div>
+      <%= partial "footer" %>
+    </div>
+    <%= javascript_include_tag :all %>
+  </body>
+</html>
