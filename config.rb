@@ -43,7 +43,16 @@ configure :build do
   activate :minify_javascript
 end
 
+ignore "stylesheets/**/*.py"
+ignore "stylesheets/**/.editorconfig"
 ignore "stylesheets/**/.git"
+ignore "stylesheets/**/.gitattributes"
+ignore "stylesheets/**/bower.json"
+ignore "stylesheets/**/index.html"
+ignore "stylesheets/**/license"
+ignore "stylesheets/**/package.json"
+ignore "stylesheets/**/README"
+ignore "stylesheets/**/readme"
 
 activate :blog do |blog|
   MAX = 100
