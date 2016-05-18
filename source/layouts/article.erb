@@ -13,6 +13,11 @@
           <%= yield %>
         </div>
       </div>
+      <p>
+        <a href="#disqus_thread">留言</a>
+      </p>
+      <%= disqus %>
+      <%= disqus_count %>
       <%= partial "footer" %>
     </div>
     <%= javascript_include_tag :all %>

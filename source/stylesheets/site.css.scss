@@ -48,21 +48,29 @@ footer {
     }
 
     .content {
+        blockquote p {
+            text-align: left;
+        }
+
+        %heading {
+            margin: 1rem 0;
+        }
+
         h2 {
             font-size: 150%;
             letter-spacing: .05rem;
-            margin: 1rem 0;
+            @extend %heading;
         }
         h3 {
             font-size: 125%;
             letter-spacing: .025rem;
-            margin: 1rem 0;
+            @extend %heading;
         }
+
         p {
             margin-after: 0.5em;
-            text-align: justify;
-            text-justify: inter-ideographic;
         }
+
         font-family: Lora, serif;
         font-size: 90%;
         line-height: 1.7;

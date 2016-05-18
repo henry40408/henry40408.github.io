@@ -67,6 +67,10 @@ activate :deploy do |deploy|
   deploy.branch = :master
 end
 
+activate :disqus do |d|
+  d.shortname = 'henry40408'
+end
+
 set :markdown_engine, :redcarpet
 set :markdown, autolink: true, fenced_code_blocks: true, smartypants: true
 activate :syntax
