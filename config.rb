@@ -71,6 +71,10 @@ activate :disqus do |d|
   d.shortname = 'henry40408'
 end
 
+activate :google_analytics do |ga|
+  ga.tracking_id = 'UA-6529501-15'
+end
+
 set :markdown_engine, :redcarpet
 set :markdown, autolink: true, fenced_code_blocks: true, smartypants: true
 activate :syntax
