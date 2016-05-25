@@ -1,6 +1,6 @@
 ---
 title: rbenv 2.x 的 readline 問題
-date: 2015-07-30 00:00:00
+date: 2015/07/30 00:00:00
 slug: readline-error-when-calling-rails-console-on-rbenv-2-x
 tags: libreadline, rails, rbenv, deadline, ruby, ruby on rails
 layout: article

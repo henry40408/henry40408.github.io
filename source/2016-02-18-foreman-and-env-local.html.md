@@ -1,6 +1,6 @@
 ---
 title: foreman 偵測不到 .env.local
-date: 2016-02-18 00:00:00
+date: 2016/02/18 00:00:00
 slug: foreman-and-env-local
 tags: devops, foreman, env, env.local
 layout: article

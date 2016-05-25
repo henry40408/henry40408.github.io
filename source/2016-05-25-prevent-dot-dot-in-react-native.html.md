@@ -1,6 +1,6 @@
 ---
 title: 在 React Native 裡避免大量的 ../../
-date: 2016-05-25 23:01:00
+date: 2016/05/25 23:01:00
 slug: prevent-dot-dot-in-react-native
 tags: react native, dot dot, directory traversals, import
 layout: article
