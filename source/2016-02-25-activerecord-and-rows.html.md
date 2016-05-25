@@ -1,6 +1,6 @@
 ---
 title: ActiveRecord 與列輸出
-date: 2016-02-25 01:42:00
+date: 2016/02/25 01:42:00
 slug: activerecord-and-rows
 tags: ruby, ruby on rails, active record, row
 layout: article

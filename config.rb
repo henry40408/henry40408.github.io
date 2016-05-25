@@ -54,7 +54,10 @@ ignore "stylesheets/**/package.json"
 ignore "stylesheets/**/README"
 ignore "stylesheets/**/readme"
 
+Time.zone = "Taipei"
+
 activate :blog do |blog|
+  blog.permalink = "{year}/{month}/{slug}.html"
   MAX = 100
   blog.summary_generator = Proc.new{ |_, content|
     s = Sanitize.fragment(content)[0..MAX]
