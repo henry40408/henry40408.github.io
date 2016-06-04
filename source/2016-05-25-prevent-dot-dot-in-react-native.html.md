@@ -10,7 +10,7 @@ layout: article
 
 React Native 採用 ES6 做為開發語言，而 ES6 的 `import` 語法指定檔案時採用相對路徑。如果採用 [Redux](http://redux.js.org/) 架構開發，很快地 `Component` 就會開始出現以下一堆亂七八糟的 `import` 語句。
 
-```jsx
+```javascript
 import DoSomething from '../actions/DoSomething';
 import DoAnotherThing from '../actions/DoAnotherThing';
 ```
@@ -47,20 +47,20 @@ Python 跟 Java 都號稱專為大型專案設計，而他們的 `import` 語法
 
 如果你要嘗鮮，以下是具體寫法。
 
-```jsx
+```javascript
 // src/foo/DummyClass.js
 class DummyClass { ... }
 export default DummyClass;
 ```
 
-```jsx
+```json
 // src/package.json
 {
   "name": "@src"
 }
 ```
 
-```jsx
+```javascript
 // src/components/Bar.js
 import DummyClass from '@src/foo/DummyClass';
 ```
