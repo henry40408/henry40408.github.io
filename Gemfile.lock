@@ -1,13 +1,3 @@
-GIT
-  remote: git://github.com/middleman-contrib/middleman-deploy.git
-  revision: 751c11f6eb40fe8250308f59b01a1f91335d8884
-  ref: 751c11
-  specs:
-    middleman-deploy (1.0.0)
-      middleman-core (>= 3.2)
-      net-sftp
-      ptools
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -101,6 +91,10 @@ GEM
       servolux
       tilt (~> 1.4.1)
       uglifier (~> 3.0)
+    middleman-deploy (2.0.0.pre.alpha)
+      middleman-core (>= 3.2)
+      net-sftp
+      ptools
     middleman-disqus (1.2.0)
       middleman-core (~> 4.0)
     middleman-google-analytics (2.1.1)
@@ -120,7 +114,7 @@ GEM
     multi_json (1.12.0)
     net-sftp (2.1.2)
       net-ssh (>= 2.6.5)
-    net-ssh (3.1.1)
+    net-ssh (3.2.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     nokogumbo (1.4.7)
@@ -162,7 +156,7 @@ DEPENDENCIES
   middleman (>= 4.0.0)
   middleman-blog
   middleman-compass (>= 4.0.0)
-  middleman-deploy!
+  middleman-deploy (~> 2.0.0.pre.alpha)
   middleman-disqus
   middleman-google-analytics (~> 2.1)
   middleman-livereload
@@ -174,4 +168,4 @@ DEPENDENCIES
   wdm (~> 0.1.0)
 
 BUNDLED WITH
-   1.12.1
+   1.13.2
