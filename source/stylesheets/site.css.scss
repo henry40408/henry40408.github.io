@@ -1,15 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,300,700|Lora:400:700);
 
 html {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 body {
-    font-family: Lora, serif;
+  font-family: Lora, serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
 }
 
 header {
@@ -24,69 +24,77 @@ header {
 }
 
 footer {
-    p {
-        font-size: 100%;
-    }
+  p {
+    font-size: 100%;
+  }
 }
 
 .container {
-    padding: 4rem 0;
-    margin: 0 auto;
-    max-width: 600px;
+  padding: 4rem 0;
+  margin: 0 auto;
+  max-width: 600px;
 }
 
 @media screen and (min-width: 320px) {
-    .container {
-        padding: 4rem 10px;
-    }
+  .container {
+    padding: 4rem 10px;
+  }
 }
 
 .article.list {
-    .article {
-        .date { color: #666; }
-        .summary { text-align: justify; }
-        .tags { font-size: 80%; }
-        margin: 0 0 2rem;
-    }
+  .article {
+    .date { color: #666; }
+    .summary { text-align: justify; }
+    .tags { font-size: 80%; }
     margin: 0 0 2rem;
+  }
+  margin: 0 0 2rem;
 }
 
 .article.single {
-    .title {
-        .text { font-size: 200%; margin: 0; }
-        .date { color: #666; }
-        margin: 0 0 3rem;
+  .title {
+    .text { font-size: 200%; margin: 0; }
+    .date { color: #666; }
+    margin: 0 0 3rem;
+  }
+
+  .content {
+    blockquote p {
+      text-align: left;
     }
 
-    .content {
-        blockquote p {
-            text-align: left;
-        }
-
-        %heading {
-            margin: 1rem 0;
-        }
-
-        h2 {
-            font-size: 150%;
-            letter-spacing: .05rem;
-            @extend %heading;
-        }
-        h3 {
-            font-size: 125%;
-            letter-spacing: .025rem;
-            @extend %heading;
-        }
-
-        p {
-            margin-after: 0.5em;
-        }
-
-        font-family: Lora, serif;
-        font-size: 90%;
-        line-height: 1.7;
-        margin: 0 0 1rem;
+    %heading {
+      margin: 1rem 0;
     }
 
-    margin: 0 0 4rem;
+    h2 {
+      font-size: 150%;
+      letter-spacing: .05rem;
+      @extend %heading;
+    }
+    h3 {
+      font-size: 125%;
+      letter-spacing: .025rem;
+      @extend %heading;
+    }
+
+    ol {
+      list-style: decimal;
+    }
+
+    p {
+      margin-after: 0.5em;
+    }
+
+    ul {
+      list-style: inherit;
+    }
+
+    font-family: Lora, serif;
+    font-size: 90%;
+    line-height: 1.7;
+    margin: 0 0 1rem;
+  }
+
+  margin: 0 0 4rem;
 }
