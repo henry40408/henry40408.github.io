@@ -1,0 +1,13 @@
+language: ruby
+
+rvm:
+  - 2.3.1
+
+branches:
+  only:
+    - development
+
+script: bundle exec middleman deploy
+
+notifications:
+  email: false
