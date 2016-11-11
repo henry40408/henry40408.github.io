@@ -66,8 +66,8 @@ activate :blog do |blog|
 end
 
 activate :deploy do |deploy|
-  deploy.method = :git
-  deploy.branch = "master" # or master
+  deploy.deploy_method = :git
+  deploy.branch = "master"
 
   committer_app = "#{Middleman::Deploy::PACKAGE} v#{Middleman::Deploy::VERSION}"
   commit_message = "Deployed using #{committer_app}"
