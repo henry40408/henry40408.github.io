@@ -8,9 +8,9 @@ branches:
     - development
 
 script:
-  - [ -d build ] && rm -r build
-  - bundle exec middleman build
-  - bundle exec middleman deploy
+  - "[ -d build ] && rm -r build"
+  - "bundle exec middleman build"
+  - "bundle exec middleman deploy"
 
 notifications:
   email: false
