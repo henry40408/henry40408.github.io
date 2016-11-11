@@ -12,6 +12,17 @@ h1, h2, h3, h4, h5, h6 {
     font-family: Helvetica, sans-serif;
 }
 
+header {
+  h2 {
+    margin: 0;
+  }
+
+  h3 {
+    font-size: 1.9rem;
+    letter-spacing: inherit;
+  }
+}
+
 footer {
     p {
         font-size: 100%;
