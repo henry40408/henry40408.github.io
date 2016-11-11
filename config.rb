@@ -5,9 +5,9 @@
 # Per-page layout changes:
 #
 # With no layout
-page '/*.xml', layout: false
-page '/*.json', layout: false
-page '/*.txt', layout: false
+page "/*.xml", layout: false
+page "/*.json", layout: false
+page "/*.txt", layout: false
 
 # With alternative layout
 # page "/path/to/file.html", layout: :otherlayout
@@ -66,16 +66,25 @@ activate :blog do |blog|
 end
 
 activate :deploy do |deploy|
-  deploy.deploy_method = :git
-  deploy.branch = :master
+  deploy.method = :git
+  deploy.branch = "master" # or master
+
+  committer_app = "#{Middleman::Deploy::PACKAGE} v#{Middleman::Deploy::VERSION}"
+  commit_message = "Deployed using #{committer_app}"
+
+  if ENV["TRAVIS_BUILD_NUMBER"] then
+    commit_message += " (Travis Build \##{ENV["TRAVIS_BUILD_NUMBER"]})"
+  end
+
+  deploy.commit_message = commit_message
 end
 
 activate :disqus do |d|
-  d.shortname = 'henry40408'
+  d.shortname = "henry40408"
 end
 
 activate :google_analytics do |ga|
-  ga.tracking_id = 'UA-6529501-15'
+  ga.tracking_id = "UA-6529501-15"
 end
 
 set :markdown_engine, :redcarpet

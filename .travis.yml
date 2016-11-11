@@ -1,13 +1,15 @@
 language: ruby
-
+cache: bundler
 rvm:
-  - 2.3.1
-
+- 2.1.0
 branches:
   only:
-    - development
-
-script: bash deploy.sh
-
-notifications:
-  email: false
+  - development
+env:
+  global:
+  - GH_COMMIT_AUTHOR="Travis CI"
+  - GH_COMMIT_EMAIL=your_email@example.com
+script:
+- bundle exec rake travis:script
+after_success:
+  - bundle exec rake travis:after_success
