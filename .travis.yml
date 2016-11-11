@@ -7,10 +7,7 @@ branches:
   only:
     - development
 
-script:
-  - "[ -d build ] && rm -r build"
-  - "bundle exec middleman build"
-  - "bundle exec middleman deploy"
+script: bash deploy.sh
 
 notifications:
   email: false
