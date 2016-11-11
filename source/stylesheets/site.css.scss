@@ -77,6 +77,11 @@ footer {
       letter-spacing: .025rem;
       @extend %heading;
     }
+    h4 {
+      font-size: 110%;
+      letter-spacing: .1rem;
+      @extend %heading;
+    }
 
     ol {
       list-style: decimal;

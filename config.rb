@@ -79,5 +79,5 @@ activate :google_analytics do |ga|
 end
 
 set :markdown_engine, :redcarpet
-set :markdown, autolink: true, fenced_code_blocks: true, smartypants: true
+set :markdown, autolink: true, fenced_code_blocks: true, footnotes: true, smartypants: true
 activate :syntax
