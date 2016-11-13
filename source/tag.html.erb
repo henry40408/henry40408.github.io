@@ -1,0 +1,11 @@
+<div class="page-header">
+  <h1><%= tagname %></h1>
+</div>
+
+<p>
+  <% link_to "/" do %>
+    <i class="fa fa-arrow-left"></i> 首頁
+  <% end %>
+</p>
+
+<%= partial "partials/articles", locals: { articles: articles } %>
