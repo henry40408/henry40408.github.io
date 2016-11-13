@@ -7,21 +7,21 @@
         <header class="page-header">
           <h1><%= current_page.data.title %> <small><%= current_page.data.date %></small></h1>
           <div class="tags"><%= partial "partials/tags", locals: { tags: current_page.tags } %></div>
+          <div class="back">
+            <% link_to "/" do %>
+              <i class="fa fa-arrow-left"></i> 首頁
+            <% end %>
+          </div>
         </header>
-        <p>
-          <% link_to "/" do %>
-            <i class="fa fa-arrow-left"></i> 首頁
-          <% end %>
-        </p>
         <section class="markdown-body">
           <%= yield %>
         </section>
+        <section class="comments">
+          <a href="#disqus_thread"><i class="fa fa-commenting"></i> 留言</a>
+        </section>
+        <%= disqus %>
+        <%= disqus_count %>
       </article>
-      <p>
-        <a href="#disqus_thread">留言</a>
-      </p>
-      <%= disqus %>
-      <%= disqus_count %>
       <%= partial "partials/footer" %>
     </div>
     <%= javascript_include_tag :all %>
