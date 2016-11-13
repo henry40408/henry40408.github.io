@@ -1,5 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,300,700|Lora:400:700);
 
+$gray: #666;
+
 html {
   font-size: 12px;
 }
@@ -8,7 +10,12 @@ body {
   font-family: Lora, serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: Helvetica, sans-serif;
 }
 
@@ -30,57 +37,67 @@ footer {
 }
 
 .container {
-  padding: 4rem 0;
   margin: 0 auto;
-  max-width: 600px;
-}
+  max-width: 64rem;
+  padding: 4rem 0;
 
-@media screen and (min-width: 320px) {
-  .container {
+  @media screen and (min-width: 320px) {
     padding: 4rem 10px;
   }
 }
 
 .article.list {
+  margin: 0 0 2rem;
+
   .article {
-    .date { color: #666; }
+    margin: 0 0 2rem;
+
+    .date { color: $gray; }
     .summary { text-align: justify; }
     .tags { font-size: 80%; }
-    margin: 0 0 2rem;
   }
-  margin: 0 0 2rem;
 }
 
 .article.single {
+  margin: 0 0 4rem;
+
+  blockquote p {
+    text-align: left;
+  }
+
   .title {
-    .text { font-size: 200%; margin: 0; }
-    .date { color: #666; }
     margin: 0 0 3rem;
+
+    .date { color: $gray; }
+    .text { font-size: 200%; margin: 0; }
   }
 
   .content {
-    blockquote p {
-      text-align: left;
-    }
+    font-family: 'Lora', serif;
+    font-size: 90%;
+    line-height: 1.7;
+    margin: 0 0 1rem;
 
     %heading {
       margin: 1rem 0;
     }
 
     h2 {
+      @extend %heading;
       font-size: 150%;
       letter-spacing: .05rem;
-      @extend %heading;
     }
+
     h3 {
+      @extend %heading;
       font-size: 125%;
       letter-spacing: .025rem;
-      @extend %heading;
     }
+
     h4 {
+      @extend %heading;
       font-size: 110%;
       letter-spacing: .1rem;
-      @extend %heading;
     }
 
     ol {
@@ -88,18 +105,11 @@ footer {
     }
 
     p {
-      margin-after: 0.5em;
+      margin-after: .5em;
     }
 
     ul {
       list-style: inherit;
     }
-
-    font-family: Lora, serif;
-    font-size: 90%;
-    line-height: 1.7;
-    margin: 0 0 1rem;
   }
-
-  margin: 0 0 4rem;
 }
