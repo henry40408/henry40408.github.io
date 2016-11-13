@@ -56,13 +56,15 @@ ignore "stylesheets/**/readme"
 
 Time.zone = "Taipei"
 
+SUMMARY_LENGTH = 300
+
 activate :blog do |blog|
   blog.permalink = "{year}/{month}/{slug}.html"
-  MAX = 100
   blog.summary_generator = Proc.new{ |_, content|
-    s = Sanitize.fragment(content)[0..MAX]
-    "#{s}#{s.length > MAX ? "..." : ""}"
+    s = Sanitize.fragment(content)[0..SUMMARY_LENGTH]
+    "#{s}#{s.length > SUMMARY_LENGTH ? "..." : ""}"
   }
+  blog.tag_template = "/tag.html"
 end
 
 activate :deploy do |deploy|

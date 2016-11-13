@@ -1,10 +1,10 @@
 <!doctype html>
-<html>
-  <%= partial "header" %>
+<html lang="zh-Hant">
+  <%= partial "partials/header" %>
   <body class="<%= page_classes %>">
     <div class="container">
       <%= yield %>
-      <%= partial "footer" %>
+      <%= partial "partials/footer" %>
     </div>
     <%= javascript_include_tag :all %>
     <%= google_analytics_tag %>

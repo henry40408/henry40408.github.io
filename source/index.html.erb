@@ -2,22 +2,9 @@
 title: 首頁
 ---
 
-<header>
-  <h2>henry40408</h2>
-  <h3>my blog, occasionally-weekly updated</h3>
-</header>
+<div class="page-header">
+  <h1>henry40408</h1>
+  <h2>my blog, occasionally-weekly updated</h2>
+</div>
 
-<section class="article list">
-  <% blog.articles.each do |article| %>
-    <div class="article">
-      <div class="title">
-        <span><%= link_to article.title, article.url %></span>
-        <small class="date"><%= article.date.strftime "%Y-%m-%d %H:%M:%S" %></small>
-      </div>
-      <div class="tags"><%= article.tags.join ', ' %></div>
-      <div class="summary">
-        <%= article.summary %>
-      </div>
-    </div>
-  <% end %>
-</section>
+<%= partial "partials/articles", locals: { articles: blog.articles } %>

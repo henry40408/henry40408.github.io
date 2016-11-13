@@ -1,24 +1,28 @@
 <!doctype html>
 <html>
-  <%= partial "header" %>
+  <%= partial "partials/header" %>
   <body class="<%= page_classes %>">
     <div class="container">
-      <p><%= link_to "首頁", "/" %></p>
-      <div class="article single">
-        <div class="title">
-          <h1 class="text"><%= current_page.data.title %></h1>
-          <span class="date"><%= current_page.data.date %></span>
-        </div>
-        <div class="content markdown-body">
+      <article class="article single">
+        <header class="page-header">
+          <h1><%= current_page.data.title %> <small><%= current_page.data.date %></small></h1>
+          <div class="tags"><%= partial "partials/tags", locals: { tags: current_page.tags } %></div>
+        </header>
+        <p>
+          <% link_to "/" do %>
+            <i class="fa fa-arrow-left"></i> 首頁
+          <% end %>
+        </p>
+        <section class="markdown-body">
           <%= yield %>
-        </div>
-      </div>
+        </section>
+      </article>
       <p>
         <a href="#disqus_thread">留言</a>
       </p>
       <%= disqus %>
       <%= disqus_count %>
-      <%= partial "footer" %>
+      <%= partial "partials/footer" %>
     </div>
     <%= javascript_include_tag :all %>
     <%= google_analytics_tag %>
