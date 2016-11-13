@@ -34,6 +34,8 @@ $white: #fff;
 
 .article.single {
   h1 small { color: $gray; font-size: 1rem; }
-  .page-header { margin: 2rem 0 1rem; }
+  .comments { margin: 1rem 0; }
+  .page-header { margin: 2rem 0; }
+  .back { margin: 2rem 0 0; }
   .tags a { color: $white; }
 }
