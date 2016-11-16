@@ -5,6 +5,7 @@ $white: #fff;
   margin: 2rem 0;
 
   h1 { font-size: 3rem; }
+  small { font-size: 1.5rem; }
   h2 { font-size: 1.8rem; }
 }
 
@@ -38,4 +39,10 @@ $white: #fff;
   .page-header { margin: 2rem 0; }
   .back { margin: 2rem 0 0; }
   .tags a { color: $white; }
+}
+
+.page.single {
+  .markdown-body { margin: 0 auto 1rem; }
+  .page-header { margin: 2rem 0 1rem; }
+  h1 { font-size: 2rem; margin: 1rem 0; }
 }
