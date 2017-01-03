@@ -1,6 +1,3 @@
-[submodule "source/stylesheets/github-markdown-css"]
-	path = source/stylesheets/github-markdown-css
-	url = https://github.com/sindresorhus/github-markdown-css.git
 [submodule "source/stylesheets/tomorrow-pygments"]
 	path = source/stylesheets/tomorrow-pygments
 	url = https://github.com/MozMorris/tomorrow-pygments

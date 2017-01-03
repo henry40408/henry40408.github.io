@@ -1,5 +1,5 @@
 <% tags.sort.each do |t| %>
-  <div class="tag tag-default">
-    <i class="fa fa-tag"></i> <%= link_to t, tag_path(t) %>
-  </div>
+  <ul>
+    <li><%= link_to t, tag_path(t) %></li>
+  </ul>
 <% end %>
