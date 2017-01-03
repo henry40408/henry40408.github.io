@@ -68,6 +68,8 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:henry40408/henry40408.github.io
+  branch: master
 
 disqus_shortname: henry40408

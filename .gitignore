@@ -79,4 +79,5 @@ Temporary Items
 .apdisk
 
 db.json
-public
+public/
+.deploy_git/

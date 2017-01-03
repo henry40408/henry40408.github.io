@@ -21,4 +21,4 @@ git remote set-url origin "${SSH_URL}"
 git config --global user.name ${GH_COMMIT_AUTHOR}
 git config --global user.email ${GH_COMMIT_EMAIL}
 
-bundle exec rake deploy
+hexo deploy
