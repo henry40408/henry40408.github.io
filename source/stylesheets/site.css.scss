@@ -1,1 +1,31 @@
-// empty
+#container {
+  margin: 4rem auto 0;
+  max-width: 768px;
+}
+
+#site-header {
+  margin: 0 0 2rem;
+}
+
+#site-name {
+  margin: 0;
+}
+
+#site-slogan {
+  margin: 0;
+}
+
+.article.list article {
+  margin: 0 0 2rem;
+}
+
+.tags {
+  list-style-type: none;
+  margin: 0 0 1rem;
+  padding: 0;
+
+  li {
+    display: inline;
+    margin: 0 .5rem 0 0;
+  }
+}
