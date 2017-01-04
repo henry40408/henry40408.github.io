@@ -2,19 +2,23 @@
 <html>
   <%= partial "partials/header" %>
   <body class="<%= page_classes %>">
-    <div class="container page single">
-      <header class="page-header">
-        <h1><%= current_page.data.title %> <small><%= current_page.data.date %></small></h1>
-        <div class="back">
-          <% link_to "/" do %>
-            <i class="fa fa-arrow-left"></i> 首頁
-          <% end %>
+    <div id="container" class="ui grid">
+      <div class="row">
+        <header class="column">
+          <p><%= link_to 'home', '/' %></p>
+          <h1><%= current_page.data.title %> </h1>
+        </header>
+      </div>
+      <div class="row">
+        <section class="column">
+          <%= yield %>
+        </section>
+      </div>
+      <div class="row">
+        <div class="column">
+          <%= partial "partials/footer" %>
         </div>
-      </header>
-      <section class="markdown-body">
-        <%= yield %>
-      </section>
-      <%= partial "partials/footer" %>
+      </div>
     </div>
     <%= javascript_include_tag :all %>
     <%= google_analytics_tag %>
