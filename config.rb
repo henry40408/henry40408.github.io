@@ -91,4 +91,4 @@ end
 
 set :markdown_engine, :redcarpet
 set :markdown, autolink: true, fenced_code_blocks: true, footnotes: true, smartypants: true
-activate :syntax
+activate :syntax, line_numbers: true
