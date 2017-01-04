@@ -1,11 +1,12 @@
-<div class="page-header">
-  <h1><%= tagname %></h1>
+<div class="row">
+  <div class="column">
+    <p><%= link_to 'home', '/' %></p>
+    <h1><%= tagname %></h1>
+  </div>
 </div>
 
-<p>
-  <% link_to "/" do %>
-    <i class="fa fa-arrow-left"></i> 首頁
-  <% end %>
-</p>
-
-<%= partial "partials/articles", locals: { articles: articles } %>
+<div class="row">
+  <div class="column">
+    <%= partial "partials/articles", locals: { articles: articles } %>
+  </div>
+</div>

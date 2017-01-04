@@ -2,28 +2,27 @@
 <html>
   <%= partial "partials/header" %>
   <body class="<%= page_classes %>">
-    <div class="container">
-      <article class="article single">
-        <header class="page-header">
+    <article id="container" class="ui grid article single">
+      <header class="row">
+        <div class="column">
+          <div class="back"><%= link_to 'home', '/' %></div>
           <h1><%= current_page.data.title %> <small><%= current_page.data.date %></small></h1>
           <div class="tags"><%= partial "partials/tags", locals: { tags: current_page.tags } %></div>
-          <div class="back">
-            <% link_to "/" do %>
-              <i class="fa fa-arrow-left"></i> 首頁
-            <% end %>
-          </div>
-        </header>
-        <section class="markdown-body">
+        </div>
+      </header>
+      <section class="row">
+        <div class="column">
           <%= yield %>
-        </section>
-        <section class="comments">
-          <a href="#disqus_thread"><i class="fa fa-commenting"></i> 留言</a>
-        </section>
-        <%= disqus %>
-        <%= disqus_count %>
-      </article>
+        </div>
+      </section>
+      <section class="row">
+        <div class="column">
+          <%= disqus %>
+          <%= disqus_count %>
+        </div>
+      </section>
       <%= partial "partials/footer" %>
-    </div>
+    </article>
     <%= javascript_include_tag :all %>
     <%= google_analytics_tag %>
   </body>

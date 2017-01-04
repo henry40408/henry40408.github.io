@@ -1,10 +1,32 @@
+$screen-max-width: 900px;
+
+$gray: #aaa;
+
+%cjk-text-format {
+  line-height: 1.7rem;
+  text-align: justify; 
+  text-justify: inter-ideographic;
+}
+
+blockquote {
+  border-left: 4px solid $gray;
+  color: darken($gray, 10%);
+  font-style: italic;
+  margin: 1rem .6rem;
+  padding: 0 0 0 1rem;
+}
+
+html, body {
+  font-size: 18px;
+}
+
 #container {
-  margin: 4rem auto 0;
-  max-width: 768px;
+  margin: 4rem auto 6rem;
+  max-width: 50rem;
 }
 
 #site-header {
-  margin: 0 0 2rem;
+  margin: 0 0 .4rem;
 }
 
 #site-name {
@@ -12,20 +34,49 @@
 }
 
 #site-slogan {
-  margin: 0;
+  color: $gray;
+  font-style: italic;
+  font-size: 1rem;
+  letter-spacing: .1rem;
+  margin: 0 0 1rem;
 }
 
-.article.list article {
-  margin: 0 0 2rem;
+.article.list {
+  article {
+    margin: 0 0 2rem;
+  }
+
+  .title {
+    margin: 0 0 .216rem;
+  }
+
+  .title.text {
+    margin: 0 .6rem 0 0;
+  }
+
+  .title.date {
+    color: $gray;
+  }
+
+  .summary {
+    @extend %cjk-text-format;
+  }
 }
 
 .tags {
   list-style-type: none;
-  margin: 0 0 1rem;
+  margin: 0 0 .6rem;
   padding: 0;
 
   li {
     display: inline;
-    margin: 0 .5rem 0 0;
+    font-size: .9rem;
+    margin: 0 .36rem 0 0;
+  }
+}
+
+.article.single {
+  li, p {
+    @extend %cjk-text-format;
   }
 }
