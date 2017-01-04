@@ -6,7 +6,7 @@
       <header class="row">
         <div class="column">
           <div class="back"><%= link_to 'home', '/' %></div>
-          <h1><%= current_page.data.title %> <small><%= current_page.data.date %></small></h1>
+          <h1><%= current_page.data.title %> <small class="title date"><%= current_page.data.date %></small></h1>
           <div class="tags"><%= partial "partials/tags", locals: { tags: current_page.tags } %></div>
         </div>
       </header>
