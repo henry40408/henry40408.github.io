@@ -1,5 +1,5 @@
 <ul class="tags">
   <% tags.sort.each do |t| %>
-    <li><%= link_to "##{t}", tag_path(t) %></li>
+    <li><%= link_to "#{t}", tag_path(t) %></li>
   <% end %>
 </ul>
