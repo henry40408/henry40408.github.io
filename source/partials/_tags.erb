@@ -1,5 +1,1 @@
-<ul class="tags">
-  <% tags.sort.each do |t| %>
-    <li><%= link_to "#{t}", tag_path(t) %></li>
-  <% end %>
-</ul>
+<%= tags.sort.map{ |t| link_to "#{t}", tag_path(t) }.join(", ") %>

@@ -3,7 +3,7 @@ $screen-max-width: 900px;
 $gray: #aaa;
 
 %cjk-text-format {
-  line-height: 1.7rem;
+  line-height: 1.6rem;
   text-align: justify; 
   text-justify: inter-ideographic;
 }
@@ -30,11 +30,12 @@ html, body {
 }
 
 #site-header {
-  margin: 0 0 .4rem;
+  margin: 0;
 }
 
 #site-name {
   margin: 0;
+  text-align: center;
 }
 
 #site-slogan {
@@ -43,46 +44,13 @@ html, body {
   font-size: 1rem;
   letter-spacing: .1rem;
   margin: 0 0 1rem;
+  text-align: center;
 }
 
-.article.list {
-  article {
-    margin: 0 0 2rem;
-  }
-
-  .title {
-    margin: 0 0 .216rem;
-  }
-
-  .title.text {
-    margin: 0 .6rem 0 0;
-  }
-
-  .title.date {
-    color: $gray;
-  }
-
-  .summary {
-    @extend %cjk-text-format;
-  }
-}
-
-.tags {
-  list-style-type: none;
-  margin: 0 0 .6rem;
-  padding: 0;
-
-  li::before {
-    content: '#';
-    color: lighten($gray, 10%);
-    margin: 0 .1rem 0 0;
-  }
-
-  li {
-    display: inline;
-    font-size: .9rem;
-    margin: 0 .36rem 0 0;
-  }
+#site-nav {
+  font-size: .9rem;
+  text-align: center;
+  word-spacing: .25rem;
 }
 
 .article.single {
@@ -90,10 +58,18 @@ html, body {
     @extend %cjk-text-format;
   }
 
-  .title.date {
+  h1 {
+    margin: 0;
+  }
+
+  .subtitle {
     color: lighten($gray, 10%);
-    font-size: 60%;
-    margin: 0 0 0 .36rem;
+  }
+
+  .content {
+    h1, h2, h3, h4, h5, h6 {
+      margin: .5rem 0;
+    }
   }
 
   .highlight {

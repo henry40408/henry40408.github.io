@@ -1,16 +1,7 @@
 <section class="article list">
-  <% articles.each do |article| %>
-    <article>
-      <header>
-        <h3 class="title">
-          <span class="title text"><%= link_to article.title, article.url %></span>
-          <small class="title date"><%= article.date.strftime "%Y-%m-%d %H:%M" %></small>
-        </h3>
-        <div><%= partial "partials/tags", locals: { tags: article.tags } %></div>
-      </header>
-      <section class="summary">
-        <%= article.summary %>
-      </section>
-    </article>
-  <% end %>
+  <ul>
+    <% articles.each do |article| %>
+      <li><%= link_to article.title, article.url %> - <%= article.date.strftime "%B %d, %Y" %></li>
+    <% end %>
+  </ul>
 </section>
