@@ -3,15 +3,21 @@
   <%= partial "partials/header" %>
   <body class="<%= page_classes %>">
     <article id="container" class="ui grid article single">
-      <header class="row">
+      <div class="row">
         <div class="column">
-          <div class="back"><%= link_to 'home', '/' %></div>
-          <h1><%= current_page.data.title %> <small class="title date"><%= current_page.data.date %></small></h1>
-          <div class="tags"><%= partial "partials/tags", locals: { tags: current_page.tags } %></div>
+          <%= partial "partials/heading" %>
         </div>
-      </header>
-      <section class="row">
+      </div>
+      <div class="row">
         <div class="column">
+          <header>
+            <h1><%= current_page.title %></h1>
+            <div class="subtitle">Posted on <time datetime="<%= current_page.date %>"><%= current_page.date.strftime "%B %d, %Y" %></time>, tagged with <%= partial "partials/tags", locals: { tags: current_page.tags } %></div>
+          </header>
+        </div>
+      </div>
+      <section class="row">
+        <div class="column content">
           <%= yield %>
         </div>
       </section>

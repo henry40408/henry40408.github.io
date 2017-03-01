@@ -4,8 +4,12 @@
   <body class="<%= page_classes %>">
     <div id="container" class="ui grid">
       <div class="row">
+        <div class="column">
+          <%= partial "partials/heading" %>
+        </div>
+      </div>
+      <div class="row">
         <header class="column">
-          <p><%= link_to 'home', '/' %></p>
           <h1><%= current_page.data.title %> </h1>
         </header>
       </div>
