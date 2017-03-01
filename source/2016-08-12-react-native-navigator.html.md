@@ -1,5 +1,5 @@
 ---
-title: React Native Navigator 存活指南
+title: React Native Navigator 求生紀實
 date: 2016-08-12 10:14
 slug: react-native-navigator
 tags: react native, navigator
