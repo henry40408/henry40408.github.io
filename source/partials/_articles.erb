@@ -1,7 +1,12 @@
-<section class="article list">
-  <ul>
+<section>
+  <ul class="ui article list">
     <% articles.each do |article| %>
-      <li><%= link_to article.title, article.url %> - <%= article.date.strftime "%B %d, %Y" %></li>
+      <li class="item">
+        <%= link_to article.title, article.url %>
+        <%= partial "partials/short_essay", locals: { article: article } %>
+        &mdash;
+        <time datetime="<%= article.date %>"><%= article.date.strftime("%B %d, %Y") %></time>
+      </li>
     <% end %>
   </ul>
 </section>

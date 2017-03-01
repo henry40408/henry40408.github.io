@@ -1,16 +1,36 @@
 ---
-title: about me
+title: Profile
 layout: page
 ---
 
 ## Skills
 
-* Backend: PHP5, **Ruby on Rails 4**
-* DevOps: **Amazon Web Services** (AWS), Chef, Consul, **Git**, Packer, Terraform, Vagrant
-* Frontend: CSS3, **ECMAScript 6** (Babel), HTML5, React, Redux, ReactiveX
-* Linux Administration: LPIC 101
-* Mobile: Android, Objective-C, **React Native**, Swift 2, fastlane
-* Hobby: **Docker**, Elixir, erlang, Kubernetes
+* Backend
+    * **Ruby on Rails 4**
+    * PHP5
+* DevOps
+    * **Amazon Web Services** (AWS)
+    * **Git** / GitHub flow / Gitflow
+    * Ansible / Chef
+    * Packer
+    * Terraform
+    * Vagrant
+* Frontend
+    * **ECMAScript 6** (Babel)
+    * CSS3
+    * React, Redux
+    * ReactiveX
+* Linux Administration
+    * **LPIC 101**
+* Mobile
+    * **React Native**
+    * Android / Java
+    * iOS / Objective-C, Swift 2
+    * fastlane
+* Hobby
+    * **Docker**
+    * Elixir
+    * erlang
 
 ## Portfolio
 

@@ -1,0 +1,1 @@
+<% if strip_tags(article.body).size < data[:config][:short_essay_content_length] %><span title="Less than <%= data[:config][:short_essay_content_length] %> characters" class="ui tiny label">短篇</span><% end %>
