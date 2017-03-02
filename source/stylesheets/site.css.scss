@@ -79,6 +79,10 @@ h1, h2, h3, h4, h5, h6 {
 
 // --- Multiple
 
+.avatar {
+  margin: 0 0 1rem;
+}
+
 .ui.article.list {
   & > li {
     line-height: 1.5;
