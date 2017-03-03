@@ -2,8 +2,8 @@
   <%= image_tag "avatar.png", class: "ui centered small bordered circular image avatar" %>
   <h1 id="site-name"><%= link_to "Henry Wu", "/" %></h1>
   <div id="site-nav">
+    <%= link_to "Home", "/", class: "ui small compact button" %>
     <%= link_to "Profile", "profile.html", class: "ui small compact button" %>
-    <%= link_to "Archives", "/", class: "ui small compact button" %>
     <div class="mobile only"></div>
     <% link_to "https://github.com/henry40408", class: "ui small compact black icon button" do %><i class="github icon"></i><% end %>
     <% link_to "https://medium.com/henry40408", class: "ui small compact green icon button" do %><i class="medium icon"></i><% end %>
