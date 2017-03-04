@@ -1,4 +1,4 @@
-.DEFAULT_TARGET := serve
+.DEFAULT_GOAL := serve
 .PHONY := debug serve tinypng
 
 debug:
