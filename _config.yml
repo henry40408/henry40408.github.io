@@ -12,6 +12,10 @@ highlighter: none
 permalink: /:year/:month/:title.html
 theme: minima
 
+disqus:
+  shortname: henry40408
+google_analytics: UA-6529501-15
+
 tag_page_layout: tag_page
 tag_page_dir: tag
 
