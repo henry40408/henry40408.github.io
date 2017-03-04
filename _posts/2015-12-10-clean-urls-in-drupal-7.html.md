@@ -2,7 +2,7 @@
 title: 啟用 Drupal 7 簡潔網址時的地雷
 date: 2015/12/10 00:21:00
 slug: clean-urls-in-drupal-7
-tags: drupal, clean urls, apache2, nginx
+tags: drupal clean-urls
 layout: post
 ---
 

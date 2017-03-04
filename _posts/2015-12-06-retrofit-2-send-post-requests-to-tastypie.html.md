@@ -2,7 +2,7 @@
 title: Retrofit 2 對 Tastypie 發出 POST 請求時的地雷
 date: 2015/12/06
 slug: retrofit-2-send-post-requests-to-tastypie
-tags: android, retrofit, tastypie, rest, client, api, django
+tags: android retrofit tastypie django
 layout: post
 ---
 

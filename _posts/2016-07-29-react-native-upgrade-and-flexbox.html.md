@@ -2,7 +2,7 @@
 title: React Native 從 0.28.x 升級與 flexbox
 date: 2016-07-29 23:28
 slug: react-native-upgrade-and-flexbox
-tags: react native, flexbox
+tags: react-native flexbox
 layout: post
 ---
 

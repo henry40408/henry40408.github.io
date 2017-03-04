@@ -2,7 +2,7 @@
 title: React Native 手動關閉螢幕鍵盤
 date: 2016-06-04 15:11
 slug: dismiss-keyboard-in-react-native
-tags: react native, dismiss, keyboard
+tags: react-native dismiss keyboard
 layout: post
 ---
 

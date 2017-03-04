@@ -55,5 +55,5 @@ title: Profile
 
 ### LPIC 101
 
-> Linux Professional Institute, 117-101
+> Linux Professional Institute, 117-101  
 > 2013-06 - 2018-06

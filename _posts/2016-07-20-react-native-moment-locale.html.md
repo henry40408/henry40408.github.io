@@ -2,7 +2,7 @@
 title: 在 React Native 中使用 moment.js 無法載入語系檔案
 date: 2016-07-20 15:11
 slug: react-native-moment-locale
-tags: react native, moment, locale
+tags: react-native moment locale
 layout: post
 ---
 

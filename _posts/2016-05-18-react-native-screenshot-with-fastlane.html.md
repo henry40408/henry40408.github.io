@@ -2,7 +2,7 @@
 title: React Native 使用 fastlane 螢幕截圖
 date: 2016/05/18 15:26:03
 slug: react-native-screenshot-with-fastlane
-tags: react native, screenshot, fastlane
+tags: react-native screenshot fastlane
 layout: post
 ---
 

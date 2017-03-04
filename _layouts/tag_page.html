@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<div class="row">
+  <div class="column">
+    <h1>Posts tagged with <strong>{{ page.tag }}</strong></h1>
+
+    <ul class="ui list">
+      {% for post in page.posts %}
+      <li class="item">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a> &mdash; {{ post | tags }}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

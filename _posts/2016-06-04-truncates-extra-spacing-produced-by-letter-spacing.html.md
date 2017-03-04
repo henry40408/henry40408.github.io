@@ -2,7 +2,7 @@
 title: 去除 letter-spacing 行末的多餘空白
 date: 2016-06-04 15:06
 slug: truncates-extra-spacing-produced-by-letter-spacing
-tags: css, hack, letter-spacing, margin-right, spacing, margin
+tags: css hack spacing margin
 layout: post
 ---
 

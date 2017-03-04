@@ -2,7 +2,7 @@
 title: React Native 動畫初體驗
 date: 2016-06-04 15:10
 slug: react-native-animations
-tags: react native, animations, animated
+tags: react-native animation animated
 layout: post
 ---
 

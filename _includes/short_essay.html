@@ -1,0 +1,4 @@
+{% assign content_size = post.content | strip_html | size %}
+{% if content_size < 1000 %}
+<span class="ui tiny label" title="Less than 1000 characters">短篇</span>
+{% endif %}
