@@ -2,7 +2,7 @@
 title: React Native, react-native-fbsdk 與 Facebook SDK
 date: 2016-08-08 14:26
 slug: react-native-fbsdk-and-facebook-sdk
-tags: react native, facebook sdk, facebook
+tags: react-native facebook-sdk facebook
 layout: post
 ---
 

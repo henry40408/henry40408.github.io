@@ -7,8 +7,8 @@ gem "minima", "~> 2.0"
 
 group :jekyll_plugins do
    gem "jekyll-feed", "~> 0.6"
-   gem "jekyll-tagging", "~> 1.0"
-   gem "jekyll-haml", "~> 0.1"
+   gem "jekyll-tagging", github: "pattex/jekyll-tagging", ref: "a981f78"
+   gem "jekyll-livereload", "~> 0.2"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

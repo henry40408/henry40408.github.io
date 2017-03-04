@@ -2,7 +2,7 @@
 title: Elixir 雜記
 date: 2016-10-17 14:13
 slug: elixir-note
-tags: elixir, phoenix, ecto, erlang
+tags: elixir phoenix ecto erlang
 layout: post
 ---
 

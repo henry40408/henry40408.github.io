@@ -2,7 +2,7 @@
 title: 如何在 factory_girl 中為有繼承關係的 Rails model 定義 Factory
 date: 2016-08-07 20:34
 slug: inherited-model-in-factory-girl
-tags: ruby on rails, activerecord, factory_girl
+tags: ruby-on-rails activerecord factory_girl
 layout: post
 ---
 

@@ -2,7 +2,7 @@
 title: React Native 的觸控區域
 date: 2016-07-29 23:30
 slug: react-native-touchables
-tags: react native, touchables
+tags: react-native touchables
 layout: post
 ---
 

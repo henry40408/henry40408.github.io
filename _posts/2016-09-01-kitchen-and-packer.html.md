@@ -2,7 +2,7 @@
 title: Kitchen 與 Packer 實戰
 date: 2016-09-01 11:28
 slug: kitchen-and-packer
-tags: kitchen, packer, devops, chef
+tags: kitchen packer devops chef
 layout: post
 ---
 

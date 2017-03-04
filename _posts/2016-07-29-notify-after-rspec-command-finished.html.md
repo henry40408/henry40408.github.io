@@ -2,7 +2,7 @@
 title: 當 iTerm 執行完 RSpec 之後彈出通知
 date: 2016-07-29 23:04
 slug: notify-after-rspec-command-finished
-tags: iterm, mac, notification, rspec, ruby on rails
+tags: iterm rspec ruby-on-rails
 layout: post
 ---
 
