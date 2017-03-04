@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/pattex/jekyll-tagging.git
+  remote: https://github.com/pattex/jekyll-tagging.git
   revision: a981f786b161938a871195afc8d19e129f13fb49
   ref: a981f78
   specs:
