@@ -1,24 +1,16 @@
-# If you do not have OpenSSL installed, change
-# the following line to use "http://"
 source "https://rubygems.org"
+ruby RUBY_VERSION
 
-# For faster file watcher updates on Windows:
-gem "wdm", "~> 0.1.0", platforms: [:mswin, :mingw]
+gem "jekyll", "3.4.1"
 
-# Windows does not come with time zone data
-gem "tzinfo-data", platforms: [:mswin, :mingw, :jruby]
+gem "minima", "~> 2.0"
 
-# Middleman Gems
-gem "middleman", ">= 4.0.0"
-gem "middleman-blog"
-gem "middleman-compass", ">= 4.0.0"
-gem "middleman-deploy", "~> 2.0.0.pre.alpha"
-gem "middleman-disqus"
-gem "middleman-google-analytics", "~> 2.1"
-gem "middleman-livereload"
+group :jekyll_plugins do
+   gem "jekyll-feed", "~> 0.6"
+   gem "jekyll-tagging", github: "pattex/jekyll-tagging", ref: "a981f78"
+   gem "jekyll-livereload", "~> 0.2"
+end
 
-gem "builder"
-gem "nokogiri"
-gem "rake"
-gem "redcarpet"
-gem "sanitize"
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "html-proofer"
+
