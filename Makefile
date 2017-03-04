@@ -1,7 +1,10 @@
-.DEFAULT_TARGET := debug
-.PHONY := debug tinypng
+.DEFAULT_TARGET := serve
+.PHONY := debug serve tinypng
 
 debug:
+	bundle exec middleman serve --verbose
+
+serve:
 	bundle exec middleman serve
 
 tinypng:

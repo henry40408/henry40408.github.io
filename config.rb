@@ -54,3 +54,17 @@ end
 activate :google_analytics do |ga|
   ga.tracking_id = "UA-6529501-15"
 end
+
+# Custom helpers
+
+helpers do
+  def tiny_image_path(src)
+    dir_segment = File.dirname(src)
+    file_segment = "tiny-#{File.basename(src)}"
+    "#{dir_segment}/#{file_segment}"
+  end
+
+  def tiny_image_tag(path, options={})
+    image_tag(tiny_image_path(path), options)
+  end
+end
