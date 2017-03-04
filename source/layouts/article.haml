@@ -1,0 +1,28 @@
+!!!
+%html
+  %body
+    = partial "partials/meta"
+    %article#container.ui.grid.article.single
+      .row
+        .column
+          = partial "partials/header"
+      .row
+        .column
+          %header
+            %h1= current_page.title
+            .subtitle
+              = partial "partials/short_essay", locals: { article: current_page }
+              Posted on
+              = succeed "," do
+                %time{:datetime => "#{current_page.date}"}= current_page.date.strftime "%B %d, %Y"
+              = partial "partials/tags", locals: { tags: current_page.tags }
+      %section.row
+        .column.content
+          = yield
+      %section.row
+        .column
+          = disqus
+          = disqus_count
+      = partial "partials/footer"
+    = partial "partials/javascripts"
+    = google_analytics_tag

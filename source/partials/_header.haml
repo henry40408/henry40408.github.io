@@ -1,0 +1,15 @@
+.ui.center.aligned.container
+  %h1#site-name
+    = link_to "/" do
+      = image_tag "tiny-avatar.png", class: "ui centered small bordered circular image avatar"
+      %div Henry Wu
+  #site-nav
+    = link_to "Home", "/", class: "ui small compact button"
+    = link_to "Profile", "profile.html", class: "ui small compact button"
+    .mobile.only
+    = link_to "https://github.com/henry40408", class: "ui small compact black icon button" do
+      %i.github.icon
+    = link_to "https://medium.com/henry40408", class: "ui small compact green icon button" do
+      %i.medium.icon
+    = link_to "feed.rss", class: "ui small compact orange icon button" do
+      %i.rss.square.icon
