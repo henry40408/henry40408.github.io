@@ -8,7 +8,11 @@ page "/*.txt", layout: false
 
 # Markdown engine
 
+set :haml,
+    attr_wrapper: '"'
+
 set :markdown_engine, :redcarpet
+
 set :markdown,
     autolink: true,
     fenced_code_blocks: true,

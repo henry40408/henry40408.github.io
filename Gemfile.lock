@@ -152,6 +152,7 @@ PLATFORMS
 
 DEPENDENCIES
   builder
+  haml
   middleman (>= 4.0.0)
   middleman-blog
   middleman-compass (>= 4.0.0)

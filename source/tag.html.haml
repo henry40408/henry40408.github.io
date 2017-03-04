@@ -1,0 +1,12 @@
+%body
+  .row
+    .column
+      = partial "partials/header"
+  .row
+    %header.column
+      %h1
+        Tagged with
+        %strong= tagname
+  .row
+    .column
+      = partial "partials/articles", locals: { articles: articles }

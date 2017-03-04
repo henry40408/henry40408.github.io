@@ -18,6 +18,7 @@ gem "middleman-google-analytics", "~> 2.1"
 gem "middleman-livereload"
 
 gem "builder"
+gem "haml"
 gem "nokogiri"
 gem "rake"
 gem "redcarpet"

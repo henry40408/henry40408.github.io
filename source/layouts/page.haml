@@ -1,0 +1,20 @@
+!!!
+%html
+  %body
+    = partial "partials/meta"
+    #container.ui.grid
+      .row
+        .column
+          = partial "partials/header"
+      .row
+        %header.column
+          %h1
+            = current_page.data.title
+      .row
+        %section.column
+          = yield
+      .row
+        .column
+          = partial "partials/footer"
+    = javascript_include_tag :all
+    = google_analytics_tag
