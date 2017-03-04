@@ -10,7 +10,7 @@ layout: post
 
 殊不知這三個傢伙從此鬧內鬨，宛如八點檔一樣每個禮拜上演兄弟鬩牆的慘劇。
 
-![](http://s2.quickmeme.com/img/33/33e9408a4714f68dbf4a7f92558928f2dd08f8b25e55401699949f042eb7583f.jpg)
+![Monday morning: everything is broken](http://s2.quickmeme.com/img/33/33e9408a4714f68dbf4a7f92558928f2dd08f8b25e55401699949f042eb7583f.jpg)
 
 這次三兄弟不賣布丁，改鬧內鬨了。另外，**以下問題與解決方案一律都只討論 iOS**。
 
