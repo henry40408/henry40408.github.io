@@ -1,0 +1,17 @@
+machine:
+  ruby:
+    version: 2.3.3
+
+dependencies:
+  cache_directories:
+    - "vendor/bundle"
+
+test:
+  override:
+    - JEKYLL_ENV=production bundle exec jekyll build
+
+deployment:
+  github:
+    branch: development
+    commands:
+      - bash circle_deploy.sh

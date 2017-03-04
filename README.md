@@ -1,13 +1,8 @@
 # henry40408
 
-> Blog, automatically built with Travis CI
+> Blog, automatically built with Circle CI
 
-[![Build Status](https://travis-ci.org/henry40408/henry40408.github.io.svg?branch=development)](https://travis-ci.org/henry40408/henry40408.github.io)
-
-## Requirements
-
-* Get developer token from [TinyPNG](https://tinypng.com/developers)
-* Install [tinypng](https://github.com/peterhellberg/tinypng) for TinyPNG
+[![CircleCI](https://circleci.com/gh/henry40408/henry40408.github.io.svg?style=svg)](https://circleci.com/gh/henry40408/henry40408.github.io)
 
 ## License
 
