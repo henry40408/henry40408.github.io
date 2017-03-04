@@ -1,8 +1,0 @@
-%section
-  %ul.ui.article.list
-    - articles.each do |article|
-      %li.item
-        = link_to article.title, article.url
-        = partial "partials/short_essay", locals: { article: article }
-        —
-        %time{:datetime => "#{article.date}"}= article.date.strftime("%B %d, %Y")
