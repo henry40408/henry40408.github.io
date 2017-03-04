@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ <title>Your Title - ruby-on-rails</title>
+ <link href="http://example.com/tag/ruby-on-rails.xml" rel="self"/>
+ <link href="http://example.com/tag/ruby-on-rails.html"/>
+ <updated>2018-07-18T16:39:02+00:00</updated>
+ <id>http://example.com/tag/ruby-on-rails.html</id>
+ <author>
+   <name>Author Here</name>
+ </author>
+ 
+ <entry>
+   <title>如何在 factory_girl 中為有繼承關係的 Rails model 定義 Factory</title>
+   <link href="http://example.com/2016/08/inherited-model-in-factory-girl.html"/>
+   <updated>2016-08-07T20:34:00+00:00</updated>
+   <id>http://example.com/2016/08/inherited-model-in-factory-girl</id>
+   <content type="html">&lt;h2 id=&quot;問題&quot;&gt;問題&lt;/h2&gt;
+
+&lt;p&gt;例如以下 Ruby on Rails 程式碼。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;class Member &amp;lt; ActiveRecord::Base
+  # has a string column named `email`
+end
+
+class Admin &amp;lt; Member
+  # ...
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Member&lt;/code&gt; 與 &lt;code&gt;Admin&lt;/code&gt; 兩個 Rails model 之間有繼承關係，那它們的 &lt;code&gt;factory_girl&lt;/code&gt; Factory 要怎麼寫呢？&lt;/p&gt;
+
+&lt;h2 id=&quot;解答&quot;&gt;解答&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;FactoryGirl.define do
+  factory :member do # Member model 的 factory
+    email { Faker::Internet.email }
+  end
+
+  factory :admin, class: Owner, parent: :member
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果照著以上 code 定義 factory，則 &lt;code&gt;Owner&lt;/code&gt; 的 factory 會繼承 &lt;code&gt;Member&lt;/code&gt; factory 定義的所有欄位 (例如 &lt;code&gt;email&lt;/code&gt;)。&lt;/p&gt;
+
+&lt;p&gt;參考資料：&lt;a href=&quot;http://stackoverflow.com/q/13343876&quot;&gt;how to define factories with a inheritance user model&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>當 iTerm 執行完 RSpec 之後彈出通知</title>
+   <link href="http://example.com/2016/07/notify-after-rspec-command-finished.html"/>
+   <updated>2016-07-29T23:04:00+00:00</updated>
+   <id>http://example.com/2016/07/notify-after-rspec-command-finished</id>
+   <content type="html">&lt;h2 id=&quot;問題&quot;&gt;問題&lt;/h2&gt;
+
+&lt;p&gt;我的 Ruby on Rails 專案我都習慣會寫 RSpec，但問題是只要專案一變大，RSpec 就會跑個二到三分鐘，以前我不是傻傻地盯著畫面等它完成，不然就是偷閒跑去看影集，往往把一集看完了才想起來有 RSpec 在執行。&lt;/p&gt;
+
+&lt;p&gt;昨天晚上靈機一動，想到之前在學 webpack 時，別人寫的 Yeoman generator 透過 iTerm 的通知功能在 bundle 打包完成通知開發者 (&lt;a href=&quot;https://www.npmjs.com/package/webpack-notifier&quot;&gt;Turbo87/webpack-notifier&lt;/a&gt;)。於是我就想，有沒有可能以盡量簡單的方法去解決這樣的問題？&lt;/p&gt;
+
+&lt;h2 id=&quot;研究&quot;&gt;研究&lt;/h2&gt;
+
+&lt;p&gt;首先，如果可能，&lt;strong&gt;我盡可能地不要去寫程式&lt;/strong&gt;。寫程式的確有它的樂趣，但寫程式不可避免地一定要 debug。如果這些時間成本遠遠地超過問題的複雜度、所造成的困擾，那對我來說沒有任何價值。&lt;/p&gt;
+
+&lt;p&gt;於是我第一個想到的是 &lt;strong&gt;iTerm 本身是否有這樣的功能&lt;/strong&gt;？StackOverflow 上已經有人提出一樣的問題並也得到了回答 &lt;a href=&quot;http://stackoverflow.com/a/30017258&quot;&gt;How do I make iTerm terminal notify me when a job/process is complete?&lt;/a&gt;，基本上就是設定 &lt;code&gt;Profile&lt;/code&gt; &amp;gt; &lt;code&gt;Advanced&lt;/code&gt; &amp;gt; &lt;code&gt;Triggers&lt;/code&gt;，讓 iTerm 透過 regular expression 比對到特定的字串後觸發通知。&lt;/p&gt;
+
+&lt;p&gt;但對於 iTerm Triggers 的介紹到此打住，因為我稍後又針對 RSpec 找到更好的解決方法。&lt;/p&gt;
+
+&lt;h2 id=&quot;最佳解&quot;&gt;最佳解&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/twe4ked/rspec-nc&quot;&gt;twe4ked/rspec-nc - RSpec formatter for Mountain Lion’s Notification Center&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;原來不只我有這樣的需求，已經有同樣需求的開發者動手寫了一個 gem 來解決這樣的問題。使用方法很簡單，基本上只要照著文件說的安裝就可以直接使用了。&lt;/p&gt;
+
+&lt;p&gt;但如果開發的作業系統與部署用的主機不一樣，則還需要一些額外的設定。&lt;strong&gt;在將 &lt;code&gt;rspec-nc&lt;/code&gt; 加入 &lt;code&gt;Gemfile&lt;/code&gt; 時，記得要設定 &lt;code&gt;require: false&lt;/code&gt;&lt;/strong&gt;。在找到 &lt;code&gt;require&lt;/code&gt; 這個選項之前，我實驗過好幾個跨平台的解決方案，都沒有成功。不是在 CI 階段失敗，就是在本機跑測試時會發生找不到 formatter 的錯誤 (&lt;code&gt;rspec-nc&lt;/code&gt; 以 RSpec formatter 的形式與 RSpec 串接)。&lt;/p&gt;
+
+&lt;p&gt;這件事情原作者在 &lt;code&gt;README.md&lt;/code&gt; 中沒有特別註明，對此我還特別發送了一個 pull request (&lt;a href=&quot;https://github.com/twe4ked/rspec-nc/pull/21&quot;&gt;#21 add require option to the line in Gemfile&lt;/a&gt;)。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>ActiveRecord 與列輸出</title>
+   <link href="http://example.com/2016/02/activerecord-and-rows.html"/>
+   <updated>2016-02-25T01:42:00+00:00</updated>
+   <id>http://example.com/2016/02/activerecord-and-rows</id>
+   <content type="html">&lt;p&gt;列輸出一直是我在使用 CSS framework 時視而不見的問題。直接看 code 比較快，討論以下三種解決方案。&lt;/p&gt;
+
+&lt;h2 id=&quot;第一種直接把所有資料丟在同一列裡&quot;&gt;第一種：直接把所有資料丟在同一列裡&lt;/h2&gt;
+
+&lt;p&gt;在 ERB 的部分什麼事情都不做，然後在撰寫 CSS 時修改樣式解決。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-erb&quot;&gt;&amp;lt;div class=&quot;container&quot;&amp;gt;
+    &amp;lt;h3&amp;gt;All data in one row&amp;lt;/h3&amp;gt;
+    &amp;lt;div class=&quot;row&quot;&amp;gt;
+    &amp;lt;% @dataset.each do |data| %&amp;gt;
+        &amp;lt;div class=&quot;three columns&quot;&amp;gt;&amp;lt;%= data %&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;% end %&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;其實這麼做也不會有什麼太大的問題，只是每一次自行覆寫 CSS 都要擔心內部樣式被覆寫掉，尤其是當你使用 Twitter Bootstrap 或 Zurb Foundation 時都要擔心受怕，下 &lt;code&gt;class&lt;/code&gt; name 的時候都要謹慎再謹慎。&lt;/p&gt;
+
+&lt;h2 id=&quot;第二種使用--運算子切分每一列&quot;&gt;第二種：使用 &lt;code&gt;%&lt;/code&gt; 運算子切分每一列&lt;/h2&gt;
+
+&lt;p&gt;這一種是最直觀的寫法，但由於自己最近剛看完 &lt;a href=&quot;http://www.effectivepython.com/&quot;&gt;Effective Python&lt;/a&gt;，開始對自己 code 裡 &lt;strong&gt;視覺雜訊&lt;/strong&gt; 感到不安。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-erb&quot;&gt;&amp;lt;div class=&quot;container&quot;&amp;gt;
+    &amp;lt;h3&amp;gt;Use % operator to separate rows&amp;lt;/h3&amp;gt;
+    &amp;lt;% @dataset.each_with_index do |data, index| %&amp;gt;
+    &amp;lt;% if index % 4 == 0 %&amp;gt;
+        &amp;lt;div class=&quot;row&quot;&amp;gt;&amp;lt;% end %&amp;gt;
+        &amp;lt;div class=&quot;three columns&quot;&amp;gt;&amp;lt;%= &quot;##{index}. #{data}&quot; %&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;% if index % 4 == 3 or index == @dataset.size - 1 %&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;% end %&amp;gt;
+    &amp;lt;% end %&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;將 code 放大來看，我所謂的視覺雜訊出現在以下這裡行：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-erb&quot;&gt;&amp;lt;% if index % 4 == 0 %&amp;gt;
+&amp;lt;div class=&quot;row&quot;&amp;gt;
+&amp;lt;% end %&amp;gt;
+    &amp;lt;div class=&quot;three columns&quot;&amp;gt;&amp;lt;%= &quot;##{index}. #{data}&quot; %&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;% if index % 4 == 3 or index == @dataset.size - 1 %&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;% end %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;開頭與結尾的 &lt;code&gt;if&lt;/code&gt; 區塊與運算式把 HTML 標籤的開頭 &lt;code&gt;&amp;lt;div class=&quot;row&quot;&amp;gt;&lt;/code&gt; 與結尾 &lt;code&gt;&amp;lt;/div&amp;gt;&lt;/code&gt; 分開夾住，在檢視 code 的時候會有一種標籤被硬生生切開的斷裂感。尤其是受到嚴格 HTML 訓練的工程師， &lt;strong&gt;HTML 標籤必須成對出現&lt;/strong&gt; 的規則幾乎已經是不可以妥協的基本要件。&lt;/p&gt;
+
+&lt;p&gt;說地白話一點，&lt;strong&gt;第二種作法的 code 會讓網頁工程師強迫症發作&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;只要會讓我邊寫邊抑制腦中既定規則的程式碼，就存在視覺雜訊。&lt;/p&gt;
+
+&lt;p&gt;另外是 &lt;code&gt;index % 4&lt;/code&gt; 這樣的運算式出現了一次以上，之後在修改 code 的時候很容易漏掉，尤其是 &lt;code&gt;index % 4 == 3&lt;/code&gt; 等號右邊的餘數常常變成漏網之魚。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;view 盡量不要摻雜邏輯&lt;/strong&gt; 的原則是有道理的。 &lt;a href=&quot;http://blog.xdite.net/posts/2011/12/10/how-to-design-helpers-2/&quot;&gt;其一：在 View 裡面實作 LOGIC 是不好的。&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;第三種使用-each_slice-切分每一列&quot;&gt;第三種：使用 &lt;code&gt;each_slice&lt;/code&gt; 切分每一列&lt;/h2&gt;
+
+&lt;p&gt;第三種是最 Ruby-style 的寫法，在其他的程式語言可能會表達成巢狀迴圈，但 Ruby 的 &lt;strong&gt;Everything in Ruby is an Object&lt;/strong&gt; 原則與 block 語法讓 embeded Ruby 即使是內嵌在 HTML 文件時還是可以保持優雅。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://ruby-doc.org/core-2.3.0/Enumerable.html#method-i-each_slice&quot;&gt;each_slice&lt;/a&gt; 的用途很單純，就是把一個 Enumerable 物件依據傳入的長度切割成幾個比較小的 Enumerable 物件。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;[1, 2, 3, 4, 5, 6, 7].each_slice(3).each do |slice|
+   p slice
+end
+
+# [1, 2, 3]
+# [4, 5, 6]
+# [7]
+# =&amp;gt; nil
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;這就是我要的，現學現用。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-erb&quot;&gt;&amp;lt;div class=&quot;container&quot;&amp;gt;
+    &amp;lt;h3&amp;gt;Use each_slice to separate rows&amp;lt;/h3&amp;gt;
+    &amp;lt;% @dataset.each_slice(4) do |slice| %&amp;gt;
+    &amp;lt;div class=&quot;row&quot;&amp;gt;
+        &amp;lt;% slice.each do |data| %&amp;gt;
+        &amp;lt;div class=&quot;three columns&quot;&amp;gt;&amp;lt;%= data %&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;% end %&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;% end %&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;這樣好多了！&lt;/p&gt;
+
+&lt;h2 id=&quot;結語&quot;&gt;結語&lt;/h2&gt;
+
+&lt;p&gt;工程師真的要會下關鍵字。我翻了一個晚上的 Ruby 文件才發現 &lt;code&gt;each_slice&lt;/code&gt;，以為自己發現新大陸，Google &lt;code&gt;rails row&lt;/code&gt; 立刻就找到了 &lt;a href=&quot;http://stackoverflow.com/questions/4037668/display-5-records-per-row&quot;&gt;Display 5 records per row?&lt;/a&gt; 這個問題，才發現功力深厚的 Ruby 工程師早就知道類似的作法了。&lt;/p&gt;
+
+&lt;p&gt;在 StackOverflow 的答案中有提供另外一個 &lt;a href=&quot;http://api.rubyonrails.org/classes/Array.html#method-i-in_groups_of&quot;&gt;in_groups_of&lt;/a&gt;，跟 &lt;code&gt;each_slice&lt;/code&gt; 最大的差別在於 &lt;code&gt;in_groups_of&lt;/code&gt; 會忽略 &lt;code&gt;nil&lt;/code&gt;。但由於這個 method 是 &lt;code&gt;rails&lt;/code&gt; gem 提供的，並不是 pure-Ruby 的解法，因此就不特別提出了。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>rbenv 2.x 的 readline 問題</title>
+   <link href="http://example.com/2015/07/readline-error-when-calling-rails-console-on-rbenv-2-x.html"/>
+   <updated>2015-07-30T00:00:00+00:00</updated>
+   <id>http://example.com/2015/07/readline-error-when-calling-rails-console-on-rbenv-2-x</id>
+   <content type="html">&lt;p&gt;最近參考 &lt;a href=&quot;https://gorails.com/deploy/ubuntu/14.04&quot;&gt;Deploy Ruby On Rails on Ubuntu 14.04 Trusty Tahr&lt;/a&gt; 部署了兩隻 Ruby on Rails 應用程式，卻都發生 rails console 無法在部署的機器上執行的問題。每次要執行 rails console 的時候，都會發生 &lt;code&gt;LoadError&lt;/code&gt;（詳細輸出請參考 &lt;a href=&quot;http://stackoverflow.com/q/22915676&quot;&gt;這篇 StackOverflow&lt;/a&gt;）。一開始也懶得去解決，想說遠端機器使用 rails console 的機會沒有想像中的多。但小問題不解決，總有一天變成大問題。如果急著要用 rails console 卻怎麼樣也開不起來，那就真的火燒屁股了。&lt;/p&gt;
+
+&lt;p&gt;接下來一步一步分析。&lt;/p&gt;
+
+&lt;h2 id=&quot;最明顯的第一步找不到-readline&quot;&gt;最明顯的第一步：找不到 readline&lt;/h2&gt;
+
+&lt;p&gt;直接下 &lt;code&gt;sudo apt-get install libreadline6 libreadline6-dev&lt;/code&gt; 試著解決。&lt;/p&gt;
+
+&lt;p&gt;結果這兩個套件都安裝了，問題不是出在這。&lt;/p&gt;
+
+&lt;h2 id=&quot;readline-在但-ruby-找不到它&quot;&gt;readline 在，但 ruby 找不到它&lt;/h2&gt;
+
+&lt;p&gt;直接貼錯誤到 Google 上搜尋。&lt;/p&gt;
+
+&lt;p&gt;參考 &lt;a href=&quot;https://github.com/sstephenson/ruby-build&quot;&gt;ruby-build&lt;/a&gt; 的 &lt;a href=&quot;https://github.com/sstephenson/ruby-build/wiki#suggested-build-environment&quot;&gt;Suggested build environment&lt;/a&gt; 章節，最下面有提到 &lt;strong&gt;如果在編譯 ruby 時發生跟 readline 有關的問題，傳一個參數 &lt;code&gt;RUBY_CONFIGURE_OPTS&lt;/code&gt; 與 readline 的路徑給 rbenv 解決&lt;/strong&gt; 。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If you get error with &lt;code&gt;readline&lt;/code&gt; during the build of &lt;code&gt;ruby&lt;/code&gt;, use the &lt;code&gt;RUBY_CONFIGURE_OPTS&lt;/code&gt; to specify where to find &lt;code&gt;libreadline.so&lt;/code&gt;. By example, to install &lt;code&gt;ruby 2.1.1&lt;/code&gt;, use the whole following command: &lt;code&gt;RUBY_CONFIGURE_OPTS=--with-readline-dir=&quot;/usr/lib/libreadline.so&quot; rbenv install 2.1.1&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/sstephenson/rbenv&quot;&gt;rbenv&lt;/a&gt; 透過 ruby-build 編譯 ruby。&lt;/p&gt;
+
+&lt;p&gt;從這一點來看， ruby-build 自己在編譯 ruby 的時候不會主動去找 readline 來編譯，所以需要另外指定。&lt;/p&gt;
+
+&lt;p&gt;找到一個答案，又出現另外一個問題。&lt;/p&gt;
+
+&lt;h2 id=&quot;readline-成功-import但-ruby-編譯失敗&quot;&gt;readline 成功 import，但 ruby 編譯失敗&lt;/h2&gt;
+
+&lt;p&gt;GitHub 上面有段非常精彩的 &lt;a href=&quot;https://github.com/sstephenson/ruby-build/issues/526&quot;&gt;Issue&lt;/a&gt;，討論 import readline 後 ruby 編譯之後還是會失敗的問題。一開始某位核心貢獻者認為這個問題不應該是 ruby-build 的問題，因此斷然地把 Issue 給關掉了，卻因此惹惱另外一個開發者，覺得關掉 issue 的貢獻者在推諉卸責。幸好大家都還是很理性，後續的討論提供了不少解決方法。在此僅提供集大成，且徹底解決我問題的 &lt;a href=&quot;https://github.com/sstephenson/ruby-build/issues/526#issuecomment-37933242&quot;&gt;mislav 的 comment&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h2 id=&quot;終極解法&quot;&gt;終極解法&lt;/h2&gt;
+
+&lt;p&gt;先移除沒有編譯 readline 的跛腳版本。(2.1.1 記得代換成你自己的 ruby 版本)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ rbenv uninstall 2.1.1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;再打上社群提供的 patch&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ curl -fsSL https://gist.github.com/mislav/a18b9d7f0dc5b9efc162.txt | rbenv install --patch 2.1.1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;完成之後，切換到專案的 current 目錄下，輸入以下指令就可以使用 &lt;code&gt;rails console&lt;/code&gt; 了。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ RAILS_ENV=production bundle exec rails console
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+ </entry>
+ 
+</feed>

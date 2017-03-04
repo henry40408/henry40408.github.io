@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ <title>Your Title - retrofit</title>
+ <link href="http://example.com/tag/retrofit.xml" rel="self"/>
+ <link href="http://example.com/tag/retrofit.html"/>
+ <updated>2018-07-18T16:39:02+00:00</updated>
+ <id>http://example.com/tag/retrofit.html</id>
+ <author>
+   <name>Author Here</name>
+ </author>
+ 
+ <entry>
+   <title>Retrofit 2 對 Tastypie 發出 POST 請求時的地雷</title>
+   <link href="http://example.com/2015/12/retrofit-2-send-post-requests-to-tastypie.html"/>
+   <updated>2015-12-06T00:00:00+00:00</updated>
+   <id>http://example.com/2015/12/retrofit-2-send-post-requests-to-tastypie</id>
+   <content type="html">&lt;p&gt;最近從 &lt;a href=&quot;http://weekly.codetengu.com/issues/18#start&quot;&gt;碼天狗&lt;/a&gt; 得知&lt;a href=&quot;http://inthecheesefactory.com/blog/retrofit-2.0/en&quot;&gt;Retrofit 推出了第二版&lt;/a&gt;，號稱 &lt;strong&gt;Android 上最知名的 REST client&lt;/strong&gt; ，我寫 Android 起碼也有半年了，居然都沒聽過這一套 library，自覺應該趁現在來好好地研究一下。&lt;/p&gt;
+
+&lt;p&gt;之前沒有自己寫 API 與 Android app 串在一起的經驗，自然也就沒有機會去 survey REST client。但由於 Parse 真的是太難用了，所以專案 deadline 已經火燒屁股的情況下，我決定挑戰底線自己去寫一套 REST API 出來給 app 串接。&lt;/p&gt;
+
+&lt;p&gt;Retrofit 的概念很簡單，基本上就是類比 database v.s. ORM 的關係， &lt;strong&gt;將 REST API 對應成 Java 的函數來呼叫&lt;/strong&gt; 。&lt;/p&gt;
+
+&lt;p&gt;這次的地雷是一顆詭雷，我解了快一個下午才解開。&lt;/p&gt;
+
+&lt;h2 id=&quot;環境假設&quot;&gt;環境假設&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;今天以 Django + Tastypie 架設了一台 REST API server ，網址是 &lt;code&gt;http://api.example.com&lt;/code&gt;。&lt;/li&gt;
+  &lt;li&gt;這台 server 提供一個 API endpoint &lt;code&gt;/api/v1/article&lt;/code&gt; ，對這個 API 發出 &lt;code&gt;POST&lt;/code&gt; 請求即可新增文章。由於詭雷埋設的地點在 &lt;code&gt;POST&lt;/code&gt; 請求，其他 &lt;code&gt;GET&lt;/code&gt; 類型的請求就在此不予討論。&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;POST&lt;/code&gt; 請求的 Content-Type 是 JSON，格式如下： &lt;code&gt;{&quot;title&quot;: &quot;文章標題&quot;, &quot;body&quot;: &quot;文章內文&quot;}&lt;/code&gt;。&lt;/li&gt;
+  &lt;li&gt;API endpoint 嚴格遵守 HTTP status code 的 SPEC。如果新增成功會傳回 &lt;code&gt;201 CREATED&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;程式碼&quot;&gt;程式碼&lt;/h2&gt;
+
+&lt;p&gt;為了迅速表達我的意思，這裡寫的是 Android 架構的 pseudo code，會省略 &lt;code&gt;import&lt;/code&gt; 之類的語句，因為 Android Studio 的自動完成已經做得很方便了，就不再另外提示。另外由於被同事嚴重洗腦，沒有 import Rx code 就寫不下去，因此還引入了 &lt;a href=&quot;https://github.com/ReactiveX/RxJava&quot;&gt;RxJava&lt;/a&gt; 來簡化程式碼。如果要在 Android 裡使用 Rx，建議一併裝上 &lt;a href=&quot;https://github.com/ReactiveX/RxAndroid&quot;&gt;RxAndroid&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;這裡有一篇強國 Android 高手寫的 &lt;a href=&quot;http://gank.io/post/560e15be2dca930e00da1083&quot;&gt;給 Android 開發者的 RxJava 詳解&lt;/a&gt;，內容紮實，我在 Android 上的 RxJava 入門就看這一篇，強力推薦。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;// @file src/Article.java
+// ...
+public class Article {
+    @SerializedName(&quot;id&quot;) public int id;
+    @SerializedName(&quot;title&quot;) public String title;
+    @SerializedName(&quot;body&quot;) public String body;
+}
+// ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;// @file src/ArticleAPI.java
+// ...
+public interface ArticleAPI {
+    // ...
+    @GET(&quot;api/v1/article&quot;)
+    Observable&amp;lt;Article&amp;gt; sendArticle(@Header(&quot;Authorization&quot;) String authorization, @Body Article article);
+    // ...
+}
+// ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;
+// @file src/ExampleService.java
+// ...
+public class ExampleService {
+    // ...
+    // 第一個地雷
+    final String BASEURL = &quot;http://api.example.com&quot;;
+    private final Retrofit mRetrofit;
+    private final ArticleAPI mArticleApi;
+    // ...
+    public ExampleService(Context context) {
+        // ...
+        mRetrofit = new Retrofit.Builder()
+            .baseUrl(BASEURL)
+            // 第二個地雷 開始
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+            // 第二個地雷 結束
+            .build();
+        mArticleApi = mRetrofit.create(ArticleAPI.class);
+        // ...
+    }
+    // ...
+    public Observable&amp;lt;Article&amp;gt; sendArticle(User user, String title, String body) {
+        // 備註一
+        String credential = getCredential(user);
+
+        Article article = new Article();
+        article.title = title;
+        article.body = body;
+
+        return mArticleApi.sendArticle(credential, body)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io());
+    }
+    // ...
+}
+// ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;解釋&quot;&gt;解釋&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;第一顆地雷： &lt;a href=&quot;http://inthecheesefactory.com/blog/retrofit-2.0/en&quot;&gt;Retrofit 2 發佈公告&lt;/a&gt; 的&lt;strong&gt;New URL resolving concept. The same way as &amp;lt;a href&amp;gt;&lt;/strong&gt; 章節提到，建議 &lt;strong&gt;Base URL 最後一定要加上斜線&lt;/strong&gt; ， &lt;strong&gt;&lt;code&gt;@GET&lt;/code&gt; 、 &lt;code&gt;@POST&lt;/code&gt; 等 annotation 的 URL 前面不要加上斜線&lt;/strong&gt; 。這是有公告的地雷。&lt;/li&gt;
+  &lt;li&gt;第二顆地雷：Retrofit 第一版跟第二版其中一個最大的差異在於很多與第一版綁定的 library 在第二版都被拆開來了。也就是說如果你要使用第一版的 &lt;em&gt;內建功能&lt;/em&gt; ，有可能需要自己再另外加到 &lt;code&gt;build.gradle&lt;/code&gt; 中。至於有哪些 library 被抽離出來了，根據發佈公告 &lt;code&gt;GsonConverterFactory&lt;/code&gt; 跟 &lt;code&gt;RxJavaCallAdapterFactory&lt;/code&gt; 都需要另外加到 &lt;code&gt;build.gradle&lt;/code&gt; 中。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;偏偏 &lt;a href=&quot;http://square.github.io/retrofit/&quot;&gt;Retrofit 官方網站&lt;/a&gt; 又什麼文件都沒有，library 的強大跟官網的懶散真的是形成強烈的對比。&lt;/p&gt;
+
+&lt;h2 id=&quot;第三顆地雷-詭雷&quot;&gt;第三顆地雷 (詭雷)&lt;/h2&gt;
+
+&lt;p&gt;不用回去找了，我故意沒在程式碼裡標記出來，目的在展示這個地雷有多麼地無聲無息。&lt;/p&gt;
+
+&lt;p&gt;因為嚴格來說這顆地雷不是 Retrofit 埋的，只是它在 debug 的時候也沒有提供開發者任何相關訊息，一切就這樣無聲無息地…&lt;strong&gt;爆炸了&lt;/strong&gt;。如果你有使用 cURL 、&lt;a href=&quot;https://github.com/jkbrzt/httpie&quot;&gt;httpie&lt;/a&gt; 或 &lt;a href=&quot;https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop&quot;&gt;Postman&lt;/a&gt;
+除錯過 Tastypie，就會發現如果 API endpoint 的最後如果沒有加上斜線，Tastypie 就會吐 &lt;code&gt;301 MOVE PERMANENTLY&lt;/code&gt; 回來。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;關鍵就在這個 &lt;code&gt;301 MOVE PERMANENTLY&lt;/code&gt;。&lt;/p&gt;
+
+  &lt;p&gt;因為 Retrofit 沒有去處理這個 301 狀態碼，可能是默默地、乖乖地就轉址了然後沒把參數帶過去，最後變成對該 API endpoint 發出 &lt;code&gt;GET&lt;/code&gt; 請求。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;解法&quot;&gt;解法&lt;/h2&gt;
+
+&lt;p&gt;很簡單，把斜線加上去就可以了。而且之後請養成習慣，最後都要把斜線加上去。如果原本就是打 &lt;code&gt;GET&lt;/code&gt; 請求的加上這個斜線不會有什麼影響，但 &lt;code&gt;POST&lt;/code&gt; 沒有加上這個重要的斜線就會發生預期之外的事。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;// @file src/ArticleAPI.java
+// ...
+public interface ArticleAPI {
+  // ...
+  @GET(&quot;api/v1/article/&quot;) // 原來是 @GET(&quot;api/v1/article&quot;) ，差一條斜線
+  Observable&amp;lt;Article&amp;gt; sendArticle(@Header(&quot;Authorization&quot;) String authorization, @Body Article article);
+  // ...
+}
+// ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;一個小斜線，浪費了我一個下午。&lt;/p&gt;
+</content>
+ </entry>
+ 
+</feed>

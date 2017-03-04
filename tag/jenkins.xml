@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ <title>Your Title - jenkins</title>
+ <link href="http://example.com/tag/jenkins.xml" rel="self"/>
+ <link href="http://example.com/tag/jenkins.html"/>
+ <updated>2018-07-18T16:39:02+00:00</updated>
+ <id>http://example.com/tag/jenkins.html</id>
+ <author>
+   <name>Author Here</name>
+ </author>
+ 
+ <entry>
+   <title>Sudo 開發日記 2016-05-06</title>
+   <link href="http://example.com/2016/05/issue-2016-05-06.html"/>
+   <updated>2016-05-08T00:33:00+00:00</updated>
+   <id>http://example.com/2016/05/issue-2016-05-06</id>
+   <content type="html">&lt;h2 id=&quot;工作內容&quot;&gt;工作內容&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;app 新功能大致開發完成，開始收斂修 bug，準備第一版送審&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;新發現的東西&quot;&gt;新發現的東西&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-jenkins-20-on-docker&quot;&gt;1. Jenkins 2.0 on Docker&lt;/h3&gt;
+
+&lt;p&gt;很多團隊都不敢貿然在開發流程中導入 Docker，一個很大的原因是許多 service 都還沒有針對 Docker 做過最佳化。2015 年 Docker 大流行時，網路上也出現不少質疑 Docker 將 service 虛擬化之後隨之而來的效能瓶頸。但持該論點的文章，大多都是採用短時間、高併發的 benchmarking (套一句行話來說就是「燒機」式的測試) 去測試 Docker 的性能，而不是真的讓 MySQL 跑在 production 環境上一段時間然後慢慢調整效能。但說實在地，未經測試的架構，誰又有這麼大顆的心臟敢放它在 production 環境上跑呢？&lt;/p&gt;
+
+&lt;p&gt;扯太遠了。這一週主要是發現 Jenkins 2.0 在 Docker 上執行的效能比 1.x 來說有非常顯著的改善。由於目前 Sudo 是使用 CircleCI 做 CI，還沒有做 CD，但在正式導入 CD 之前我預想到了一個問題。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;CircleCI 的 IP 不固定，要怎麼樣在兼顧 AWS Security Group 政策的前提下執行 CD？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;我目前想到最合理的替代方案是直接在 AWS 內建立自己的 CI/CD 環境 (至於怎麼架設還需要再研究，因為最終目的是一台 EC2 都不要管，全部改用 ECS)，而 Jenkins 正是這一方面領域的佼佼者。但自行測試幾次 Jenkins 1.x 之後，不是安裝 plugins 時讓系統的 load 飆高到連 shell 都卡住的地步，不然就是正式建置專案時記憶體被塞爆 (在已經掛上 swap 的前提下)。曾經試著開 spot instance 去執行，但問題沒有解決。&lt;/p&gt;
+
+&lt;p&gt;連官方都在 Downloads 的選項中正式提供 Docker 的安裝方式，Jenkins 2.0 這次的表現讓我又對它抱持一線希望。&lt;/p&gt;
+
+&lt;h3 id=&quot;2-react-native-串接-cocoapods-並透過-fastlane-部署時的陷阱&quot;&gt;2. React Native 串接 Cocoapods 並透過 fastlane 部署時的陷阱&lt;/h3&gt;
+
+&lt;p&gt;在茫茫 Google 中尋覓是否有人寫好 Flurry 或 Google Analytics 的 wrapper 一陣子之後，我放棄了。因為不是寫完之後就擺在那裡根本沒去更新 iOS library，不然就是一抓下來掛上去噴奇怪的錯誤 (Google Analytics 的 wrapper 在虛擬器中測試會噴 &lt;a href=&quot;https://github.com/lwansbrough/react-native-google-analytics/issues/28&quot;&gt;奇怪的錯誤&lt;/a&gt;)。絕望之下，我只好捲起袖子自己橋接 React Native 與 iOS library 了。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://facebook.github.io/react-native/docs/native-modules-ios.html&quot;&gt;官方文件&lt;/a&gt; 寫得很詳細，而且我從 &lt;a href=&quot;https://facebook.github.io/react-native/docs/native-modules-ios.html#exporting-swift&quot;&gt;Exporting Swift&lt;/a&gt; (我很慚愧地表示我不會 Objective-C) 開始做，步驟少得有點過分。顫抖地按下編譯並執行，還真的可以跑 (數據有確實地傳回 Google Analytics，真心不騙)。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;My code works but I don’t know why.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;扯遠了。這一次真正要分享的是如果 React Native 有掛 Cocoapods，&lt;code&gt;Fastfile&lt;/code&gt; 要一併更新，否則會發生找不到 library 的錯誤。例如以下這一行：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;gym(scheme: &quot;app&quot;, project: &quot;ios/app.xcodeproj&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;一開始開發 React Native 與設定 fastlane 時，它不會預設你未來會掛 Cocoapods 上去，因為不是每個人都會用到 Cocoapods，或可能使用了 Cocoapods 以外的套件管理工具。但如果第一次執行完 &lt;code&gt;pod install&lt;/code&gt;，Cocoapods 其實會提醒你之後記得都要使用 &lt;code&gt;*.xcworkspace&lt;/code&gt; 當作開發時的專案檔：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[!] From now on use `app.xcworkspace`.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;我記得這件事，之後也都是使用 &lt;code&gt;*.xcworkspace&lt;/code&gt; 開發，但每次透過 fastlane 部署的時候都會在 &lt;code&gt;gym&lt;/code&gt; 那一步出錯，跟我抱怨說 &lt;code&gt;ld&lt;/code&gt; 找不到 library 連結。&lt;strong&gt;明明開發時在虛擬機上面跑都沒有問題，為什麼部署的時候就會出錯？&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;這兩者唯一的差異不就是一個透過 Xcode 執行，一個透過 fastlane 執行嗎？&lt;/p&gt;
+
+&lt;p&gt;於是我打開 &lt;code&gt;Fastfile&lt;/code&gt;，將那行該死的 &lt;code&gt;gym&lt;/code&gt; 改成以下形式：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;gym(scheme: &quot;app&quot;, workspace: &quot;ios/app.xcworkspace&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;然後什麼都不必改，因為 Cocoapods 在建立 workspace 時已經把設定都寫進去了&lt;/strong&gt;。部署成功。&lt;/p&gt;
+
+&lt;p&gt;於是，&lt;code&gt;ld&lt;/code&gt; 找到它的歸屬，與 iOS library 從此過著幸福快樂的日子。&lt;/p&gt;
+
+&lt;p&gt;必須承認 React Native library 還是這麼少是非戰之罪，因為自己動手橋接真是太容易了，而且有很多 library 是依附在平台之上，要跨平台沒有這麼容易，根本讓人沒有動力去寫 for React Native 的 library。&lt;/p&gt;
+
+&lt;h2 id=&quot;3-react-native-動畫效果不要濫用&quot;&gt;3. React Native 動畫效果不要濫用&lt;/h2&gt;
+
+&lt;p&gt;從 iOS 7 開始支援一種新的手勢，如果你從螢幕邊緣向右滑動，就可以回到上一個畫面。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://static.iphonelife.com/sites/iphonelife.com/files/u31936/Swipe%20Mail.png&quot; alt=&quot;Swipe gesture in Apple Mail&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;React Native 支援以下過場動畫效果，透過實作 &lt;code&gt;Navigator&lt;/code&gt; 的 &lt;a href=&quot;https://facebook.github.io/react-native/docs/navigator.html#configurescene&quot;&gt;&lt;code&gt;configureScene&lt;/code&gt;&lt;/a&gt; 來控制，目前支援以下幾種：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Navigator.SceneConfigs.PushFromRight (default)&lt;/li&gt;
+  &lt;li&gt;Navigator.SceneConfigs.FloatFromRight&lt;/li&gt;
+  &lt;li&gt;Navigator.SceneConfigs.FloatFromLeft&lt;/li&gt;
+  &lt;li&gt;Navigator.SceneConfigs.FloatFromBottom&lt;/li&gt;
+  &lt;li&gt;Navigator.SceneConfigs.FloatFromBottomAndroid&lt;/li&gt;
+  &lt;li&gt;Navigator.SceneConfigs.FadeAndroid&lt;/li&gt;
+  &lt;li&gt;Navigator.SceneConfigs.HorizontalSwipeJump&lt;/li&gt;
+  &lt;li&gt;Navigator.SceneConfigs.HorizontalSwipeJumpFromRight&lt;/li&gt;
+  &lt;li&gt;Navigator.SceneConfigs.VerticalUpSwipeJump&lt;/li&gt;
+  &lt;li&gt;Navigator.SceneConfigs.VerticalDownSwipeJump&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;其中最後名稱中包含 “Swipe” 字樣的四種效果使用上需特別謹慎，尤其是當你的畫面中有 carousel 的元件時，使用者的左右滑動會被 bubble up 到最上層的 &lt;code&gt;View&lt;/code&gt;，然後被辨識為 iOS 的滑動返回手勢，這對使用者來說是預期之外的行為，應該避免。&lt;/p&gt;
+
+&lt;p&gt;目前的解決方案是在使用 carousel 元件的 &lt;code&gt;View&lt;/code&gt; 上避免 Swipe 類的過場特效，改以 Float 或預設的 Push 取代。另外有一個潛在的解決方法是覆寫 carousel 的 &lt;code&gt;onTouchStart&lt;/code&gt; 避免 event 被 bubble up，但由於還沒有認真研究過 React Native 的事件處理機制，所以就先不嘗試了。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Sudo 開發日記 2016-04-04</title>
+   <link href="http://example.com/2016/04/issue-2016-04-04.html"/>
+   <updated>2016-04-04T23:31:00+00:00</updated>
+   <id>http://example.com/2016/04/issue-2016-04-04</id>
+   <content type="html">&lt;h1 id=&quot;工作內容&quot;&gt;工作內容&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;上週
+    &lt;ul&gt;
+      &lt;li&gt;完成 Sudo app 的 &lt;strong&gt;職缺清單&lt;/strong&gt;、&lt;strong&gt;職缺分類清單&lt;/strong&gt;、&lt;strong&gt;其他篩選條件&lt;/strong&gt; 介面。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;本週
+    &lt;ul&gt;
+      &lt;li&gt;完成 mockups 繪製的所有 app 介面。&lt;/li&gt;
+      &lt;li&gt;將 staging 的 API 實際橋接到 app 上。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;其他新東西&quot;&gt;其他新東西&lt;/h1&gt;
+
+&lt;h2 id=&quot;1-研究-react-native-的-flexbox-系統&quot;&gt;1. 研究 React Native 的 flexbox 系統&lt;/h2&gt;
+
+&lt;p&gt;React Native 雖號稱 &lt;em&gt;讓前端工程師不必另外學習其他程式語言 (Objective-C、Java) 就可以直接投入 mobile app 開發&lt;/em&gt;。但實際投入開發之後，會發現很多 API 由於之後還是必須轉譯成 Objective-C，會發生很多異於 Objective-C 或異於 JavaScript 的行為，其中最容易發生誤差的即 flexbox。&lt;/p&gt;
+
+&lt;p&gt;採用 flexbox 雖然讓開發人員不需要學習新語言就可以上手，卻捨棄了 iOS 與 Android 原有的排版系統，並在排版的過程中發生非常嚴重的嵌套，幸虧 React Native 最後還是會轉譯回 Objective-C，效能損失不會太明顯。另外 flexbox 的標準還在草案階段，也造成 React Native 的排版系統日後可能還會有很大的變動。&lt;/p&gt;
+
+&lt;p&gt;這也是上一週週耗費最多時間的部分。&lt;/p&gt;
+
+&lt;h2 id=&quot;2-研究-ios-app-的-beta-releasing-system&quot;&gt;2. 研究 iOS app 的 beta releasing system&lt;/h2&gt;
+
+&lt;p&gt;由於 Apple 對於裝置的安全政策非常嚴格，除了部署 app 到裝置上需要有 Apple 官方發佈的證書，要具備特定資格才可以使用 Apple 官方的 &lt;a href=&quot;https://developer.apple.com/testflight/&quot;&gt;Testflight&lt;/a&gt; 服務，來發布 app 的測試版給特定使用者。&lt;/p&gt;
+
+&lt;p&gt;本週會需要 @rogi0318 支援提供 app 後台完整權限以研究完整的 Testflight 功能。&lt;/p&gt;
+
+&lt;h2 id=&quot;3-viper&quot;&gt;3. VIPER&lt;/h2&gt;
+
+&lt;p&gt;app 架構極度偏重 view，也導致傳統的 MVC 架構很容易往 Controller 傾斜，變成 &lt;em&gt;Massive Controller View&lt;/em&gt;。&lt;a href=&quot;https://www.objc.io/issues/13-architecture/viper/&quot;&gt;本篇文章&lt;/a&gt; 介紹的 VIPER，是在新近 app 開發人員之間流行起來的開發架構。&lt;/p&gt;
+
+&lt;p&gt;由於 VIPER 偏向 native (Objective-C or Java) 的開發架構，在實際開發上暫時不會採用。&lt;/p&gt;
+
+&lt;h2 id=&quot;4-jenkins--dokku&quot;&gt;4. Jenkins + Dokku&lt;/h2&gt;
+
+&lt;p&gt;本週研究 Jenkins 配合 Dokku 的部署流程。隨著 Docker 與 AWS 之間的協作架構愈來愈完整、參考資料愈來愈多，估計今年就會出現完整的 based-on-Docker 部署流程。現階段，最廣泛的 self-hosted CI/CD 服務仍以 Jenkins 為大宗，且還沒有出現足以撼動其地位的殺手應用，因此如果要架設 self-hosted CI/CD，還是以 Jenkins 為主。&lt;/p&gt;
+
+&lt;p&gt;reference: https://thomastoye.be/2015/play-framework-cd/&lt;/p&gt;
+</content>
+ </entry>
+ 
+</feed>

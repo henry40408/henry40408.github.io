@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="google-site-verification" content="Ri-b-qgTiyJxMxvyW7QOAlEADhgQOMwPBZQArSRShX4" />
+  <link href="/assets/avatar-cacb37952d76ce487308150de663e58237b996e1d0351031f338bbc97ec27d69.png" rel="icon" />
+  <link href="/assets/avatar-cacb37952d76ce487308150de663e58237b996e1d0351031f338bbc97ec27d69.png" rel="apple-touch-icon" />
+  <title>Terraform 雜記 | Henry Wu</title>
+  <meta content="Henry Wu" property="og:site_name">
+
+  <meta content="Terraform 雜記" property="og:title">
+
+
+  <meta content="article" property="og:type">
+
+
+  <meta content="I am software engineer in Taipei, currently work in Hahow. I mostly build things with Ruby on Rails and Node.js, then deploy them with HashiCorp products.
+" property="og:description">
+
+
+  <meta content="https://henry40408.github.io/2017/03/terraform-note.html" property="og:url">
+
+
+  <meta content="2017-03-06T00:00:00+00:00" property="article:published_time">
+  <meta content="https://henry40408.github.io/profile.html" property="article:author">
+
+
+  <meta content="https://henry40408.github.io/assets/terraform-note-e33a8fef17ae1f52ea9f8f1fbe27496b12d0b1318e6d0f39f35d50cbec08c751.png" property="og:image">
+
+
+  
+
+
+  
+    <meta content="terraform" property="article:tag">
+  
+
+
+</head>
+
+  <body>
+    <div id="container" class="ui grid">
+      <div class="row">
+  <div id="site-header" class="column">
+    <h1 id="site-name" class="ui center aligned text">
+      <a href="/">
+        <img src="/assets/avatar-cacb37952d76ce487308150de663e58237b996e1d0351031f338bbc97ec27d69.png" alt="Avatar" class="ui centered circular bordered avatar small image" width="180" height="180">
+        <div>Henry Wu</div>
+      </a>
+    </h1>
+    <div id="site-nav">
+      <a class="ui small compact button" href="/">Home</a>
+      <a class="ui small compact button" href="/profile.html">Profile</a>
+      <div class="mobile only"></div>
+      <a class="ui small compact black icon button" href="https://github.com/henry40408"><i class="github icon"></i></a>
+      <a class="ui small compact green icon button" href="https://medium.com/henry40408"><i class="medium icon"></i></a>
+      <a class="ui small compact orange icon button" href="/feed.xml"><i class="rss icon"></i></a>
+    </div>
+  </div>
+</div>
+
+      
+<div class="row">
+  <div class="column">
+    <h1>Terraform 雜記</h1>
+    <p>
+
+ Posted on <time datetime="2017-03-06 00:00:00 +0000">March 06 2017</time>, tagged with <a href="/tag/terraform.html" rel="tag">terraform</a></p>
+    <div class="single post"><p><img src="https://henry40408.github.io/assets/terraform-note.png" alt="Terraform" /></p>
+
+<p>最近在鼓搗 <a href="https://www.terraform.io/">Terraform</a>，遇到了幾個 Terraform 還沒有解決的問題，在此一併跟使用上的小技巧一起記錄下來，希望可以幫助到也想要嘗試看看 Terraform 的同好。</p>
+
+<p>這篇不會包含 Terraform 的 Getting Started，請移駕 <a href="https://www.terraform.io/intro/getting-started/install.html">Terraform 官網</a>。通常我會建議初學者將 Terraform 實際應用到 AWS 上。</p>
+
+<ol>
+  <li>首先 AWS 非常便宜。<strong>如果我沒記錯的話不滿一小時的時間會被加總，加總後不滿一小時以一小時計</strong>，例如開 3 次每次 10 分鐘，月底計費的時候就會加總成 30 分鐘，只收一個小時的錢。</li>
+  <li>再來 Terraform 也可以很方便地 destroy 掉任何 Terraform 留下的痕跡，當然已經建立的 EC2 instance 等 resource 也不會受到 Terraform 的操作影響。</li>
+</ol>
+
+<h2 id="分清楚-variable-data-resource-output">分清楚 <code>variable</code>, <code>data</code>, <code>resource</code>, <code>output</code></h2>
+
+<ul>
+  <li><code>variable</code> 是 Terraform 或 <code>module</code> 的<strong>輸入</strong>，例如 IP 位址、SSH 金鑰的路徑等都可以使用 <code>variable</code> 輸入，引用時必須在名稱前面加上 <code>var</code> 作為前綴字，例如 <code>${var.this_is_a_variable}</code>。</li>
+  <li><code>data</code> 最常跟 <code>resource</code> 混淆。<code>data</code> 可以想像成是 <strong>Terraform 的搜尋引擎</strong>，主要用來 search 或 filter provider 上既有的資料。以 AWS 為例，Terraform 就提供 <code>aws_iam</code> data 來搜尋公開的 AMI。使用 <code>data</code> 必須加上 <code>data</code> 作為前綴字，例如 <code>${data.filtered_amis.latest}</code>。</li>
+  <li><code>resource</code> 就是 provider 提供給使用者自己掌握的資源。以 AWS 為例，EC2 instance、S3 bucket、VPC Subnet 甚至是 VPC Security Group 都會被抽象化成 Terraform 的 resource，讓我們可以以 Terraform 的語法統一管理。</li>
+  <li><code>output</code> 是 Terraform 或 <code>module</code> 的<strong>輸出</strong>，例如透過 Terraform 建立的 resource 的公開 IP 位址。以 AWS 為例，諸如 EC2 instance 的 public DNS、到 Cloudfront 的 hosted zone，都可以透過 <code>output</code> 輸出到 Terraform 之外或是給其他 <code>module</code> 使用。</li>
+  <li>在 Terraform，<code>resource</code> 建立之後產生的資料稱為 <strong>Attribute</strong>，attribute 可以做為 <code>output</code> 的值，或是給同一個 <code>module</code> 底下的 <code>resource</code> 使用。例如 <code>aws_instance</code> 這個 resource，就提供 <code>public_dns</code> 這個 attribute，值是該 EC2 instance 的 public DNS。</li>
+</ul>
+
+<h2 id="善用-import">善用 <code>import</code></h2>
+
+<p>如果像我一樣，在使用 Terraform 之前就已經有手動透過 <code>awscli</code> 或 AWS console 建立過 resource，例如 EC2 instance、VPC、IAM policy 等，可以妥善地運用 <code>terraform import</code> 將已經建立過的 resource 匯入 Terraform。</p>
+
+<p>當然，首先我們必須找出要匯入的是什麼 resource，例如 <code>aws_instance</code>，那麼我們可以到 Terraform 的官網，找 <a href="https://www.terraform.io/docs/providers/aws/r/instance.html"><code>aws_instance</code> 的文件</a>，最底下會有一個 <strong>Import</strong> 的章節，就會告訴我們要怎麼樣匯入這個 resource。只要是 AWS 的 resource，都會有一個獨一無二的 identifier，有可能是我們自己定義的名稱，例如 EC2 使用的 Key pair；也有可能是十六進位的數字，例如 EC2 instance，所以需要查閱 Terraform 的文件才會知道。</p>
+
+<p>舉 EC2 instance 為例，假設 EC2 instance 的 identifier 是 <code>i-1a2b3c4d</code>，那麼使用 Terraform 匯入的時候，語法就會像是以下這個樣子：</p>
+
+<pre><code class="language-bash">$ terraform import aws_instance.foobar i-1a2b3c4d
+</code></pre>
+
+<p>其中 <code>aws_instance.foobar</code> 是 Terraform 的 <a href="https://www.terraform.io/docs/modules/usage.html#multiple-instances-of-a-module">module path</a>。</p>
+
+<h2 id="如果是-terraform-自己定義的-resource就不會實際地反應在-cloud-provider-上">如果是 Terraform 自己定義的 resource，就不會實際地反應在 cloud provider 上</h2>
+
+<p>例如 <code>aws_iam_user_policy_attachment</code> 就是 Terraform 自己定義的 resource，無法匯入。但如果 <code>terraform apply</code>，如果該 IAM policy 已經 attach 到 IAM user 身上，就不會再被重複地 attach。不過 Terraform 還是會在 <code>terraform.tfstate</code> 檔案裡紀錄這件事情已經做過了，方便之後移除該 resource 時，將 policy 從 user 身上 detach 掉。</p>
+
+<h2 id="terraform-不支援變數內嵌變數">Terraform 不支援變數內嵌變數</h2>
+
+<p>假設今天有一個 <code>foo</code> variable：</p>
+
+<pre><code class="language-json"># modules/foo/main.tf
+variable "foo" {
+  type = "map"
+}
+variable "bar_key" {
+  type = "string"
+}
+variable "baz_key" {
+  type = "string"
+}
+
+# bar.tf
+module "foo" {
+  source = "./modules/foo"
+  bar_key = "bar"
+  baz_key = "baz"
+  foo = {
+    bar = "this_is_value_of_bar"
+    baz = "this_is_value_of_baz"
+  }
+}
+</code></pre>
+
+<p>如果在 <code>modules/foo/another.tf</code> 使用 <code>${var.foo[var.bar_key]}</code>，Terraform 會解析錯誤，必須改成把 <code>var.foo</code> 展開：</p>
+
+<pre><code class="language-json"># modules/foo/main.tf
+variable "foo" {
+  type = "map"
+}
+
+# bar.tf
+module "foo" {
+  source = "./modules/foo"
+  foo = {
+    bar_key = "this_is_value_of_bar"
+    baz_key = "this_is_value_of_baz"
+  }
+}
+</code></pre>
+
+<p>然後使用 <code>${var.foo["bar_key"]}</code> 與 <code>${var.foo["bar_key"]}</code> 去取值。</p>
+
+<h2 id="terraform-的--force-有-bug">Terraform 的 <code>-force</code> 有 bug</h2>
+
+<p><a href="https://github.com/hashicorp/terraform/issues/5663">-force flag on terraform remote push does not work #5663</a></p>
+
+<p>必須手動增加 <code>.tfstate</code> 檔案的 <code>serial</code> 欄位。</p>
+
+<h2 id="terraform-支援-module-內嵌-module但回傳的-resource-name-不正確">Terraform 支援 module 內嵌 module，但回傳的 <code>resource</code> name 不正確</h2>
+
+<p><a href="https://github.com/hashicorp/terraform/issues/8713">terraform import command fails when there are several nested levels on the resource address #8713</a></p>
+
+<p>例如 <code>terraform plan</code> 時顯示的是：</p>
+
+<pre><code class="language-plain">module.foo.policy-with-module.aws_iam_policy.inner-policy
+</code></pre>
+
+<p>其中 <code>policy-with-resource</code> 是一個 module。如果在 <code>terraform import</code> 時，原封不動地使用這個名稱，Terraform 會回報解析錯誤，必須在 <code>policy-with-resource</code> 前面加上 <code>module</code>，也就是變成：</p>
+
+<pre><code class="language-plain">module.foo.module.policy-with-module.aws_iam_policy.inner-policy
+</code></pre>
+
+<p>才行得通。</p>
+
+</div>
+    
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'https://henry40408.github.io/2017/03/terraform-note.html';
+      this.page.identifier = 'https://henry40408.github.io/2017/03/terraform-note.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://henry40408.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+  </div>
+</div>
+
+      <footer>
+  <p>
+    <a href="https://www.henry40408.com"><img src="https://img.shields.io/badge/Author-Henry%20Wu-blue.svg" alt="Author: Henry Wu"></a>
+    <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-brightgreen.svg" alt="License: CC BY-NC-ND 4.0" /></a>
+    <a href="https://circleci.com/gh/henry40408/henry40408.github.io"><img src="https://circleci.com/gh/henry40408/henry40408.github.io/tree/develop.svg?style=shield" alt="CircleCI" /></a>
+  </p>
+</footer>
+
+    </div>
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Lato:300,400,700|Open+Sans:300,400" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/earlyaccess/notosanstc.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night-eighties.min.css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="/assets/main-b041a4693a87f8261b13b1f000deb9999ee7bdf7e4d3e08ce2b84d5f0d15c92c.css">
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-6529501-15', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.2/picturefill.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
+<!-- START of highlight.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/erb.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/elixir.min.js"></script>
+<!-- END of highlight.js -->
+<script type="text/javascript" src="/assets/all-2cc382219f28e1eabb67ac517fe06efbfb21a211f5a19e3b28c8e3e5788dd659.js"></script>
+
+  </body>
+</html>

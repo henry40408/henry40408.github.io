@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ <title>Your Title - rspec</title>
+ <link href="http://example.com/tag/rspec.xml" rel="self"/>
+ <link href="http://example.com/tag/rspec.html"/>
+ <updated>2018-07-18T16:39:02+00:00</updated>
+ <id>http://example.com/tag/rspec.html</id>
+ <author>
+   <name>Author Here</name>
+ </author>
+ 
+ <entry>
+   <title>當 iTerm 執行完 RSpec 之後彈出通知</title>
+   <link href="http://example.com/2016/07/notify-after-rspec-command-finished.html"/>
+   <updated>2016-07-29T23:04:00+00:00</updated>
+   <id>http://example.com/2016/07/notify-after-rspec-command-finished</id>
+   <content type="html">&lt;h2 id=&quot;問題&quot;&gt;問題&lt;/h2&gt;
+
+&lt;p&gt;我的 Ruby on Rails 專案我都習慣會寫 RSpec，但問題是只要專案一變大，RSpec 就會跑個二到三分鐘，以前我不是傻傻地盯著畫面等它完成，不然就是偷閒跑去看影集，往往把一集看完了才想起來有 RSpec 在執行。&lt;/p&gt;
+
+&lt;p&gt;昨天晚上靈機一動，想到之前在學 webpack 時，別人寫的 Yeoman generator 透過 iTerm 的通知功能在 bundle 打包完成通知開發者 (&lt;a href=&quot;https://www.npmjs.com/package/webpack-notifier&quot;&gt;Turbo87/webpack-notifier&lt;/a&gt;)。於是我就想，有沒有可能以盡量簡單的方法去解決這樣的問題？&lt;/p&gt;
+
+&lt;h2 id=&quot;研究&quot;&gt;研究&lt;/h2&gt;
+
+&lt;p&gt;首先，如果可能，&lt;strong&gt;我盡可能地不要去寫程式&lt;/strong&gt;。寫程式的確有它的樂趣，但寫程式不可避免地一定要 debug。如果這些時間成本遠遠地超過問題的複雜度、所造成的困擾，那對我來說沒有任何價值。&lt;/p&gt;
+
+&lt;p&gt;於是我第一個想到的是 &lt;strong&gt;iTerm 本身是否有這樣的功能&lt;/strong&gt;？StackOverflow 上已經有人提出一樣的問題並也得到了回答 &lt;a href=&quot;http://stackoverflow.com/a/30017258&quot;&gt;How do I make iTerm terminal notify me when a job/process is complete?&lt;/a&gt;，基本上就是設定 &lt;code&gt;Profile&lt;/code&gt; &amp;gt; &lt;code&gt;Advanced&lt;/code&gt; &amp;gt; &lt;code&gt;Triggers&lt;/code&gt;，讓 iTerm 透過 regular expression 比對到特定的字串後觸發通知。&lt;/p&gt;
+
+&lt;p&gt;但對於 iTerm Triggers 的介紹到此打住，因為我稍後又針對 RSpec 找到更好的解決方法。&lt;/p&gt;
+
+&lt;h2 id=&quot;最佳解&quot;&gt;最佳解&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/twe4ked/rspec-nc&quot;&gt;twe4ked/rspec-nc - RSpec formatter for Mountain Lion’s Notification Center&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;原來不只我有這樣的需求，已經有同樣需求的開發者動手寫了一個 gem 來解決這樣的問題。使用方法很簡單，基本上只要照著文件說的安裝就可以直接使用了。&lt;/p&gt;
+
+&lt;p&gt;但如果開發的作業系統與部署用的主機不一樣，則還需要一些額外的設定。&lt;strong&gt;在將 &lt;code&gt;rspec-nc&lt;/code&gt; 加入 &lt;code&gt;Gemfile&lt;/code&gt; 時，記得要設定 &lt;code&gt;require: false&lt;/code&gt;&lt;/strong&gt;。在找到 &lt;code&gt;require&lt;/code&gt; 這個選項之前，我實驗過好幾個跨平台的解決方案，都沒有成功。不是在 CI 階段失敗，就是在本機跑測試時會發生找不到 formatter 的錯誤 (&lt;code&gt;rspec-nc&lt;/code&gt; 以 RSpec formatter 的形式與 RSpec 串接)。&lt;/p&gt;
+
+&lt;p&gt;這件事情原作者在 &lt;code&gt;README.md&lt;/code&gt; 中沒有特別註明，對此我還特別發送了一個 pull request (&lt;a href=&quot;https://github.com/twe4ked/rspec-nc/pull/21&quot;&gt;#21 add require option to the line in Gemfile&lt;/a&gt;)。&lt;/p&gt;
+</content>
+ </entry>
+ 
+</feed>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ <title>Your Title - redux</title>
+ <link href="http://example.com/tag/redux.xml" rel="self"/>
+ <link href="http://example.com/tag/redux.html"/>
+ <updated>2018-07-18T16:39:02+00:00</updated>
+ <id>http://example.com/tag/redux.html</id>
+ <author>
+   <name>Author Here</name>
+ </author>
+ 
+ <entry>
+   <title>TWIL #1</title>
+   <link href="http://example.com/2016/10/twil-1.html"/>
+   <updated>2016-10-21T11:54:00+00:00</updated>
+   <id>http://example.com/2016/10/twil-1</id>
+   <content type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;TWIL (abbr.) = This Week I Learned&lt;/p&gt;
+
+  &lt;p&gt;這個星期我學會了什麼。&lt;/p&gt;
+
+  &lt;p&gt;例句：從這個星期開始，我會每個禮拜整理一次 TWIL。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;由於之前生活比較混亂，導致應該每個星期都要整理這個禮拜我學了什麼的習慣就這麼中斷了。為了在往後幾年讓自己有辦法回顧自己這幾年學會了什麼、不枉此生，開始養成固定寫 TWIL 的習慣。&lt;/p&gt;
+
+&lt;h1 id=&quot;20161017---20161021&quot;&gt;2016/10/17 - 2016/10/21&lt;/h1&gt;
+
+&lt;h2 id=&quot;瑣事&quot;&gt;瑣事&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;看 &lt;a href=&quot;https://github.com/emacs-tw/emacs-101&quot;&gt;emacs-tw/emacs-101&lt;/a&gt; 學 Emacs。&lt;/li&gt;
+  &lt;li&gt;使用 &lt;a href=&quot;https://github.com/yelouafi/redux-saga&quot;&gt;&lt;code&gt;redux-saga&lt;/code&gt;&lt;/a&gt; 完成對 new-hampshire 前端的重構 &lt;a href=&quot;https://github.com/henry40408/singleton/pull/6&quot;&gt;PR&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/redux-observable/redux-observable&quot;&gt;redux-observable/redux-observable&lt;/a&gt; 10/17 參加 Elixir Taiwan 聚會時與會者推薦的一個 redux 套件。據該與會者所言，他完全看不懂 &lt;code&gt;redux-saga&lt;/code&gt; 到底想幹嘛 XD
+    &lt;ul&gt;
+      &lt;li&gt;由於專案不大，&lt;code&gt;redux-saga&lt;/code&gt; 與 &lt;code&gt;redux-observable&lt;/code&gt; 之間的轉換我是直接把 code 全部打掉重練，需要維護超大型 redux 專案的好孩子不要學喔～&lt;/li&gt;
+      &lt;li&gt;個人認為 &lt;code&gt;redux-observable&lt;/code&gt; 的強項在於架構上的簡潔。 &lt;a href=&quot;https://github.com/henry40408/singleton/pull/7&quot;&gt;PR&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;拜 Rx 所賜，&lt;code&gt;redux-generator&lt;/code&gt; 不需要 generator 就可以做到很複雜的操作，這同時也代表寫 &lt;code&gt;redux-observable&lt;/code&gt; 不需要再處理一堆亂七八糟的 &lt;code&gt;babel-preset-stage-*&lt;/code&gt;，只要最基本的 babel 就可以開始寫程式了。(除非你需要一些特殊功能，例如 class properties)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;vim 的 &lt;a href=&quot;http://vimawesome.com/plugin/surround-vim&quot;&gt;surround.vim&lt;/a&gt; 真的是很強大的 plugin，尤其在處理類 HTML (例如 JSX) 的文件時，以前要按好幾個按鍵的工作現在只要一個指令就可以完成，省下非常多的時間。&lt;/li&gt;
+  &lt;li&gt;原來想寫一個以 GitHub Issue 為發文後台的部落格系統，卻發現已經有人寫出來了。&lt;a href=&quot;https://github.com/mateogianolio/issuance&quot;&gt;ref.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;之前會想換到 emacs，是聽說 emacs 在程式語言的處理與呈現上比 vim 強上好幾倍 (這不是我講的不要攻擊我 QQ)。但在這一個禮拜快要結束時，我反思是不是我還沒有把 vim 的潛能發揮到極致？於是我找到了這位仁兄的 &lt;a href=&quot;https://github.com/skwp/dotfiles/tree/master/vim&quot;&gt;dotfile repo&lt;/a&gt;，裡面塞滿了五花八門、亂七八糟 (單純讚美、沒有別的意思) 的 vim 套件。我從中抽出幾個看起來我應該會用到的套件，整理成我自己的 &lt;a href=&quot;https://gist.github.com/henry40408/2a259f4d6aedfe1997ab#file-vimrc&quot;&gt;vimrc&lt;/a&gt;。整理完之後 vim 看起來好像有變強一點點、變得好用一點點。
+    &lt;ul&gt;
+      &lt;li&gt;但基於工程師不能停止學習的精神，我還是會每天固定抽一點時間出來摸摸 emacs。就像學 erlang 時一樣，摸久了總有一天會想通的。&lt;/li&gt;
+      &lt;li&gt;我的 vimrc 有用到 &lt;a href=&quot;https://github.com/Shougo/dein.vim&quot;&gt;dein&lt;/a&gt;，號稱 &lt;em&gt;plugin manager with dark power&lt;/em&gt;，使用 vim 8 加入的 asynchronous API 來管理 plugin，也因此最低版本要求 vim 8。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;redux-observable-的錯誤處理&quot;&gt;&lt;code&gt;redux-observable&lt;/code&gt; 的錯誤處理&lt;/h2&gt;
+
+&lt;p&gt;使用 &lt;code&gt;redux-observable&lt;/code&gt; 時，由於 stream 所接收的是 Redux 的 &lt;code&gt;action&lt;/code&gt;，所以如果在 operator 裡發生錯誤，整個 stream 就會崩潰，並且不再回應下一次的 &lt;code&gt;action&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;以河流為例，如果把河流截斷，之後從上游來的水就不會再流到下游去了，其實很合理。但有沒有辦法讓我們要怎麼攔截到 exception 之後讓 stream 繼續處理下一次 &lt;code&gt;action&lt;/code&gt; 呢？&lt;/p&gt;
+
+&lt;p&gt;使用 &lt;code&gt;catch&lt;/code&gt; operator。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;const someEpic = action$ =&amp;gt; action$
+  .ofType(SOME_ACTION)
+  .flatMap(() =&amp;gt; {
+    const rand = Math.random();
+    if (rand &amp;lt; 0.5) {
+      throw Error('Bad luck');
+    }
+    return Observable.just('Good luck');
+  })
+  .map(someOtherAction)
+  .catch((e, stream) =&amp;gt; {
+    console.log(e); // ...或串接錯誤回報服務、進行其他攔截處理
+    return stream; // 最重要的一句，維持 stream 不中斷，讓 stream 可以捕捉下一次的 action
+  });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;在-phoenix-controller-test-進行與-session-有關的測試&quot;&gt;在 Phoenix controller test 進行與 session 有關的測試&lt;/h2&gt;
+
+&lt;h3 id=&quot;前言-1&quot;&gt;前言&lt;/h3&gt;
+
+&lt;p&gt;在 Ruby on Rails，拜 &lt;a href=&quot;https://github.com/plataformatec/devise&quot;&gt;devise&lt;/a&gt; (其實是 warden) 所賜，我們可以很方便地在 controller test 中加入與 session 有關的程式碼&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;，讓自己可以在匿名使用者、一般使用者與特殊使用者的身份之間彼此切換。最近在研究 Phoenix 時，我就不禁在想 Phoenix 有沒有辦法做到類似的事？&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;豆知識&lt;/p&gt;
+
+  &lt;p&gt;強推 Elixir 的 &lt;a href=&quot;http://plataformatec.com.br/&quot;&gt;Plataformatec&lt;/a&gt;，同時也是 devise 套件的主要維護組織；同樣是以 Ruby on Rails 為本，將觸角往 Phoenix 延伸的還有另外一家公司 &lt;a href=&quot;https://thoughtbot.com/&quot;&gt;thoughtbot&lt;/a&gt; (因為它的 logo 我都戲稱它為機器人公司)，旗下與 Elixir 有關的套件包括 &lt;code&gt;factory_girl&lt;/code&gt; 的 Elixir 版本 &lt;a href=&quot;https://github.com/thoughtbot/ex_machina&quot;&gt;&lt;code&gt;ex_machina&lt;/code&gt;&lt;/a&gt;。所以 Elixir 接近 Ruby 的語法結構，有助於 Ruby 開發者快速地轉移過去並上手的論調並非沒有根據。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;但 Phoenix 畢竟不是 Ruby on Rails，其一是如果去拜 google 大神，不管你下什麼樣的關鍵字，相關的文章幾乎還沒問世；其二是 Phoenix 似乎對 mocking 這件事情十分感冒，即使是為了測試&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+
+&lt;p&gt;於是我就退一步想，如果在 Phoenix 不能做模擬 session 這件事，或是 Phoenix 基本上禁止開發者做這件事&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;，那我還有其他做法嗎？&lt;/p&gt;
+
+&lt;p&gt;有，那就是 &lt;code&gt;Plug.Conn.assign&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;做法&quot;&gt;做法&lt;/h3&gt;
+
+&lt;p&gt;假設在 application = &lt;code&gt;TodoApp&lt;/code&gt; 底下有一個 controller = &lt;code&gt;TodoController&lt;/code&gt;，有個相對應的測試 &lt;code&gt;TodoApp.TodoControllerTest&lt;/code&gt;。這一段 code 是直接使用 generator (&lt;code&gt;mix phoenix.gen.json Todo todos title:string done:boolean&lt;/code&gt;) 產生的，還沒有修改過，裡面會有以下這一段 &lt;code&gt;setup&lt;/code&gt; 與 &lt;code&gt;index&lt;/code&gt; action 的測試。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-elixir&quot;&gt;# test/controllers/todo_controller_test.exs
+defmodule TodoApp.TodoControllerTest do
+  # ...
+
+  setup %{conn: conn} do
+    {:ok, conn: put_req_header(conn, &quot;accept&quot;, &quot;application/json&quot;)}
+  end
+
+  # ...
+
+  test &quot;lists all entries on index&quot;, %{conn: conn} do
+    conn = get conn, todo_path(conn, :index)
+    assert json_response(conn, 200)[&quot;data&quot;] == []
+  end
+
+  # ...
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;假設 &lt;code&gt;index&lt;/code&gt; action 被我修改成下面這個樣子：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-elixir&quot;&gt;# web/controllers/todo_controller.ex
+defmodule TodoApp.TodoController
+  # ...
+
+  plug :put_current_user
+
+  # ...
+
+  def index(conn, _params) do
+    todos = conn |&amp;gt; not_deleted_todos |&amp;gt; Repo.all
+    render(conn, &quot;index.json-api&quot;, data: todos)
+  end
+
+  # ...
+
+  defp not_deleted_todos
+    %{assigns: %{current_user: user}} = conn
+    # 這一句的作用在篩選屬於目前登入的 user
+    # 並且沒有被 soft-deleted 的 todos
+    Todo |&amp;gt; Todo.owned_by(user.id) |&amp;gt; Todo.not_deleted
+  end
+
+  # 1. 這個 plug 會把登入的 user 從 session 裡抽出來
+  #    透過 assigns 放到 conn 裡
+  # 2. 如果沒有登入會回傳 401 然後終止這一次的 request
+  defp put_current_user(conn, _opts) do
+    current_user = get_session(conn, :current_user)
+
+    case current_user do
+      %{id: _} -&amp;gt;
+        assign(conn, :current_user, current_user)
+      _ -&amp;gt;
+        conn
+        |&amp;gt; put_status(401)
+        |&amp;gt; render(TodoApp.AuthView, &quot;show.json-api&quot;, data: %{status: :unauthorized})
+        |&amp;gt; halt
+    end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;好，現在問題來了。如果直接執行 &lt;code&gt;mix test&lt;/code&gt;，會 test failed，因為沒有模擬使用者登入，當然會 fail。&lt;/p&gt;
+
+&lt;p&gt;在修改測試之前，先有一個概念，&lt;strong&gt;&lt;code&gt;assigns&lt;/code&gt; 裡面存放的值，一定是從 server-side 放進去的，除非伺服器端放行，否則 client-side 完全無法修改&lt;/strong&gt;。有了這個前提，我們就可以在 controller 裡插入一些看似無關痛癢的程式碼，事實上卻可以協助我們完成測試。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-elixir&quot;&gt;# web/controllers/todo_controller.ex
+defmodule TodoApp.TodoController do
+  # ...
+
+  # 如果 pattern match 到 assigns 中已經有 current_user，代表這個 request
+  # 從測試的沙盒中發出的 request，因此不再從 session 中取得 current_user，
+  # 直接 pass conn 給 action
+  defp put_current_user(%{assigns: %{current_user: _}} = conn, _opts) do
+    conn
+  end
+
+  # ...
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;透過這個方法，我們就可以在測試的 &lt;code&gt;setup&lt;/code&gt; 中神不知鬼不覺地塞入 &lt;code&gt;current_user&lt;/code&gt;，並且可以在之後的 &lt;code&gt;show&lt;/code&gt;、&lt;code&gt;update&lt;/code&gt; 中也使用這個 &lt;code&gt;current_user&lt;/code&gt;。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-elixir&quot;&gt;# test/controllers/todo_controller_test.ex
+defmodule TodoApp.TodoControllerTest do
+  # ...
+
+  setup %{conn: conn} do
+    # User 是另外一個 model，與本文的重點關聯關係不大就省略細節了
+    # 會帶 provider 與 uid 的欄位是為了實作 OAuth
+    user = %User{provider: &quot;google&quot;, uid: &quot;1a2b3c4d&quot;, email: Faker.Internet.email}
+           |&amp;gt; User.changeset
+           |&amp;gt; Repo.insert!
+
+    conn = conn
+           |&amp;gt; assign(:current_user, user) # 關鍵在這行，神不知鬼不覺地指派進去
+           |&amp;gt; put_req_header(&quot;accept&quot;, &quot;application/json&quot;)
+
+    # 把 user 代進 conn，稍後其他的 test case 也可以使用
+    {:ok, conn: conn, user: user}
+  end
+
+  # ...
+
+  test &quot;shows chosen resource&quot;, %{conn: conn, user: user} do
+    # 從 context 中取出 user 來建立假資料
+    todo = Repo.insert! %Todo{user_id: user.id}
+    conn = get conn, todo_path(conn, :show, todo)
+
+    expected = %{ &quot;title&quot; =&amp;gt; todo.title, &quot;done&quot; =&amp;gt; todo.done }
+    assert json_response(conn, 200)[&quot;data&quot;][&quot;id&quot;] == Integer.to_string(todo.id, 10)
+    assert json_response(conn, 200)[&quot;data&quot;][&quot;attributes&quot;] == expected
+  end
+
+  # ...
+
+  test &quot;updates and renders chosen resource when data is valid&quot;, %{conn: conn, user: user} do
+    # 從 context 中取出 user 來建立假資料
+    todo = Repo.insert! %Todo{user_id: user.id}
+
+    conn = put conn, todo_path(conn, :update, todo), todo: @valid_attrs
+    assert json_response(conn, 200)[&quot;data&quot;][&quot;id&quot;]
+    assert Repo.get_by(Todo, @valid_attrs)
+  end
+
+  test &quot;does not update chosen resource and renders errors when data is invalid&quot;, %{conn: conn, user: user} do
+    # 從 context 中取出 user 來建立假資料
+    todo = Repo.insert! %Todo{user_id: user.id}
+
+    conn = put conn, todo_path(conn, :update, todo), todo: @invalid_attrs
+    assert json_response(conn, 422)[&quot;errors&quot;] != %{}
+  end
+
+  # ...
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;這次再下一次 &lt;code&gt;mix test&lt;/code&gt;，test case 應該就會全過了。&lt;/p&gt;
+
+&lt;p&gt;如果以上 code 片段寫得不完整 (對不起嘛 QQ)，我把完整的專案程式碼公布在 &lt;a href=&quot;https://github.com/henry40408/singleton/tree/ff8b0a10693d2be63f1b15eb0888099b69e86446&quot;&gt;GitHub&lt;/a&gt; 上了。&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://github.com/plataformatec/devise/wiki/How-To:-Test-controllers-with-Rails-3-and-4-(and-RSpec)&quot;&gt;How To: Test controllers with Rails 3 and 4 (and RSpec)&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;這件事情我還沒有找到相關的前輩有發表相關的文章，只是我透過相關的搜尋結果旁敲側擊而來，具體可以參考 &lt;a href=&quot;http://stackoverflow.com/q/31983077#comment51895692_31983168&quot;&gt;José Valim 在 StackOverflow 討論串 how can i set session in setup when i test phoenix action which need user_id in session? 中的發言&lt;/a&gt;，但我覺得沒有把為什麼不推薦這樣做的具體原因說清楚。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;其實如果你真的要做還是有方法可以做到，只是 code 會變得非常醜非常難以維護，如果有興趣可以參考 &lt;a href=&quot;http://stackoverflow.com/a/31983168&quot;&gt;how can i set session in setup when i test phoenix action which need user_id in session?&lt;/a&gt;。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+</feed>

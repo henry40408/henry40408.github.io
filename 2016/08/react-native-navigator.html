@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="google-site-verification" content="Ri-b-qgTiyJxMxvyW7QOAlEADhgQOMwPBZQArSRShX4" />
+  <link href="/assets/avatar-cacb37952d76ce487308150de663e58237b996e1d0351031f338bbc97ec27d69.png" rel="icon" />
+  <link href="/assets/avatar-cacb37952d76ce487308150de663e58237b996e1d0351031f338bbc97ec27d69.png" rel="apple-touch-icon" />
+  <title>React Native Navigator 求生紀實 | Henry Wu</title>
+  <meta content="Henry Wu" property="og:site_name">
+
+  <meta content="React Native Navigator 求生紀實" property="og:title">
+
+
+  <meta content="article" property="og:type">
+
+
+  <meta content="I am software engineer in Taipei, currently work in Hahow. I mostly build things with Ruby on Rails and Node.js, then deploy them with HashiCorp products.
+" property="og:description">
+
+
+  <meta content="https://henry40408.github.io/2016/08/react-native-navigator.html" property="og:url">
+
+
+  <meta content="2016-08-12T10:14:00+00:00" property="article:published_time">
+  <meta content="https://henry40408.github.io/profile.html" property="article:author">
+
+
+  <meta content="https://henry40408.github.io/assets/life-is-a-yolo-game-so-play-it-well-4ae5b7cd0ab47cca4c8d51013fa6d4c6f09ac7d7d678aa4dac02ab5266047647.png" property="og:image">
+
+
+  
+
+
+  
+    <meta content="react-native" property="article:tag">
+  
+    <meta content="navigator" property="article:tag">
+  
+
+
+</head>
+
+  <body>
+    <div id="container" class="ui grid">
+      <div class="row">
+  <div id="site-header" class="column">
+    <h1 id="site-name" class="ui center aligned text">
+      <a href="/">
+        <img src="/assets/avatar-cacb37952d76ce487308150de663e58237b996e1d0351031f338bbc97ec27d69.png" alt="Avatar" class="ui centered circular bordered avatar small image" width="180" height="180">
+        <div>Henry Wu</div>
+      </a>
+    </h1>
+    <div id="site-nav">
+      <a class="ui small compact button" href="/">Home</a>
+      <a class="ui small compact button" href="/profile.html">Profile</a>
+      <div class="mobile only"></div>
+      <a class="ui small compact black icon button" href="https://github.com/henry40408"><i class="github icon"></i></a>
+      <a class="ui small compact green icon button" href="https://medium.com/henry40408"><i class="medium icon"></i></a>
+      <a class="ui small compact orange icon button" href="/feed.xml"><i class="rss icon"></i></a>
+    </div>
+  </div>
+</div>
+
+      
+<div class="row">
+  <div class="column">
+    <h1>React Native Navigator 求生紀實</h1>
+    <p>
+
+ Posted on <time datetime="2016-08-12 10:14:00 +0000">August 12 2016</time>, tagged with <a href="/tag/react-native.html" rel="tag">react-native</a>, <a href="/tag/navigator.html" rel="tag">navigator</a></p>
+    <div class="single post"><p>在跟 React Native 搏鬥近兩個月後，navigation 還是在我不經意的情況下爆炸了。</p>
+
+<h2 id="route-decoupling">route decoupling</h2>
+
+<p>這個問題出在我把 navigator 這個屬於 component 範疇的 object 傳給 redux action，導致 decoupling 不完全；另外一個問題是我違反了 component pattern，階層較低的 component 不該有機會能夠直接參考到階層較高的 component。例如以下的 code。</p>
+
+<pre><code class="language-jsx">const FooScene = () =&gt; (
+  &lt;View /&gt;
+);
+
+// ...
+
+class BazComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handlePress = this.handlePress.bind(this);
+  }
+
+  handlePress() {
+    const { navigator } = this.props;
+    navigator.push({ component: FooScene });
+  }
+
+  render() {
+    return (
+      &lt;TouchHighlight onPress={this.handlePress}&gt;
+        &lt;View&gt;
+          &lt;Text&gt;{'Press me'}&lt;/Text&gt;
+        &lt;/View&gt;
+      &lt;/TouchHighlight&gt;
+    );
+  }
+}
+
+// ...
+
+const BarScene = ({ navigator }) =&gt; (
+  &lt;BazComponent navigator={navigator} /&gt;
+);
+
+// ...
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.renderScene = this.renderScene.bind(this);
+  }
+
+  renderScene(route, navigator) {
+    return (&lt;route.component {...this.props} navigator={navigator} route={route} /&gt;);
+  }
+
+  render() {
+    return (&lt;Navigator initialRoute={{ component: BarScene }} renderScene={this.renderScene} /&gt;);
+  }
+}
+</code></pre>
+
+<p>如果是照著 React Native 官網一步一步使用 Navigator，那個 <code>renderScene</code> 內的程式碼看起來會很古怪，但這個寫法是來自 <a href="https://medium.com/@dabit3/react-native-navigator-navigating-like-a-pro-in-react-native-3cb1b6dc1e30">React Native Navigator — Navigating Like A Pro in React Native</a>。<strong>這樣寫的好處是你不必再另外撰寫路由表</strong>，因為目標 scene component 直接放在 route 裡，<code>renderScene</code> 要做的只剩下對 component 注入 <code>navigator</code>、<code>route</code>，最多在有使用 redux 的情形下再多注入 redux 的 state 與 actions。</p>
+
+<p>但事後證明，<strong>千萬別這樣做</strong>，因為 component pattern 被破壞了，<strong>所以你可能在不知不覺的情況下做了 circular import 而不自知</strong>。</p>
+
+<p>在 Python，如果有遵守 PEP8 規範，一旦發生 circular import 很快地就會被發現。但在 JavaScript，circular import 是被允許的。</p>
+
+<pre><code class="language-javascript">const a = { };
+const b = { };
+a.b = b;
+b.a = a;
+</code></pre>
+
+<p>以最上面的程式碼為例，如果 <code>BazComponent</code> 是一個可重用的 component，而你之後又在 <code>FooScene</code> 中使用了該 component，就會發生交互參考的問題。而如果你把 <code>FooScene</code> 與 <code>BarScene</code> 放在不同檔案，然後在 <code>FooScene</code> 中設定跳轉至 <code>BarScene</code> 的 handler，就會發生 circular import。就我遇的的情形而言，React Native 的 webpack 會試著解析 circular import，<strong>但如果解析不成功也不會發生錯誤，而是直接讓 import 進來的 object 直接變成 undefined</strong>。</p>
+
+<p><strong>所以最後的解法還是老方法，寫路由表</strong>。如果要跳轉至某個 scene component 請傳遞路由表的 key 給 navigator，而不是直接把 scene component 傳進 route，以避免掉 circular import 的問題。</p>
+
+<h2 id="深入解析-poptoroute">深入解析 <code>popToRoute</code></h2>
+
+<p><code>Navigator</code> 有一個 API <code>popToRoute</code>，目的是根據接收到的 route 物件跳轉到特定的 scene component。<a href="https://github.com/facebook/react-native/blob/94666f16c7da37e649316d40ea23d7a8054a04f9/Libraries/CustomComponents/Navigator/Navigator.js#L337">而根據 React Native 原始碼</a>，從 <code>initialRoute</code> 應該要是一個 object，推斷 <code>Navigator</code> 的 route 應該都要是一個 object。但如果你照著以下程式碼的方式去使用，結果幾乎可以肯定是不會動的，而且還會噴錯。</p>
+
+<p>假設路由表長這個樣子。</p>
+
+<pre><code class="language-javascript">const FOO_SCENE = 'FOO_SCENE';
+
+const routes = {
+  [{ name: FOO_SCENE }]: (&lt;FooScene /&gt;),
+};
+</code></pre>
+
+<p>然後呼叫 <code>popToRoute</code>。</p>
+
+<pre><code class="language-javascript">navigator.popToRoute({ name: FOO_SCENE });
+</code></pre>
+
+<p>十之八九會噴類似 <code>Calling pop to route for a route that doesn't exist</code> 的錯誤。</p>
+
+<p>問題出在 <code>popToRoute</code> 是<a href="https://github.com/facebook/react-native/blob/94666f16c7da37e649316d40ea23d7a8054a04f9/Libraries/CustomComponents/Navigator/Navigator.js#L1182-L1190">以 <code>indexOf</code> 去比對路由表</a>，而這裡有一個 JavaScript 的陷阱，以下是一個使用 Node.js 就可做的小實驗。</p>
+
+<pre><code class="language-javascript">const FOO_SCENE = 'FOO_SCENE';
+const routeStack = [{ name: FOO_SCENE }];
+routeStack.indexOf({ name: FOO_SCENE }); // expected 0, got -1 actually
+</code></pre>
+
+<p>最後的 <code>indexOf</code> 並沒有如預期般傳回 <code>0</code>，而是 <code>-1</code>。這也就是為什麼導致 <code>popToRoute</code> 爆炸的原因。另外再做一個實驗。</p>
+
+<pre><code class="language-javascript">const FOO_SCENE = 'FOO_SCENE';
+const routeStack = [{ name: FOO_SCENE }];
+({ name: FOO_SCENE }) === routeStack[0]; // =&gt; false
+</code></pre>
+
+<p>在 JavaScript，<strong>使用 object literal 產生的永遠是另外一個新物件</strong>。所以你拿這個新物件去比對一個已經存在的物件，永遠不會「全相等」。</p>
+
+<p>所以如果要正確使用 <code>popToRoute</code>，我們目前只能這麼做。</p>
+
+<pre><code class="language-javascript">const routeStack = navigator.state.routeStack;
+const targetRoute = routeStack.filter(r =&gt; r.name === FOO_SCENE);
+if (targetRoute.length &gt; 0) {
+  navigator.popToRoute(targetRoute[0]);
+}
+</code></pre>
+
+<p>從 <code>Navigator</code> 的 <code>routeStack</code> (保存目前已經走過的路徑，可以類比成瀏覽器的歷史紀錄 <code>history</code>) 取出目標 route 之後，當作參數傳遞給 <code>popToRoute</code>，就可以避免掉 <code>indexOf</code> 新舊物件比對永遠不一致的問題。</p>
+</div>
+    
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'https://henry40408.github.io/2016/08/react-native-navigator.html';
+      this.page.identifier = 'https://henry40408.github.io/2016/08/react-native-navigator.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://henry40408.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+  </div>
+</div>
+
+      <footer>
+  <p>
+    <a href="https://www.henry40408.com"><img src="https://img.shields.io/badge/Author-Henry%20Wu-blue.svg" alt="Author: Henry Wu"></a>
+    <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-brightgreen.svg" alt="License: CC BY-NC-ND 4.0" /></a>
+    <a href="https://circleci.com/gh/henry40408/henry40408.github.io"><img src="https://circleci.com/gh/henry40408/henry40408.github.io/tree/develop.svg?style=shield" alt="CircleCI" /></a>
+  </p>
+</footer>
+
+    </div>
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Lato:300,400,700|Open+Sans:300,400" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/earlyaccess/notosanstc.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night-eighties.min.css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="/assets/main-b041a4693a87f8261b13b1f000deb9999ee7bdf7e4d3e08ce2b84d5f0d15c92c.css">
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-6529501-15', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.2/picturefill.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
+<!-- START of highlight.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/erb.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/elixir.min.js"></script>
+<!-- END of highlight.js -->
+<script type="text/javascript" src="/assets/all-2cc382219f28e1eabb67ac517fe06efbfb21a211f5a19e3b28c8e3e5788dd659.js"></script>
+
+  </body>
+</html>

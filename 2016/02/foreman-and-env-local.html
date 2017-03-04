@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="google-site-verification" content="Ri-b-qgTiyJxMxvyW7QOAlEADhgQOMwPBZQArSRShX4" />
+  <link href="/assets/avatar-cacb37952d76ce487308150de663e58237b996e1d0351031f338bbc97ec27d69.png" rel="icon" />
+  <link href="/assets/avatar-cacb37952d76ce487308150de663e58237b996e1d0351031f338bbc97ec27d69.png" rel="apple-touch-icon" />
+  <title>foreman 偵測不到 .env.local | Henry Wu</title>
+  <meta content="Henry Wu" property="og:site_name">
+
+  <meta content="foreman 偵測不到 .env.local" property="og:title">
+
+
+  <meta content="article" property="og:type">
+
+
+  <meta content="I am software engineer in Taipei, currently work in Hahow. I mostly build things with Ruby on Rails and Node.js, then deploy them with HashiCorp products.
+" property="og:description">
+
+
+  <meta content="https://henry40408.github.io/2016/02/foreman-and-env-local.html" property="og:url">
+
+
+  <meta content="2016-02-18T00:00:00+00:00" property="article:published_time">
+  <meta content="https://henry40408.github.io/profile.html" property="article:author">
+
+
+  <meta content="https://henry40408.github.io/assets/life-is-a-yolo-game-so-play-it-well-4ae5b7cd0ab47cca4c8d51013fa6d4c6f09ac7d7d678aa4dac02ab5266047647.png" property="og:image">
+
+
+  
+
+
+  
+    <meta content="devops" property="article:tag">
+  
+    <meta content="foreman" property="article:tag">
+  
+    <meta content="env" property="article:tag">
+  
+    <meta content="env-local" property="article:tag">
+  
+
+
+</head>
+
+  <body>
+    <div id="container" class="ui grid">
+      <div class="row">
+  <div id="site-header" class="column">
+    <h1 id="site-name" class="ui center aligned text">
+      <a href="/">
+        <img src="/assets/avatar-cacb37952d76ce487308150de663e58237b996e1d0351031f338bbc97ec27d69.png" alt="Avatar" class="ui centered circular bordered avatar small image" width="180" height="180">
+        <div>Henry Wu</div>
+      </a>
+    </h1>
+    <div id="site-nav">
+      <a class="ui small compact button" href="/">Home</a>
+      <a class="ui small compact button" href="/profile.html">Profile</a>
+      <div class="mobile only"></div>
+      <a class="ui small compact black icon button" href="https://github.com/henry40408"><i class="github icon"></i></a>
+      <a class="ui small compact green icon button" href="https://medium.com/henry40408"><i class="medium icon"></i></a>
+      <a class="ui small compact orange icon button" href="/feed.xml"><i class="rss icon"></i></a>
+    </div>
+  </div>
+</div>
+
+      
+<div class="row">
+  <div class="column">
+    <h1>foreman 偵測不到 .env.local</h1>
+    <p>
+
+<span class="ui tiny label" title="Less than 1000 characters">短篇</span>
+
+ Posted on <time datetime="2016-02-18 00:00:00 +0000">February 18 2016</time>, tagged with <a href="/tag/devops.html" rel="tag">devops</a>, <a href="/tag/foreman.html" rel="tag">foreman</a>, <a href="/tag/env.html" rel="tag">env</a>, <a href="/tag/env-local.html" rel="tag">env-local</a></p>
+    <div class="single post"><p>由於我自己會習慣寫一個簡單的 shell script 去啟動 foreman，但最近發現無論怎麼設定 foreman 都不會再去讀取  <code>.env.local</code>。GitHub 上有人回報類似的問題  <a href="https://github.com/bkeepers/dotenv/issues/234">bkeepers/dotenv#234</a>，雖然主旨是 <strong><code>heroku local</code> makes it impossible to override settings from <code>.env.&lt;environment&gt;</code></strong> ，但解法也適用 foreman。</p>
+
+<p>解法不難，以下是原來的啟動語法。</p>
+
+<pre><code class="language-bash">$ foreman start -f Procfile.dev
+</code></pre>
+
+<p>改成以下的形式，差別在於多了後面的 <code>-e .env,.env.local</code>。</p>
+
+<pre><code class="language-bash">$ foreman start -f Procfile.dev -e .env,.env.local
+</code></pre>
+<p>由於我自己 clone 的 <a href="https://github.com/myceto/suspenders"><code>suspenders</code></a> 也有另外寫一個腳本 <code>./bin/run</code> 來執行 foreman，找到解法之後我就立刻更新了。對於已經生成的專案，只要將 <code>./bin/run</code> 的內容改成以下內容即可。</p>
+
+<pre><code class="language-bash">#!/bin/bash
+if [ -f .env.local ]; then
+  foreman start -f Procfile.dev --env .env,.env.local
+else
+  foreman start -f Procfile.dev --env .env
+fi
+</code></pre>
+</div>
+    
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'https://henry40408.github.io/2016/02/foreman-and-env-local.html';
+      this.page.identifier = 'https://henry40408.github.io/2016/02/foreman-and-env-local.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://henry40408.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+  </div>
+</div>
+
+      <footer>
+  <p>
+    <a href="https://www.henry40408.com"><img src="https://img.shields.io/badge/Author-Henry%20Wu-blue.svg" alt="Author: Henry Wu"></a>
+    <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-brightgreen.svg" alt="License: CC BY-NC-ND 4.0" /></a>
+    <a href="https://circleci.com/gh/henry40408/henry40408.github.io"><img src="https://circleci.com/gh/henry40408/henry40408.github.io/tree/develop.svg?style=shield" alt="CircleCI" /></a>
+  </p>
+</footer>
+
+    </div>
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Lato:300,400,700|Open+Sans:300,400" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/earlyaccess/notosanstc.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night-eighties.min.css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="/assets/main-b041a4693a87f8261b13b1f000deb9999ee7bdf7e4d3e08ce2b84d5f0d15c92c.css">
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-6529501-15', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.2/picturefill.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
+<!-- START of highlight.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/erb.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/elixir.min.js"></script>
+<!-- END of highlight.js -->
+<script type="text/javascript" src="/assets/all-2cc382219f28e1eabb67ac517fe06efbfb21a211f5a19e3b28c8e3e5788dd659.js"></script>
+
+  </body>
+</html>

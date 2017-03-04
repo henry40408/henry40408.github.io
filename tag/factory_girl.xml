@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ <title>Your Title - factory_girl</title>
+ <link href="http://example.com/tag/factory_girl.xml" rel="self"/>
+ <link href="http://example.com/tag/factory_girl.html"/>
+ <updated>2018-07-18T16:39:02+00:00</updated>
+ <id>http://example.com/tag/factory_girl.html</id>
+ <author>
+   <name>Author Here</name>
+ </author>
+ 
+ <entry>
+   <title>如何在 factory_girl 中為有繼承關係的 Rails model 定義 Factory</title>
+   <link href="http://example.com/2016/08/inherited-model-in-factory-girl.html"/>
+   <updated>2016-08-07T20:34:00+00:00</updated>
+   <id>http://example.com/2016/08/inherited-model-in-factory-girl</id>
+   <content type="html">&lt;h2 id=&quot;問題&quot;&gt;問題&lt;/h2&gt;
+
+&lt;p&gt;例如以下 Ruby on Rails 程式碼。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;class Member &amp;lt; ActiveRecord::Base
+  # has a string column named `email`
+end
+
+class Admin &amp;lt; Member
+  # ...
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Member&lt;/code&gt; 與 &lt;code&gt;Admin&lt;/code&gt; 兩個 Rails model 之間有繼承關係，那它們的 &lt;code&gt;factory_girl&lt;/code&gt; Factory 要怎麼寫呢？&lt;/p&gt;
+
+&lt;h2 id=&quot;解答&quot;&gt;解答&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;FactoryGirl.define do
+  factory :member do # Member model 的 factory
+    email { Faker::Internet.email }
+  end
+
+  factory :admin, class: Owner, parent: :member
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果照著以上 code 定義 factory，則 &lt;code&gt;Owner&lt;/code&gt; 的 factory 會繼承 &lt;code&gt;Member&lt;/code&gt; factory 定義的所有欄位 (例如 &lt;code&gt;email&lt;/code&gt;)。&lt;/p&gt;
+
+&lt;p&gt;參考資料：&lt;a href=&quot;http://stackoverflow.com/q/13343876&quot;&gt;how to define factories with a inheritance user model&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+</feed>

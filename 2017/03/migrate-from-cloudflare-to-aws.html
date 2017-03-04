@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="google-site-verification" content="Ri-b-qgTiyJxMxvyW7QOAlEADhgQOMwPBZQArSRShX4" />
+  <link href="/assets/avatar-cacb37952d76ce487308150de663e58237b996e1d0351031f338bbc97ec27d69.png" rel="icon" />
+  <link href="/assets/avatar-cacb37952d76ce487308150de663e58237b996e1d0351031f338bbc97ec27d69.png" rel="apple-touch-icon" />
+  <title>從 Cloudflare 搬家到 AWS，而且是「徹底搬家」 | Henry Wu</title>
+  <meta content="Henry Wu" property="og:site_name">
+
+  <meta content="從 Cloudflare 搬家到 AWS，而且是「徹底搬家」" property="og:title">
+
+
+  <meta content="article" property="og:type">
+
+
+  <meta content="I am software engineer in Taipei, currently work in Hahow. I mostly build things with Ruby on Rails and Node.js, then deploy them with HashiCorp products.
+" property="og:description">
+
+
+  <meta content="https://henry40408.github.io/2017/03/migrate-from-cloudflare-to-aws.html" property="og:url">
+
+
+  <meta content="2017-03-06T00:00:00+00:00" property="article:published_time">
+  <meta content="https://henry40408.github.io/profile.html" property="article:author">
+
+
+  <meta content="https://henry40408.github.io/assets/cloudflare-migrate-to-aws-e21191cf61f39917a752fbb2b7d90ccf441d9b6daf7014dad0b5adc33275ad80.png" property="og:image">
+
+
+  
+
+
+  
+    <meta content="cloudflare" property="article:tag">
+  
+    <meta content="aws" property="article:tag">
+  
+    <meta content="letsencrypt" property="article:tag">
+  
+
+
+</head>
+
+  <body>
+    <div id="container" class="ui grid">
+      <div class="row">
+  <div id="site-header" class="column">
+    <h1 id="site-name" class="ui center aligned text">
+      <a href="/">
+        <img src="/assets/avatar-cacb37952d76ce487308150de663e58237b996e1d0351031f338bbc97ec27d69.png" alt="Avatar" class="ui centered circular bordered avatar small image" width="180" height="180">
+        <div>Henry Wu</div>
+      </a>
+    </h1>
+    <div id="site-nav">
+      <a class="ui small compact button" href="/">Home</a>
+      <a class="ui small compact button" href="/profile.html">Profile</a>
+      <div class="mobile only"></div>
+      <a class="ui small compact black icon button" href="https://github.com/henry40408"><i class="github icon"></i></a>
+      <a class="ui small compact green icon button" href="https://medium.com/henry40408"><i class="medium icon"></i></a>
+      <a class="ui small compact orange icon button" href="/feed.xml"><i class="rss icon"></i></a>
+    </div>
+  </div>
+</div>
+
+      
+<div class="row">
+  <div class="column">
+    <h1>從 Cloudflare 搬家到 AWS，而且是「徹底搬家」</h1>
+    <p>
+
+ Posted on <time datetime="2017-03-06 00:00:00 +0000">March 06 2017</time>, tagged with <a href="/tag/cloudflare.html" rel="tag">cloudflare</a>, <a href="/tag/aws.html" rel="tag">aws</a>, <a href="/tag/letsencrypt.html" rel="tag">letsencrypt</a></p>
+    <div class="single post"><p><img src="https://henry40408.github.io/assets/cloudflare-migrate-to-aws.png" alt="Cloudflare migrate to AWS" /></p>
+
+<p>使用了很長一段時間的 Cloudflare，最近在資安上捅出了一個大摟子：<a href="https://blog.cloudflare.com/incident-report-on-memory-leak-caused-by-cloudflare-parser-bug/">Cloudbleed</a>。於是開始研究其他類似 Cloudflare 的服務，第一個想到的就是另外一個我自己也已經使用很久的 <a href="https://aws.amazon.com/tw/">Amazon Web Services</a>。</p>
+
+<h2 id="cloudflare-提供什麼服務在-aws-上有哪些替代服務">Cloudflare 提供什麼服務？在 AWS 上有哪些替代服務？</h2>
+
+<table class="ui table">
+  <thead>
+    <tr>
+      <th>服務</th>
+      <th>Cloudflare</th>
+      <th>AWS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DNS</td>
+      <td>免費</td>
+      <td><strong><a href="https://aws.amazon.com/tw/route53/">付費</a>，一個 hosted zone 0.5 美金/月</strong><sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></td>
+    </tr>
+    <tr>
+      <td>SSL</td>
+      <td>免費，Flexible SSL</td>
+      <td><a href="https://aws.amazon.com/tw/certificate-manager/">免費</a>，Amazon Certificate Manager<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup> 或 <a href="https://letsencrypt.org/">Let’s Encrypt</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Amazon Certificate Manager (ACM) 與 Let’s Encrypt 最大的差別在於，<strong>ACM 需要附加在 Cloudfront 或 ELB 上</strong>，ELB 是 AWS 的負載平衡服務，價格不菲；Cloudfront 則是 AWS 的 CDN 服務，雖然非常便宜，但如果對於網站的流量與速度沒有太大的需求<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>，直接使用 Let’s Encrypt 即可。</p>
+
+<h2 id="實際使用案例">實際使用案例</h2>
+
+<h3 id="原來的設定">原來的設定</h3>
+
+<p>我自己手上目前有兩個 domain name，一個是個人網域，指向部落格，以下稱 <code>foo.com</code>；一個是之前用來接案的網域，指向客戶的網站，以下稱 <code>bar.com</code>。兩個都從台灣的網域代理商購得，然後按照 <a href="https://support.cloudflare.com/hc/en-us/articles/205195708-Step-3-Change-your-domain-name-servers-to-Cloudflare">Cloudflare 上的說明</a>，將網域代理商的設定改成 <strong>自管 DNS</strong>，指向 Cloudflare 管理的 DNS，然後啟用 Cloudflare 提供的 <strong>Flexible SSL</strong>。</p>
+
+<h3 id="部落格網域-foocom">部落格網域 foo.com</h3>
+
+<p>目前我的部落格是 host 在 <a href="https://pages.github.com/">GitHub Pages</a> 上，然後 <a href="https://github.com/isaacs/github/issues/156">GitHub 又打死不提供 custom domain SSL</a>。所以只能摸摸鼻子，花點小錢使用 Cloudfront，否則就沒有辦法掛 ACM 提供的憑證。礙於篇幅，我推薦直接參考 <a href="http://strd6.com/2016/02/github-pages-custom-domain-with-ssltls/">GitHub Pages Custom Domain with SSL/TLS</a>，我自己就是按照這篇文章設定，作者還很用心地放上了螢幕截圖。</p>
+
+<h3 id="接案用網域-barcom">接案用網域 bar.com</h3>
+
+<p>接案用的網域與部落格的網域相比簡單許多，但也繁雜許多。</p>
+
+<h4 id="1-先到-route53-建立-hosted-zone">1. 先到 Route53 建立 Hosted zone</h4>
+
+<p>Name 欄位在這個例子中是 <code>bar.com</code>。要注意的是，<strong>Route53 的 Hosted zone 一旦建立，就會收取 0.5 美金的費用，所以務必謹慎、不要打錯網域名稱</strong>。</p>
+
+<h4 id="2-將-dns-records-一筆一筆地從-cloudflare-複製貼上到-hosted-zone-下">2. 將 DNS records 一筆一筆地從 Cloudflare 複製、貼上到 Hosted zone 下</h4>
+
+<p>A record 就是 A record、CNAME record 就是 CNAME record、TXT record 就是 TXT record，名稱、值都是直接複製貼上。到目前為止我發現唯一不同的是，<strong>MX record 在 Cloudflare 上，多個的 priority 會切成多筆紀錄，但到了 Route53 上會合併成一筆</strong>。舉例來說如果在 Cloudflare 上，假設 MX record 有兩個 priority，就會有兩筆記錄：</p>
+
+<table class="ui table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Record</th>
+      <th style="text-align: right">Priority</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>mail.bar.com</td>
+      <td>MX</td>
+      <td>mxa.mailgun.com</td>
+      <td style="text-align: right">10</td>
+    </tr>
+    <tr>
+      <td>mail.bar.com</td>
+      <td>MX</td>
+      <td>mxb.mailgun.com</td>
+      <td style="text-align: right">20</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>但到了 Route53 上就會合併成一筆：</p>
+
+<table class="ui table">
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>mail.bar.com</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>MX</td>
+    </tr>
+    <tr>
+      <td>Records</td>
+      <td>10 mxa.mailgun.com<br />20 mxb.mailgun.com</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>最後比照 Cloudflare，也要到網域代理商那邊將 name server 改成 Cloudfront 提供的 name server，格式大概會長下面這個樣子：</p>
+
+<pre><code class="language-bi">ns-XX.awsdns-XX.co.uk.
+ns-XX.awsdns-XX.com.
+ns-XX.awsdns-XX.net.
+ns-XX.awsdns-XX.org.
+</code></pre>
+
+<p>其中 <code>XX</code> 都是數字。</p>
+
+<h4 id="3-確認-dns-已經生效">3. 確認 DNS 已經生效</h4>
+
+<p>由於 Let’s Encrypt 需要認證網域，<strong>所以在認證之前請先確定 Route53 已確實生效</strong>，domain name 有辦法指向網站主機，例如 EC2 instance 的 IP。</p>
+
+<pre><code class="language-bash">$ nslookup bar.com
+Server:		8.8.8.8
+Address:	8.8.8.8#53
+
+Non-authoritative answer:
+Name:	bar.com
+Address: 123.246.123.246 # ← 確定這裡的 IP 是對的
+$
+</code></pre>
+
+<h4 id="4-設定-nginx-的-well-known-directive">4. 設定 nginx 的 <code>.well-known</code> directive</h4>
+
+<p>如果伺服器是 nginx，要先設定 <code>.well-known</code> 路徑，<a href="https://letsencrypt.org/how-it-works/#domain-validation">讓 Let’s Encrypt 認證網域</a>。在此之前一定要先確定 DNS 已經生效，而且 IP 可以直接從外網訪問，否則 Let’s Encrypt 會無法連線，<strong>修改完設定檔之後記得重新啟動 nginx</strong>。</p>
+
+<pre><code class="language-nginx">server {
+  listen 80;
+  server_name bar.com;
+
+  # 其他設定
+
+  location ~ /.well-known {
+    allow all;
+    root /usr/share/nginx/html;
+  }
+
+  # 其他設定
+}
+</code></pre>
+
+<p><strong>記得重新啟動 nginx</strong>，因為很重要所以再說一次。</p>
+
+<h4 id="5-從-lets-encrypt-取得憑證">5. 從 Let’s Encrypt 取得憑證</h4>
+
+<p>Let’s Encrypt 現在只要安裝一個 <a href="https://certbot.eff.org/">certbot</a> 的小程式。</p>
+
+<blockquote>
+  <p>幹，變得超方便啊，以前為了 Let’s Encrypt 裝了一堆不知道是三小的垃圾。</p>
+</blockquote>
+
+<p>然後輸入以下指令：</p>
+
+<pre><code class="language-bash">$ certbot certonly -a webroot --webroot-path 網站根目錄 -d 網域名稱
+</code></pre>
+
+<p><code>網站根目錄</code> 要改成 server 的網站根目錄 (在 Apache 就是 <code>DocumentRoot</code> 的值、nginx 則是 <code>root</code> 的值)。假設今天網域名稱是 <code>bar.com</code>、網站根目錄是 <code>/usr/share/nginx/html</code>：</p>
+
+<pre><code class="language-bash">$ certbot certonly -a webroot --webroot-path /usr/share/nginx/html -d bar.com
+</code></pre>
+
+<p><strong>記得要給 certbot 寫入網站根目錄的權限</strong>，如果沒有權限就加上 <code>sudo</code> 試試看。另外，如果網域有 <code>www</code> 的別名，例如 <code>www.bar.com</code>，那也要一併加上去，因為 Let’s Encrypt 不會主動 alias：</p>
+
+<pre><code class="language-bash">$ certbot certonly -a webroot --webroot-path /usr/share/nginx/html -d bar.com -d www.bar.com
+</code></pre>
+
+<p>等 certbot 認證完，如果螢幕上出現 <strong>Congratulations</strong> 的字樣，代表大功告成。如果沒有，快看看是什麼樣的錯誤訊息。</p>
+
+<h4 id="51-404-not-found">5.1. 404 Not Found</h4>
+
+<p>這個錯誤如果按照其他網路上的教學，十之八九都會碰到。我常常看到 nginx 的設定他們只有寫這樣：</p>
+
+<pre><code class="language-nginx">server {
+  listen 80;
+  server_name bar.com;
+
+  # 其他設定
+
+  location ~ /.well-known {
+    allow all;
+  }
+
+  # 其他設定
+}
+</code></pre>
+
+<p>但實際上能動的 nginx 設定卻是這樣：</p>
+
+<pre><code class="language-nginx">server {
+  listen 80;
+  server_name bar.com;
+
+  # 其他設定
+
+  location ~ /.well-known {
+    allow all;
+    root /usr/share/nginx/html;
+  }
+
+  # 其他設定
+}
+</code></pre>
+
+<p><strong>注意到多一行 <code>root</code> 嗎</strong>？如果沒有那行，<code>/.well-known</code> 就不會對應到任何目錄，Let’s Encrypt 就抓不到認證用的檔案了。</p>
+
+<h4 id="52-找不到-domain-name-或-domain-name-指向的還是-cloudflare-的-dns">5.2. 找不到 domain name 或 domain name 指向的還是 Cloudflare 的 DNS</h4>
+
+<ol>
+  <li>私有 IP 或公開 IP：IP 位址一定要是可以從外網存取得到的公開 IP，否則 Let’s Encrypt 會沒辦法存取。</li>
+  <li>DNS 還沒生效：傳統的 DNS 會需要 24 至 48 小時來更新紀錄，但現在這樣的 DNS 已經很少了。如果還是遇到了趕快換一家吧，否則如果不幸遇到 DNS hijack，根本連防禦的時間都沒有。</li>
+</ol>
+
+<h4 id="6-為-nginx-加上-https設定-http-轉址到-https">6. 為 nginx 加上 HTTPS、設定 HTTP 轉址到 HTTPS</h4>
+
+<p>礙於篇幅，在此引用 DigitalOcean 社群的文章 <a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04">How To Secure Nginx with Let’s Encrypt on Ubuntu 14.04</a>，其中 <a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04#step-3-—-configure-tls-ssl-on-web-server-nginx">Step 3 — Configure TLS/SSL on Web Server (Nginx)</a> 就包含了在 nginx 設定 SSL 與設定 HTTP 自動轉址 HTTPS。</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>與其他 AWS 的服務不同的是，Route53 的 Hosted zone 一旦建立，就會立刻收取 0.5 美金的費用。 <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>憑證一定要在 us-east-1 region (N. Virginia) 申請、核發，否則在 Cloudfront 不會出現選項。 <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>甚至是安全。因為如果沒有掛 CDN 或切割內外網，只要使用 <code>nslookup</code> 等工具就可以直接知道主機的真實 IP。 <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'https://henry40408.github.io/2017/03/migrate-from-cloudflare-to-aws.html';
+      this.page.identifier = 'https://henry40408.github.io/2017/03/migrate-from-cloudflare-to-aws.html';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://henry40408.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+  </div>
+</div>
+
+      <footer>
+  <p>
+    <a href="https://www.henry40408.com"><img src="https://img.shields.io/badge/Author-Henry%20Wu-blue.svg" alt="Author: Henry Wu"></a>
+    <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-brightgreen.svg" alt="License: CC BY-NC-ND 4.0" /></a>
+    <a href="https://circleci.com/gh/henry40408/henry40408.github.io"><img src="https://circleci.com/gh/henry40408/henry40408.github.io/tree/develop.svg?style=shield" alt="CircleCI" /></a>
+  </p>
+</footer>
+
+    </div>
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Lato:300,400,700|Open+Sans:300,400" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/earlyaccess/notosanstc.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night-eighties.min.css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="/assets/main-b041a4693a87f8261b13b1f000deb9999ee7bdf7e4d3e08ce2b84d5f0d15c92c.css">
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-6529501-15', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.2/picturefill.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
+<!-- START of highlight.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/erb.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/elixir.min.js"></script>
+<!-- END of highlight.js -->
+<script type="text/javascript" src="/assets/all-2cc382219f28e1eabb67ac517fe06efbfb21a211f5a19e3b28c8e3e5788dd659.js"></script>
+
+  </body>
+</html>

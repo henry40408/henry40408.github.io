@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ <title>Your Title - terraform</title>
+ <link href="http://example.com/tag/terraform.xml" rel="self"/>
+ <link href="http://example.com/tag/terraform.html"/>
+ <updated>2018-07-18T16:39:02+00:00</updated>
+ <id>http://example.com/tag/terraform.html</id>
+ <author>
+   <name>Author Here</name>
+ </author>
+ 
+ <entry>
+   <title>Terraform 雜記</title>
+   <link href="http://example.com/2017/03/terraform-note.html"/>
+   <updated>2017-03-06T00:00:00+00:00</updated>
+   <id>http://example.com/2017/03/terraform-note</id>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;https://henry40408.github.io/assets/terraform-note.png&quot; alt=&quot;Terraform&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;最近在鼓搗 &lt;a href=&quot;https://www.terraform.io/&quot;&gt;Terraform&lt;/a&gt;，遇到了幾個 Terraform 還沒有解決的問題，在此一併跟使用上的小技巧一起記錄下來，希望可以幫助到也想要嘗試看看 Terraform 的同好。&lt;/p&gt;
+
+&lt;p&gt;這篇不會包含 Terraform 的 Getting Started，請移駕 &lt;a href=&quot;https://www.terraform.io/intro/getting-started/install.html&quot;&gt;Terraform 官網&lt;/a&gt;。通常我會建議初學者將 Terraform 實際應用到 AWS 上。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;首先 AWS 非常便宜。&lt;strong&gt;如果我沒記錯的話不滿一小時的時間會被加總，加總後不滿一小時以一小時計&lt;/strong&gt;，例如開 3 次每次 10 分鐘，月底計費的時候就會加總成 30 分鐘，只收一個小時的錢。&lt;/li&gt;
+  &lt;li&gt;再來 Terraform 也可以很方便地 destroy 掉任何 Terraform 留下的痕跡，當然已經建立的 EC2 instance 等 resource 也不會受到 Terraform 的操作影響。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;分清楚-variable-data-resource-output&quot;&gt;分清楚 &lt;code&gt;variable&lt;/code&gt;, &lt;code&gt;data&lt;/code&gt;, &lt;code&gt;resource&lt;/code&gt;, &lt;code&gt;output&lt;/code&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;variable&lt;/code&gt; 是 Terraform 或 &lt;code&gt;module&lt;/code&gt; 的&lt;strong&gt;輸入&lt;/strong&gt;，例如 IP 位址、SSH 金鑰的路徑等都可以使用 &lt;code&gt;variable&lt;/code&gt; 輸入，引用時必須在名稱前面加上 &lt;code&gt;var&lt;/code&gt; 作為前綴字，例如 &lt;code&gt;${var.this_is_a_variable}&lt;/code&gt;。&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;data&lt;/code&gt; 最常跟 &lt;code&gt;resource&lt;/code&gt; 混淆。&lt;code&gt;data&lt;/code&gt; 可以想像成是 &lt;strong&gt;Terraform 的搜尋引擎&lt;/strong&gt;，主要用來 search 或 filter provider 上既有的資料。以 AWS 為例，Terraform 就提供 &lt;code&gt;aws_iam&lt;/code&gt; data 來搜尋公開的 AMI。使用 &lt;code&gt;data&lt;/code&gt; 必須加上 &lt;code&gt;data&lt;/code&gt; 作為前綴字，例如 &lt;code&gt;${data.filtered_amis.latest}&lt;/code&gt;。&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;resource&lt;/code&gt; 就是 provider 提供給使用者自己掌握的資源。以 AWS 為例，EC2 instance、S3 bucket、VPC Subnet 甚至是 VPC Security Group 都會被抽象化成 Terraform 的 resource，讓我們可以以 Terraform 的語法統一管理。&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;output&lt;/code&gt; 是 Terraform 或 &lt;code&gt;module&lt;/code&gt; 的&lt;strong&gt;輸出&lt;/strong&gt;，例如透過 Terraform 建立的 resource 的公開 IP 位址。以 AWS 為例，諸如 EC2 instance 的 public DNS、到 Cloudfront 的 hosted zone，都可以透過 &lt;code&gt;output&lt;/code&gt; 輸出到 Terraform 之外或是給其他 &lt;code&gt;module&lt;/code&gt; 使用。&lt;/li&gt;
+  &lt;li&gt;在 Terraform，&lt;code&gt;resource&lt;/code&gt; 建立之後產生的資料稱為 &lt;strong&gt;Attribute&lt;/strong&gt;，attribute 可以做為 &lt;code&gt;output&lt;/code&gt; 的值，或是給同一個 &lt;code&gt;module&lt;/code&gt; 底下的 &lt;code&gt;resource&lt;/code&gt; 使用。例如 &lt;code&gt;aws_instance&lt;/code&gt; 這個 resource，就提供 &lt;code&gt;public_dns&lt;/code&gt; 這個 attribute，值是該 EC2 instance 的 public DNS。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;善用-import&quot;&gt;善用 &lt;code&gt;import&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;如果像我一樣，在使用 Terraform 之前就已經有手動透過 &lt;code&gt;awscli&lt;/code&gt; 或 AWS console 建立過 resource，例如 EC2 instance、VPC、IAM policy 等，可以妥善地運用 &lt;code&gt;terraform import&lt;/code&gt; 將已經建立過的 resource 匯入 Terraform。&lt;/p&gt;
+
+&lt;p&gt;當然，首先我們必須找出要匯入的是什麼 resource，例如 &lt;code&gt;aws_instance&lt;/code&gt;，那麼我們可以到 Terraform 的官網，找 &lt;a href=&quot;https://www.terraform.io/docs/providers/aws/r/instance.html&quot;&gt;&lt;code&gt;aws_instance&lt;/code&gt; 的文件&lt;/a&gt;，最底下會有一個 &lt;strong&gt;Import&lt;/strong&gt; 的章節，就會告訴我們要怎麼樣匯入這個 resource。只要是 AWS 的 resource，都會有一個獨一無二的 identifier，有可能是我們自己定義的名稱，例如 EC2 使用的 Key pair；也有可能是十六進位的數字，例如 EC2 instance，所以需要查閱 Terraform 的文件才會知道。&lt;/p&gt;
+
+&lt;p&gt;舉 EC2 instance 為例，假設 EC2 instance 的 identifier 是 &lt;code&gt;i-1a2b3c4d&lt;/code&gt;，那麼使用 Terraform 匯入的時候，語法就會像是以下這個樣子：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ terraform import aws_instance.foobar i-1a2b3c4d
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;其中 &lt;code&gt;aws_instance.foobar&lt;/code&gt; 是 Terraform 的 &lt;a href=&quot;https://www.terraform.io/docs/modules/usage.html#multiple-instances-of-a-module&quot;&gt;module path&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h2 id=&quot;如果是-terraform-自己定義的-resource就不會實際地反應在-cloud-provider-上&quot;&gt;如果是 Terraform 自己定義的 resource，就不會實際地反應在 cloud provider 上&lt;/h2&gt;
+
+&lt;p&gt;例如 &lt;code&gt;aws_iam_user_policy_attachment&lt;/code&gt; 就是 Terraform 自己定義的 resource，無法匯入。但如果 &lt;code&gt;terraform apply&lt;/code&gt;，如果該 IAM policy 已經 attach 到 IAM user 身上，就不會再被重複地 attach。不過 Terraform 還是會在 &lt;code&gt;terraform.tfstate&lt;/code&gt; 檔案裡紀錄這件事情已經做過了，方便之後移除該 resource 時，將 policy 從 user 身上 detach 掉。&lt;/p&gt;
+
+&lt;h2 id=&quot;terraform-不支援變數內嵌變數&quot;&gt;Terraform 不支援變數內嵌變數&lt;/h2&gt;
+
+&lt;p&gt;假設今天有一個 &lt;code&gt;foo&lt;/code&gt; variable：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;# modules/foo/main.tf
+variable &quot;foo&quot; {
+  type = &quot;map&quot;
+}
+variable &quot;bar_key&quot; {
+  type = &quot;string&quot;
+}
+variable &quot;baz_key&quot; {
+  type = &quot;string&quot;
+}
+
+# bar.tf
+module &quot;foo&quot; {
+  source = &quot;./modules/foo&quot;
+  bar_key = &quot;bar&quot;
+  baz_key = &quot;baz&quot;
+  foo = {
+    bar = &quot;this_is_value_of_bar&quot;
+    baz = &quot;this_is_value_of_baz&quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果在 &lt;code&gt;modules/foo/another.tf&lt;/code&gt; 使用 &lt;code&gt;${var.foo[var.bar_key]}&lt;/code&gt;，Terraform 會解析錯誤，必須改成把 &lt;code&gt;var.foo&lt;/code&gt; 展開：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;# modules/foo/main.tf
+variable &quot;foo&quot; {
+  type = &quot;map&quot;
+}
+
+# bar.tf
+module &quot;foo&quot; {
+  source = &quot;./modules/foo&quot;
+  foo = {
+    bar_key = &quot;this_is_value_of_bar&quot;
+    baz_key = &quot;this_is_value_of_baz&quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然後使用 &lt;code&gt;${var.foo[&quot;bar_key&quot;]}&lt;/code&gt; 與 &lt;code&gt;${var.foo[&quot;bar_key&quot;]}&lt;/code&gt; 去取值。&lt;/p&gt;
+
+&lt;h2 id=&quot;terraform-的--force-有-bug&quot;&gt;Terraform 的 &lt;code&gt;-force&lt;/code&gt; 有 bug&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/hashicorp/terraform/issues/5663&quot;&gt;-force flag on terraform remote push does not work #5663&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;必須手動增加 &lt;code&gt;.tfstate&lt;/code&gt; 檔案的 &lt;code&gt;serial&lt;/code&gt; 欄位。&lt;/p&gt;
+
+&lt;h2 id=&quot;terraform-支援-module-內嵌-module但回傳的-resource-name-不正確&quot;&gt;Terraform 支援 module 內嵌 module，但回傳的 &lt;code&gt;resource&lt;/code&gt; name 不正確&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/hashicorp/terraform/issues/8713&quot;&gt;terraform import command fails when there are several nested levels on the resource address #8713&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;例如 &lt;code&gt;terraform plan&lt;/code&gt; 時顯示的是：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-plain&quot;&gt;module.foo.policy-with-module.aws_iam_policy.inner-policy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;其中 &lt;code&gt;policy-with-resource&lt;/code&gt; 是一個 module。如果在 &lt;code&gt;terraform import&lt;/code&gt; 時，原封不動地使用這個名稱，Terraform 會回報解析錯誤，必須在 &lt;code&gt;policy-with-resource&lt;/code&gt; 前面加上 &lt;code&gt;module&lt;/code&gt;，也就是變成：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-plain&quot;&gt;module.foo.module.policy-with-module.aws_iam_policy.inner-policy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;才行得通。&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>在 Terraform 抽換 Security Group</title>
+   <link href="http://example.com/2017/03/replace-security-groups-in-terraform.html"/>
+   <updated>2017-03-06T00:00:00+00:00</updated>
+   <id>http://example.com/2017/03/replace-security-groups-in-terraform</id>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;https://henry40408.github.io/assets/replace-security-group-with-terraform.png&quot; alt=&quot;Terraform&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;aws-的限制&quot;&gt;AWS 的限制&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Security group 的 description 不可以更改，如果一定要更改，&lt;strong&gt;要先刪除之後再重建&lt;/strong&gt;。&lt;/li&gt;
+  &lt;li&gt;EC2 跟 RDS &lt;strong&gt;至少要有一個&lt;/strong&gt; security group，&lt;strong&gt;不可以完全沒有&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;terraform-的折衷辦法&quot;&gt;Terraform 的折衷辦法&lt;/h2&gt;
+
+&lt;p&gt;以下每個步驟之間，都要輸入以下兩個指令，&lt;strong&gt;最後一步結束之後也要輸入&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ terraform plan
+$ terraform apply
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;不建議兩步合併一步做，因為可能會破壞掉 Terraform 的 &lt;code&gt;terraform.tfstate&lt;/code&gt;。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;先在 &lt;code&gt;*.tf&lt;/code&gt; 檔案裡，使用 &lt;a href=&quot;https://www.terraform.io/docs/providers/aws/r/security_group.html&quot;&gt;aws_security_group&lt;/a&gt; 建立一個沒有 &lt;code&gt;ingress&lt;/code&gt;、&lt;code&gt;egress&lt;/code&gt; rule 的 dummy security group，然後新增到要抽換的 &lt;a href=&quot;https://www.terraform.io/docs/providers/aws/r/instance.html&quot;&gt;aws_instance&lt;/a&gt; 或 &lt;a href=&quot;https://www.terraform.io/docs/providers/aws/r/db_instance.html&quot;&gt;aws_db_instance&lt;/a&gt; 的 &lt;a href=&quot;https://www.terraform.io/docs/providers/aws/r/instance.html#vpc_security_group_ids&quot;&gt;vpc_security_group_ids&lt;/a&gt; 裡。&lt;/li&gt;
+  &lt;li&gt;修改 &lt;code&gt;*.tf&lt;/code&gt; 檔案的 &lt;code&gt;aws_instance&lt;/code&gt; 或 &lt;code&gt;aws_db_instance&lt;/code&gt; block，把要抽換掉的 security group 從 &lt;code&gt;vpc_security_group_ids&lt;/code&gt; 移除掉。&lt;strong&gt;注意如果有公開的 port，instance 會全部斷網，如果有承諾 zero downtime 要想辦法避開&lt;/strong&gt;，例如先把原來 security group 的 rule 全部複製到 dummy security group，可能會需要 &lt;a href=&quot;https://www.terraform.io/docs/providers/aws/r/security_group_rule.html&quot;&gt;aws_security_group_rule&lt;/a&gt; 的協助。&lt;/li&gt;
+  &lt;li&gt;修改 &lt;code&gt;*.tf&lt;/code&gt; 檔案，先移除或註解掉要抽換的 security group。&lt;strong&gt;注意一定要確定 security group 都從 instance 上 detach 了，否則 Terraform 在 apply 階段就會一直卡著&lt;/strong&gt;。我個人推測是因為 AWS 的 API 也沒有直接針對 instance 至少要有一個 security group 這件事拋出錯誤，所以 Terraform 就會一直等待 AWS 回覆。&lt;/li&gt;
+  &lt;li&gt;修改 &lt;code&gt;*.tf&lt;/code&gt; 檔案，把已經抽換掉的新 security group 重新 attach 回 &lt;code&gt;aws_instance&lt;/code&gt; 或 &lt;code&gt;aws_db_instance&lt;/code&gt; 的 &lt;code&gt;vpc_security_group_ids&lt;/code&gt; 裡。&lt;/li&gt;
+  &lt;li&gt;修改 &lt;code&gt;*.tf&lt;/code&gt; 檔案，將 dummy security group 從 &lt;code&gt;aws_instance&lt;/code&gt; 或 &lt;code&gt;aws_db_instance&lt;/code&gt; 的 &lt;code&gt;vpc_security_group_ids&lt;/code&gt; detach 掉。&lt;/li&gt;
+  &lt;li&gt;修改 &lt;code&gt;*.tf&lt;/code&gt; 檔案，移除或註解掉 dummy security group 的 &lt;code&gt;aws_security_group&lt;/code&gt; resource block。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;結語&quot;&gt;結語&lt;/h2&gt;
+
+&lt;p&gt;使用 Terraform 抽換 security group 的步驟不難但非常繁雜，很難想到有什麼原因會讓 AWS 不准使用者修改 security group 的 description。&lt;/p&gt;
+</content>
+ </entry>
+ 
+</feed>

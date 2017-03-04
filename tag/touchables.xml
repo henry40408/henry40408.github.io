@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ <title>Your Title - touchables</title>
+ <link href="http://example.com/tag/touchables.xml" rel="self"/>
+ <link href="http://example.com/tag/touchables.html"/>
+ <updated>2018-07-18T16:39:02+00:00</updated>
+ <id>http://example.com/tag/touchables.html</id>
+ <author>
+   <name>Author Here</name>
+ </author>
+ 
+ <entry>
+   <title>React Native 的觸控區域</title>
+   <link href="http://example.com/2016/07/react-native-touchables.html"/>
+   <updated>2016-07-29T23:30:00+00:00</updated>
+   <id>http://example.com/2016/07/react-native-touchables</id>
+   <content type="html">&lt;h2 id=&quot;樣式上的差異&quot;&gt;樣式上的差異&lt;/h2&gt;
+
+&lt;p&gt;在 React Native，如果需要觸控區域，我們有兩個選擇：&lt;code&gt;&amp;lt;TouchableWithoutFeedback /&amp;gt;&lt;/code&gt; 與 &lt;code&gt;&amp;lt;TouchableHighlight /&amp;gt;&lt;/code&gt;。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。&lt;/p&gt;
+
+&lt;p&gt;實際使用之後，我發現兩者另外一項區別在於 &lt;code&gt;&amp;lt;TouchableWithoutFeedback /&amp;gt;&lt;/code&gt; 沒有預設樣式，實際使用起來就像是一個隱形的容器，包住內部的元素，但又不會與內部的容器互相影響；而 &lt;code&gt;&amp;lt;TouchableHighlight /&amp;gt;&lt;/code&gt; 本身則會形成一個區塊，會與內部的元素相互影響。至於之前的版本曾經有使用者提出 &lt;code&gt;&amp;lt;TouchableHighlight /&amp;gt;&lt;/code&gt; 可能是為了產生回饋的視覺效果，而有效能上的問題。但在 &lt;code&gt;0.28.x&lt;/code&gt; 之後，至少我實際使用到現在還沒有遇到嚴重的效能問題，即使是在最複雜的編輯履歷頁面也沒有。&lt;/p&gt;
+
+&lt;h2 id=&quot;view--與自訂-component-的規格差異&quot;&gt;&lt;code&gt;&amp;lt;View /&amp;gt;&lt;/code&gt; 與自訂 component 的規格差異&lt;/h2&gt;
+
+&lt;p&gt;官方文件建議如果要在 &lt;code&gt;Touchable&lt;/code&gt; 系列裡使用多個 component，如以下的形式，直接寫是行不通的。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;&amp;lt;TouchableHighlight&amp;gt;
+  &amp;lt;ChildOne /&amp;gt;
+  &amp;lt;ChildTwo /&amp;gt;
+&amp;lt;/TouchableHighlight&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;必須改寫成以下形式。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;&amp;lt;TouchableHighlight&amp;gt;
+  &amp;lt;View&amp;gt;
+    &amp;lt;ChildOne /&amp;gt;
+    &amp;lt;ChildTwo /&amp;gt;
+  &amp;lt;/View&amp;gt;
+&amp;lt;/TouchableHighlight&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;而重點就在這個 &lt;code&gt;&amp;lt;View /&amp;gt;&lt;/code&gt;。這個 &lt;code&gt;&amp;lt;View /&amp;gt;&lt;/code&gt; 在 &lt;code&gt;0.28.x&lt;/code&gt; 時不能以自訂的 component 取代。例如以下的程式碼，在 &lt;code&gt;0.28.x&lt;/code&gt; 有一定的機率造成 &lt;code&gt;Touchable&lt;/code&gt; 失去效果。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;const MyComp = ({children}) =&amp;gt; (
+  &amp;lt;View&amp;gt;
+    {children}
+  &amp;lt;/View&amp;gt;
+);
+
+const Touchable = () =&amp;gt; (
+  &amp;lt;TouchableHighlight&amp;gt;
+    &amp;lt;MyComp&amp;gt;
+      &amp;lt;ChildOne /&amp;gt;
+      &amp;lt;ChildTwo /&amp;gt;
+    &amp;lt;/MyComp&amp;gt;
+  &amp;lt;/TouchableHighlight&amp;gt;
+);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果寫成以上的形式，則 React Native 在執行的時候會展開成以下形式。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;const Touchable = () =&amp;gt; (
+  &amp;lt;TouchableHighlight&amp;gt;
+    &amp;lt;MyComp&amp;gt;
+      &amp;lt;View&amp;gt;
+        &amp;lt;ChildOne /&amp;gt;
+        &amp;lt;ChildTwo /&amp;gt;
+      &amp;lt;/View&amp;gt;
+    &amp;lt;/MyComp&amp;gt;
+  &amp;lt;/TouchableHighlight&amp;gt;
+);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;這時候會發生錯誤導致 React Native 無法執行。原因是 &lt;code&gt;&amp;lt;MyComp /&amp;gt;&lt;/code&gt; 並不是一個 native component，因此當 &lt;code&gt;Touchable&lt;/code&gt; 在為這個 component 注入一些屬性時，會發生某些 &lt;code&gt;&amp;lt;View /&amp;gt;&lt;/code&gt; 有定義 function 在自訂 component 中沒有被定義 (&lt;code&gt;[函數名稱] is undefined&lt;/code&gt;) 的錯誤。&lt;/p&gt;
+
+&lt;p&gt;根據 &lt;a href=&quot;https://facebook.github.io/react-native/docs/direct-manipulation.html&quot;&gt;Direct Manipulation&lt;/a&gt; 中的說明，如果要將一個自訂的 component &lt;strong&gt;偽裝&lt;/strong&gt; 成 native component，則需要實作 &lt;code&gt;setNativeProps&lt;/code&gt; 這個 function，然後把 native props 傳遞給要自訂的 component。&lt;/p&gt;
+
+&lt;p&gt;但實際測試之後，&lt;code&gt;setNativeProps&lt;/code&gt; 的效果並不如預期地是 100% 正常運作。因此建議如果沒有特別的需求，盡量還是直接使用 &lt;code&gt;&amp;lt;View /&amp;gt;&lt;/code&gt; 來包裝 child component。&lt;/p&gt;
+
+&lt;p&gt;我知道畫面上一堆 &lt;code&gt;&amp;lt;View /&amp;gt;&lt;/code&gt; 會讓可讀性變得非常差，否則我們也不需要自己實作自己的 component，但這是目前已知唯一 100% 有效的實作方法。&lt;/p&gt;
+</content>
+ </entry>
+ 
+</feed>

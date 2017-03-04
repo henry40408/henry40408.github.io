@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ <title>Your Title - import</title>
+ <link href="http://example.com/tag/import.xml" rel="self"/>
+ <link href="http://example.com/tag/import.html"/>
+ <updated>2018-07-18T16:39:02+00:00</updated>
+ <id>http://example.com/tag/import.html</id>
+ <author>
+   <name>Author Here</name>
+ </author>
+ 
+ <entry>
+   <title>在 React Native 裡避免大量的 ../../</title>
+   <link href="http://example.com/2016/05/prevent-dot-dot-in-react-native.html"/>
+   <updated>2016-05-25T23:01:00+00:00</updated>
+   <id>http://example.com/2016/05/prevent-dot-dot-in-react-native</id>
+   <content type="html">&lt;h2 id=&quot;問題&quot;&gt;問題&lt;/h2&gt;
+
+&lt;p&gt;React Native 採用 ES6 做為開發語言，而 ES6 的 &lt;code&gt;import&lt;/code&gt; 語法指定檔案時採用相對路徑。如果採用 &lt;a href=&quot;http://redux.js.org/&quot;&gt;Redux&lt;/a&gt; 架構開發，很快地 &lt;code&gt;Component&lt;/code&gt; 就會開始出現以下一堆亂七八糟的 &lt;code&gt;import&lt;/code&gt; 語句。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;import DoSomething from '../actions/DoSomething';
+import DoAnotherThing from '../actions/DoAnotherThing';
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果是從 HTML4 時代就開始寫 JavaScript 的工程師，乍看之下沒有什麼不好，因為絕對路徑與相對路徑的好壞在 HTML4 的時代就吵過一次，最後的結論也都是有好有壞。&lt;strong&gt;但 React Native 不是 ES5&lt;/strong&gt;，規模很容易膨脹到超過傳統 ES5 專案的程度，因此應該另尋專為大型專案設計的解決方法。&lt;/p&gt;
+
+&lt;h2 id=&quot;他山之石&quot;&gt;他山之石&lt;/h2&gt;
+
+&lt;p&gt;讓我們來看看 Python 與 Java 的 &lt;code&gt;import&lt;/code&gt; 語句。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+from app import MyApp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;import butterknife.BindView;
+import butterknife.BindViews;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.OnItemClick;
+import butterknife.OnLongClick;
+
+import tw.com.sudo.JavaProject.DummyClass;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Python 跟 Java 都號稱專為大型專案設計，而他們的 &lt;code&gt;import&lt;/code&gt; 語法也驚人地相似。簡而言之，它們原理就是 &lt;strong&gt;以專案目錄為起點，去定位被 import 的檔案位置&lt;/strong&gt;。因此無論你的檔案怎麼搬動，只要還在專案目錄下，&lt;code&gt;import&lt;/code&gt; 語句的起點都不會改變，讓重構的意願提高。&lt;/p&gt;
+
+&lt;h2 id=&quot;解法&quot;&gt;解法&lt;/h2&gt;
+
+&lt;p&gt;如果是 React Native，&lt;strong&gt;你什麼事都不必做&lt;/strong&gt;，因為 React Native 已經內建了從專案目錄計算 import 路徑的功能。雖然 React Native 已經支援了相關功能，但由於官方文件並沒有明確說明，只有 &lt;a href=&quot;https://github.com/facebook/react-native/issues/3099&quot;&gt;相關的 issue&lt;/a&gt;，具體的方法是在 &lt;a href=&quot;http://stackoverflow.com/questions/30040534/local-require-paths-for-react-native&quot;&gt;StackOverflow&lt;/a&gt; 上找到的，因此如果要使用在 production 上要特別小心。&lt;/p&gt;
+
+&lt;p&gt;如果你要嘗鮮，以下是具體寫法。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;// src/foo/DummyClass.js
+class DummyClass { ... }
+export default DummyClass;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;// src/package.json
+{
+  &quot;name&quot;: &quot;@src&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;// src/components/Bar.js
+import DummyClass from '@src/foo/DummyClass';
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;整體而言就是透過 &lt;code&gt;package.json&lt;/code&gt; 去為 &lt;code&gt;package.json&lt;/code&gt; 的目錄命名 (在此命名為 &lt;code&gt;@src&lt;/code&gt;，越特別越好，不然可能會與其他來自 npm 的 package 撞名)，之後所有在專案下的 ES6 檔案的 &lt;code&gt;import&lt;/code&gt; 路徑就會多一個以 &lt;code&gt;@src&lt;/code&gt; 開頭的路徑，起點從 &lt;code&gt;src/&lt;/code&gt; 開始。&lt;/p&gt;
+
+&lt;h2 id=&quot;結語&quot;&gt;結語&lt;/h2&gt;
+
+&lt;p&gt;掰掰，&lt;code&gt;../../&lt;/code&gt;。&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+</feed>

@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ <title>Your Title - phoenix</title>
+ <link href="http://example.com/tag/phoenix.xml" rel="self"/>
+ <link href="http://example.com/tag/phoenix.html"/>
+ <updated>2018-07-18T16:39:02+00:00</updated>
+ <id>http://example.com/tag/phoenix.html</id>
+ <author>
+   <name>Author Here</name>
+ </author>
+ 
+ <entry>
+   <title>TWIL #1</title>
+   <link href="http://example.com/2016/10/twil-1.html"/>
+   <updated>2016-10-21T11:54:00+00:00</updated>
+   <id>http://example.com/2016/10/twil-1</id>
+   <content type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;TWIL (abbr.) = This Week I Learned&lt;/p&gt;
+
+  &lt;p&gt;這個星期我學會了什麼。&lt;/p&gt;
+
+  &lt;p&gt;例句：從這個星期開始，我會每個禮拜整理一次 TWIL。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;由於之前生活比較混亂，導致應該每個星期都要整理這個禮拜我學了什麼的習慣就這麼中斷了。為了在往後幾年讓自己有辦法回顧自己這幾年學會了什麼、不枉此生，開始養成固定寫 TWIL 的習慣。&lt;/p&gt;
+
+&lt;h1 id=&quot;20161017---20161021&quot;&gt;2016/10/17 - 2016/10/21&lt;/h1&gt;
+
+&lt;h2 id=&quot;瑣事&quot;&gt;瑣事&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;看 &lt;a href=&quot;https://github.com/emacs-tw/emacs-101&quot;&gt;emacs-tw/emacs-101&lt;/a&gt; 學 Emacs。&lt;/li&gt;
+  &lt;li&gt;使用 &lt;a href=&quot;https://github.com/yelouafi/redux-saga&quot;&gt;&lt;code&gt;redux-saga&lt;/code&gt;&lt;/a&gt; 完成對 new-hampshire 前端的重構 &lt;a href=&quot;https://github.com/henry40408/singleton/pull/6&quot;&gt;PR&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/redux-observable/redux-observable&quot;&gt;redux-observable/redux-observable&lt;/a&gt; 10/17 參加 Elixir Taiwan 聚會時與會者推薦的一個 redux 套件。據該與會者所言，他完全看不懂 &lt;code&gt;redux-saga&lt;/code&gt; 到底想幹嘛 XD
+    &lt;ul&gt;
+      &lt;li&gt;由於專案不大，&lt;code&gt;redux-saga&lt;/code&gt; 與 &lt;code&gt;redux-observable&lt;/code&gt; 之間的轉換我是直接把 code 全部打掉重練，需要維護超大型 redux 專案的好孩子不要學喔～&lt;/li&gt;
+      &lt;li&gt;個人認為 &lt;code&gt;redux-observable&lt;/code&gt; 的強項在於架構上的簡潔。 &lt;a href=&quot;https://github.com/henry40408/singleton/pull/7&quot;&gt;PR&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;拜 Rx 所賜，&lt;code&gt;redux-generator&lt;/code&gt; 不需要 generator 就可以做到很複雜的操作，這同時也代表寫 &lt;code&gt;redux-observable&lt;/code&gt; 不需要再處理一堆亂七八糟的 &lt;code&gt;babel-preset-stage-*&lt;/code&gt;，只要最基本的 babel 就可以開始寫程式了。(除非你需要一些特殊功能，例如 class properties)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;vim 的 &lt;a href=&quot;http://vimawesome.com/plugin/surround-vim&quot;&gt;surround.vim&lt;/a&gt; 真的是很強大的 plugin，尤其在處理類 HTML (例如 JSX) 的文件時，以前要按好幾個按鍵的工作現在只要一個指令就可以完成，省下非常多的時間。&lt;/li&gt;
+  &lt;li&gt;原來想寫一個以 GitHub Issue 為發文後台的部落格系統，卻發現已經有人寫出來了。&lt;a href=&quot;https://github.com/mateogianolio/issuance&quot;&gt;ref.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;之前會想換到 emacs，是聽說 emacs 在程式語言的處理與呈現上比 vim 強上好幾倍 (這不是我講的不要攻擊我 QQ)。但在這一個禮拜快要結束時，我反思是不是我還沒有把 vim 的潛能發揮到極致？於是我找到了這位仁兄的 &lt;a href=&quot;https://github.com/skwp/dotfiles/tree/master/vim&quot;&gt;dotfile repo&lt;/a&gt;，裡面塞滿了五花八門、亂七八糟 (單純讚美、沒有別的意思) 的 vim 套件。我從中抽出幾個看起來我應該會用到的套件，整理成我自己的 &lt;a href=&quot;https://gist.github.com/henry40408/2a259f4d6aedfe1997ab#file-vimrc&quot;&gt;vimrc&lt;/a&gt;。整理完之後 vim 看起來好像有變強一點點、變得好用一點點。
+    &lt;ul&gt;
+      &lt;li&gt;但基於工程師不能停止學習的精神，我還是會每天固定抽一點時間出來摸摸 emacs。就像學 erlang 時一樣，摸久了總有一天會想通的。&lt;/li&gt;
+      &lt;li&gt;我的 vimrc 有用到 &lt;a href=&quot;https://github.com/Shougo/dein.vim&quot;&gt;dein&lt;/a&gt;，號稱 &lt;em&gt;plugin manager with dark power&lt;/em&gt;，使用 vim 8 加入的 asynchronous API 來管理 plugin，也因此最低版本要求 vim 8。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;redux-observable-的錯誤處理&quot;&gt;&lt;code&gt;redux-observable&lt;/code&gt; 的錯誤處理&lt;/h2&gt;
+
+&lt;p&gt;使用 &lt;code&gt;redux-observable&lt;/code&gt; 時，由於 stream 所接收的是 Redux 的 &lt;code&gt;action&lt;/code&gt;，所以如果在 operator 裡發生錯誤，整個 stream 就會崩潰，並且不再回應下一次的 &lt;code&gt;action&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;以河流為例，如果把河流截斷，之後從上游來的水就不會再流到下游去了，其實很合理。但有沒有辦法讓我們要怎麼攔截到 exception 之後讓 stream 繼續處理下一次 &lt;code&gt;action&lt;/code&gt; 呢？&lt;/p&gt;
+
+&lt;p&gt;使用 &lt;code&gt;catch&lt;/code&gt; operator。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;const someEpic = action$ =&amp;gt; action$
+  .ofType(SOME_ACTION)
+  .flatMap(() =&amp;gt; {
+    const rand = Math.random();
+    if (rand &amp;lt; 0.5) {
+      throw Error('Bad luck');
+    }
+    return Observable.just('Good luck');
+  })
+  .map(someOtherAction)
+  .catch((e, stream) =&amp;gt; {
+    console.log(e); // ...或串接錯誤回報服務、進行其他攔截處理
+    return stream; // 最重要的一句，維持 stream 不中斷，讓 stream 可以捕捉下一次的 action
+  });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;在-phoenix-controller-test-進行與-session-有關的測試&quot;&gt;在 Phoenix controller test 進行與 session 有關的測試&lt;/h2&gt;
+
+&lt;h3 id=&quot;前言-1&quot;&gt;前言&lt;/h3&gt;
+
+&lt;p&gt;在 Ruby on Rails，拜 &lt;a href=&quot;https://github.com/plataformatec/devise&quot;&gt;devise&lt;/a&gt; (其實是 warden) 所賜，我們可以很方便地在 controller test 中加入與 session 有關的程式碼&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;，讓自己可以在匿名使用者、一般使用者與特殊使用者的身份之間彼此切換。最近在研究 Phoenix 時，我就不禁在想 Phoenix 有沒有辦法做到類似的事？&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;豆知識&lt;/p&gt;
+
+  &lt;p&gt;強推 Elixir 的 &lt;a href=&quot;http://plataformatec.com.br/&quot;&gt;Plataformatec&lt;/a&gt;，同時也是 devise 套件的主要維護組織；同樣是以 Ruby on Rails 為本，將觸角往 Phoenix 延伸的還有另外一家公司 &lt;a href=&quot;https://thoughtbot.com/&quot;&gt;thoughtbot&lt;/a&gt; (因為它的 logo 我都戲稱它為機器人公司)，旗下與 Elixir 有關的套件包括 &lt;code&gt;factory_girl&lt;/code&gt; 的 Elixir 版本 &lt;a href=&quot;https://github.com/thoughtbot/ex_machina&quot;&gt;&lt;code&gt;ex_machina&lt;/code&gt;&lt;/a&gt;。所以 Elixir 接近 Ruby 的語法結構，有助於 Ruby 開發者快速地轉移過去並上手的論調並非沒有根據。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;但 Phoenix 畢竟不是 Ruby on Rails，其一是如果去拜 google 大神，不管你下什麼樣的關鍵字，相關的文章幾乎還沒問世；其二是 Phoenix 似乎對 mocking 這件事情十分感冒，即使是為了測試&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+
+&lt;p&gt;於是我就退一步想，如果在 Phoenix 不能做模擬 session 這件事，或是 Phoenix 基本上禁止開發者做這件事&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;，那我還有其他做法嗎？&lt;/p&gt;
+
+&lt;p&gt;有，那就是 &lt;code&gt;Plug.Conn.assign&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;做法&quot;&gt;做法&lt;/h3&gt;
+
+&lt;p&gt;假設在 application = &lt;code&gt;TodoApp&lt;/code&gt; 底下有一個 controller = &lt;code&gt;TodoController&lt;/code&gt;，有個相對應的測試 &lt;code&gt;TodoApp.TodoControllerTest&lt;/code&gt;。這一段 code 是直接使用 generator (&lt;code&gt;mix phoenix.gen.json Todo todos title:string done:boolean&lt;/code&gt;) 產生的，還沒有修改過，裡面會有以下這一段 &lt;code&gt;setup&lt;/code&gt; 與 &lt;code&gt;index&lt;/code&gt; action 的測試。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-elixir&quot;&gt;# test/controllers/todo_controller_test.exs
+defmodule TodoApp.TodoControllerTest do
+  # ...
+
+  setup %{conn: conn} do
+    {:ok, conn: put_req_header(conn, &quot;accept&quot;, &quot;application/json&quot;)}
+  end
+
+  # ...
+
+  test &quot;lists all entries on index&quot;, %{conn: conn} do
+    conn = get conn, todo_path(conn, :index)
+    assert json_response(conn, 200)[&quot;data&quot;] == []
+  end
+
+  # ...
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;假設 &lt;code&gt;index&lt;/code&gt; action 被我修改成下面這個樣子：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-elixir&quot;&gt;# web/controllers/todo_controller.ex
+defmodule TodoApp.TodoController
+  # ...
+
+  plug :put_current_user
+
+  # ...
+
+  def index(conn, _params) do
+    todos = conn |&amp;gt; not_deleted_todos |&amp;gt; Repo.all
+    render(conn, &quot;index.json-api&quot;, data: todos)
+  end
+
+  # ...
+
+  defp not_deleted_todos
+    %{assigns: %{current_user: user}} = conn
+    # 這一句的作用在篩選屬於目前登入的 user
+    # 並且沒有被 soft-deleted 的 todos
+    Todo |&amp;gt; Todo.owned_by(user.id) |&amp;gt; Todo.not_deleted
+  end
+
+  # 1. 這個 plug 會把登入的 user 從 session 裡抽出來
+  #    透過 assigns 放到 conn 裡
+  # 2. 如果沒有登入會回傳 401 然後終止這一次的 request
+  defp put_current_user(conn, _opts) do
+    current_user = get_session(conn, :current_user)
+
+    case current_user do
+      %{id: _} -&amp;gt;
+        assign(conn, :current_user, current_user)
+      _ -&amp;gt;
+        conn
+        |&amp;gt; put_status(401)
+        |&amp;gt; render(TodoApp.AuthView, &quot;show.json-api&quot;, data: %{status: :unauthorized})
+        |&amp;gt; halt
+    end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;好，現在問題來了。如果直接執行 &lt;code&gt;mix test&lt;/code&gt;，會 test failed，因為沒有模擬使用者登入，當然會 fail。&lt;/p&gt;
+
+&lt;p&gt;在修改測試之前，先有一個概念，&lt;strong&gt;&lt;code&gt;assigns&lt;/code&gt; 裡面存放的值，一定是從 server-side 放進去的，除非伺服器端放行，否則 client-side 完全無法修改&lt;/strong&gt;。有了這個前提，我們就可以在 controller 裡插入一些看似無關痛癢的程式碼，事實上卻可以協助我們完成測試。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-elixir&quot;&gt;# web/controllers/todo_controller.ex
+defmodule TodoApp.TodoController do
+  # ...
+
+  # 如果 pattern match 到 assigns 中已經有 current_user，代表這個 request
+  # 從測試的沙盒中發出的 request，因此不再從 session 中取得 current_user，
+  # 直接 pass conn 給 action
+  defp put_current_user(%{assigns: %{current_user: _}} = conn, _opts) do
+    conn
+  end
+
+  # ...
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;透過這個方法，我們就可以在測試的 &lt;code&gt;setup&lt;/code&gt; 中神不知鬼不覺地塞入 &lt;code&gt;current_user&lt;/code&gt;，並且可以在之後的 &lt;code&gt;show&lt;/code&gt;、&lt;code&gt;update&lt;/code&gt; 中也使用這個 &lt;code&gt;current_user&lt;/code&gt;。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-elixir&quot;&gt;# test/controllers/todo_controller_test.ex
+defmodule TodoApp.TodoControllerTest do
+  # ...
+
+  setup %{conn: conn} do
+    # User 是另外一個 model，與本文的重點關聯關係不大就省略細節了
+    # 會帶 provider 與 uid 的欄位是為了實作 OAuth
+    user = %User{provider: &quot;google&quot;, uid: &quot;1a2b3c4d&quot;, email: Faker.Internet.email}
+           |&amp;gt; User.changeset
+           |&amp;gt; Repo.insert!
+
+    conn = conn
+           |&amp;gt; assign(:current_user, user) # 關鍵在這行，神不知鬼不覺地指派進去
+           |&amp;gt; put_req_header(&quot;accept&quot;, &quot;application/json&quot;)
+
+    # 把 user 代進 conn，稍後其他的 test case 也可以使用
+    {:ok, conn: conn, user: user}
+  end
+
+  # ...
+
+  test &quot;shows chosen resource&quot;, %{conn: conn, user: user} do
+    # 從 context 中取出 user 來建立假資料
+    todo = Repo.insert! %Todo{user_id: user.id}
+    conn = get conn, todo_path(conn, :show, todo)
+
+    expected = %{ &quot;title&quot; =&amp;gt; todo.title, &quot;done&quot; =&amp;gt; todo.done }
+    assert json_response(conn, 200)[&quot;data&quot;][&quot;id&quot;] == Integer.to_string(todo.id, 10)
+    assert json_response(conn, 200)[&quot;data&quot;][&quot;attributes&quot;] == expected
+  end
+
+  # ...
+
+  test &quot;updates and renders chosen resource when data is valid&quot;, %{conn: conn, user: user} do
+    # 從 context 中取出 user 來建立假資料
+    todo = Repo.insert! %Todo{user_id: user.id}
+
+    conn = put conn, todo_path(conn, :update, todo), todo: @valid_attrs
+    assert json_response(conn, 200)[&quot;data&quot;][&quot;id&quot;]
+    assert Repo.get_by(Todo, @valid_attrs)
+  end
+
+  test &quot;does not update chosen resource and renders errors when data is invalid&quot;, %{conn: conn, user: user} do
+    # 從 context 中取出 user 來建立假資料
+    todo = Repo.insert! %Todo{user_id: user.id}
+
+    conn = put conn, todo_path(conn, :update, todo), todo: @invalid_attrs
+    assert json_response(conn, 422)[&quot;errors&quot;] != %{}
+  end
+
+  # ...
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;這次再下一次 &lt;code&gt;mix test&lt;/code&gt;，test case 應該就會全過了。&lt;/p&gt;
+
+&lt;p&gt;如果以上 code 片段寫得不完整 (對不起嘛 QQ)，我把完整的專案程式碼公布在 &lt;a href=&quot;https://github.com/henry40408/singleton/tree/ff8b0a10693d2be63f1b15eb0888099b69e86446&quot;&gt;GitHub&lt;/a&gt; 上了。&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://github.com/plataformatec/devise/wiki/How-To:-Test-controllers-with-Rails-3-and-4-(and-RSpec)&quot;&gt;How To: Test controllers with Rails 3 and 4 (and RSpec)&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;這件事情我還沒有找到相關的前輩有發表相關的文章，只是我透過相關的搜尋結果旁敲側擊而來，具體可以參考 &lt;a href=&quot;http://stackoverflow.com/q/31983077#comment51895692_31983168&quot;&gt;José Valim 在 StackOverflow 討論串 how can i set session in setup when i test phoenix action which need user_id in session? 中的發言&lt;/a&gt;，但我覺得沒有把為什麼不推薦這樣做的具體原因說清楚。 &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;其實如果你真的要做還是有方法可以做到，只是 code 會變得非常醜非常難以維護，如果有興趣可以參考 &lt;a href=&quot;http://stackoverflow.com/a/31983168&quot;&gt;how can i set session in setup when i test phoenix action which need user_id in session?&lt;/a&gt;。 &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Elixir 雜記</title>
+   <link href="http://example.com/2016/10/elixir-note.html"/>
+   <updated>2016-10-17T14:13:00+00:00</updated>
+   <id>http://example.com/2016/10/elixir-note</id>
+   <content type="html">&lt;blockquote&gt;
+  &lt;p&gt;說文解字：雜記&lt;/p&gt;
+
+  &lt;p&gt;就是沒有整理過的筆記，內容沒有結構而混亂，筆者想到什麼就寫什麼。&lt;/p&gt;
+
+  &lt;p&gt;例句：這一篇文章是一篇雜記。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Elixir 少說也研究了一個月，個人對於該語言揉合了 Ruby 與 erlang 的特性格外著迷。&lt;/li&gt;
+  &lt;li&gt;Elixir 實務上是一種執行在 erlang VM 上的語言，而且已經完成了程式語言的 &lt;u&gt;自舉&lt;/u&gt; (bootstrap)。
+    &lt;ul&gt;
+      &lt;li&gt;以 Elixir 為例，所謂的自舉就是 Elixir 編譯器的絕大部分模組都已經可以使用純 Elixir 實作，只留下極少部分不得不使用 erlang 的部分，才會借助 erlang 完成。&lt;/li&gt;
+      &lt;li&gt;程式語言完成自舉有什麼好處？
+        &lt;ul&gt;
+          &lt;li&gt;一是如果一項程式語言完成了自舉，那麼該語言的開發者相對來說就比較不需要擔心如果一開始實作該編譯器的語言有任何劇烈變動，會連帶影響到自己的專案。&lt;a href=&quot;http://programmers.stackexchange.com/a/306420&quot;&gt;ref.&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;二是自舉算是一項挑戰。如果一種語言可以完成自舉，代表這種語言在一定的程度上已經足以完成複雜的工作。&lt;a href=&quot;http://programmers.stackexchange.com/a/306421&quot;&gt;ref.&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;名詞解釋&quot;&gt;名詞解釋&lt;/h2&gt;
+
+&lt;h3 id=&quot;erlang&quot;&gt;erlang&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Erlang is a programming language used to build massively scalable soft real-time systems with requirements on high availability. Some of its uses are in telecoms, banking, e-commerce, computer telephony and instant messaging. &lt;strong&gt;Erlang’s runtime system has built-in support for concurrency, distribution and fault tolerance&lt;/strong&gt;. &lt;a href=&quot;http://www.erlang.org/&quot;&gt;ref.&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;otp&quot;&gt;OTP&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;OTP (a.k.a. Open Telecom Platform) is set of Erlang libraries and design principles providing middle-ware to develop these systems&lt;/strong&gt;. It includes its own distributed database, applications to interface towards other languages, debugging and release handling tools. &lt;a href=&quot;https://github.com/erlang/otp&quot;&gt;ref.&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;erlang-vm--beam&quot;&gt;erlang VM / BEAM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The Erlang runtime environment (a virtual machine, much like the Java virtual machine) means that code compiled on one architecture runs anywhere. &lt;strong&gt;The runtime system also allows code in a running system to be updated without interrupting the program&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;erlang 曾經有嘗試要編譯成 C 語言執行，現階段的做法是編譯成 byte code 在 erlang VM 上執行。&lt;/li&gt;
+  &lt;li&gt;&lt;u&gt;Bogdan's Erlang Abstract Machine&lt;/u&gt; (a.k.a. BEAM) 是其中一種 erlang VM，現階段在 PC 上執行的 erlang VM 基本上都是 BEAM。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;學習前準備&quot;&gt;學習前準備&lt;/h2&gt;
+
+&lt;h3 id=&quot;必讀文章&quot;&gt;必讀文章&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://goo.gl/DBEM3T&quot;&gt;So You Want to be a Functional Programmer&lt;/a&gt; 共六個 part，適合已經在 OOP 世界浸淫已久的工程師閱讀。&lt;/p&gt;
+
+&lt;h3 id=&quot;忘記-oop徹底&quot;&gt;忘記 OOP，徹底&lt;/h3&gt;
+
+&lt;p&gt;學習經驗如果你曾經寫過 OOP，&lt;strong&gt;沒有任何妥協的空間，一定要把它全部忘光&lt;/strong&gt;。請看看以下程式碼：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-elixir&quot;&gt;Foo.bar(&quot;baz&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果沒有把 OOP 忘記，第一眼你會把上面這個函數呼叫解釋成呼叫 &lt;code&gt;Foo&lt;/code&gt; object 或 &lt;code&gt;Foo&lt;/code&gt; class 的 &lt;code&gt;bar&lt;/code&gt; method。&lt;strong&gt;但在 Elixir 的世界裡沒有 class 或 object&lt;/strong&gt;，以上這行程式如果以 OOP 的概念解釋一定錯。所以如果沒有把 OOP 的概念徹底忘記，很多 Elixir 的概念就很難內化，學起來就會很痛苦。&lt;/p&gt;
+
+&lt;h3 id=&quot;忘記迴圈&quot;&gt;忘記迴圈&lt;/h3&gt;
+
+&lt;p&gt;在 Elixir 你不必再煩惱到底是要用 &lt;code&gt;for&lt;/code&gt;、&lt;code&gt;while&lt;/code&gt; 還是 &lt;code&gt;do...while&lt;/code&gt; 來寫迴圈，&lt;strong&gt;因為它們在 Elixir 的世界裡也都不存在&lt;/strong&gt;。要完成重複性的邏輯操作，你只剩下遞迴 (recursion) 可以用。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;想要學會遞迴，你必須先學會遞迴。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;這一句話很難理解嗎？天天看它，某天靈光乍現的時候你就學會遞迴了。&lt;/p&gt;
+
+&lt;h2 id=&quot;開始學習&quot;&gt;開始學習&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://learnxinyminutes.com/docs/elixir/&quot;&gt;Learn elixir in Y minutes&lt;/a&gt; 單純想看看 Elixir 語法長什麼樣子，或是忌諱一開始就花太多時間學習一門新語言可以先從這裡開始。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://elixir-lang.org/getting-started/introduction.html&quot;&gt;Getting started&lt;/a&gt; 官方文件永遠是最好的起點。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://elixirschool.com/&quot;&gt;Elixir School&lt;/a&gt; Elixir 社群維護的學習文件。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/seven1m/30-days-of-elixir&quot;&gt;30 Days of Elixir&lt;/a&gt; 我知道有些人很討厭 N 天學會 X 這種聳動的殺人標題，但單純看看無妨吧？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;資源&quot;&gt;資源&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/h4cc/awesome-elixir&quot;&gt;awesome-elixir&lt;/a&gt; 偶爾可以來這裡挖寶。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://elixir-slackin.herokuapp.com/&quot;&gt;Elixir on Slack&lt;/a&gt; Elixir 官方的 Slack 社群，非常活躍。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://play.elixirbyexample.com/&quot;&gt;Elixir playground&lt;/a&gt; 在瀏覽器玩玩 Elixir。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;為什麼要學-elixir&quot;&gt;為什麼要學 Elixir？&lt;/h2&gt;
+
+&lt;p&gt;會想學習 Elixir 的人不外乎以下幾種。&lt;/p&gt;
+
+&lt;h3 id=&quot;第一種終極目標在精通-erlang&quot;&gt;第一種：終極目標在精通 erlang&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/a/37966947&quot;&gt;TL; DR - Start with Elixir&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;erlang 是非常純粹的 functional programming language，但就是因為太純粹了，寫起來非常地違背人類的直覺，&lt;strong&gt;從 Elixir 下手，慢慢地熟悉 functional programming 的概念之後，再轉換跑道到 erlang 更容易上手&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;但話說回來，如果目標擺在要精通 erlang，為什麼不要像忘記 OOP 一樣，要求自己一定要去熟悉 erlang 的語法呢？老實說，這並無不可；但單就我個人來說，程式語言語法從視覺所造成的錯離感 (e.g. 一直看到像外星語法一樣的 erlang，每次要修改程式的時候都不知道要從何下手) 所帶來的挫折，比起捨棄抽象的概念 (e.g. 徹底忘記 OOP) 來得更加強烈。&lt;/p&gt;
+
+  &lt;p&gt;尤其是當你 OOP 也沒有學得很好的時候 XD&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;第二種單純想學習另外一種-functional-programming-language-的人&quot;&gt;第二種：單純想學習另外一種 functional programming language 的人&lt;/h3&gt;
+
+&lt;p&gt;如果你已經接觸過 haskell 了，&lt;strong&gt;我會建議你直上 erlang，跳過 Elixir&lt;/strong&gt;。因為 Elixir 加入了太多非 functional programming language 的要素，這時學習 Elixir 老實說就不會有什麼太實質的幫助。Elixir 之所以會加入這些非 functional programming 的要素，其目的只是想讓 Elixir 的語法架構更接近 OOP language，讓新手上入不會這麼痛苦而已。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;但該拿掉的一定拿掉、不該存在的它也不會存在&lt;/strong&gt;，因此你不會在 Elixir 裡看到 class 或是 object。&lt;/p&gt;
+
+&lt;h3 id=&quot;第三種之前寫過-ruby想要找一門-functional-programming-language-學習的人&quot;&gt;第三種：之前寫過 Ruby，想要找一門 functional programming language 學習的人&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;這種人對於 Elixir 來說簡直是 perfect match&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;為什麼？Elixir 的語法跟 Ruby 長得根本快一模一樣。事實上，之所以會選擇 Elixir，其中一個很大的原因，就是我自己在學習 Elixir 之前剛好已經寫過了好一陣子的 Ruby，而且只寫 Ruby。因為已經非常熟悉了 Ruby 的語法架構，在掌握 Elixir 的「語感」時有很大的幫助。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;但千萬不要把 Elixir 當成 Ruby 來學&lt;/strong&gt;，兩者還是截然不同的語言，只是長得九分像而已。&lt;/p&gt;
+
+&lt;h2 id=&quot;我可以拿-elixir-來做什麼&quot;&gt;我可以拿 Elixir 來做什麼？&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;拿 &lt;a href=&quot;http://www.phoenixframework.org/&quot;&gt;Phoenix framework&lt;/a&gt; 來寫 web application&lt;/strong&gt;，目前想到的、玩過的只有這個。尋找 Elixir 的應用情境時，不妨把它當作 erlang 去想，只要是 &lt;strong&gt;高併發、需要平行運算、講求執行效率&lt;/strong&gt; 的情境都是 Elixir 可以發揮的場合。&lt;/p&gt;
+
+&lt;p&gt;至於 erlang 與 Elixir 效能上的差異，由於還沒有遇到足以看出差異的大規模併發，所以我無法下結論。&lt;/p&gt;
+
+&lt;h2 id=&quot;elixir-的社群發展&quot;&gt;Elixir 的社群發展？&lt;/h2&gt;
+
+&lt;p&gt;由於時差的關係，我加入 Elixir Slack 之後，到了晚上我還必須手動把通知關掉，否則沒辦法睡覺，&lt;strong&gt;由此可見歪國人討論之熱烈&lt;/strong&gt;，社群的活躍度基本上沒有問題。&lt;/p&gt;
+
+&lt;p&gt;另外，一種語言能否成功，一項很重要的關鍵在各地的貢獻者，能否很順利地將自己寫的模組快速地貢獻出來。&lt;strong&gt;原來在 erlang 就有一套套件發佈平台 &lt;a href=&quot;https://hex.pm/&quot;&gt;Hex&lt;/a&gt;&lt;/strong&gt;，Elixir 既然相容於 erlang VM，就直接沿用下去了。但也必須承認，如果與 Ruby 相比，Elixir 的套件數量的確望塵莫及。&lt;strong&gt;不過除了 Hex 上該有的都有了，再加上原本 OTP 就提供了不少的 library 跟 middleware，基本上也足以應付日常開發了&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h2 id=&quot;elixir-文章&quot;&gt;Elixir 文章&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/@lasseebert/iterating-in-elixir-90fdc0005dfc&quot;&gt;Iterating in Elixir&lt;/a&gt; 還以為這篇文章單純在講 Elixir 的迭代，內文也以兩個例子闡述如果把 Elixir 的經驗拿到 Ruby 實作對於程式的架構有什麼好處。簡而言之，&lt;strong&gt;就是無論以什麼程式語言開發，心中都要常存 immutablility&lt;/strong&gt;。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.bignerdranch.com/blog/elixir-and-io-lists-part-1-building-output-efficiently/&quot;&gt;Elixir and IO Lists, Part 1: Building Output Efficiently&lt;/a&gt; 這篇我個人覺得非常地走火入魔 XD 從 &lt;code&gt;IO.puts&lt;/code&gt; 開始檢討一般程式語言常用的 string concatenation 在記憶體的效能與 GC 的分配上有什麼樣的影響，最後以檔案操作為例，建議開發者盡量使用 List 來傳遞 IO 操作時所需要的參數。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://simonh1000.github.io/2016/10/elm-phoenix-gulp/&quot;&gt;Developing Elm using Gulp with Elixir / Phoenix&lt;/a&gt; 在 Elixir 裡使用 Elm。不過也不用這麼麻煩啦，Hex 上有一個 &lt;a href=&quot;https://github.com/zambal/eml&quot;&gt;eml&lt;/a&gt;，雖然是 Elixir 的實作，寫起來跟 Elm 非常像，喜歡 Elm 的開發者可以參考看看。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/k-tsj/pattern-match&quot;&gt;k-tsj/pattern-match&lt;/a&gt; 以 Ruby 實作的 pattern matching。是說 Ruby 開發者也不會這麼開發就是了⋯⋯&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.drewolson.org/composable-queries-ecto/&quot;&gt;Composable Queries with Ecto&lt;/a&gt; 以類似 ActiveRecord 的方式組合資料庫查詢。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://thepugautomatic.com/2015/10/understanding-elixir-macros/&quot;&gt;Understanding Elixir macros&lt;/a&gt; Elixir 絕大多數的實作，都透過 macro 完成，由此可見 macro 在 Elixir 中位處非常基礎卻十分強大的地位。但就像蜘蛛人一樣，能力愈大、責任愈大，如何在不惡搞到自己的情況下，順利地使用 macro 將 Elixir 擴充成自己想要的樣子，就是一個很值得研究並一再研究下去的課題了。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;elixir-小撇步&quot;&gt;Elixir 小撇步&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;取得現在時間 (使用 &lt;code&gt;Ecto&lt;/code&gt;)
+    &lt;ol&gt;
+      &lt;li&gt;UTC &lt;code&gt;Ecto.DateTime.utc&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;本地時間 &lt;code&gt;Ecto.DateTime.from_erl(:erlang.localtime)&lt;/code&gt; 似乎由於這個方法的存在，Elixir 也懶得去擴充另外一支 function 來做同樣的事⋯⋯&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;在-phoenix-實作-soft-delete&quot;&gt;在 Phoenix 實作 soft delete&lt;/h2&gt;
+
+&lt;h3 id=&quot;事前假設&quot;&gt;事前假設&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;application name = &lt;code&gt;TodoApp&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;table name = &lt;code&gt;todos&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;model name = &lt;code&gt;Todo&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;步驟&quot;&gt;步驟&lt;/h3&gt;
+
+&lt;p&gt;新增 schema&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ mix ecto.gen.migration add_soft_delete_to_todos
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;修改剛剛新增的 schema&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-elixir&quot;&gt;# priv/repo/migrations/XXXXXXXXXXXXXX_add_soft_deletable_to_todos.exs
+defmodule TodoApp.Repo.Migrations.AddSoftDeletableToTodos do
+  use Ecto.Migration
+
+  def change do
+    # ======
+    alter table(:todos) do
+      add :deleted, :boolean, default: false # 是否已被刪除
+      add :deleted_at, :datetime # 什麼時候刪除的
+    end
+    # ======
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;修改 &lt;code&gt;Todo&lt;/code&gt; model&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-elixir&quot;&gt;defmodule TodoApp.Todo do
+  use TodoApp.Web, :model
+
+  schema &quot;todos&quot; do
+    # ...
+    # ======
+    field :deleted, :boolean, default: false # 新增是否已經被刪除了的欄位
+    field :deleted_at, Ecto.DateTime # 新增什麼時候刪除的欄位
+    # ======
+
+    timestamps()
+  end
+
+  @doc &quot;&quot;&quot;
+  Builds a changeset based on the `struct` and `params`.
+  &quot;&quot;&quot;
+  def changeset(struct, params \\ %{}) do
+    # ...
+  end
+
+  # ======
+  # 用來篩選尚未被刪除的記錄
+  def undeleted(query) do
+    from t in query, where: t.deleted == false
+  end
+
+  # 用來實際執行 soft delete 的函數
+  def soft_delete(struct) do
+    payload = %{deleted: true, deleted_at: Ecto.DateTime.from_erl(:erlang.localtime)}
+    struct |&amp;gt; cast(payload, [:deleted, :deleted_at])
+  end
+  # ======
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;修改 &lt;code&gt;TodoController&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-elixir&quot;&gt;defmodule TodoApp.TodoController do
+  # ...
+
+  def index(conn, _params) do
+    # ======
+    # 改用 Todo.undeleted 取得列表
+    todos = Todo |&amp;gt; Todo.undeleted |&amp;gt; Repo.all
+    # ======
+    render(conn, &quot;index.json&quot;, todos: todos)
+  end
+     
+  # ...
+  def show(conn, %{&quot;id&quot; =&amp;gt; id}) do
+    # ======
+    # 改用 get_by! 同時篩選是否已刪除的欄位
+    todo = Repo.get_by!(Todo, id: id, deleted: false)
+    # ======
+    render(conn, &quot;show.json&quot;, todo: todo)
+  end
+
+  # ...
+
+  def delete(conn, %{&quot;id&quot; =&amp;gt; id}) do
+    todo = Repo.get!(Todo, id)
+
+    # Here we use delete! (with a bang) because we expect
+    # it to always work (and if it does not, it will raise).
+    # ======
+    #Repo.delete!(todo) # 不用原來的 Repo.delete 函數
+
+    # 改用 Todo.soft_delete 配合 Repo.update!
+    changeset = todo |&amp;gt; Todo.soft_delete
+    Repo.update!(changeset)
+    # ======
+
+    send_resp(conn, :no_content, &quot;&quot;)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;修改 &lt;code&gt;TodoController&lt;/code&gt; 的 test&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-elixir&quot;&gt;defmodule TodoApp.TodoControllerTest do
+  # ...
+
+  test &quot;deletes chosen resource&quot;, %{conn: conn} do
+    todo = Repo.insert! %Todo{}
+    conn = delete conn, todo_path(conn, :delete, todo)
+    assert response(conn, 204)
+    # ======
+    assert Repo.get_by(Todo, id: todo.id, deleted: true) # 改偵測記錄是否被標記已刪除
+    # ======
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;elixirconf-2016---leveling-up-with-ecto&quot;&gt;ElixirConf 2016 - Leveling Up with Ecto&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;難度：入門 → 進階&lt;/li&gt;
+  &lt;li&gt;Ecto 主要由四大元件組成：&lt;code&gt;Repo&lt;/code&gt;、&lt;code&gt;Query&lt;/code&gt;、&lt;code&gt;Schema&lt;/code&gt;、&lt;code&gt;Changeset&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;Ecto.Repo&lt;/code&gt; 是 Ecto 裡&lt;strong&gt;唯一一個 (one and only) 與資料源 (data source) 直接溝通&lt;/strong&gt;的元件。
+    &lt;ul&gt;
+      &lt;li&gt;這裡定義的資料源 (data source) 包括傳統的 RDBMS、NoSQL databases、key-value store…等。&lt;/li&gt;
+      &lt;li&gt;講者再三強調 &lt;strong&gt;Ecto 的資料源不限定 RDBMS&lt;/strong&gt;，也可以與其他資料源串接。&lt;/li&gt;
+      &lt;li&gt;但我個人認為很快 Ecto 就會踏上 ActiveRecord 的後塵，變成 Ecto 專注處理資料庫，其他資料源則由其他專用的 adapter 處理⋯⋯&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;一個 Repo 對應一個資料源&lt;/strong&gt;，所以如果一個專案之前有 legacy database，但又必須與現在的資料庫並存，開發者可為這兩個資料庫設定各自的 Repo。拜 Repo 的設計所賜，&lt;strong&gt;即使是兩個使用不同 adapter的資料源也可以並存&lt;/strong&gt; (例如 PostgreSQL 與 MySQL 並存)。&lt;/li&gt;
+  &lt;li&gt;如果要在 &lt;code&gt;Ecto.Query&lt;/code&gt; 中&lt;strong&gt;使用變數&lt;/strong&gt;，&lt;strong&gt;必須使用 &lt;code&gt;^&lt;/code&gt; (pin operator) 把變數 pin 住&lt;/strong&gt;，否則 &lt;code&gt;Ecto.Query&lt;/code&gt; 會主動報錯並提醒開發者。
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://elixir-lang.org/getting-started/pattern-matching.html#the-pin-operator&quot;&gt;The pin operator&lt;/a&gt; in Elixir Getting Started&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;永遠要告訴 &lt;code&gt;Ecto.Query&lt;/code&gt; 你要 &lt;code&gt;select&lt;/code&gt; 什麼&lt;/strong&gt; (e.g. 整筆資料？某幾個欄位？)。&lt;/li&gt;
+  &lt;li&gt;對 &lt;code&gt;Repo.*all&lt;/code&gt; (e.g. &lt;code&gt;Repo.insert_all&lt;/code&gt;、&lt;code&gt;Repo.update_all&lt;/code&gt;、&lt;code&gt;Repo.delete_all&lt;/code&gt;) 有很大的自由，但要注意幾件事：
+    &lt;ol&gt;
+      &lt;li&gt;永遠要告訴 &lt;code&gt;Ecto.Query&lt;/code&gt; 你要 &lt;code&gt;select&lt;/code&gt; 什麼？&lt;/li&gt;
+      &lt;li&gt;必須注意資料類型的問題。
+        &lt;ul&gt;
+          &lt;li&gt;如果沒有使用 Schema 的話，我猜講者在這裡提出這件事只是要帶出使用 Schema 的好處。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;Ecto.Schema&lt;/code&gt; 用來定義記錄被取出資料源之後要長什麼樣子、以及記錄要被灌入資料源之前要長什麼樣子。
+    &lt;ul&gt;
+      &lt;li&gt;尤其是定義資料型態這件事，如果沒有 Schema，開發者必須在下 Query 時明確地告知 Ecto 每個欄位的類型，並在有可能類型通用時轉型。例如全部都是數字的行動電話號碼，如果 Ecto 自動轉型就會讓最前面的 0 跑掉，原來的 0912345678 變成 912345678，如果之後又以這筆記錄寫入資料庫就會是錯誤的結果&lt;/li&gt;
+      &lt;li&gt;Schema 對需要 association 的專案來說也更加方便。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;在 Ecto 進行關聯查詢時，你必須要明確地 (explicitly) 告訴 Ecto 什麼時候要載入關聯性資料表的記錄。
+    &lt;ul&gt;
+      &lt;li&gt;使用 &lt;a href=&quot;https://hexdocs.pm/ecto/Ecto.Query.html#preload/3&quot;&gt;&lt;code&gt;preload&lt;/code&gt;&lt;/a&gt; keyword。&lt;/li&gt;
+      &lt;li&gt;如果 Ecto 自作主張地預先載入關聯性資料庫的記錄，除了 &lt;a href=&quot;https://ihower.tw/rails/performance.html#sec0&quot;&gt;N+1 queries&lt;/a&gt; 的問題，甚至可能塞爆記憶體。&lt;/li&gt;
+      &lt;li&gt;否則你就會遇到 &lt;code&gt;Ecto.Association.NotLoaded&lt;/code&gt; 的錯誤。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;Ecto.Schema&lt;/code&gt; 可以不需要與任何資料源關聯而獨自運作，也就是 virtual schema，這也是為什麼 Ecto 可以串接不同的資料源的原因。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+</feed>
