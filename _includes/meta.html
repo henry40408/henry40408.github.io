@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <title>{% if page.title %}{{ page.title | append: " | " | append: site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Lato:300,400|Open+Sans:300" rel="stylesheet"/>
   <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night-eighties.min.css" integrity="sha256-/CURZpogYLP3tOB+9145aSzwZ1wdyIh+smZn9LdzJb4=" rel="stylesheet">
   <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css" integrity="sha256-wT6CFc7EKRuf7uyVfi+MQNHUzojuHN2pSw0YWFt2K5E=" rel="stylesheet">
