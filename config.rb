@@ -1,20 +1,36 @@
 Time.zone = "Taipei"
 
+# Disable layout for some MIME types
+
 page "/*.xml", layout: false
 page "/*.json", layout: false
 page "/*.txt", layout: false
 
-set :markdown, autolink: true, fenced_code_blocks: true, footnotes: true, smartypants: true
-set :markdown_engine, :redcarpet
+# Markdown engine
 
-activate :blog do |blog|
-  blog.permalink = "{year}/{month}/{slug}.html"
-  blog.tag_template = "/tag.html"
+set :markdown_engine, :redcarpet
+set :markdown,
+    autolink: true,
+    fenced_code_blocks: true,
+    footnotes: true,
+    smartypants: true
+
+# Development and build configuration
+
+configure :development do
+  activate :livereload
 end
 
 configure :build do
   activate :minify_css
   activate :minify_javascript
+end
+
+# Middleman plugins
+
+activate :blog do |blog|
+  blog.permalink = "{year}/{month}/{slug}.html"
+  blog.tag_template = "/tag.html"
 end
 
 activate :deploy do |deploy|
@@ -35,23 +51,6 @@ activate :disqus do |d|
   d.shortname = "henry40408"
 end
 
-configure :development do
-  activate :livereload
-end
-
-ignore "stylesheets/**/*.py"
-ignore "stylesheets/**/.editorconfig"
-ignore "stylesheets/**/.git"
-ignore "stylesheets/**/.gitattributes"
-ignore "stylesheets/**/bower.json"
-ignore "stylesheets/**/index.html"
-ignore "stylesheets/**/license"
-ignore "stylesheets/**/package.json"
-ignore "stylesheets/**/README"
-ignore "stylesheets/**/readme"
-
 activate :google_analytics do |ga|
   ga.tracking_id = "UA-6529501-15"
 end
-
-activate :syntax

@@ -5,9 +5,8 @@
 
   <!-- Use title if it's in the page YAML frontmatter -->
   <title><%= "#{current_page.data.title || "未命名"} | henry40408" %></title>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night-eighties.min.css" integrity="sha256-/CURZpogYLP3tOB+9145aSzwZ1wdyIh+smZn9LdzJb4=" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css" integrity="sha256-wT6CFc7EKRuf7uyVfi+MQNHUzojuHN2pSw0YWFt2K5E=" crossorigin="anonymous" />
-  <%= stylesheet_link_tag "tomorrow-pygments/css/tomorrow.css" %>
   <%= stylesheet_link_tag :site %>
   <link rel="icon" type="image/png" href="<%= image_path("avatar.png") %>" />
   <link rel="apple-touch-icon" href="<%= image_path("avatar.png") %>" />
