@@ -23,5 +23,8 @@ tag_feed_layout: tag_feed
 tag_feed_dir: tag
 
 exclude:
+  - circle.yml
+  - circle_deploy.sh
   - Gemfile
   - Gemfile.lock
+  - vendor/bundle

@@ -1,0 +1,30 @@
+version: '2'
+executorType: docker
+containerInfo:
+  - image: ruby@sha256:b86d0f5daaabd3e608823780bf7999afea13013d6c32f892cfe4770567ac1a94
+
+stages:
+  build:
+    workDir: /home/ubuntu/henry40408.github.io
+    steps:
+      - type: checkout
+      - type: cache-restore
+        key: bundle-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      - type: shell
+        name: Install Ruby dependencies
+        command: |
+          bundle config github.https true
+          bundle install --path vendor/bundle
+      - type: cache-save
+        key: bundle-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
+      - type: shell
+        name: Build
+        command: JEKYLL_ENV=production bundle exec jekyll build
+      - type: add-ssh-keys
+        fingerprints:
+          - "31:bc:5e:ed:b5:f3:fb:27:1a:1c:10:87:3b:1f:c6:84"
+      - type: shell
+        name: Deploy
+        command: bash circle_deploy.sh
