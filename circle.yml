@@ -12,6 +12,6 @@ test:
 
 deployment:
   github:
-    branch: feature/jekyll
+    branch: development
     commands:
       - bash circle_deploy.sh
