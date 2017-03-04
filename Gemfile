@@ -16,7 +16,6 @@ gem "middleman-deploy", "~> 2.0.0.pre.alpha"
 gem "middleman-disqus"
 gem "middleman-google-analytics", "~> 2.1"
 gem "middleman-livereload"
-gem "middleman-syntax"
 
 gem "builder"
 gem "nokogiri"
