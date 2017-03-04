@@ -51,13 +51,14 @@ h1, h2, h3, h4, h5, h6 {
 // --- Singleton
 
 #site-header {
-  margin: 0;
+  .ui.avatar.image {
+    margin: 0 0 1rem;
+  }
 }
 
 #site-name {
   font-family: 'Architects Daughter', serif;
   font-weight: 400;
-  margin: 0 0 1rem;
 
   a {
     color: $black;
@@ -68,8 +69,10 @@ h1, h2, h3, h4, h5, h6 {
   font-size: .9rem;
   text-align: center;
 
-  a {
-    margin: .25rem 0;
+  @media screen and (max-width: 414px) {
+    a {
+      margin: .1rem 0;
+    }
   }
 }
 
@@ -97,10 +100,6 @@ h1, h2, h3, h4, h5, h6 {
   .hljs {
     border-radius: .25rem;
   }
-}
-
-.avatar {
-  margin: 0 0 1rem;
 }
 
 .ui.article.list {
