@@ -1,13 +1,12 @@
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Use title if it's in the page YAML frontmatter -->
-  <title><%= "#{current_page.data.title || "未命名"} | henry40408" %></title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night-eighties.min.css" integrity="sha256-/CURZpogYLP3tOB+9145aSzwZ1wdyIh+smZn9LdzJb4=" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css" integrity="sha256-wT6CFc7EKRuf7uyVfi+MQNHUzojuHN2pSw0YWFt2K5E=" crossorigin="anonymous" />
-  <%= stylesheet_link_tag :site %>
-  <link rel="icon" type="image/png" href="<%= tiny_image_path("avatar.png") %>" />
-  <link rel="apple-touch-icon" href="<%= tiny_image_path("avatar.png") %>" />
-</head>
+<div class="ui center aligned container">
+  <%= tiny_image_tag "avatar.png", class: "ui centered small bordered circular image avatar" %>
+  <h1 id="site-name"><%= link_to "Henry Wu", "/" %></h1>
+  <div id="site-nav">
+    <%= link_to "Home", "/", class: "ui small compact button" %>
+    <%= link_to "Profile", "profile.html", class: "ui small compact button" %>
+    <div class="mobile only"></div>
+    <% link_to "https://github.com/henry40408", class: "ui small compact black icon button" do %><i class="github icon"></i><% end %>
+    <% link_to "https://medium.com/henry40408", class: "ui small compact green icon button" do %><i class="medium icon"></i><% end %>
+    <% link_to "feed.rss", class: "ui small compact orange icon button" do %><i class="rss square icon"></i><% end %>
+  </div>
+</div>
