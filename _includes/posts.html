@@ -5,7 +5,7 @@
       <ul class="ui post list">
       {% for post in site.posts %}
         <li class="item">
-          {% include short_essay.html post=post %}
+          {% include short_essay.html %}
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a> &mdash; <time datetime="{{ post.date }}">{{ post.date | date: site.date_format }}</time>
         </li>
       {% endfor %}
