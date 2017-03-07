@@ -6,8 +6,7 @@ tags: cloudfront aws
 layout: post
 ---
 
-{:.ui.image}
-![Cloudflare migrate to AWS]({{ site.url }}/images/cloudflare-migrate-to-aws.png)
+{% picture cloudflare-migrate-to-aws.png alt="Cloudflare migrate to AWS" %}
 
 使用了很長一段時間的 Cloudflare，最近在資安上捅出了一個大摟子：[Cloudbleed][1]。於是開始研究其他類似 Cloudflare 的服務，第一個想到的就是另外一個我自己也已經使用很久的 [Amazon Web Services](https://aws.amazon.com/tw/)。
 

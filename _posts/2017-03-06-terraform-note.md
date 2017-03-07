@@ -6,8 +6,7 @@ tag: terraform
 layout: post
 ---
 
-{:.ui.image}
-![Terraform]({{site.url}}/images/terraform.png)
+{% picture terraform.png alt="Terraform" %}
 
 最近在鼓搗 [Terraform][1]，遇到了幾個 Terraform 還沒有解決的問題，在此一併跟使用上的小技巧一起記錄下來，希望可以幫助到也想要嘗試看看 Terraform 的同好。
 
