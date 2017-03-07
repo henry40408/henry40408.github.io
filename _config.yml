@@ -26,10 +26,10 @@ picture:
       attr:
         class: "ui image picture"
       source_small:
-        media: "(max-width: 24rem)"
+        media: "(max-width: 32rem)"
         width: "414"
       source_medium:
-        media: "(max-width: 48rem)"
+        media: "(max-width: 64rem)"
         width: "768"
       source_default:
         width: "1440"
