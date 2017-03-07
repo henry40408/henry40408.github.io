@@ -16,6 +16,24 @@ disqus:
   shortname: henry40408
 google_analytics: UA-6529501-15
 
+picture:
+  source: "assets/images/_fullsize"
+  output: "generated"
+  markup: "picture"
+  presets:
+    default:
+      ppi: [1, 1.5]
+      attr:
+        class: "ui image picture"
+      source_small:
+        media: "(max-width: 24rem)"
+        width: "414"
+      source_medium:
+        media: "(max-width: 48rem)"
+        width: "768"
+      source_default:
+        width: "1440"
+      
 tag_page_layout: tag_page
 tag_page_dir: tag
 

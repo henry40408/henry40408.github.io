@@ -7,8 +7,7 @@ layout: post
 draft: true
 ---
 
-{:.ui.image}
-![Terraform]({{site.url}}/images/terraform.png)
+{% picture terraform.png alt="Terraform" %}
 
 ## AWS 的限制
 
