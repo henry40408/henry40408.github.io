@@ -5,6 +5,7 @@ slug: replace-security-groups-in-terraform
 tags: terraform security-group
 layout: post
 draft: true
+image: fullsize/terraform.png
 ---
 
 {% picture terraform.png alt="Terraform" %}
