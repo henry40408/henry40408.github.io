@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/henry40408/jekyll-picture-tag.git
+  revision: f9dc2dbf317cdb7a9090b87eed4d475a783e9643
+  ref: f9dc2db
+  specs:
+    jekyll-picture-tag (0.3.0)
+      fastimage (~> 2.0)
+      jekyll (< 4)
+      mini_magick (~> 3.8.0)
+
+GIT
   remote: https://github.com/pattex/jekyll-tagging.git
   revision: a981f786b161938a871195afc8d19e129f13fb49
   ref: a981f78
@@ -25,8 +35,7 @@ GEM
     ethon (0.10.1)
       ffi (>= 1.3.0)
     eventmachine (1.2.3)
-    fastimage (1.6.8)
-      addressable (~> 2.3, >= 2.3.5)
+    fastimage (2.1.0)
     ffi (1.9.18)
     forwardable-extended (2.6.0)
     html-proofer (3.5.0)
@@ -56,10 +65,6 @@ GEM
     jekyll-livereload (0.2.2)
       em-websocket (~> 0.5)
       jekyll (~> 3.0)
-    jekyll-picture-tag (0.3.0)
-      fastimage (~> 1.6.4)
-      jekyll (< 4)
-      mini_magick (~> 3.8.0)
     jekyll-sass-converter (1.5.0)
       sass (~> 3.4)
     jekyll-watch (1.5.0)
@@ -108,7 +113,7 @@ DEPENDENCIES
   jekyll (= 3.4.1)
   jekyll-feed (~> 0.6)
   jekyll-livereload (~> 0.2)
-  jekyll-picture-tag (~> 0.3)
+  jekyll-picture-tag!
   jekyll-tagging!
   minima (~> 2.0)
   rake

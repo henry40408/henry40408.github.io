@@ -10,7 +10,7 @@ group :jekyll_plugins do
    gem "jekyll-feed", "~> 0.6"
    gem "jekyll-tagging", github: "pattex/jekyll-tagging", ref: "a981f78"
    gem "jekyll-livereload", "~> 0.2"
-   gem "jekyll-picture-tag", "~> 0.3"
+   gem "jekyll-picture-tag", github: "henry40408/jekyll-picture-tag", ref: "f9dc2db"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
