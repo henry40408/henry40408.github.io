@@ -4,6 +4,7 @@ date: 2017-03-06
 slug: terraform-note
 tag: terraform
 layout: post
+image: fullsize/terraform.png
 ---
 
 {% picture terraform.png alt="Terraform" %}
