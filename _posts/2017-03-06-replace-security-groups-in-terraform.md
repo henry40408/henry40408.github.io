@@ -5,10 +5,10 @@ slug: replace-security-groups-in-terraform
 tags: terraform security-group
 layout: post
 draft: true
-image: fullsize/terraform.png
+image: fullsize/replace-security-group-with-terraform.png
 ---
 
-{% picture terraform.png alt="Terraform" %}
+{% picture replace-security-group-with-terraform.png alt="Terraform" %}
 
 ## AWS 的限制
 
