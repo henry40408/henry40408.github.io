@@ -7,10 +7,11 @@ gem "jekyll", "3.4.1"
 gem "minima", "~> 2.0"
 
 group :jekyll_plugins do
-   gem "jekyll-feed", "~> 0.6"
-   gem "jekyll-tagging", github: "pattex/jekyll-tagging", ref: "a981f78"
-   gem "jekyll-livereload", "~> 0.2"
-   gem "jekyll-picture-tag", github: "henry40408/jekyll-picture-tag", ref: "f9dc2db"
+  gem "jekyll-assets", "~> 2.2"
+  gem "jekyll-feed", "~> 0.6"
+  gem "jekyll-livereload", "~> 0.2"
+  gem "jekyll-picture-tag", github: "henry40408/jekyll-picture-tag", ref: "f9dc2db"
+  gem "jekyll-tagging", github: "pattex/jekyll-tagging", ref: "a981f78"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
