@@ -1,5 +1,5 @@
 /_site
-/.sass-cache
+/.asset-cache
 /.jekyll-metadata
-/.tinypng
+/.sass-cache
 /vendor/bundle
