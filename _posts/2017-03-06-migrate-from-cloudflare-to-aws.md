@@ -4,6 +4,7 @@ date: 2017-03-06
 slug: migrate-from-cloudflare-to-aws
 tags: cloudfront aws
 layout: post
+image: fullsize/cloudflare-migrate-to-aws.png
 ---
 
 {% picture cloudflare-migrate-to-aws.png alt="Cloudflare migrate to AWS" %}

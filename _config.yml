@@ -17,7 +17,7 @@ disqus:
 google_analytics: UA-6529501-15
 
 picture:
-  source: "assets/images/_fullsize"
+  source: "_assets/images/fullsize"
   output: "generated"
   markup: "picture"
   presets:
