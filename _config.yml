@@ -3,7 +3,7 @@ url: "https://henry40408.github.io"
 
 title: Henry Wu
 description: >
-  I am software engineer in Taipei, currently work in Hahow, mostly building things with Ruby on Rails and Node.js applications. I also work on a bunch of projects on GitHub.
+  I am software engineer in Taipei, currently work in Hahow. I mostly build things with Ruby on Rails and Node.js, then deploy them with HashiCorp products.
 date_format: "%B %d %Y"
 github_username:  henry40408
 
@@ -32,7 +32,7 @@ picture:
         media: "(max-width: 64rem)"
         width: "768"
       source_default:
-        width: "1440"
+        width: "1200"
       
 tag_page_layout: tag_page
 tag_page_dir: tag
