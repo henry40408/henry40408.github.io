@@ -128,7 +128,7 @@ $ certbot certonly -a webroot --webroot-path /usr/share/nginx/html -d bar.com
 $ certbot certonly -a webroot --webroot-path /usr/share/nginx/html -d bar.com -d www.bar.com
 ```
 
-等 certbot 認證完，如果螢幕上出現 **Congratulation** 的字樣，代表大功告成。如果沒有，快看看是什麼樣的錯誤訊息。
+等 certbot 認證完，如果螢幕上出現 **Congratulations** 的字樣，代表大功告成。如果沒有，快看看是什麼樣的錯誤訊息。
 
 #### 5.1. 404 Not Found
 
