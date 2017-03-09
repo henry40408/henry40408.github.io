@@ -2,7 +2,7 @@
 title: "從 Cloudflare 搬家到 AWS，而且是「徹底搬家」"
 date: 2017-03-06
 slug: migrate-from-cloudflare-to-aws
-tags: cloudfront aws
+tags: cloudflare aws letsencrypt
 layout: post
 image: fullsize/cloudflare-migrate-to-aws.png
 ---
