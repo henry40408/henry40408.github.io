@@ -22,7 +22,7 @@ picture:
   markup: "picture"
   presets:
     default:
-      ppi: [1, 1.5]
+      ppi: [1, 1.5, 2]
       attr:
         class: "ui image picture"
       source_small:
