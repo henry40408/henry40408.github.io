@@ -1,4 +1,4 @@
-# henry40408.github.io [![CircleCI](https://circleci.com/gh/henry40408/henry40408.github.io/tree/develop.svg?style=svg)](https://circleci.com/gh/henry40408/henry40408.github.io/tree/develop)
+# henry40408.github.io [![CircleCI](https://circleci.com/gh/henry40408/henry40408.github.io/tree/develop.svg?style=shield)](https://circleci.com/gh/henry40408/henry40408.github.io/tree/develop)
 
 > Blog, automatically built with Circle CI
 
@@ -6,8 +6,8 @@
 
 ### Posts
 
-![CC BY NC ND](http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-nd.svg)
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-brightgreen.svg)](http://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 ### Repository
 
-MIT
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
