@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/henry40408/jekyll-picture-tag.git
+  remote: git://github.com/henry40408/jekyll-picture-tag.git
   revision: f9dc2dbf317cdb7a9090b87eed4d475a783e9643
   ref: f9dc2db
   specs:
@@ -9,7 +9,7 @@ GIT
       mini_magick (~> 3.8.0)
 
 GIT
-  remote: https://github.com/pattex/jekyll-tagging.git
+  remote: git://github.com/pattex/jekyll-tagging.git
   revision: a981f786b161938a871195afc8d19e129f13fb49
   ref: a981f78
   specs:
@@ -19,12 +19,12 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.0.2)
-      concurrent-ruby (~> 1.0, >= 1.0.2)
+    activesupport (4.2.8)
       i18n (~> 0.7)
       minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    addressable (2.5.0)
+    addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     colorator (1.1.0)
     colored (1.2)
@@ -40,21 +40,21 @@ GEM
     fastimage (2.1.0)
     ffi (1.9.18)
     forwardable-extended (2.6.0)
-    gemoji (2.1.0)
+    gemoji (3.0.0)
     html-pipeline (2.6.0)
       activesupport (>= 2)
       nokogiri (>= 1.4)
-    html-proofer (3.5.0)
+    html-proofer (3.7.2)
       activesupport (>= 4.2, < 6.0)
       addressable (~> 2.3)
       colored (~> 1.2)
       mercenary (~> 0.3.2)
-      nokogiri (~> 1.5)
+      nokogiri (~> 1.7)
       parallel (~> 1.3)
       typhoeus (~> 0.7)
       yell (~> 2.0)
     http_parser.rb (0.6.0)
-    i18n (0.8.1)
+    i18n (0.8.4)
     jekyll (3.4.1)
       addressable (~> 2.4)
       colorator (~> 1.0)
@@ -82,8 +82,9 @@ GEM
       sass (~> 3.4)
     jekyll-watch (1.5.0)
       listen (~> 3.0, < 3.1)
-    jemoji (0.6.2)
-      gemoji (~> 2.0)
+    jemoji (0.8.0)
+      activesupport (~> 4.0)
+      gemoji (~> 3.0)
       html-pipeline (~> 2.2)
       jekyll (>= 3.0)
     kramdown (1.13.2)
@@ -94,14 +95,14 @@ GEM
     mercenary (0.3.6)
     mini_magick (3.8.1)
       subexec (~> 0.2.1)
-    mini_portile2 (2.1.0)
+    mini_portile2 (2.2.0)
     minima (2.1.0)
       jekyll (~> 3.3)
-    minitest (5.10.1)
-    nokogiri (1.7.0.1)
-      mini_portile2 (~> 2.1.0)
+    minitest (5.10.2)
+    nokogiri (1.8.0)
+      mini_portile2 (~> 2.2.0)
     nuggets (1.0.0)
-    parallel (1.10.0)
+    parallel (1.11.2)
     pathutil (0.14.0)
       forwardable-extended (~> 2.6)
     public_suffix (2.0.5)
@@ -114,7 +115,7 @@ GEM
     ruby-nuggets (1.0.0)
       nuggets (= 1.0.0)
     safe_yaml (1.0.4)
-    sass (3.4.23)
+    sass (3.4.24)
     sprockets (3.6.3)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -122,7 +123,7 @@ GEM
     thread_safe (0.3.6)
     typhoeus (0.8.0)
       ethon (>= 0.8.0)
-    tzinfo (1.2.2)
+    tzinfo (1.2.3)
       thread_safe (~> 0.1)
     yell (2.0.7)
 
@@ -130,20 +131,20 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  html-proofer
+  html-proofer (>= 3.5.0)
   jekyll (= 3.4.1)
   jekyll-assets (~> 2.2)
   jekyll-feed (~> 0.6)
   jekyll-livereload (~> 0.2)
   jekyll-picture-tag!
   jekyll-tagging!
-  jemoji
+  jemoji (>= 0.6.2)
   minima (~> 2.0)
   rake
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.3.3p222
+   ruby 2.3.1p112
 
 BUNDLED WITH
    1.14.3
