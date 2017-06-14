@@ -12,6 +12,6 @@ test:
 
 deployment:
   github:
-    branch: development
+    branch: develop
     commands:
       - bash circle_deploy.sh
