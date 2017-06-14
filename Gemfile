@@ -12,8 +12,8 @@ group :jekyll_plugins do
   gem "jekyll-livereload", "~> 0.2"
   gem "jekyll-picture-tag", github: "henry40408/jekyll-picture-tag", ref: "f9dc2db"
   gem "jekyll-tagging", github: "pattex/jekyll-tagging", ref: "a981f78"
+  gem "jemoji"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "html-proofer"
-

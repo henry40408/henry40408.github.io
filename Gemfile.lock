@@ -40,6 +40,10 @@ GEM
     fastimage (2.1.0)
     ffi (1.9.18)
     forwardable-extended (2.6.0)
+    gemoji (2.1.0)
+    html-pipeline (2.6.0)
+      activesupport (>= 2)
+      nokogiri (>= 1.4)
     html-proofer (3.5.0)
       activesupport (>= 4.2, < 6.0)
       addressable (~> 2.3)
@@ -78,6 +82,10 @@ GEM
       sass (~> 3.4)
     jekyll-watch (1.5.0)
       listen (~> 3.0, < 3.1)
+    jemoji (0.6.2)
+      gemoji (~> 2.0)
+      html-pipeline (~> 2.2)
+      jekyll (>= 3.0)
     kramdown (1.13.2)
     liquid (3.0.6)
     listen (3.0.8)
@@ -129,6 +137,7 @@ DEPENDENCIES
   jekyll-livereload (~> 0.2)
   jekyll-picture-tag!
   jekyll-tagging!
+  jemoji
   minima (~> 2.0)
   rake
   tzinfo-data

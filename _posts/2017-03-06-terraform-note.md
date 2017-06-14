@@ -44,7 +44,7 @@ $ terraform import aws_instance.foobar i-1a2b3c4d
 ## Terraform 不支援變數內嵌變數
 假設今天有一個 `foo` variable：
 
-```terraform
+```json
 # modules/foo/main.tf
 variable "foo" {
   type = "map"
@@ -70,7 +70,7 @@ module "foo" {
 
 如果在 `modules/foo/another.tf` 使用 `${var.foo[var.bar_key]}`，Terraform 會解析錯誤，必須改成把 `var.foo` 展開：
 
-```terraform
+```json
 # modules/foo/main.tf
 variable "foo" {
   type = "map"
@@ -111,7 +111,7 @@ module.foo.module.policy-with-module.aws_iam_policy.inner-policy
 
 才行得通。
 
-[1]:	https://www.terraform.io/
-[2]:	https://www.terraform.io/intro/getting-started/install.html
+[1]: https://www.terraform.io/
+[2]: https://www.terraform.io/intro/getting-started/install.html
 [3]: https://www.terraform.io/docs/providers/aws/r/instance.html
 
