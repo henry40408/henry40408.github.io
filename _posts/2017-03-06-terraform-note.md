@@ -4,17 +4,17 @@ date: 2017-03-06
 slug: terraform-note
 tag: terraform
 layout: post
-image: fullsize/terraform-note.png
+image: terraform-note.png
 ---
 
-{% picture terraform-note.png alt="Terraform" %}
+![Terraform]({{ "assets/terraform-note.png" | absolute_url }})
 
 最近在鼓搗 [Terraform][1]，遇到了幾個 Terraform 還沒有解決的問題，在此一併跟使用上的小技巧一起記錄下來，希望可以幫助到也想要嘗試看看 Terraform 的同好。
 
 這篇不會包含 Terraform 的 Getting Started，請移駕 [Terraform 官網][2]。通常我會建議初學者將 Terraform 實際應用到 AWS 上。
 
-1. 首先 AWS 非常便宜。**如果我沒記錯的話不滿一小時的時間會被加總，加總後不滿一小時以一小時計**，例如開 3 次每次 10 分鐘，月底計費的時候就會加總成 30 分鐘，只收一個小時的錢。
-2. 再來 Terraform 也可以很方便地 destroy 掉任何 Terraform 留下的痕跡，當然已經建立的 EC2 instance 等 resource 也不會受到 Terraform 的操作影響。
+1.  首先 AWS 非常便宜。**如果我沒記錯的話不滿一小時的時間會被加總，加總後不滿一小時以一小時計**，例如開 3 次每次 10 分鐘，月底計費的時候就會加總成 30 分鐘，只收一個小時的錢。
+2.  再來 Terraform 也可以很方便地 destroy 掉任何 Terraform 留下的痕跡，當然已經建立的 EC2 instance 等 resource 也不會受到 Terraform 的操作影響。
 
 ## 分清楚 `variable`, `data`, `resource`, `output`
 
@@ -35,6 +35,7 @@ image: fullsize/terraform-note.png
 ```bash
 $ terraform import aws_instance.foobar i-1a2b3c4d
 ```
+
 其中 `aws_instance.foobar` 是 Terraform 的 [module path](https://www.terraform.io/docs/modules/usage.html#multiple-instances-of-a-module)。
 
 ## 如果是 Terraform 自己定義的 resource，就不會實際地反應在 cloud provider 上
@@ -42,6 +43,7 @@ $ terraform import aws_instance.foobar i-1a2b3c4d
 例如 `aws_iam_user_policy_attachment` 就是 Terraform 自己定義的 resource，無法匯入。但如果 `terraform apply`，如果該 IAM policy 已經 attach 到 IAM user 身上，就不會再被重複地 attach。不過 Terraform 還是會在 `terraform.tfstate` 檔案裡紀錄這件事情已經做過了，方便之後移除該 resource 時，將 policy 從 user 身上 detach 掉。
 
 ## Terraform 不支援變數內嵌變數
+
 假設今天有一個 `foo` variable：
 
 ```json
@@ -95,6 +97,7 @@ module "foo" {
 必須手動增加 `.tfstate` 檔案的 `serial` 欄位。
 
 ## Terraform 支援 module 內嵌 module，但回傳的 `resource` name 不正確
+
 [terraform import command fails when there are several nested levels on the resource address #8713](https://github.com/hashicorp/terraform/issues/8713)
 
 例如 `terraform plan` 時顯示的是：
@@ -114,4 +117,3 @@ module.foo.module.policy-with-module.aws_iam_policy.inner-policy
 [1]: https://www.terraform.io/
 [2]: https://www.terraform.io/intro/getting-started/install.html
 [3]: https://www.terraform.io/docs/providers/aws/r/instance.html
-
