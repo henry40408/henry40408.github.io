@@ -17,4 +17,4 @@ jobs:
           paths:
             - vendor/bundle
       - run: JEKYLL_ENV=production bundle exec jekyll build
-      - run: bash circle_deploy.sh
+      - run: bash .circleci/circle_deploy.sh
