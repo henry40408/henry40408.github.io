@@ -1,0 +1,20 @@
+version: 2
+
+jobs:
+  build:
+    branches:
+      only:
+        - develop
+    docker:
+      - image: circleci/ruby:2.5.1
+    steps:
+      - checkout
+      - restore_cache:
+          key: gem-{{ checksum "Gemfile.lock" }}
+      - run: bundle install
+      - save_cache:
+          key: gem-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run: JEKYLL_ENV=production bundle exec jekyll build
+      - run: bash circle_deploy.sh
