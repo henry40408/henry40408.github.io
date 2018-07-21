@@ -13,7 +13,7 @@ date: 2016-07-29
 
 官方文件建議如果要在 `Touchable` 系列裡使用多個 component，如以下的形式，直接寫是行不通的。
 
-```javascript
+```jsx
 <TouchableHighlight>
   <ChildOne />
   <ChildTwo />
@@ -22,7 +22,7 @@ date: 2016-07-29
 
 必須改寫成以下形式。
 
-```javascript
+```jsx
 <TouchableHighlight>
   <View>
     <ChildOne />
@@ -33,7 +33,7 @@ date: 2016-07-29
 
 而重點就在這個 `<View />`。這個 `<View />` 在 `0.28.x` 時不能以自訂的 component 取代。例如以下的程式碼，在 `0.28.x` 有一定的機率造成 `Touchable` 失去效果。
 
-```javascript
+```jsx
 const MyComp = ({children}) => (
   <View>
     {children}
@@ -52,7 +52,7 @@ const Touchable = () => (
 
 如果寫成以上的形式，則 React Native 在執行的時候會展開成以下形式。
 
-```javascript
+```jsx
 const Touchable = () => (
   <TouchableHighlight>
     <MyComp>

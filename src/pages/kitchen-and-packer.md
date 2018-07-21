@@ -95,7 +95,6 @@ w2B3v90VaF+cY0OibW5nFV2du04vmS1k74Lf9Mqkht0hdaxjNyoHvw==
 
 好 der，我們接下來就把這個環境變數透過 Packer 打進 Chef 吧！
 
-{% raw %}
 ```json
 // packer.json
 {
@@ -111,7 +110,6 @@ w2B3v90VaF+cY0OibW5nFV2du04vmS1k74Lf9Mqkht0hdaxjNyoHvw==
   }]
 }
 ```
-{% endraw %}
 
 ```ruby
 # cookbook.rb
