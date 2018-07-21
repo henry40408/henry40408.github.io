@@ -1,5 +1,7 @@
-/_site
-/.asset-cache
-/.jekyll-metadata
-/.sass-cache
-/vendor/bundle
+node_modules/
+public
+.gatsby-context.js
+.DS_Store
+.intermediate-representation/
+.cache/
+yarn.lock
