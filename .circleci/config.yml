@@ -15,8 +15,8 @@ jobs:
       - save_cache:
           key: yarn-{{ checksum "yarn.lock" }}
           paths:
-            - vendor/bundle
+            - node_modules
       - run: |
-          git config user.email 'sayhi@circleci.com'
-          git config user.name 'CircleCI'
+          git config --global user.email 'sayhi@circleci.com'
+          git config --global user.name 'CircleCI'
       - run: npm run deploy
