@@ -6,15 +6,14 @@ jobs:
       only:
         - develop
     docker:
-      - image: circleci/ruby:2.5.1
+      - image: circleci/node:carbon
     steps:
       - checkout
       - restore_cache:
-          key: gem-{{ checksum "Gemfile.lock" }}
-      - run: bundle install
+          key: yarn-{{ checksum "yarn.lock" }}
+      - run: yarn
       - save_cache:
-          key: gem-{{ checksum "Gemfile.lock" }}
+          key: yarn-{{ checksum "yarn.lock" }}
           paths:
             - vendor/bundle
-      - run: JEKYLL_ENV=production bundle exec jekyll build
-      - run: bash .circleci/circle_deploy.sh
+      - run: npm run deploy
