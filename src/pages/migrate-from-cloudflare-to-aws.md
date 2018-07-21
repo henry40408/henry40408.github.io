@@ -9,7 +9,6 @@ date: 2017-03-06
 
 ## Cloudflare 提供什麼服務？在 AWS 上有哪些替代服務？
 
-{:.ui.table}
 | 服務 | Cloudflare | AWS |
 | ---- | --------------- | ---------------------------------------- |
 | DNS | 免費 | **[付費](https://aws.amazon.com/tw/route53/)，一個 hosted zone 0.5 美金/月**[^1] |
@@ -39,7 +38,6 @@ Name 欄位在這個例子中是 `bar.com`。要注意的是，**Route53 的 Hos
 
 A record 就是 A record、CNAME record 就是 CNAME record、TXT record 就是 TXT record，名稱、值都是直接複製貼上。到目前為止我發現唯一不同的是，**MX record 在 Cloudflare 上，多個的 priority 會切成多筆紀錄，但到了 Route53 上會合併成一筆**。舉例來說如果在 Cloudflare 上，假設 MX record 有兩個 priority，就會有兩筆記錄：
 
-{:.ui.table}
 | Name | Type | Record | Priority |
 | ------------ | ---- | --------------- | -------: |
 | mail.bar.com | MX | mxa.mailgun.com | 10 |
@@ -47,7 +45,6 @@ A record 就是 A record、CNAME record 就是 CNAME record、TXT record 就是 
 
 但到了 Route53 上就會合併成一筆：
 
-{:.ui.table}
 | Key | Value |
 | ------- | ---------------------------------------- |
 | Name | mail.bar.com |
@@ -56,7 +53,7 @@ A record 就是 A record、CNAME record 就是 CNAME record、TXT record 就是 
 
 最後比照 Cloudflare，也要到網域代理商那邊將 name server 改成 Cloudfront 提供的 name server，格式大概會長下面這個樣子：
 
-```bi
+```plain
 ns-XX.awsdns-XX.co.uk.
 ns-XX.awsdns-XX.com.
 ns-XX.awsdns-XX.net.
@@ -71,11 +68,11 @@ ns-XX.awsdns-XX.org.
 
 ```bash
 $ nslookup bar.com
-Server:		8.8.8.8
-Address:	8.8.8.8#53
+Server:   8.8.8.8
+Address:  8.8.8.8#53
 
 Non-authoritative answer:
-Name:	bar.com
+Name: bar.com
 Address: 123.246.123.246 # ← 確定這裡的 IP 是對的
 $
 ```

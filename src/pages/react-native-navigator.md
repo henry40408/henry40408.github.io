@@ -9,7 +9,6 @@ date: 2016-08-12
 
 這個問題出在我把 navigator 這個屬於 component 範疇的 object 傳給 redux action，導致 decoupling 不完全；另外一個問題是我違反了 component pattern，階層較低的 component 不該有機會能夠直接參考到階層較高的 component。例如以下的 code。
 
-{% raw %}
 ```jsx
 const FooScene = () => (
   <View />
@@ -62,7 +61,6 @@ class App extends React.Component {
   }
 }
 ```
-{% endraw %}
 
 如果是照著 React Native 官網一步一步使用 Navigator，那個 `renderScene` 內的程式碼看起來會很古怪，但這個寫法是來自 [React Native Navigator — Navigating Like A Pro in React Native](https://medium.com/@dabit3/react-native-navigator-navigating-like-a-pro-in-react-native-3cb1b6dc1e30)。**這樣寫的好處是你不必再另外撰寫路由表**，因為目標 scene component 直接放在 route 裡，`renderScene` 要做的只剩下對 component 注入 `navigator`、`route`，最多在有使用 redux 的情形下再多注入 redux 的 state 與 actions。
 

@@ -5,6 +5,9 @@ Wordpress2016.overrideThemeStyles = () => ({
   'a.gatsby-resp-image-link': {
     boxShadow: 'none',
   },
+  '.gatsby-highlight': {
+    marginBottom: '1.75rem'
+  }
 })
 
 delete Wordpress2016.googleFonts

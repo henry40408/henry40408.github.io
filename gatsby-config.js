@@ -33,6 +33,7 @@ module.exports = {
           'gatsby-remark-prismjs',
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
+          'gatsby-remark-emoji',
         ],
       },
     },
@@ -53,5 +54,23 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography',
       },
     },
+    {
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        logo: "./static/avatar.png",
+        injectHTML: true,
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          twitter: false,
+          yandex: false,
+          windows: false
+        }
+      }
+    }
   ],
 }
