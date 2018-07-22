@@ -5,6 +5,7 @@ import get from 'lodash/get'
 import styled from 'styled-components'
 
 import Bio from '../components/Bio'
+import SEO from '../components/SEO'
 import { rhythm, scale } from '../utils/typography'
 
 let Date = styled.p`
@@ -32,9 +33,17 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const { previous, next } = this.props.pathContext
 
+    const postData = {
+      excerpt: post.excerpt,
+      frontmatter: {
+        ...post.frontmatter,
+        title: `${post.frontmatter.title} | ${siteTitle}`,
+      },
+    }
+
     return (
       <div>
-        <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+        <SEO isBlogPost postData={postData} />
         <h1>{post.frontmatter.title}</h1>
         <Date>{post.frontmatter.date}</Date>
         <p dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -74,6 +83,7 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
+      excerpt
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
