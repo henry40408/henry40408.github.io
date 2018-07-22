@@ -3,7 +3,7 @@ module.exports = {
     title: 'Life is a YOLO game',
     author: 'Henry Wu',
     description: "Henry Wu's blog",
-    siteUrl: 'https://henry40408.github.io/',
+    siteUrl: 'https://henry40408.github.io',
   },
   pathPrefix: '/',
   plugins: [

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { withPrefix } from 'gatsby-link'
 
 // Import typefaces
 import 'typeface-montserrat'
@@ -8,16 +9,21 @@ import 'typeface-merriweather'
 import profilePic from '../../static/avatar.png'
 import { rhythm } from '../utils/typography'
 
-let BioContainer = styled.div`
+const BioContainer = styled.div`
   display: flex;
   margin-bottom: ${rhythm(2.5)};
 `
 
-let Avatar = styled.img`
-  margin-right: ${rhythm(1 / 2)};
-  margin-bottom: 0;
-  width: ${rhythm(2)};
-  height: ${rhythm(2)};
+const Avatar = styled.img`
+  border-radius: 50%;
+  border: 1px solid #eee;
+  margin-right: ${rhythm(1)};
+  width: ${rhythm(3)};
+  height: ${rhythm(3)};
+`
+
+const BioText = styled.div`
+  font-size: ${rhythm(0.55)};
 `
 
 class Bio extends React.Component {
@@ -25,10 +31,19 @@ class Bio extends React.Component {
     return (
       <BioContainer>
         <Avatar src={profilePic} alt={`Henry Wu`} />
-        <p>
-          Written by <strong>Henry Wu</strong> who lives and works in Taipei
-          producing some nasty bugs.
-        </p>
+        <div>
+          <BioText>
+            Written by <strong>Henry Wu</strong> who lives and works in Taipei
+            producing some nasty bugs.
+          </BioText>
+          <div>
+            <a href={withPrefix('/rss.xml')}>RSS</a>
+            {' | '}
+            <a href="https://medium.com/@henry40408">Medium</a>
+            {' | '}
+            <a href="https://github.com/henry40408">GitHub</a>
+          </div>
+        </div>
       </BioContainer>
     )
   }
