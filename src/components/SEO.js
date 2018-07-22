@@ -81,15 +81,15 @@ const SEO = ({ postData, postImage, isBlogPost }) => {
   const description =
     postMeta.description || postData.excerpt || config.siteMetadata.description
 
-  let image = `${
-    config.siteMetadata.siteUrl
-  }life-is-a-yolo-game-so-play-it-well.png`
+  let image = `${config.siteMetadata.siteUrl}${withPrefix(
+    'life-is-a-yolo-game-so-play-it-well.png'
+  )}`
   if (postImage) {
-    image = `${config.siteMetadata.siteUrl}${postImage}`
+    image = `${config.siteMetadata.siteUrl}${withPrefix(postImage)}`
   }
 
   const url = postMeta.slug
-    ? `${config.siteMetadata.siteUrl}${path.sep}${postMeta.slug}`
+    ? `${config.siteMetadata.siteUrl}${postMeta.slug}`
     : config.siteMetadata.siteUrl
   const datePublished = isBlogPost ? postMeta.datePublished : false
 
