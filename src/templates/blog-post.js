@@ -5,6 +5,7 @@ import get from 'lodash/get'
 import styled from 'styled-components'
 
 import Bio from '../components/Bio'
+import Copyright from '../components/Copyright'
 import SEO from '../components/SEO'
 import { rhythm, scale } from '../utils/typography'
 
@@ -37,6 +38,7 @@ class BlogPostTemplate extends React.Component {
       excerpt: post.excerpt,
       frontmatter: {
         ...post.frontmatter,
+        slug: this.props.pathContext.slug,
         title: `${post.frontmatter.title} | ${siteTitle}`,
       },
     }
@@ -65,6 +67,7 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </PostNav>
+        <Copyright />
       </div>
     )
   }

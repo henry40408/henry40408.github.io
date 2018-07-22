@@ -6,6 +6,7 @@ import styled from 'styled-components'
 
 import Bio from '../components/Bio'
 import SEO from '../components/SEO'
+import Copyright from '../components/Copyright'
 import { rhythm } from '../utils/typography'
 
 let NodeHeader = styled.h3`
@@ -37,6 +38,7 @@ class BlogIndex extends React.Component {
             </div>
           )
         })}
+        <Copyright />
       </div>
     )
   }
