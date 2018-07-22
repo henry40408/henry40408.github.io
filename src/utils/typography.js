@@ -6,8 +6,8 @@ Wordpress2016.overrideThemeStyles = () => ({
     boxShadow: 'none',
   },
   '.gatsby-highlight': {
-    marginBottom: '1.75rem'
-  }
+    marginBottom: '1.75rem',
+  },
 })
 
 delete Wordpress2016.googleFonts
