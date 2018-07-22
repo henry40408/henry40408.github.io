@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
 import Bio from '../components/Bio'
+import SEO from '../components/SEO'
 import { rhythm } from '../utils/typography'
 
 let NodeHeader = styled.h3`
@@ -18,10 +19,11 @@ class BlogIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allMarkdownRemark.edges')
+    const postData = {}
 
     return (
       <div>
-        <Helmet title={siteTitle} />
+        <SEO postData={postData} />
         <Bio />
         {posts.map(({ node }) => {
           const title = get(node, 'frontmatter.title') || node.fields.slug
