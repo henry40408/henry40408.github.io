@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Life is a YOLO game',
     author: 'Henry Wu',
-    description: 'Henry Wu\'s blog',
+    description: "Henry Wu's blog",
     siteUrl: 'https://henry40408.github.io/',
   },
   pathPrefix: '/',
@@ -42,7 +42,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'UA-6529501-15'
+        trackingId: 'UA-6529501-15',
       },
     },
     `gatsby-plugin-feed`,
@@ -57,7 +57,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-favicon`,
       options: {
-        logo: "./static/avatar.png",
+        logo: './static/avatar.png',
         injectHTML: true,
         icons: {
           android: true,
@@ -68,9 +68,9 @@ module.exports = {
           firefox: true,
           twitter: false,
           yandex: false,
-          windows: false
-        }
-      }
-    }
+          windows: false,
+        },
+      },
+    },
   ],
 }
