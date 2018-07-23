@@ -3,11 +3,15 @@ title: "2018 七月第四週"
 date: 2018-07-22
 ---
 
+本週我把部落格從 Jekyll 換到 gatsby、看了一部投石機的 maker 影片。
+
+<!-- end -->
+
 ## 工程
 
-### 升級 jekyll，升著升著就跳槽到 gatsby 了
+### 升級 Jekyll，升著升著就跳槽到 gatsby 了
 
-痛死了，完全沒有以前在寫 Ruby 是那種無時無刻無痛升級的爽感。
+痛死了，完全沒有以前在寫 Ruby 時那種無時無刻無痛升級的爽感。
 
 我的部落格（嘿對就是這個）原來是以 Jekyll 產生的靜態網站，會想要去升級部落格的 Ruby gems，是因為 Orange Tsai 找到了一個 sprockets 的洞 [Rails Asset Pipeline Directory Traversal Vulnerability (CVE-2018-3760)](https://blog.heroku.com/rails-asset-pipeline-vulnerability)，其中一個 Ruby gems 有用到出問題的版本，間接導致 GitHub 跳 [security alert](https://blog.github.com/2017-11-16-introducing-security-alerts-on-github/) 給我。
 
@@ -16,8 +20,6 @@ date: 2018-07-22
 我原本有使用一套 [jekyll-picture-tag](https://github.com/robwierzbowski/jekyll-picture-tag)，上次更新已經是 2015 年的事了。
 
 後來找到了 [jekyll-responsive-image](https://github.com/wildlyinaccurate/jekyll-responsive-image)，傻了，這一套要怎麼用啊？圖片要放哪裡？放圖片的目錄結構要長什麼樣子？為什麼 Liquid tag 的樣子跟我之前用 Jekyll 的時候長得不太一樣？一定不是文件沒有寫清楚，而是我看不懂。
-
-> 不要批評 open source，如果出問題一定是你的問題（笑）
 
 最後決定把 Jekyll 換成 [gastby](https://www.gatsbyjs.org/)，使用體驗到目前為止還不錯，原來部落格有用到的功能 gastby 都有支援，SEO 看起來也沒什麼問題，就先湊合著用吧！之後看看運作的怎麼樣，有機會再來寫寫使用心得。
 
@@ -29,11 +31,11 @@ date: 2018-07-22
 
 > [Master Password 忘掉你的密碼吧！超簡單、聰明的跨平台密碼產生器](https://free.com.tw/master-password/)
 
-用到現在有一個很明顯的缺點，master password 既然沒有同步機制，如果忘了特定網站的參數，例如一開始設定的 domain name、或是服務改了 domain name，例如 github.com 改成 git.microsoft.com 之類的、或是密碼輪調的次數，就叫不出原來設定的密碼了。所以我還是將 master password 存放網站清單的目錄同步到 Dropbox（主密碼當然不能同步上去），避免如果電腦遺失了就真的登入不了所有網站了。
+用到現在有一個很明顯的缺點，master password 既然沒有同步機制，如果忘了特定網站的參數，例如一開始設定的 domain name、或是服務改了 domain name，例如 github.com 改成 git.microsoft.com 之類的、或是密碼輪調的次數，就叫不出原來設定的密碼了。所以我還是將 master password 存放網站清單的目錄同步到 Dropbox（主密碼當然不能同步上去），避免電腦遺失了就真的登入不了所有網站了。
 
 ### [实力科普：为什么浮层或弹框一定要有叉叉关闭按钮？](https://www.zhangxinxu.com/wordpress/2018/07/why-dialog-panel-need-close-button/)
 
-其實就是一句話：「使用者習慣都被 Windows 帶壞了、工程師都被 Windows 綁架了」使用者已經習慣 Windows 的介面操作之後，你怎麼設計都跳不出 Windows 的五指山了。無障礙什麼的真的只是其次，否則使用者在無障礙模式下還是想在右上角搜尋關閉按鈕的行為要怎麼解釋？
+其實就是一句話：「使用者習慣都被 Windows 帶壞了、工程師都被 Windows 綁架了」使用者已經習慣 Windows 的介面操作之後，我們怎麼設計都跳不出 Windows 的五指山了。無障礙什麼的真的只是其次，否則使用者在無障礙模式下還是想在右上角搜尋關閉按鈕的行為要怎麼解釋？
 
 還記得每個設計師都恨得牙癢癢的「漢堡選單」嗎？積非成是啊！
 
@@ -80,7 +82,7 @@ foo:
 
 我覺得並沒有比較「簡潔」，因為 `fruit` 與 `fruit.variety` 的視覺干擾也很嚴重。HJSON 則還算可以接受。
 
-另外的問題是：好，就算我今天把 Ruby on Rails 的 YAML 換成 TOML、NPM 的 `package.json` 換成 `package.yaml`，合作的工程師或不知名的路人甲看 code 的時候只會覺得 WTF？假設對方沒有學過 TOML，那等於是把一套語言硬生生的甩在別人臉上，要他吞下去。慣例很重要，不符合慣例的事情做了，別人在耐著性子聽完你的理由之前就離開了，不能批評人家為什麼都不理解你。
+另外的問題是：好，就算我今天把 Ruby on Rails 的 YAML 換成 TOML、NPM 的 `package.json` 換成 `package.yaml`，合作的工程師或不知名的路人甲看 code 的時候只會覺得 WTF？假設對方沒有學過 TOML，那等於是把一套語言硬生生的甩在別人臉上，要他吞下去。慣例很重要，不符合慣例的事情做了，別人在耐著性子聽完理由之前就離開了，不能批評人家為什麼都不願意花時間理解。
 
 其實更多時候影響閱讀體驗的不是設定檔的 syntax，而是設定值名稱的語意不清。
 
@@ -120,9 +122,9 @@ Airbnb 開源的 server-side render service，支援 Node.js、Ruby on Rails、P
 
 > The biggest bullshit that has ever been said about React
 
-React 老實說真的沒有很好學，因為你必須先了解什麼是 [Flux](https://www.youtube.com/watch?list=PLb0IAmt7-GS188xDYE-u1ShQmFFGbrk0v&time_continue=621&v=nYkdrAPrdcw)、`state` 與 `props` 的區別、如何跟非同步的操作同步、component 的 lifecycle（在此之前要知道 React component 是什麼）。
+React 老實說真的沒有很好學，因為我們必須先了解什麼是 [Flux](https://www.youtube.com/watch?list=PLb0IAmt7-GS188xDYE-u1ShQmFFGbrk0v&time_continue=621&v=nYkdrAPrdcw)、`state` 與 `props` 的區別、如何跟非同步的操作同步、component 的 lifecycle（在此之前要知道 React component 是什麼）。
 
-我覺得 React 沒有很好學，但一堆 startup 選用的其中一個可能的原因在於：團隊決定選用 React 時有很大的機會已經不只一個人了，所以可以享受到 React 導入後的 _紅利_ 。但當你 _一個人_ 要加入一個已經採用 React 的團隊時，你必須靠一個人的力量追上團隊已經採用的整套 React stack。又或者沒有這麼複雜，大家會想用 React 只是因為 BCDD（Big-Company Driven Development）或 HDD（Hive Driven Development）法則發威了而已。
+我覺得 React 沒有很好學，但一堆 startup 選用的其中一個可能的原因在於：團隊決定選用 React 時有很大的機會已經不只一個人了，所以可以享受到 React 導入後的 _紅利_ 。但當 _一個新人_ 要加入一個已經採用 React 的團隊時，新人必須靠一個人的力量追上團隊已經採用的整套 React stack。又或者沒有這麼複雜，大家會想用 React 只是因為 BCDD（Big-Company Driven Development）或 HDD（Hive Driven Development）法則發威了而已。
 
 另外我在現在服務的公司常常聽到有同事說 React 好複雜，還是 vanilla JavaScript 的時代美好。這一點我還在反思原因，之後可能會整理一篇文章出來試圖解釋這件事。
 
