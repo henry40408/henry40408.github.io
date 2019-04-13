@@ -7,7 +7,8 @@
   },
   "scripts": {
     "start": "hexo server",
-    "publish": "hexo publish"
+    "generate": "hexo generate",
+    "deploy": "npm run generate && gh-pages -b master -d public"
   },
   "dependencies": {
     "hexo": "^3.8.0",
@@ -24,5 +25,8 @@
     "hexo-renderer-sass": "^0.4.0",
     "hexo-renderer-stylus": "^0.3.3",
     "hexo-server": "^0.3.3"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }
