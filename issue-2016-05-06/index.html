@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="zh-TW"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Sudo 開發日記 2016-05-06 | Life is a YOLO Game</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-6529501-15','auto');ga('send','pageview');
+</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Sudo 開發日記 2016-05-06</h1><a id="logo" href="/.">Life is a YOLO Game</a><p class="description">So play it well</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首頁</i></a><a href="/archives/"><i class="fa fa-archive"> 所有文章</i></a><a href="https://github.com/henry40408"><i class="fa fa-github"> GitHub</i></a><a href="https://medium.com/@henry40408"><i class="fa fa-medium"> Medium</i></a><a href="/atom.xml"><i class="fa fa-rss"> 訂閱</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Sudo 開發日記 2016-05-06</h1><div class="post-meta">May 8, 2016</div><div class="post-content"><h2 id="工作內容"><a href="#工作內容" class="headerlink" title="工作內容"></a>工作內容</h2><ul>
+<li>app 新功能大致開發完成，開始收斂修 bug，準備第一版送審</li>
+</ul>
+<h2 id="新發現的東西"><a href="#新發現的東西" class="headerlink" title="新發現的東西"></a>新發現的東西</h2><h3 id="1-Jenkins-2-0-on-Docker"><a href="#1-Jenkins-2-0-on-Docker" class="headerlink" title="1. Jenkins 2.0 on Docker"></a>1. Jenkins 2.0 on Docker</h3><p>很多團隊都不敢貿然在開發流程中導入 Docker，一個很大的原因是許多 service 都還沒有針對 Docker 做過最佳化。2015 年 Docker 大流行時，網路上也出現不少質疑 Docker 將 service 虛擬化之後隨之而來的效能瓶頸。但持該論點的文章，大多都是採用短時間、高併發的 benchmarking (套一句行話來說就是「燒機」式的測試) 去測試 Docker 的性能，而不是真的讓 MySQL 跑在 production 環境上一段時間然後慢慢調整效能。但說實在地，未經測試的架構，誰又有這麼大顆的心臟敢放它在 production 環境上跑呢？</p>
+<p>扯太遠了。這一週主要是發現 Jenkins 2.0 在 Docker 上執行的效能比 1.x 來說有非常顯著的改善。由於目前 Sudo 是使用 CircleCI 做 CI，還沒有做 CD，但在正式導入 CD 之前我預想到了一個問題。</p>
+<blockquote>
+<p>CircleCI 的 IP 不固定，要怎麼樣在兼顧 AWS Security Group 政策的前提下執行 CD？</p>
+</blockquote>
+<p>我目前想到最合理的替代方案是直接在 AWS 內建立自己的 CI/CD 環境 (至於怎麼架設還需要再研究，因為最終目的是一台 EC2 都不要管，全部改用 ECS)，而 Jenkins 正是這一方面領域的佼佼者。但自行測試幾次 Jenkins 1.x 之後，不是安裝 plugins 時讓系統的 load 飆高到連 shell 都卡住的地步，不然就是正式建置專案時記憶體被塞爆 (在已經掛上 swap 的前提下)。曾經試著開 spot instance 去執行，但問題沒有解決。</p>
+<p>連官方都在 Downloads 的選項中正式提供 Docker 的安裝方式，Jenkins 2.0 這次的表現讓我又對它抱持一線希望。</p>
+<h3 id="2-React-Native-串接-Cocoapods-並透過-fastlane-部署時的陷阱"><a href="#2-React-Native-串接-Cocoapods-並透過-fastlane-部署時的陷阱" class="headerlink" title="2. React Native 串接 Cocoapods 並透過 fastlane 部署時的陷阱"></a>2. React Native 串接 Cocoapods 並透過 fastlane 部署時的陷阱</h3><p>在茫茫 Google 中尋覓是否有人寫好 Flurry 或 Google Analytics 的 wrapper 一陣子之後，我放棄了。因為不是寫完之後就擺在那裡根本沒去更新 iOS library，不然就是一抓下來掛上去噴奇怪的錯誤 (Google Analytics 的 wrapper 在虛擬器中測試會噴 <a href="https://github.com/lwansbrough/react-native-google-analytics/issues/28" target="_blank" rel="noopener">奇怪的錯誤</a>)。絕望之下，我只好捲起袖子自己橋接 React Native 與 iOS library 了。</p>
+<p><a href="https://facebook.github.io/react-native/docs/native-modules-ios.html" target="_blank" rel="noopener">官方文件</a> 寫得很詳細，而且我從 <a href="https://facebook.github.io/react-native/docs/native-modules-ios.html#exporting-swift" target="_blank" rel="noopener">Exporting Swift</a> (我很慚愧地表示我不會 Objective-C) 開始做，步驟少得有點過分。顫抖地按下編譯並執行，還真的可以跑 (數據有確實地傳回 Google Analytics，真心不騙)。</p>
+<blockquote>
+<p>My code works but I don’t know why.</p>
+</blockquote>
+<p>扯遠了。這一次真正要分享的是如果 React Native 有掛 Cocoapods，<code>Fastfile</code> 要一併更新，否則會發生找不到 library 的錯誤。例如以下這一行：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gym(<span class="symbol">scheme:</span> <span class="string">"app"</span>, <span class="symbol">project:</span> <span class="string">"ios/app.xcodeproj"</span>)</span><br></pre></td></tr></table></figure>
+<p>一開始開發 React Native 與設定 fastlane 時，它不會預設你未來會掛 Cocoapods 上去，因為不是每個人都會用到 Cocoapods，或可能使用了 Cocoapods 以外的套件管理工具。但如果第一次執行完 <code>pod install</code>，Cocoapods 其實會提醒你之後記得都要使用 <code>*.xcworkspace</code> 當作開發時的專案檔：</p>
+<pre><code>[!] From now on use `app.xcworkspace`.
+</code></pre><p>我記得這件事，之後也都是使用 <code>*.xcworkspace</code> 開發，但每次透過 fastlane 部署的時候都會在 <code>gym</code> 那一步出錯，跟我抱怨說 <code>ld</code> 找不到 library 連結。<strong>明明開發時在虛擬機上面跑都沒有問題，為什麼部署的時候就會出錯？</strong></p>
+<p>這兩者唯一的差異不就是一個透過 Xcode 執行，一個透過 fastlane 執行嗎？</p>
+<p>於是我打開 <code>Fastfile</code>，將那行該死的 <code>gym</code> 改成以下形式：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gym(<span class="symbol">scheme:</span> <span class="string">"app"</span>, <span class="symbol">workspace:</span> <span class="string">"ios/app.xcworkspace"</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>然後什麼都不必改，因為 Cocoapods 在建立 workspace 時已經把設定都寫進去了</strong>。部署成功。</p>
+<p>於是，<code>ld</code> 找到它的歸屬，與 iOS library 從此過著幸福快樂的日子。</p>
+<p>必須承認 React Native library 還是這麼少是非戰之罪，因為自己動手橋接真是太容易了，而且有很多 library 是依附在平台之上，要跨平台沒有這麼容易，根本讓人沒有動力去寫 for React Native 的 library。</p>
+<h2 id="3-React-Native-動畫效果不要濫用"><a href="#3-React-Native-動畫效果不要濫用" class="headerlink" title="3. React Native 動畫效果不要濫用"></a>3. React Native 動畫效果不要濫用</h2><p>從 iOS 7 開始支援一種新的手勢，如果你從螢幕邊緣向右滑動，就可以回到上一個畫面。</p>
+<p><img src="http://static.iphonelife.com/sites/iphonelife.com/files/u31936/Swipe%20Mail.png" alt="Swipe gesture in Apple Mail"></p>
+<p>React Native 支援以下過場動畫效果，透過實作 <code>Navigator</code> 的 <a href="https://facebook.github.io/react-native/docs/navigator.html#configurescene" target="_blank" rel="noopener"><code>configureScene</code></a> 來控制，目前支援以下幾種：</p>
+<ul>
+<li>Navigator.SceneConfigs.PushFromRight (default)</li>
+<li>Navigator.SceneConfigs.FloatFromRight</li>
+<li>Navigator.SceneConfigs.FloatFromLeft</li>
+<li>Navigator.SceneConfigs.FloatFromBottom</li>
+<li>Navigator.SceneConfigs.FloatFromBottomAndroid</li>
+<li>Navigator.SceneConfigs.FadeAndroid</li>
+<li>Navigator.SceneConfigs.HorizontalSwipeJump</li>
+<li>Navigator.SceneConfigs.HorizontalSwipeJumpFromRight</li>
+<li>Navigator.SceneConfigs.VerticalUpSwipeJump</li>
+<li>Navigator.SceneConfigs.VerticalDownSwipeJump</li>
+</ul>
+<p>其中最後名稱中包含 “Swipe” 字樣的四種效果使用上需特別謹慎，尤其是當你的畫面中有 carousel 的元件時，使用者的左右滑動會被 bubble up 到最上層的 <code>View</code>，然後被辨識為 iOS 的滑動返回手勢，這對使用者來說是預期之外的行為，應該避免。</p>
+<p>目前的解決方案是在使用 carousel 元件的 <code>View</code> 上避免 Swipe 類的過場特效，改以 Float 或預設的 Push 取代。另外有一個潛在的解決方法是覆寫 carousel 的 <code>onTouchStart</code> 避免 event 被 bubble up，但由於還沒有認真研究過 React Native 的事件處理機制，所以就先不嘗試了。</p>
+</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/issue-2016-05-13/">Sudo 開發日記 2016-05-13</a><a class="next" href="/issue-2016-04-29/">Sudo 開發日記 2016-04-29</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018-july-week-4/">2018 七月第四週</a></li><li class="post-list-item"><a class="post-list-link" href="/drupal-s3-imce.html/">Drupal 搬遷到 S3 後從 IMCE 再也看不到搬遷前上傳的檔案</a></li><li class="post-list-item"><a class="post-list-link" href="/terraform-note/">Terraform 雜記</a></li><li class="post-list-item"><a class="post-list-link" href="/replace-security-groups-in-terraform/">在 Terraform 抽換 Security Group</a></li><li class="post-list-item"><a class="post-list-link" href="/migrate-from-cloudflare-to-aws/">從 Cloudflare 搬家到 AWS，而且是「徹底搬家」</a></li><li class="post-list-item"><a class="post-list-link" href="/mongoose-collection-index/">MongoDB 與 Mongoose 執行測試時注意刪除 database 同時也會刪除 collection 的 index</a></li><li class="post-list-item"><a class="post-list-link" href="/twil-4/">TWIL #4</a></li><li class="post-list-item"><a class="post-list-link" href="/twil-3/">TWIL #3</a></li><li class="post-list-item"><a class="post-list-link" href="/twil-2/">TWIL #2</a></li><li class="post-list-item"><a class="post-list-link" href="/twil-1/">TWIL #1</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">Life is a YOLO Game.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
