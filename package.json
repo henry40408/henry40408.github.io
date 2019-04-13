@@ -1,61 +1,32 @@
 {
-  "name": "gatsby-starter-blog",
-  "description": "Henry Wu's blog",
-  "version": "1.0.0",
-  "author": "Henry Wu <henry40408@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/henry40408/henry40408.github.io/issues"
-  },
-  "dependencies": {
-    "gatsby": "^1.9.250",
-    "gatsby-link": "^1.6.39",
-    "gatsby-plugin-favicon": "^2.1.1",
-    "gatsby-plugin-feed": "^1.3.20",
-    "gatsby-plugin-google-analytics": "^1.0.29",
-    "gatsby-plugin-offline": "^1.0.15",
-    "gatsby-plugin-react-helmet": "^1.0.8",
-    "gatsby-plugin-sharp": "^1.6.42",
-    "gatsby-plugin-typography": "^1.7.18",
-    "gatsby-remark-copy-linked-files": "^1.5.31",
-    "gatsby-remark-emoji": "^0.0.2",
-    "gatsby-remark-images": "^1.5.61",
-    "gatsby-remark-prismjs": "^2.0.5",
-    "gatsby-remark-responsive-iframe": "^1.4.18",
-    "gatsby-remark-smartypants": "^1.4.12",
-    "gatsby-source-filesystem": "^1.5.31",
-    "gatsby-transformer-remark": "^1.7.40",
-    "gatsby-transformer-sharp": "^1.6.22",
-    "lodash": "^4.17.5",
-    "prismjs": "^1.15.0",
-    "styled-components": "^3.3.3",
-    "typeface-merriweather": "0.0.43",
-    "typeface-montserrat": "0.0.43",
-    "typography-theme-wordpress-2016": "^0.15.10"
-  },
-  "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-plugin-react": "^7.7.0",
-    "gh-pages": "^1.1.0",
-    "prettier": "^1.12.0"
-  },
-  "homepage": "https://github.com/henry40408/henry40408.github.io#readme",
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/henry40408/henry40408.github.io.git"
+  "name": "henry40408-blog",
+  "version": "0.0.0-semantic-release",
+  "private": true,
+  "hexo": {
+    "version": "3.8.0"
   },
   "scripts": {
-    "dev": "gatsby develop",
-    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
-    "develop": "gatsby develop",
-    "build": "gatsby build",
-    "deploy": "gatsby build && gh-pages -b master -d public",
-    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
+    "start": "hexo server",
+    "generate": "hexo generate",
+    "deploy": "npm run generate && gh-pages -b master -d public"
+  },
+  "dependencies": {
+    "hexo": "^3.8.0",
+    "hexo-cli": "^1.1.0",
+    "hexo-generator-archive": "^0.1.5",
+    "hexo-generator-category": "^0.1.3",
+    "hexo-generator-feed": "^1.2.2",
+    "hexo-generator-index": "^0.2.1",
+    "hexo-generator-search": "^2.4.0",
+    "hexo-generator-tag": "^0.2.0",
+    "hexo-renderer-ejs": "^0.3.1",
+    "hexo-renderer-marked": "^0.3.2",
+    "hexo-renderer-pug": "0.0.5",
+    "hexo-renderer-sass": "^0.4.0",
+    "hexo-renderer-stylus": "^0.3.3",
+    "hexo-server": "^0.3.3"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }
