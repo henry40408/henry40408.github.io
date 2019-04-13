@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Life is a YOLO Game</title>
+  
+  <subtitle>So play it well</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://henry40408.com/"/>
+  <updated>2019-04-13T07:52:24.850Z</updated>
+  <id>https://henry40408.com/</id>
+  
+  <author>
+    <name>Heng-Yi Wu</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2018 七月第四週</title>
+    <link href="https://henry40408.com/2018-july-week-4/"/>
+    <id>https://henry40408.com/2018-july-week-4/</id>
+    <published>2018-07-21T16:00:00.000Z</published>
+    <updated>2019-04-13T07:52:24.850Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Drupal 搬遷到 S3 後從 IMCE 再也看不到搬遷前上傳的檔案</title>
+    <link href="https://henry40408.com/drupal-s3-imce.html/"/>
+    <id>https://henry40408.com/drupal-s3-imce.html/</id>
+    <published>2017-06-13T16:00:00.000Z</published>
+    <updated>2019-04-13T07:52:24.850Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Terraform 雜記</title>
+    <link href="https://henry40408.com/terraform-note/"/>
+    <id>https://henry40408.com/terraform-note/</id>
+    <published>2017-03-05T16:00:00.000Z</published>
+    <updated>2019-04-13T07:52:24.854Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>在 Terraform 抽換 Security Group</title>
+    <link href="https://henry40408.com/replace-security-groups-in-terraform/"/>
+    <id>https://henry40408.com/replace-security-groups-in-terraform/</id>
+    <published>2017-03-05T16:00:00.000Z</published>
+    <updated>2019-04-13T07:52:24.854Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>從 Cloudflare 搬家到 AWS，而且是「徹底搬家」</title>
+    <link href="https://henry40408.com/migrate-from-cloudflare-to-aws/"/>
+    <id>https://henry40408.com/migrate-from-cloudflare-to-aws/</id>
+    <published>2017-03-05T16:00:00.000Z</published>
+    <updated>2019-04-13T07:52:24.854Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MongoDB 與 Mongoose 執行測試時注意刪除 database 同時也會刪除 collection 的 index</title>
+    <link href="https://henry40408.com/mongoose-collection-index/"/>
+    <id>https://henry40408.com/mongoose-collection-index/</id>
+    <published>2017-02-03T16:00:00.000Z</published>
+    <updated>2019-04-13T07:52:24.854Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>TWIL #4</title>
+    <link href="https://henry40408.com/twil-4/"/>
+    <id>https://henry40408.com/twil-4/</id>
+    <published>2017-01-02T16:00:00.000Z</published>
+    <updated>2019-04-13T07:52:24.858Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>TWIL #3</title>
+    <link href="https://henry40408.com/twil-3/"/>
+    <id>https://henry40408.com/twil-3/</id>
+    <published>2016-11-14T16:00:00.000Z</published>
+    <updated>2019-04-13T07:52:24.858Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>TWIL #2</title>
+    <link href="https://henry40408.com/twil-2/"/>
+    <id>https://henry40408.com/twil-2/</id>
+    <published>2016-10-29T16:00:00.000Z</published>
+    <updated>2019-04-13T07:52:24.858Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>TWIL #1</title>
+    <link href="https://henry40408.com/twil-1/"/>
+    <id>https://henry40408.com/twil-1/</id>
+    <published>2016-10-20T16:00:00.000Z</published>
+    <updated>2019-04-13T07:52:24.858Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Elixir 雜記</title>
+    <link href="https://henry40408.com/elixir-note/"/>
+    <id>https://henry40408.com/elixir-note/</id>
+    <published>2016-10-16T16:00:00.000Z</published>
+    <updated>2019-04-13T07:52:24.850Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kitchen 與 Packer 實戰</title>
+    <link href="https://henry40408.com/kitchen-and-packer/"/>
+    <id>https://henry40408.com/kitchen-and-packer/</id>
+    <published>2016-09-01T03:28:00.000Z</published>
+    <updated>2019-04-13T07:52:24.854Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>React Native Navigator 求生紀實</title>
+    <link href="https://henry40408.com/react-native-navigator/"/>
+    <id>https://henry40408.com/react-native-navigator/</id>
+    <published>2016-08-11T16:00:00.000Z</published>
+    <updated>2019-04-13T07:52:24.854Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>React Native, react-native-fbsdk 與 Facebook SDK</title>
+    <link href="https://henry40408.com/react-native-fbsdk-and-facebook-sdk/"/>
+    <id>https://henry40408.com/react-native-fbsdk-and-facebook-sdk/</id>
+    <published>2016-08-07T16:00:00.000Z</published>
+    <updated>2019-04-13T07:52:24.854Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何在 factory_girl 中為有繼承關係的 Rails model 定義 Factory</title>
+    <link href="https://henry40408.com/inherited-model-in-factory-girl/"/>
+    <id>https://henry40408.com/inherited-model-in-factory-girl/</id>
+    <published>2016-08-06T16:00:00.000Z</published>
+    <updated>2019-04-13T07:52:24.850Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>React Native 從 0.28.x 升級與 flexbox</title>
+    <link href="https://henry40408.com/react-native-upgrade-and-flexbox/"/>
+    <id>https://henry40408.com/react-native-upgrade-and-flexbox/</id>
+    <published>2016-07-28T16:00:00.000Z</published>
+    <updated>2019-04-13T07:52:24.854Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>React Native 的觸控區域</title>
+    <link href="https://henry40408.com/react-native-touchables/"/>
+    <id>https://henry40408.com/react-native-touchables/</id>
+    <published>2016-07-28T16:00:00.000Z</published>
+    <updated>2019-04-13T07:52:24.854Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>當 iTerm 執行完 RSpec 之後彈出通知</title>
+    <link href="https://henry40408.com/notify-after-rspec-command-finished/"/>
+    <id>https://henry40408.com/notify-after-rspec-command-finished/</id>
+    <published>2016-07-28T16:00:00.000Z</published>
+    <updated>2019-04-13T07:52:24.854Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>在 React Native 中使用 moment.js 無法載入語系檔案</title>
+    <link href="https://henry40408.com/react-native-moment-locale/"/>
+    <id>https://henry40408.com/react-native-moment-locale/</id>
+    <published>2016-07-19T16:00:00.000Z</published>
+    <updated>2019-04-13T07:52:24.854Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>去除 letter-spacing 行末的多餘空白</title>
+    <link href="https://henry40408.com/truncates-extra-spacing-produced-by-letter-spacing/"/>
+    <id>https://henry40408.com/truncates-extra-spacing-produced-by-letter-spacing/</id>
+    <published>2016-06-03T16:00:00.000Z</published>
+    <updated>2019-04-13T07:52:24.858Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
