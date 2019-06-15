@@ -2,6 +2,15 @@
 
 > Blog, automatically built with Circle CI
 
+## Getting Started
+
+```bash
+$ git submodule init
+$ git submodule update
+$ npm ci
+$ npm start
+```
+
 ## License
 
 ### Posts
