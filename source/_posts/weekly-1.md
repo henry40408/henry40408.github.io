@@ -1,6 +1,5 @@
 ---
 title: 記錄我每週的所見所聞
-description: 第一次每週分享第一期
 date: '2018-12-17T06:18:54.120Z'
 categories: ['每週分享']
 keywords: []
@@ -18,13 +17,13 @@ keywords: []
 
 臺灣最近最重要的新聞大概是「非洲豬瘟」的疫情了。2018/12/12，防檢局透過災防告警細胞廣播服務訊息發送系統 [PWS](https://zh.wikipedia.org/wiki/%E7%81%BD%E9%98%B2%E5%91%8A%E8%AD%A6%E7%B4%B0%E8%83%9E%E5%BB%A3%E6%92%AD%E8%A8%8A%E6%81%AF%E7%B3%BB%E7%B5%B1)，首次廣播防疫通知。
 
-![收到當天取自我手機的截圖](1*oQtCKjSc0KDjxUT1XpabIg.png)
+{% asset_img 1*oQtCKjSc0KDjxUT1XpabIg.png 收到當天取自我手機的截圖 %}
 
 我收到的當下，心中想到的第一個問題是：**防檢局可以透過 PWS 發送通知嗎**？臺灣開始使用 PWS 時，有媒體整理他國的 PWS，多是用在地震、海嘯、森林大火等「緊急危難」，翻成白話文就是：收到通知如果你/妳還不跑就會死翹翹了，而豬瘟本身並沒有收到通知後再不跑就死翹翹的問題。
 
 後來我看到 [農藝女孩看世界](https://www.facebook.com/loveagrogirl/) 一篇文章，才知道**防檢局使用 PWS 發送防疫通知，於法有據**，也讓我對於臺灣的 PWS 種類以及適用範圍有了新的認知。
 
-![](1*y16rSkuAaXsLo65bdnwQTQ.png)
+{% asset_img 1*y16rSkuAaXsLo65bdnwQTQ.png %}
 
 > 取自 《[農藝女孩看世界](https://www.facebook.com/loveagrogirl/photos/a.1760004407565753/2268777570021765/?type=3&theater)》
 
@@ -58,7 +57,7 @@ keywords: []
 
 當然也有打死就是不新增新功能的例子，例如 [Pinboard](https://pinboard.in/)、[Prerender](https://prerender.io/)、[Pushover](https://pushover.net/)，那使用者就只有最核心的死忠粉絲，雖然餓不死但也不會成長。
 
-![](1*z2FuCBr8aqB0hkCVDk9Zpw.png)
+{% asset_img 1*z2FuCBr8aqB0hkCVDk9Zpw.png %}
 
 > 取自 [DOG COM](https://www.facebook.com/itdogcom/photos/a.1006163632885366/1139106102924451/?type=3&theater)
 
@@ -68,7 +67,7 @@ keywords: []
 
 ### 聽書：美麗新世界
 
-![](1*zz96_dXn6qywdaEAlYUv0Q.jpeg)
+{% asset_img 1*zz96_dXn6qywdaEAlYUv0Q.jpeg %}
 
 > source: [Wikipedia](https://en.wikipedia.org/wiki/Brave_New_World)
 
@@ -88,7 +87,7 @@ keywords: []
 >
 > \- Civilization V Retrospective: The Complete Edition, Firaxicon 2015
 
-![Brave New World 的封面，三張圖分別代表 20 世紀的三種意識型態](1*pvMFGWtIXgL-xGdRsIRr-A.jpeg)
+{% asset_img 1*pvMFGWtIXgL-xGdRsIRr-A.jpeg Brave New World 的封面，三張圖分別代表 20 世紀的三種意識型態 %}
 
 > 取自 [Reddit](https://www.reddit.com/r/civ/comments/1wfsxx/can_anyone_make_this_a_1920x1080_wallpaper/)
 
@@ -120,7 +119,7 @@ keywords: []
 
 一切都是從 closure 的範例開始的：
 
-![](1*4tRdC1USdH5m9wBcPewwYg.png)
+{% asset_img 1*4tRdC1USdH5m9wBcPewwYg.png %}
 
 [**Rust Playground** Basic Closure Example - play.rust-lang.org](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=4edef23d936beba70bc20232a2afce6b 'https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=4edef23d936beba70bc20232a2afce6b')
 
