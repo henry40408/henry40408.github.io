@@ -399,7 +399,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-16 23:58:50" itemprop="dateModified" datetime="2019-06-16T23:58:50+08:00">2019-06-16</time>
+                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
               
             
           </span>
@@ -590,7 +590,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-16 23:58:50" itemprop="dateModified" datetime="2019-06-16T23:58:50+08:00">2019-06-16</time>
+                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
               
             
           </span>
@@ -632,331 +632,6 @@
 <h2 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FactoryGirl.define <span class="keyword">do</span></span><br><span class="line">  factory <span class="symbol">:member</span> <span class="keyword">do</span> <span class="comment"># Member model 的 factory</span></span><br><span class="line">    email &#123; Faker::Internet.email &#125;</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  factory <span class="symbol">:admin</span>, <span class="class"><span class="keyword">class</span>: <span class="title">Owner</span>, <span class="title">parent</span>: :<span class="title">member</span></span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <p>如果照著以上 code 定義 factory，則 <code>Owner</code> 的 factory 會繼承 <code>Member</code> factory 定義的所有欄位 (例如 <code>email</code>)。</p>
 <p>參考資料：<span class="exturl" data-url="aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3EvMTMzNDM4NzY=" title="http://stackoverflow.com/q/13343876">how to define factories with a inheritance user model<i class="fa fa-external-link"></i></span></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://henry40408.com/react-native-upgrade-and-flexbox/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Heng-Yi Wu">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Life is a YOLO Game">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/react-native-upgrade-and-flexbox/" class="post-title-link" itemprop="url">React Native 從 0.28.x 升級與 flexbox</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-
-              
-                
-              
-
-              <time title="創建時間：2016-07-29 00:00:00" itemprop="dateCreated datePublished" datetime="2016-07-29T00:00:00+08:00">2016-07-29</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新於</span>
-                
-                <time title="修改時間：2019-06-16 23:58:50" itemprop="dateModified" datetime="2019-06-16T23:58:50+08:00">2019-06-16</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>React Native 雖然有 React 一詞，但與 React.js 的關係還是僅止於名稱而已。從 <code>0.28.x</code> 開始，flexbox 被調整地更接近 CSS3 標準。在 <code>0.28.x</code> 之前，對一個 <code>&lt;View /&gt;</code> 填上 <code>flex: 1</code> 屬性並不會劇烈地改變 <code>&lt;View /&gt;</code> 的呈現形式。但 <code>0.28.x</code> 之後，<code>flex</code> 屬性開始具備延展性。也就是說，<strong>我們不能再隨意地為 <code>&lt;View /&gt;</code> 添加 <code>flex</code> 屬性</strong>。<strong>否則在需要 inline 樣式的容器中，所有的元素將被延展</strong>，導致元素與容器一起變形。</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhY2Vib29rL3JlYWN0LW5hdGl2ZS9pc3N1ZXMvODY5MQ==" title="https://github.com/facebook/react-native/issues/8691">#8691 [0.29] With flexWrap: ‘wrap’, unexpected margin appears between wrapped rows<i class="fa fa-external-link"></i></span></p>
-<p>另外，像標籤這樣需要一個接著一個排成一列的樣式，在 <code>0.28.x</code> 之前只要加上 <code>flexDirection: &#39;row&#39;</code> 與 <code>flexWrap: &#39;wrap&#39;</code> 即可；但 <code>0.28.x</code> 之後，還需要加上 <code>alignItems: &#39;left&#39;</code> (或 <code>alignItems: &#39;right&#39;</code>，如果需要靠右對齊的話)，在此可以簡單地類比成網頁端的 <code>float: left</code> (或 <code>float: right</code>)。如果不加上這個屬性的話，容器內的元素將會在底部產生成因不明的空白，如 issue 中的截圖所示。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://henry40408.com/react-native-touchables/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Heng-Yi Wu">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Life is a YOLO Game">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/react-native-touchables/" class="post-title-link" itemprop="url">React Native 的觸控區域</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-
-              
-                
-              
-
-              <time title="創建時間：2016-07-29 00:00:00" itemprop="dateCreated datePublished" datetime="2016-07-29T00:00:00+08:00">2016-07-29</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新於</span>
-                
-                <time title="修改時間：2019-06-16 23:58:50" itemprop="dateModified" datetime="2019-06-16T23:58:50+08:00">2019-06-16</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="樣式上的差異"><a href="#樣式上的差異" class="headerlink" title="樣式上的差異"></a>樣式上的差異</h2><p>在 React Native，如果需要觸控區域，我們有兩個選擇：<code>&lt;TouchableWithoutFeedback /&gt;</code> 與 <code>&lt;TouchableHighlight /&gt;</code>。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。</p>
-<p>實際使用之後，我發現兩者另外一項區別在於 <code>&lt;TouchableWithoutFeedback /&gt;</code> 沒有預設樣式，實際使用起來就像是一個隱形的容器，包住內部的元素，但又不會與內部的容器互相影響；而 <code>&lt;TouchableHighlight /&gt;</code> 本身則會形成一個區塊，會與內部的元素相互影響。至於之前的版本曾經有使用者提出 <code>&lt;TouchableHighlight /&gt;</code> 可能是為了產生回饋的視覺效果，而有效能上的問題。但在 <code>0.28.x</code> 之後，至少我實際使用到現在還沒有遇到嚴重的效能問題，即使是在最複雜的編輯履歷頁面也沒有。</p>
-<h2 id="lt-View-gt-與自訂-component-的規格差異"><a href="#lt-View-gt-與自訂-component-的規格差異" class="headerlink" title="&lt;View /&gt; 與自訂 component 的規格差異"></a><code>&lt;View /&gt;</code> 與自訂 component 的規格差異</h2><p>官方文件建議如果要在 <code>Touchable</code> 系列裡使用多個 component，如以下的形式，直接寫是行不通的。</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;TouchableHighlight&gt;</span><br><span class="line">  &lt;ChildOne /&gt;</span><br><span class="line">  &lt;ChildTwo /&gt;</span><br><span class="line">&lt;<span class="regexp">/TouchableHighlight&gt;</span></span><br></pre></td></tr></table></figure>
-<p>必須改寫成以下形式。</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;TouchableHighlight&gt;</span><br><span class="line">  &lt;View&gt;</span><br><span class="line">    &lt;ChildOne /&gt;</span><br><span class="line">    &lt;ChildTwo /&gt;</span><br><span class="line">  &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>TouchableHighlight&gt;</span><br></pre></td></tr></table></figure>
-<p>而重點就在這個 <code>&lt;View /&gt;</code>。這個 <code>&lt;View /&gt;</code> 在 <code>0.28.x</code> 時不能以自訂的 component 取代。例如以下的程式碼，在 <code>0.28.x</code> 有一定的機率造成 <code>Touchable</code> 失去效果。</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MyComp = <span class="function">(<span class="params">&#123;children&#125;</span>) =&gt;</span> (</span><br><span class="line">  &lt;View&gt;</span><br><span class="line">    &#123;children&#125;</span><br><span class="line">  &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">const Touchable = () =&gt; (</span></span><br><span class="line"><span class="regexp">  &lt;TouchableHighlight&gt;</span></span><br><span class="line"><span class="regexp">    &lt;MyComp&gt;</span></span><br><span class="line"><span class="regexp">      &lt;ChildOne /</span>&gt;</span><br><span class="line">      &lt;ChildTwo /&gt;</span><br><span class="line">    &lt;<span class="regexp">/MyComp&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>TouchableHighlight&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>如果寫成以上的形式，則 React Native 在執行的時候會展開成以下形式。</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Touchable = <span class="function"><span class="params">()</span> =&gt;</span> (</span><br><span class="line">  &lt;TouchableHighlight&gt;</span><br><span class="line">    &lt;MyComp&gt;</span><br><span class="line">      &lt;View&gt;</span><br><span class="line">        &lt;ChildOne /&gt;</span><br><span class="line">        &lt;ChildTwo /&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>MyComp&gt;</span><br><span class="line">  &lt;<span class="regexp">/TouchableHighlight&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
-<p>這時候會發生錯誤導致 React Native 無法執行。原因是 <code>&lt;MyComp /&gt;</code> 並不是一個 native component，因此當 <code>Touchable</code> 在為這個 component 注入一些屬性時，會發生某些 <code>&lt;View /&gt;</code> 有定義 function 在自訂 component 中沒有被定義 (<code>[函數名稱] is undefined</code>) 的錯誤。</p>
-<p>根據 <span class="exturl" data-url="aHR0cHM6Ly9mYWNlYm9vay5naXRodWIuaW8vcmVhY3QtbmF0aXZlL2RvY3MvZGlyZWN0LW1hbmlwdWxhdGlvbi5odG1s" title="https://facebook.github.io/react-native/docs/direct-manipulation.html">Direct Manipulation<i class="fa fa-external-link"></i></span> 中的說明，如果要將一個自訂的 component <strong>偽裝</strong> 成 native component，則需要實作 <code>setNativeProps</code> 這個 function，然後把 native props 傳遞給要自訂的 component。</p>
-<p>但實際測試之後，<code>setNativeProps</code> 的效果並不如預期地是 100% 正常運作。因此建議如果沒有特別的需求，盡量還是直接使用 <code>&lt;View /&gt;</code> 來包裝 child component。</p>
-<p>我知道畫面上一堆 <code>&lt;View /&gt;</code> 會讓可讀性變得非常差，否則我們也不需要自己實作自己的 component，但這是目前已知唯一 100% 有效的實作方法。</p>
 
           
         
@@ -1075,7 +750,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-16 23:58:50" itemprop="dateModified" datetime="2019-06-16T23:58:50+08:00">2019-06-16</time>
+                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
               
             
           </span>
@@ -1120,6 +795,331 @@
 <p>原來不只我有這樣的需求，已經有同樣需求的開發者動手寫了一個 gem 來解決這樣的問題。使用方法很簡單，基本上只要照著文件說的安裝就可以直接使用了。</p>
 <p>但如果開發的作業系統與部署用的主機不一樣，則還需要一些額外的設定。<strong>在將 <code>rspec-nc</code> 加入 <code>Gemfile</code> 時，記得要設定 <code>require: false</code></strong>。在找到 <code>require</code> 這個選項之前，我實驗過好幾個跨平台的解決方案，都沒有成功。不是在 CI 階段失敗，就是在本機跑測試時會發生找不到 formatter 的錯誤 (<code>rspec-nc</code> 以 RSpec formatter 的形式與 RSpec 串接)。</p>
 <p>這件事情原作者在 <code>README.md</code> 中沒有特別註明，對此我還特別發送了一個 pull request (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3R3ZTRrZWQvcnNwZWMtbmMvcHVsbC8yMQ==" title="https://github.com/twe4ked/rspec-nc/pull/21">#21 add require option to the line in Gemfile<i class="fa fa-external-link"></i></span>)。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/react-native-touchables/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/react-native-touchables/" class="post-title-link" itemprop="url">React Native 的觸控區域</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2016-07-29 00:00:00" itemprop="dateCreated datePublished" datetime="2016-07-29T00:00:00+08:00">2016-07-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="樣式上的差異"><a href="#樣式上的差異" class="headerlink" title="樣式上的差異"></a>樣式上的差異</h2><p>在 React Native，如果需要觸控區域，我們有兩個選擇：<code>&lt;TouchableWithoutFeedback /&gt;</code> 與 <code>&lt;TouchableHighlight /&gt;</code>。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。</p>
+<p>實際使用之後，我發現兩者另外一項區別在於 <code>&lt;TouchableWithoutFeedback /&gt;</code> 沒有預設樣式，實際使用起來就像是一個隱形的容器，包住內部的元素，但又不會與內部的容器互相影響；而 <code>&lt;TouchableHighlight /&gt;</code> 本身則會形成一個區塊，會與內部的元素相互影響。至於之前的版本曾經有使用者提出 <code>&lt;TouchableHighlight /&gt;</code> 可能是為了產生回饋的視覺效果，而有效能上的問題。但在 <code>0.28.x</code> 之後，至少我實際使用到現在還沒有遇到嚴重的效能問題，即使是在最複雜的編輯履歷頁面也沒有。</p>
+<h2 id="lt-View-gt-與自訂-component-的規格差異"><a href="#lt-View-gt-與自訂-component-的規格差異" class="headerlink" title="&lt;View /&gt; 與自訂 component 的規格差異"></a><code>&lt;View /&gt;</code> 與自訂 component 的規格差異</h2><p>官方文件建議如果要在 <code>Touchable</code> 系列裡使用多個 component，如以下的形式，直接寫是行不通的。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;TouchableHighlight&gt;</span><br><span class="line">  &lt;ChildOne /&gt;</span><br><span class="line">  &lt;ChildTwo /&gt;</span><br><span class="line">&lt;<span class="regexp">/TouchableHighlight&gt;</span></span><br></pre></td></tr></table></figure>
+<p>必須改寫成以下形式。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;TouchableHighlight&gt;</span><br><span class="line">  &lt;View&gt;</span><br><span class="line">    &lt;ChildOne /&gt;</span><br><span class="line">    &lt;ChildTwo /&gt;</span><br><span class="line">  &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>TouchableHighlight&gt;</span><br></pre></td></tr></table></figure>
+<p>而重點就在這個 <code>&lt;View /&gt;</code>。這個 <code>&lt;View /&gt;</code> 在 <code>0.28.x</code> 時不能以自訂的 component 取代。例如以下的程式碼，在 <code>0.28.x</code> 有一定的機率造成 <code>Touchable</code> 失去效果。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MyComp = <span class="function">(<span class="params">&#123;children&#125;</span>) =&gt;</span> (</span><br><span class="line">  &lt;View&gt;</span><br><span class="line">    &#123;children&#125;</span><br><span class="line">  &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">const Touchable = () =&gt; (</span></span><br><span class="line"><span class="regexp">  &lt;TouchableHighlight&gt;</span></span><br><span class="line"><span class="regexp">    &lt;MyComp&gt;</span></span><br><span class="line"><span class="regexp">      &lt;ChildOne /</span>&gt;</span><br><span class="line">      &lt;ChildTwo /&gt;</span><br><span class="line">    &lt;<span class="regexp">/MyComp&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>TouchableHighlight&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>如果寫成以上的形式，則 React Native 在執行的時候會展開成以下形式。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Touchable = <span class="function"><span class="params">()</span> =&gt;</span> (</span><br><span class="line">  &lt;TouchableHighlight&gt;</span><br><span class="line">    &lt;MyComp&gt;</span><br><span class="line">      &lt;View&gt;</span><br><span class="line">        &lt;ChildOne /&gt;</span><br><span class="line">        &lt;ChildTwo /&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>MyComp&gt;</span><br><span class="line">  &lt;<span class="regexp">/TouchableHighlight&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
+<p>這時候會發生錯誤導致 React Native 無法執行。原因是 <code>&lt;MyComp /&gt;</code> 並不是一個 native component，因此當 <code>Touchable</code> 在為這個 component 注入一些屬性時，會發生某些 <code>&lt;View /&gt;</code> 有定義 function 在自訂 component 中沒有被定義 (<code>[函數名稱] is undefined</code>) 的錯誤。</p>
+<p>根據 <span class="exturl" data-url="aHR0cHM6Ly9mYWNlYm9vay5naXRodWIuaW8vcmVhY3QtbmF0aXZlL2RvY3MvZGlyZWN0LW1hbmlwdWxhdGlvbi5odG1s" title="https://facebook.github.io/react-native/docs/direct-manipulation.html">Direct Manipulation<i class="fa fa-external-link"></i></span> 中的說明，如果要將一個自訂的 component <strong>偽裝</strong> 成 native component，則需要實作 <code>setNativeProps</code> 這個 function，然後把 native props 傳遞給要自訂的 component。</p>
+<p>但實際測試之後，<code>setNativeProps</code> 的效果並不如預期地是 100% 正常運作。因此建議如果沒有特別的需求，盡量還是直接使用 <code>&lt;View /&gt;</code> 來包裝 child component。</p>
+<p>我知道畫面上一堆 <code>&lt;View /&gt;</code> 會讓可讀性變得非常差，否則我們也不需要自己實作自己的 component，但這是目前已知唯一 100% 有效的實作方法。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/react-native-upgrade-and-flexbox/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/react-native-upgrade-and-flexbox/" class="post-title-link" itemprop="url">React Native 從 0.28.x 升級與 flexbox</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2016-07-29 00:00:00" itemprop="dateCreated datePublished" datetime="2016-07-29T00:00:00+08:00">2016-07-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>React Native 雖然有 React 一詞，但與 React.js 的關係還是僅止於名稱而已。從 <code>0.28.x</code> 開始，flexbox 被調整地更接近 CSS3 標準。在 <code>0.28.x</code> 之前，對一個 <code>&lt;View /&gt;</code> 填上 <code>flex: 1</code> 屬性並不會劇烈地改變 <code>&lt;View /&gt;</code> 的呈現形式。但 <code>0.28.x</code> 之後，<code>flex</code> 屬性開始具備延展性。也就是說，<strong>我們不能再隨意地為 <code>&lt;View /&gt;</code> 添加 <code>flex</code> 屬性</strong>。<strong>否則在需要 inline 樣式的容器中，所有的元素將被延展</strong>，導致元素與容器一起變形。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhY2Vib29rL3JlYWN0LW5hdGl2ZS9pc3N1ZXMvODY5MQ==" title="https://github.com/facebook/react-native/issues/8691">#8691 [0.29] With flexWrap: ‘wrap’, unexpected margin appears between wrapped rows<i class="fa fa-external-link"></i></span></p>
+<p>另外，像標籤這樣需要一個接著一個排成一列的樣式，在 <code>0.28.x</code> 之前只要加上 <code>flexDirection: &#39;row&#39;</code> 與 <code>flexWrap: &#39;wrap&#39;</code> 即可；但 <code>0.28.x</code> 之後，還需要加上 <code>alignItems: &#39;left&#39;</code> (或 <code>alignItems: &#39;right&#39;</code>，如果需要靠右對齊的話)，在此可以簡單地類比成網頁端的 <code>float: left</code> (或 <code>float: right</code>)。如果不加上這個屬性的話，容器內的元素將會在底部產生成因不明的空白，如 issue 中的截圖所示。</p>
 
           
         
@@ -1238,7 +1238,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-16 23:58:50" itemprop="dateModified" datetime="2019-06-16T23:58:50+08:00">2019-06-16</time>
+                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
               
             
           </span>
@@ -1280,6 +1280,165 @@
 <h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>GitHub 上已經有人回報相關錯誤，參考 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhY2Vib29rL3JlYWN0LW5hdGl2ZS9pc3N1ZXMvMTYyOQ==" title="https://github.com/facebook/react-native/issues/1629">facebook/react-native#1629<i class="fa fa-external-link"></i></span> 得出以下解法。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> moment <span class="keyword">from</span> <span class="string">'moment'</span>;</span><br><span class="line"><span class="keyword">import</span> momentLocale <span class="keyword">from</span> <span class="string">'moment/locale/zh-tw'</span>; <span class="comment">// 多這一行</span></span><br><span class="line">moment.updateLocale(<span class="string">'zh-tw'</span>, momentLocale); <span class="comment">// 改這一行</span></span><br><span class="line"><span class="built_in">console</span>.log(moment.months());</span><br></pre></td></tr></table></figure>
 <p>原理是使用 ES6 的語法將語系檔案手動載入之後使用 <code>updateLocale</code> 手動覆寫。issue 中的 <code>locale([locale_name], [locale_hash])</code> 已經被 deprecated，必須改用 <code>updateLocale</code>。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/truncates-extra-spacing-produced-by-letter-spacing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/truncates-extra-spacing-produced-by-letter-spacing/" class="post-title-link" itemprop="url">去除 letter-spacing 行末的多餘空白</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2016-06-04 00:00:00" itemprop="dateCreated datePublished" datetime="2016-06-04T00:00:00+08:00">2016-06-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p><code>letter-spacing</code> 會在 <strong>所有字元的尾端</strong> 都加上空白以達成字元間隔的效果。但事實上我們需要的只有 <strong>在字元與字元間</strong> 插入空白即可，最後的字元其實不需要加上空白。因此我們需要做一些 hack 來調整。</p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>善用 <code>margin-right</code>。<code>letter-spacing</code> 設定多少，就以多少的 <code>margin-right</code> 回補。舉個例子，如果 <code>letter-spacing</code> 設定 <code>2rem</code>，<code>margin-right</code> 就設定 <code>-2rem</code> 回補，就可以把文字的位置調整回視覺上應該出現的位置。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9qc2ZpZGRsZS5uZXQvNDR5dHFuODEv" title="https://jsfiddle.net/44ytqn81/">letter-spacing on JSFiddle<i class="fa fa-external-link"></i></span></p>
+<p>上面的文字沒有進行調整，整串文字往左邊歪；下面的文字經過調整，看起來就有置中了。</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>由於這是一個 CSS hack，不排除未來會有任何修正。但在 React Native 中，所有的樣式都會被轉譯成 native 的樣式，如果 native 的 API 沒有被修改，我們就可以確保這樣的 CSS hack 也不會有太劇烈的改變。</p>
 
           
         
@@ -1398,7 +1557,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-16 23:58:50" itemprop="dateModified" datetime="2019-06-16T23:58:50+08:00">2019-06-16</time>
+                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
               
             
           </span>
@@ -1558,7 +1717,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-16 23:58:50" itemprop="dateModified" datetime="2019-06-16T23:58:50+08:00">2019-06-16</time>
+                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
               
             
           </span>
@@ -1607,165 +1766,6 @@
 <li>在 <strong>適當的時機</strong> 呼叫動畫函數以啟動動畫，在我提供的例子中是 <code>componentDidMount</code> callback。React Native 支援 <code>spring</code>、<code>decay</code>、<code>timing</code> 等動畫變數。<code>toValue</code> 指動畫函數的最終數值，另外可以傳入 <code>duration</code> 來控制動畫的長度，至於動畫的函數變動情形 <code>Animated.Value</code> 會自動計算，不需要開發者操心。</li>
 </ol>
 <h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>動畫效果在數學上的定義就是一個以時間做為參數傳入的函數，輸出是座標值或是對應位置的一個數字。React Native 把開發者最頭痛的動畫函數寫好了，開發者只需要傳入必要的參數剩下的就交給 React Native 去煩惱即可。唯一還要注意的是 app 與網頁最大的不同在於 app 為了增進使用者體驗有許多內建的過場 (transition) 與回饋 (feeback) 動畫，在啟動自訂動畫的同時，必須注意這些過場動畫會不會與自訂動畫同時啟動，造成畫面卡頓。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://henry40408.com/truncates-extra-spacing-produced-by-letter-spacing/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Heng-Yi Wu">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Life is a YOLO Game">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/truncates-extra-spacing-produced-by-letter-spacing/" class="post-title-link" itemprop="url">去除 letter-spacing 行末的多餘空白</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-
-              
-                
-              
-
-              <time title="創建時間：2016-06-04 00:00:00" itemprop="dateCreated datePublished" datetime="2016-06-04T00:00:00+08:00">2016-06-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新於</span>
-                
-                <time title="修改時間：2019-06-16 23:58:50" itemprop="dateModified" datetime="2019-06-16T23:58:50+08:00">2019-06-16</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p><code>letter-spacing</code> 會在 <strong>所有字元的尾端</strong> 都加上空白以達成字元間隔的效果。但事實上我們需要的只有 <strong>在字元與字元間</strong> 插入空白即可，最後的字元其實不需要加上空白。因此我們需要做一些 hack 來調整。</p>
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>善用 <code>margin-right</code>。<code>letter-spacing</code> 設定多少，就以多少的 <code>margin-right</code> 回補。舉個例子，如果 <code>letter-spacing</code> 設定 <code>2rem</code>，<code>margin-right</code> 就設定 <code>-2rem</code> 回補，就可以把文字的位置調整回視覺上應該出現的位置。</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9qc2ZpZGRsZS5uZXQvNDR5dHFuODEv" title="https://jsfiddle.net/44ytqn81/">letter-spacing on JSFiddle<i class="fa fa-external-link"></i></span></p>
-<p>上面的文字沒有進行調整，整串文字往左邊歪；下面的文字經過調整，看起來就有置中了。</p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>由於這是一個 CSS hack，不排除未來會有任何修正。但在 React Native 中，所有的樣式都會被轉譯成 native 的樣式，如果 native 的 API 沒有被修改，我們就可以確保這樣的 CSS hack 也不會有太劇烈的改變。</p>
 
           
         
@@ -1884,7 +1884,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-16 23:58:50" itemprop="dateModified" datetime="2019-06-16T23:58:50+08:00">2019-06-16</time>
+                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
               
             
           </span>
