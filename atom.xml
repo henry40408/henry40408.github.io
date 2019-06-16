@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://henry40408.com/"/>
-  <updated>2019-06-16T04:09:07.551Z</updated>
+  <updated>2019-06-16T15:23:34.117Z</updated>
   <id>https://henry40408.com/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>全程服務 — DTC 品牌的機會與挑戰</title>
+    <link href="https://henry40408.com/weekly-26/"/>
+    <id>https://henry40408.com/weekly-26/</id>
+    <published>2019-06-15T16:00:00.000Z</published>
+    <updated>2019-06-16T15:23:34.117Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="每週分享" scheme="https://henry40408.com/categories/%E6%AF%8F%E9%80%B1%E5%88%86%E4%BA%AB/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>美得讓人窒息</title>
     <link href="https://henry40408.com/weekly-25/"/>
     <id>https://henry40408.com/weekly-25/</id>
-    <published>2019-06-16T04:09:07.551Z</published>
-    <updated>2019-06-16T04:09:07.551Z</updated>
+    <published>2019-06-14T16:00:00.000Z</published>
+    <updated>2019-06-16T15:23:34.117Z</updated>
     
     <summary type="html">
     
@@ -45,7 +69,7 @@
     <link href="https://henry40408.com/meaning-of-title/"/>
     <id>https://henry40408.com/meaning-of-title/</id>
     <published>2019-01-13T22:42:41.015Z</published>
-    <updated>2019-06-16T04:09:07.531Z</updated>
+    <updated>2019-06-16T15:23:34.105Z</updated>
     
     <summary type="html">
     
@@ -69,7 +93,7 @@
     <link href="https://henry40408.com/weekly-2/"/>
     <id>https://henry40408.com/weekly-2/</id>
     <published>2018-12-24T04:36:05.913Z</published>
-    <updated>2019-06-16T04:09:07.543Z</updated>
+    <updated>2019-06-16T15:23:34.113Z</updated>
     
     <summary type="html">
     
@@ -93,7 +117,7 @@
     <link href="https://henry40408.com/weekly-1/"/>
     <id>https://henry40408.com/weekly-1/</id>
     <published>2018-12-16T22:18:54.120Z</published>
-    <updated>2019-06-16T04:09:07.539Z</updated>
+    <updated>2019-06-16T15:23:34.109Z</updated>
     
     <summary type="html">
     
@@ -117,7 +141,7 @@
     <link href="https://henry40408.com/2018-july-week-4/"/>
     <id>https://henry40408.com/2018-july-week-4/</id>
     <published>2018-07-21T16:00:00.000Z</published>
-    <updated>2019-06-16T04:09:07.507Z</updated>
+    <updated>2019-06-16T15:23:34.097Z</updated>
     
     <summary type="html">
     
@@ -139,7 +163,7 @@
     <link href="https://henry40408.com/probot/"/>
     <id>https://henry40408.com/probot/</id>
     <published>2017-12-21T06:23:08.549Z</published>
-    <updated>2019-06-16T04:09:07.535Z</updated>
+    <updated>2019-06-16T15:23:34.105Z</updated>
     
     <summary type="html">
     
@@ -161,7 +185,7 @@
     <link href="https://henry40408.com/hahow-blue-green-deployment/"/>
     <id>https://henry40408.com/hahow-blue-green-deployment/</id>
     <published>2017-08-15T18:58:31.371Z</published>
-    <updated>2019-06-16T04:09:07.511Z</updated>
+    <updated>2019-06-16T15:23:34.097Z</updated>
     
     <summary type="html">
     
@@ -183,7 +207,7 @@
     <link href="https://henry40408.com/drupal-s3-imce.html/"/>
     <id>https://henry40408.com/drupal-s3-imce.html/</id>
     <published>2017-06-13T16:00:00.000Z</published>
-    <updated>2019-06-16T04:09:07.511Z</updated>
+    <updated>2019-06-16T15:23:34.097Z</updated>
     
     <summary type="html">
     
@@ -205,29 +229,7 @@
     <link href="https://henry40408.com/migrate-from-cloudflare-to-aws/"/>
     <id>https://henry40408.com/migrate-from-cloudflare-to-aws/</id>
     <published>2017-03-05T16:00:00.000Z</published>
-    <updated>2019-06-16T04:09:07.531Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>在 Terraform 抽換 Security Group</title>
-    <link href="https://henry40408.com/replace-security-groups-in-terraform/"/>
-    <id>https://henry40408.com/replace-security-groups-in-terraform/</id>
-    <published>2017-03-05T16:00:00.000Z</published>
-    <updated>2019-06-16T04:09:07.535Z</updated>
+    <updated>2019-06-16T15:23:34.105Z</updated>
     
     <summary type="html">
     
@@ -249,7 +251,29 @@
     <link href="https://henry40408.com/terraform-note/"/>
     <id>https://henry40408.com/terraform-note/</id>
     <published>2017-03-05T16:00:00.000Z</published>
-    <updated>2019-06-16T04:09:07.535Z</updated>
+    <updated>2019-06-16T15:23:34.109Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>在 Terraform 抽換 Security Group</title>
+    <link href="https://henry40408.com/replace-security-groups-in-terraform/"/>
+    <id>https://henry40408.com/replace-security-groups-in-terraform/</id>
+    <published>2017-03-05T16:00:00.000Z</published>
+    <updated>2019-06-16T15:23:34.109Z</updated>
     
     <summary type="html">
     
@@ -271,7 +295,7 @@
     <link href="https://henry40408.com/mongoose-collection-index/"/>
     <id>https://henry40408.com/mongoose-collection-index/</id>
     <published>2017-02-03T16:00:00.000Z</published>
-    <updated>2019-06-16T04:09:07.535Z</updated>
+    <updated>2019-06-16T15:23:34.105Z</updated>
     
     <summary type="html">
     
@@ -293,7 +317,7 @@
     <link href="https://henry40408.com/twil-4/"/>
     <id>https://henry40408.com/twil-4/</id>
     <published>2017-01-02T16:00:00.000Z</published>
-    <updated>2019-06-16T04:09:07.539Z</updated>
+    <updated>2019-06-16T15:23:34.109Z</updated>
     
     <summary type="html">
     
@@ -315,7 +339,7 @@
     <link href="https://henry40408.com/twil-3/"/>
     <id>https://henry40408.com/twil-3/</id>
     <published>2016-11-14T16:00:00.000Z</published>
-    <updated>2019-06-16T04:09:07.539Z</updated>
+    <updated>2019-06-16T15:23:34.109Z</updated>
     
     <summary type="html">
     
@@ -337,7 +361,7 @@
     <link href="https://henry40408.com/twil-2/"/>
     <id>https://henry40408.com/twil-2/</id>
     <published>2016-10-29T16:00:00.000Z</published>
-    <updated>2019-06-16T04:09:07.539Z</updated>
+    <updated>2019-06-16T15:23:34.109Z</updated>
     
     <summary type="html">
     
@@ -359,7 +383,7 @@
     <link href="https://henry40408.com/twil-1/"/>
     <id>https://henry40408.com/twil-1/</id>
     <published>2016-10-20T16:00:00.000Z</published>
-    <updated>2019-06-16T04:09:07.539Z</updated>
+    <updated>2019-06-16T15:23:34.109Z</updated>
     
     <summary type="html">
     
@@ -381,7 +405,7 @@
     <link href="https://henry40408.com/elixir-note/"/>
     <id>https://henry40408.com/elixir-note/</id>
     <published>2016-10-16T16:00:00.000Z</published>
-    <updated>2019-06-16T04:09:07.511Z</updated>
+    <updated>2019-06-16T15:23:34.097Z</updated>
     
     <summary type="html">
     
@@ -403,7 +427,7 @@
     <link href="https://henry40408.com/kitchen-and-packer/"/>
     <id>https://henry40408.com/kitchen-and-packer/</id>
     <published>2016-09-01T03:28:00.000Z</published>
-    <updated>2019-06-16T04:09:07.531Z</updated>
+    <updated>2019-06-16T15:23:34.105Z</updated>
     
     <summary type="html">
     
@@ -425,29 +449,7 @@
     <link href="https://henry40408.com/react-native-navigator/"/>
     <id>https://henry40408.com/react-native-navigator/</id>
     <published>2016-08-11T16:00:00.000Z</published>
-    <updated>2019-06-16T04:09:07.535Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>React Native, react-native-fbsdk 與 Facebook SDK</title>
-    <link href="https://henry40408.com/react-native-fbsdk-and-facebook-sdk/"/>
-    <id>https://henry40408.com/react-native-fbsdk-and-facebook-sdk/</id>
-    <published>2016-08-07T16:00:00.000Z</published>
-    <updated>2019-06-16T04:09:07.535Z</updated>
+    <updated>2019-06-16T15:23:34.109Z</updated>
     
     <summary type="html">
     
