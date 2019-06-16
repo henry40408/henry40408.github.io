@@ -1,6 +1,5 @@
 ---
 title: 標題的意義
-description: 將每一篇文章都當成是第一篇
 date: '2019-01-14T06:42:41.015Z'
 categories: ['每週分享']
 keywords: []
@@ -10,7 +9,7 @@ keywords: []
 
 > 搞笑諾貝爾獎官方說，會這樣定的原因是因為他們認為「每一年都是一個新的開始」。 -《[那些關於搞笑諾貝爾獎的二三事](https://pansci.asia/archives/106134)》
 
-![搞笑諾貝爾獎的 logo](1*x2pIx5OAPSAg-9orexG-qg.png)
+{% asset_img 1*x2pIx5OAPSAg-9orexG-qg.png 搞笑諾貝爾獎的 logo %}
 
 > 取自 [搞笑諾貝爾獎官網](https://www.improbable.com/ig/)
 

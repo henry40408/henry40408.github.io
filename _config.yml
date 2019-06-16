@@ -73,31 +73,20 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: maupassant
+theme: next
 theme_config:
-  google_search: false
-  self_search: true
+  scheme: Pisces
+  motion:
+    enable: false
   menu:
-    - page: home
-      directory: .
-      icon: fa-home
-    - page: archive
-      directory: archives/
-      icon: fa-archive
-    - page: GitHub
-      directory: https://github.com/henry40408
-      icon: fa-github
-    - page: Medium
-      directory: https://medium.com/@henry40408
-      icon: fa-medium
-    - page: rss
-      directory: atom.xml
-      icon: fa-rss
-  links:
-  widgets:
-    - search
-    - recent_posts
-  google_analytics: UA-6529501-15
+    Home: / || home
+    Archives: /archives/ || archive
+    GitHub: https://github.com/henry40408 || github
+    Medium: https://medium.com/@henry40408 || medium
+  github_banner:
+    enable: true
+    permalink: https://github.com/henry40408
+  exturl: true
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
