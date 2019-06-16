@@ -1,3 +1,4 @@
 [submodule "themes/next"]
-	path = themes/next
-	url = https://github.com/henry40408/hexo-theme-next
+    path = themes/next
+    url = https://github.com/henry40408/hexo-theme-next
+    branch = feature/commento
