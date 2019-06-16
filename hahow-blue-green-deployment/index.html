@@ -94,12 +94,12 @@
 
 
 
-  <meta name="description" content="故事要從老師透過客服回報的一個 bug 開始說起…">
+  <meta name="description" content="故事要從老師透過客服回報的一個 bug 開始說起…  老師 A 從自己的課程（Course）下刪除了一筆課程單元（Lecture），後台顯示的課程單元總數卻沒有變化（課程單元總數在某一筆課程單元被刪除後應該要減一）。  Hahow 會實作藍綠部署，主要目的就是要解決這個 bug 背後真正的問題。 環境介紹在切入本文前，由於會在文中被頻繁地提及，因此先快速且簡短地帶過 Hahow 目前的 infra">
 <meta property="og:type" content="article">
 <meta property="og:title" content="淺談 Hahow 藍綠部署">
 <meta property="og:url" content="https://henry40408.com/hahow-blue-green-deployment/index.html">
 <meta property="og:site_name" content="Life is a YOLO Game">
-<meta property="og:description" content="故事要從老師透過客服回報的一個 bug 開始說起…">
+<meta property="og:description" content="故事要從老師透過客服回報的一個 bug 開始說起…  老師 A 從自己的課程（Course）下刪除了一筆課程單元（Lecture），後台顯示的課程單元總數卻沒有變化（課程單元總數在某一筆課程單元被刪除後應該要減一）。  Hahow 會實作藍綠部署，主要目的就是要解決這個 bug 背後真正的問題。 環境介紹在切入本文前，由於會在文中被頻繁地提及，因此先快速且簡短地帶過 Hahow 目前的 infra">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https://henry40408.com/hahow-blue-green-deployment/1*ADmLntt1LYxyosjsXsi2vg.png">
 <meta property="og:image" content="https://henry40408.com/hahow-blue-green-deployment/0*cUEHsKzEEu3Wlcov.gif">
@@ -122,10 +122,10 @@
 <meta property="og:image" content="https://henry40408.com/hahow-blue-green-deployment/0*xghK08LWdA1W9HNB.png">
 <meta property="og:image" content="https://henry40408.com/hahow-blue-green-deployment/0*1MYRBcuLoN_ZMxgI.png">
 <meta property="og:image" content="https://henry40408.com/hahow-blue-green-deployment/0*cyzdw815K1gGB5cQ.png">
-<meta property="og:updated_time" content="2019-06-16T03:59:45.677Z">
+<meta property="og:updated_time" content="2019-06-16T04:09:07.511Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="淺談 Hahow 藍綠部署">
-<meta name="twitter:description" content="故事要從老師透過客服回報的一個 bug 開始說起…">
+<meta name="twitter:description" content="故事要從老師透過客服回報的一個 bug 開始說起…  老師 A 從自己的課程（Course）下刪除了一筆課程單元（Lecture），後台顯示的課程單元總數卻沒有變化（課程單元總數在某一筆課程單元被刪除後應該要減一）。  Hahow 會實作藍綠部署，主要目的就是要解決這個 bug 背後真正的問題。 環境介紹在切入本文前，由於會在文中被頻繁地提及，因此先快速且簡短地帶過 Hahow 目前的 infra">
 <meta name="twitter:image" content="https://henry40408.com/hahow-blue-green-deployment/1*ADmLntt1LYxyosjsXsi2vg.png">
 
 
@@ -416,7 +416,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-16 11:59:45" itemprop="dateModified" datetime="2019-06-16T11:59:45+08:00">2019-06-16</time>
+                <time title="修改時間：2019-06-16 12:09:07" itemprop="dateModified" datetime="2019-06-16T12:09:07+08:00">2019-06-16</time>
               
             
           </span>
@@ -435,8 +435,6 @@
 
           
 
-          
-            <div class="post-description">故事要從老師透過客服回報的一個 bug 開始說起…</div>
           
 
         </div>
@@ -470,11 +468,11 @@
 <p>由於第二步永遠不會被執行，因此 Course 的 <code>lectures</code> 陣列雖然找不到被刪除的課程單元 Lecture，但由於 Lecture #2 沒有被真正刪除，所以如果以 <em>Course 的 ObjectId 為查詢條件撈出所有 Lecture 並計算其數量</em>，就會得到前後數量不一致的結果。</p>
 <p>至於是什麼事件，其實第二張圖已經提前洩漏答案了 (interrupted by deployment)，就是軟體部署（software deployment）。在掌握資料庫內的資料變化後，我們立刻著手查詢 API server 在 Sentry 的 error log、nginx 的 error log，在 bug 發生的前後都沒有找到有強烈關聯的 exception 或 error message。最後抱著姑且一試的心態，翻查了一下 Jenkins 的建置日誌，發現 bug 發生前兩分鐘有執行過一次軟體部署。在 local 端使用一些取巧的方式重現 bug 後（e.g. 使用 <code>setTimeout</code> 拉長 request 的時間然後強制關閉 API server），我們有八九成的把握確定應該就是部署新程式導致這個資料不一致的 bug。</p>
 <p>問題找到了，那要怎麼解決這個 bug 呢？我們有想到幾個方法：</p>
-<h4 id="原子化"><a href="#原子化" class="headerlink" title="原子化"></a>原子化</h4><p>所謂的 <em>原子化</em>，指的是將好幾筆寫入資料庫的操作打包成一次寫入，如果失敗就將資料庫還原到寫入被發動前的狀態。使用 MongoDB 提供的 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1vbmdvZGIuY29tL3YyLjYvcmVmZXJlbmNlL29wZXJhdG9yL3VwZGF0ZS9pc29sYXRlZC8=" title="https://docs.mongodb.com/v2.6/reference/operator/update/isolated/">$isolated<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1vbmdvZGIuY29tL3YyLjYvcmVmZXJlbmNlL29wZXJhdG9yL3VwZGF0ZS9pc29sYXRlZC8=" title="https://docs.mongodb.com/v2.6/reference/operator/update/isolated/">operator<i class="fa fa-external-link"></i></span> 理論上就可以解決這個問題，算是一個治本的方法，問題是如果要找出所有的資料庫操作並加上 <code>$isolated</code>，曠日費時、緩不濟急，來不及改完的 API 可能又會發生一樣的錯誤。</p>
+<h4 id="原子化"><a href="#原子化" class="headerlink" title="原子化"></a>原子化</h4><p>所謂的 <em>原子化</em>，指的是將好幾筆寫入資料庫的操作打包成一次寫入，如果失敗就將資料庫還原到寫入被發動前的狀態。使用 MongoDB 提供的 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1vbmdvZGIuY29tL3YyLjYvcmVmZXJlbmNlL29wZXJhdG9yL3VwZGF0ZS9pc29sYXRlZC8=" title="https://docs.mongodb.com/v2.6/reference/operator/update/isolated/">\$isolated<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1vbmdvZGIuY29tL3YyLjYvcmVmZXJlbmNlL29wZXJhdG9yL3VwZGF0ZS9pc29sYXRlZC8=" title="https://docs.mongodb.com/v2.6/reference/operator/update/isolated/">operator<i class="fa fa-external-link"></i></span> 理論上就可以解決這個問題，算是一個治本的方法，問題是如果要找出所有的資料庫操作並加上 <code>$isolated</code>，曠日費時、緩不濟急，來不及改完的 API 可能又會發生一樣的錯誤。</p>
 <h4 id="讀寫分離"><a href="#讀寫分離" class="headerlink" title="讀寫分離"></a>讀寫分離</h4><p>礙於團隊裡沒有人研究過 MongoDB 的讀寫分離，第一要花時間研究，跟原子化一樣緩不濟急；二是會動到資料庫的本體架構，風險比原子化更大。</p>
 <h4 id="藍綠部署"><a href="#藍綠部署" class="headerlink" title="藍綠部署"></a>藍綠部署</h4><p>會想到這套解決方案，主要是我上一份工作離職前的最後一個 task，就是跟 DevOps 一起完成主機的藍綠部署，所以印象特別深刻（箇中血淚礙於篇幅只好跳過）。如果實作藍綠部署，首先是 API server 本身不用立刻實作原子化，也不會動到資料庫的本體架構，因此風險遠遠小於讀寫分離，又不會像原子化那樣緩不濟急。但為什麼藍綠部署可以解決開頭提到的 bug 呢？又，什麼是藍綠部署？</p>
 <p>在說明 Hahow 的實作方式之前，讓我先短暫地介紹一下藍綠部署。</p>
-<h3 id="藍綠部署-1"><a href="#藍綠部署-1" class="headerlink" title="藍綠部署"></a>藍綠部署</h3><p>當 server 有新功能完成，或有 bug 被修復，必須經過一個 <em>程序</em> 將新版本的 server 推送上線，該 <em>程序</em> 即軟體部署（software deployment），而藍綠部署（blue-green deployment）是其中一種。</p>
+<h3 id="藍綠部署-1"><a href="#藍綠部署-1" class="headerlink" title="藍綠部署"></a>藍綠部署</h3><p>當 server 有新功能完成，或有 bug 被修復，必須經過一個 _程序_ 將新版本的 server 推送上線，該 _程序_ 即軟體部署（software deployment），而藍綠部署（blue-green deployment）是其中一種。</p>
 <blockquote>
 <p>As you prepare a new version of your software, deployment and the final stage of testing takes place in the environment that is not live: in this example, Green. Once you have deployed and fully tested the software in Green, you switch the router so all incoming requests now go to Green instead of Blue. Green is now live, and Blue is idle. <br>-  <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmNsb3VkZm91bmRyeS5vcmcvZGV2Z3VpZGUvZGVwbG95LWFwcHMvYmx1ZS1ncmVlbi5odG1s" title="https://docs.cloudfoundry.org/devguide/deploy-apps/blue-green.html">Using Blue-Green Deployment to Reduce Downtime and Risk<i class="fa fa-external-link"></i></span></p>
 </blockquote>
@@ -527,7 +525,7 @@
 <p>如果 shell script 竄改的設定檔通過 nginx 驗證，那就會開始整個藍綠部署最重要的一步，漸進式地替換掉 nginx 的 child process。</p>
 <h4 id="切換-nginx-逐一替換掉-child-process"><a href="#切換-nginx-逐一替換掉-child-process" class="headerlink" title="[切換] nginx 逐一替換掉 child process"></a>[切換] nginx 逐一替換掉 child process</h4><p>先引用一段 nginx 文件，是關於 nginx master process 與 child process 的分工與關係：</p>
 <blockquote>
-<p>nginx has one master process and several worker processes. The main purpose of the master process is to read and evaluate configuration, and maintain worker processes. Worker processes do actual processing of requests. </p>
+<p>nginx has one master process and several worker processes. The main purpose of the master process is to read and evaluate configuration, and maintain worker processes. Worker processes do actual processing of requests.</p>
 <ul>
 <li><span class="exturl" data-url="aHR0cDovL25naW54Lm9yZy9lbi9kb2NzL2JlZ2lubmVyc19ndWlkZS5odG1s" title="http://nginx.org/en/docs/beginners_guide.html"><em>Beginner’s Guide</em><i class="fa fa-external-link"></i></span></li>
 </ul>
