@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://henry40408.com/"/>
-  <updated>2019-06-15T16:35:27.570Z</updated>
+  <updated>2019-06-16T03:59:45.713Z</updated>
   <id>https://henry40408.com/</id>
   
   <author>
@@ -20,12 +20,18 @@
     <title>美得讓人窒息</title>
     <link href="https://henry40408.com/weekly-25/"/>
     <id>https://henry40408.com/weekly-25/</id>
-    <published>2019-06-15T16:35:27.570Z</published>
-    <updated>2019-06-15T16:35:27.570Z</updated>
+    <published>2019-06-16T03:59:45.713Z</published>
+    <updated>2019-06-16T03:59:45.713Z</updated>
     
     <summary type="html">
     
-      第 25 次每週分享第一期
+      
+      
+        
+        
+          
+        
+      
     
     </summary>
     
@@ -39,11 +45,17 @@
     <link href="https://henry40408.com/meaning-of-title/"/>
     <id>https://henry40408.com/meaning-of-title/</id>
     <published>2019-01-13T22:42:41.015Z</published>
-    <updated>2019-06-15T16:35:27.554Z</updated>
+    <updated>2019-06-16T03:59:45.697Z</updated>
     
     <summary type="html">
     
-      將每一篇文章都當成是第一篇
+      
+      
+        
+        
+          
+        
+      
     
     </summary>
     
@@ -57,11 +69,17 @@
     <link href="https://henry40408.com/weekly-2/"/>
     <id>https://henry40408.com/weekly-2/</id>
     <published>2018-12-24T04:36:05.913Z</published>
-    <updated>2019-06-15T16:35:27.562Z</updated>
+    <updated>2019-06-16T03:59:45.705Z</updated>
     
     <summary type="html">
     
-      第二次每週分享第一期
+      
+      
+        
+        
+          
+        
+      
     
     </summary>
     
@@ -75,11 +93,17 @@
     <link href="https://henry40408.com/weekly-1/"/>
     <id>https://henry40408.com/weekly-1/</id>
     <published>2018-12-16T22:18:54.120Z</published>
-    <updated>2019-06-15T16:35:27.558Z</updated>
+    <updated>2019-06-16T03:59:45.701Z</updated>
     
     <summary type="html">
     
-      第一次每週分享第一期
+      
+      
+        
+        
+          
+        
+      
     
     </summary>
     
@@ -93,7 +117,7 @@
     <link href="https://henry40408.com/2018-july-week-4/"/>
     <id>https://henry40408.com/2018-july-week-4/</id>
     <published>2018-07-21T16:00:00.000Z</published>
-    <updated>2019-06-15T16:35:27.526Z</updated>
+    <updated>2019-06-16T03:59:45.677Z</updated>
     
     <summary type="html">
     
@@ -115,7 +139,7 @@
     <link href="https://henry40408.com/probot/"/>
     <id>https://henry40408.com/probot/</id>
     <published>2017-12-21T06:23:08.549Z</published>
-    <updated>2019-06-15T16:35:27.554Z</updated>
+    <updated>2019-06-16T03:59:45.697Z</updated>
     
     <summary type="html">
     
@@ -131,7 +155,7 @@
     <link href="https://henry40408.com/hahow-blue-green-deployment/"/>
     <id>https://henry40408.com/hahow-blue-green-deployment/</id>
     <published>2017-08-15T18:58:31.371Z</published>
-    <updated>2019-06-15T16:35:27.530Z</updated>
+    <updated>2019-06-16T03:59:45.677Z</updated>
     
     <summary type="html">
     
@@ -147,29 +171,7 @@
     <link href="https://henry40408.com/drupal-s3-imce.html/"/>
     <id>https://henry40408.com/drupal-s3-imce.html/</id>
     <published>2017-06-13T16:00:00.000Z</published>
-    <updated>2019-06-15T16:35:27.530Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>從 Cloudflare 搬家到 AWS，而且是「徹底搬家」</title>
-    <link href="https://henry40408.com/migrate-from-cloudflare-to-aws/"/>
-    <id>https://henry40408.com/migrate-from-cloudflare-to-aws/</id>
-    <published>2017-03-05T16:00:00.000Z</published>
-    <updated>2019-06-15T16:35:27.554Z</updated>
+    <updated>2019-06-16T03:59:45.677Z</updated>
     
     <summary type="html">
     
@@ -191,7 +193,7 @@
     <link href="https://henry40408.com/replace-security-groups-in-terraform/"/>
     <id>https://henry40408.com/replace-security-groups-in-terraform/</id>
     <published>2017-03-05T16:00:00.000Z</published>
-    <updated>2019-06-15T16:35:27.554Z</updated>
+    <updated>2019-06-16T03:59:45.697Z</updated>
     
     <summary type="html">
     
@@ -213,7 +215,29 @@
     <link href="https://henry40408.com/terraform-note/"/>
     <id>https://henry40408.com/terraform-note/</id>
     <published>2017-03-05T16:00:00.000Z</published>
-    <updated>2019-06-15T16:35:27.554Z</updated>
+    <updated>2019-06-16T03:59:45.697Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>從 Cloudflare 搬家到 AWS，而且是「徹底搬家」</title>
+    <link href="https://henry40408.com/migrate-from-cloudflare-to-aws/"/>
+    <id>https://henry40408.com/migrate-from-cloudflare-to-aws/</id>
+    <published>2017-03-05T16:00:00.000Z</published>
+    <updated>2019-06-16T03:59:45.697Z</updated>
     
     <summary type="html">
     
@@ -235,7 +259,7 @@
     <link href="https://henry40408.com/mongoose-collection-index/"/>
     <id>https://henry40408.com/mongoose-collection-index/</id>
     <published>2017-02-03T16:00:00.000Z</published>
-    <updated>2019-06-15T16:35:27.554Z</updated>
+    <updated>2019-06-16T03:59:45.697Z</updated>
     
     <summary type="html">
     
@@ -257,7 +281,7 @@
     <link href="https://henry40408.com/twil-4/"/>
     <id>https://henry40408.com/twil-4/</id>
     <published>2017-01-02T16:00:00.000Z</published>
-    <updated>2019-06-15T16:35:27.558Z</updated>
+    <updated>2019-06-16T03:59:45.701Z</updated>
     
     <summary type="html">
     
@@ -279,7 +303,7 @@
     <link href="https://henry40408.com/twil-3/"/>
     <id>https://henry40408.com/twil-3/</id>
     <published>2016-11-14T16:00:00.000Z</published>
-    <updated>2019-06-15T16:35:27.558Z</updated>
+    <updated>2019-06-16T03:59:45.701Z</updated>
     
     <summary type="html">
     
@@ -301,7 +325,7 @@
     <link href="https://henry40408.com/twil-2/"/>
     <id>https://henry40408.com/twil-2/</id>
     <published>2016-10-29T16:00:00.000Z</published>
-    <updated>2019-06-15T16:35:27.558Z</updated>
+    <updated>2019-06-16T03:59:45.701Z</updated>
     
     <summary type="html">
     
@@ -323,7 +347,7 @@
     <link href="https://henry40408.com/twil-1/"/>
     <id>https://henry40408.com/twil-1/</id>
     <published>2016-10-20T16:00:00.000Z</published>
-    <updated>2019-06-15T16:35:27.558Z</updated>
+    <updated>2019-06-16T03:59:45.701Z</updated>
     
     <summary type="html">
     
@@ -345,7 +369,7 @@
     <link href="https://henry40408.com/elixir-note/"/>
     <id>https://henry40408.com/elixir-note/</id>
     <published>2016-10-16T16:00:00.000Z</published>
-    <updated>2019-06-15T16:35:27.530Z</updated>
+    <updated>2019-06-16T03:59:45.677Z</updated>
     
     <summary type="html">
     
@@ -367,7 +391,7 @@
     <link href="https://henry40408.com/kitchen-and-packer/"/>
     <id>https://henry40408.com/kitchen-and-packer/</id>
     <published>2016-09-01T03:28:00.000Z</published>
-    <updated>2019-06-15T16:35:27.554Z</updated>
+    <updated>2019-06-16T03:59:45.693Z</updated>
     
     <summary type="html">
     
@@ -389,7 +413,7 @@
     <link href="https://henry40408.com/react-native-navigator/"/>
     <id>https://henry40408.com/react-native-navigator/</id>
     <published>2016-08-11T16:00:00.000Z</published>
-    <updated>2019-06-15T16:35:27.554Z</updated>
+    <updated>2019-06-16T03:59:45.697Z</updated>
     
     <summary type="html">
     
@@ -411,7 +435,7 @@
     <link href="https://henry40408.com/react-native-fbsdk-and-facebook-sdk/"/>
     <id>https://henry40408.com/react-native-fbsdk-and-facebook-sdk/</id>
     <published>2016-08-07T16:00:00.000Z</published>
-    <updated>2019-06-15T16:35:27.554Z</updated>
+    <updated>2019-06-16T03:59:45.697Z</updated>
     
     <summary type="html">
     

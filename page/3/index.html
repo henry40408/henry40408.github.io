@@ -1,17 +1,2261 @@
-<!DOCTYPE html><html lang="zh-TW"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Life is a YOLO Game | So play it well</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-ga('create','UA-6529501-15','auto');ga('send','pageview');
-</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Life is a YOLO Game</h1><a id="logo" href="/.">Life is a YOLO Game</a><p class="description">So play it well</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首頁</i></a><a href="/archives/"><i class="fa fa-archive"> 所有文章</i></a><a href="https://github.com/henry40408"><i class="fa fa-github"> GitHub</i></a><a href="https://medium.com/@henry40408"><i class="fa fa-medium"> Medium</i></a><a href="/atom.xml"><i class="fa fa-rss"> 訂閱</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"><a href="/inherited-model-in-factory-girl/">如何在 factory_girl 中為有繼承關係的 Rails model 定義 Factory</a></h1><div class="post-meta">2016-08-06</div><div class="post-content"><h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>例如以下 Ruby on Rails 程式碼。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Member</span> &lt; ActiveRecord::Base</span></span><br><span class="line">  <span class="comment"># has a string column named `email`</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Admin</span> &lt; Member</span></span><br><span class="line">  <span class="comment"># ...</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/inherited-model-in-factory-girl/">閱讀全文</a></p></div><div class="post"><h1 class="post-title"><a href="/react-native-touchables/">React Native 的觸控區域</a></h1><div class="post-meta">2016-07-28</div><div class="post-content"><h2 id="樣式上的差異"><a href="#樣式上的差異" class="headerlink" title="樣式上的差異"></a>樣式上的差異</h2><p>在 React Native，如果需要觸控區域，我們有兩個選擇：<code>&lt;TouchableWithoutFeedback /&gt;</code> 與 <code>&lt;TouchableHighlight /&gt;</code>。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。</p></div><p class="readmore"><a href="/react-native-touchables/">閱讀全文</a></p></div><div class="post"><h1 class="post-title"><a href="/notify-after-rspec-command-finished/">當 iTerm 執行完 RSpec 之後彈出通知</a></h1><div class="post-meta">2016-07-28</div><div class="post-content"><h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>我的 Ruby on Rails 專案我都習慣會寫 RSpec，但問題是只要專案一變大，RSpec 就會跑個二到三分鐘，以前我不是傻傻地盯著畫面等它完成，不然就是偷閒跑去看影集，往往把一集看完了才想起來有 RSpec 在執行。</p></div><p class="readmore"><a href="/notify-after-rspec-command-finished/">閱讀全文</a></p></div><div class="post"><h1 class="post-title"><a href="/react-native-upgrade-and-flexbox/">React Native 從 0.28.x 升級與 flexbox</a></h1><div class="post-meta">2016-07-28</div><div class="post-content"><p>React Native 雖然有 React 一詞，但與 React.js 的關係還是僅止於名稱而已。從 <code>0.28.x</code> 開始，flexbox 被調整地更接近 CSS3 標準。在 <code>0.28.x</code> 之前，對一個 <code>&lt;View /&gt;</code> 填上 <code>flex: 1</code> 屬性並不會劇烈地改變 <code>&lt;View /&gt;</code> 的呈現形式。但 <code>0.28.x</code> 之後，<code>flex</code> 屬性開始具備延展性。也就是說，<strong>我們不能再隨意地為 <code>&lt;View /&gt;</code> 添加 <code>flex</code> 屬性</strong>。<strong>否則在需要 inline 樣式的容器中，所有的元素將被延展</strong>，導致元素與容器一起變形。</p></div><p class="readmore"><a href="/react-native-upgrade-and-flexbox/">閱讀全文</a></p></div><div class="post"><h1 class="post-title"><a href="/react-native-moment-locale/">在 React Native 中使用 moment.js 無法載入語系檔案</a></h1><div class="post-meta">2016-07-19</div><div class="post-content"><p><a href="http://momentjs.com/" target="_blank" rel="noopener">moment.js</a> 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 <code>(new Date()).getFullYear()</code>，如果使用 moment.js 我可以只寫 <code>moment().get(&#39;year&#39;)</code>，可讀性增強許多。</p></div><p class="readmore"><a href="/react-native-moment-locale/">閱讀全文</a></p></div><div class="post"><h1 class="post-title"><a href="/react-native-animations/">React Native 動畫初體驗</a></h1><div class="post-meta">2016-06-03</div><div class="post-content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>開發 app，你必須有 <strong>總有一天一定要處理轉場動畫</strong> 的覺悟。死拖活拖幾個月後，我還是迎來了第一個 React Native 動畫。</p></div><p class="readmore"><a href="/react-native-animations/">閱讀全文</a></p></div><div class="post"><h1 class="post-title"><a href="/truncates-extra-spacing-produced-by-letter-spacing/">去除 letter-spacing 行末的多餘空白</a></h1><div class="post-meta">2016-06-03</div><div class="post-content"><h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p><code>letter-spacing</code> 會在 <strong>所有字元的尾端</strong> 都加上空白以達成字元間隔的效果。但事實上我們需要的只有 <strong>在字元與字元間</strong> 插入空白即可，最後的字元其實不需要加上空白。因此我們需要做一些 hack 來調整。</p></div><p class="readmore"><a href="/truncates-extra-spacing-produced-by-letter-spacing/">閱讀全文</a></p></div><div class="post"><h1 class="post-title"><a href="/dismiss-keyboard-in-react-native/">React Native 手動關閉螢幕鍵盤</a></h1><div class="post-meta">2016-06-03</div><div class="post-content"><h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>iOS app 雖然會在使用者不再輸入文字時自動隱藏螢幕鍵盤，但鍵盤隱藏時有過場動畫，如果鍵盤的過場動畫與自訂動畫同時發生，就會有螢幕卡頓的情形。</p>
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>目前 React Native 官方文件還沒有揭露，但 React Native 其實已經有實作手動關閉螢幕鍵盤的 API 了。</p></div><p class="readmore"><a href="/dismiss-keyboard-in-react-native/">閱讀全文</a></p></div><div class="post"><h1 class="post-title"><a href="/prevent-dot-dot-in-react-native/">在 React Native 裡避免大量的 ../../</a></h1><div class="post-meta">2016-05-24</div><div class="post-content"><h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>React Native 採用 ES6 做為開發語言，而 ES6 的 <code>import</code> 語法指定檔案時採用相對路徑。如果採用 <a href="http://redux.js.org/" target="_blank" rel="noopener">Redux</a> 架構開發，很快地 <code>Component</code> 就會開始出現以下一堆亂七八糟的 <code>import</code> 語句。</p></div><p class="readmore"><a href="/prevent-dot-dot-in-react-native/">閱讀全文</a></p></div><div class="post"><h1 class="post-title"><a href="/react-native-screenshot-with-fastlane/">React Native 使用 fastlane 螢幕截圖</a></h1><div class="post-meta">2016-05-17</div><div class="post-content"><h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><blockquote>
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-TW">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Life is a YOLO Game">
+<meta property="og:url" content="https://henry40408.com/page/3/index.html">
+<meta property="og:site_name" content="Life is a YOLO Game">
+<meta property="og:locale" content="zh-TW">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Life is a YOLO Game">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Life is a YOLO Game" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://henry40408.com/page/3/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Life is a YOLO Game</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-TW">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Life is a YOLO Game</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">So play it well</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切換導航欄">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-github">
+
+    
+    
+    
+      
+    
+
+    
+
+    <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg="><i class="menu-item-icon fa fa-fw fa-github"></i> <br>GitHub</span>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-medium">
+
+    
+    
+    
+      
+    
+
+    
+
+    <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BoZW5yeTQwNDA4"><i class="menu-item-icon fa fa-fw fa-medium"></i> <br>Medium</span>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg="><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></span>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/inherited-model-in-factory-girl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/inherited-model-in-factory-girl/" class="post-title-link" itemprop="url">如何在 factory_girl 中為有繼承關係的 Rails model 定義 Factory</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2016-08-07 00:00:00" itemprop="dateCreated datePublished" datetime="2016-08-07T00:00:00+08:00">2016-08-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-16 11:59:45" itemprop="dateModified" datetime="2019-06-16T11:59:45+08:00">2019-06-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>例如以下 Ruby on Rails 程式碼。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Member</span> &lt; ActiveRecord::Base</span></span><br><span class="line">  <span class="comment"># has a string column named `email`</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Admin</span> &lt; Member</span></span><br><span class="line">  <span class="comment"># ...</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p><code>Member</code> 與 <code>Admin</code> 兩個 Rails model 之間有繼承關係，那它們的 <code>factory_girl</code> Factory 要怎麼寫呢？</p>
+<h2 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FactoryGirl.define <span class="keyword">do</span></span><br><span class="line">  factory <span class="symbol">:member</span> <span class="keyword">do</span> <span class="comment"># Member model 的 factory</span></span><br><span class="line">    email &#123; Faker::Internet.email &#125;</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  factory <span class="symbol">:admin</span>, <span class="class"><span class="keyword">class</span>: <span class="title">Owner</span>, <span class="title">parent</span>: :<span class="title">member</span></span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>如果照著以上 code 定義 factory，則 <code>Owner</code> 的 factory 會繼承 <code>Member</code> factory 定義的所有欄位 (例如 <code>email</code>)。</p>
+<p>參考資料：<span class="exturl" data-url="aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3EvMTMzNDM4NzY=" title="http://stackoverflow.com/q/13343876">how to define factories with a inheritance user model<i class="fa fa-external-link"></i></span></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/notify-after-rspec-command-finished/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/notify-after-rspec-command-finished/" class="post-title-link" itemprop="url">當 iTerm 執行完 RSpec 之後彈出通知</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2016-07-29 00:00:00" itemprop="dateCreated datePublished" datetime="2016-07-29T00:00:00+08:00">2016-07-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-16 11:59:45" itemprop="dateModified" datetime="2019-06-16T11:59:45+08:00">2019-06-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>我的 Ruby on Rails 專案我都習慣會寫 RSpec，但問題是只要專案一變大，RSpec 就會跑個二到三分鐘，以前我不是傻傻地盯著畫面等它完成，不然就是偷閒跑去看影集，往往把一集看完了才想起來有 RSpec 在執行。</p>
+<p>昨天晚上靈機一動，想到之前在學 webpack 時，別人寫的 Yeoman generator 透過 iTerm 的通知功能在 bundle 打包完成通知開發者 (<span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2Uvd2VicGFjay1ub3RpZmllcg==" title="https://www.npmjs.com/package/webpack-notifier">Turbo87/webpack-notifier<i class="fa fa-external-link"></i></span>)。於是我就想，有沒有可能以盡量簡單的方法去解決這樣的問題？</p>
+<h2 id="研究"><a href="#研究" class="headerlink" title="研究"></a>研究</h2><p>首先，如果可能，<strong>我盡可能地不要去寫程式</strong>。寫程式的確有它的樂趣，但寫程式不可避免地一定要 debug。如果這些時間成本遠遠地超過問題的複雜度、所造成的困擾，那對我來說沒有任何價值。</p>
+<p>於是我第一個想到的是 <strong>iTerm 本身是否有這樣的功能</strong>？StackOverflow 上已經有人提出一樣的問題並也得到了回答 <span class="exturl" data-url="aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL2EvMzAwMTcyNTg=" title="http://stackoverflow.com/a/30017258">How do I make iTerm terminal notify me when a job/process is complete?<i class="fa fa-external-link"></i></span>，基本上就是設定 <code>Profile</code> &gt; <code>Advanced</code> &gt; <code>Triggers</code>，讓 iTerm 透過 regular expression 比對到特定的字串後觸發通知。</p>
+<p>但對於 iTerm Triggers 的介紹到此打住，因為我稍後又針對 RSpec 找到更好的解決方法。</p>
+<h2 id="最佳解"><a href="#最佳解" class="headerlink" title="最佳解"></a>最佳解</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3R3ZTRrZWQvcnNwZWMtbmM=" title="https://github.com/twe4ked/rspec-nc">twe4ked/rspec-nc - RSpec formatter for Mountain Lion’s Notification Center<i class="fa fa-external-link"></i></span></p>
+<p>原來不只我有這樣的需求，已經有同樣需求的開發者動手寫了一個 gem 來解決這樣的問題。使用方法很簡單，基本上只要照著文件說的安裝就可以直接使用了。</p>
+<p>但如果開發的作業系統與部署用的主機不一樣，則還需要一些額外的設定。<strong>在將 <code>rspec-nc</code> 加入 <code>Gemfile</code> 時，記得要設定 <code>require: false</code></strong>。在找到 <code>require</code> 這個選項之前，我實驗過好幾個跨平台的解決方案，都沒有成功。不是在 CI 階段失敗，就是在本機跑測試時會發生找不到 formatter 的錯誤 (<code>rspec-nc</code> 以 RSpec formatter 的形式與 RSpec 串接)。</p>
+<p>這件事情原作者在 <code>README.md</code> 中沒有特別註明，對此我還特別發送了一個 pull request (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3R3ZTRrZWQvcnNwZWMtbmMvcHVsbC8yMQ==" title="https://github.com/twe4ked/rspec-nc/pull/21">#21 add require option to the line in Gemfile<i class="fa fa-external-link"></i></span>)。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/react-native-touchables/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/react-native-touchables/" class="post-title-link" itemprop="url">React Native 的觸控區域</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2016-07-29 00:00:00" itemprop="dateCreated datePublished" datetime="2016-07-29T00:00:00+08:00">2016-07-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-16 11:59:45" itemprop="dateModified" datetime="2019-06-16T11:59:45+08:00">2019-06-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="樣式上的差異"><a href="#樣式上的差異" class="headerlink" title="樣式上的差異"></a>樣式上的差異</h2><p>在 React Native，如果需要觸控區域，我們有兩個選擇：<code>&lt;TouchableWithoutFeedback /&gt;</code> 與 <code>&lt;TouchableHighlight /&gt;</code>。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。</p>
+<p>實際使用之後，我發現兩者另外一項區別在於 <code>&lt;TouchableWithoutFeedback /&gt;</code> 沒有預設樣式，實際使用起來就像是一個隱形的容器，包住內部的元素，但又不會與內部的容器互相影響；而 <code>&lt;TouchableHighlight /&gt;</code> 本身則會形成一個區塊，會與內部的元素相互影響。至於之前的版本曾經有使用者提出 <code>&lt;TouchableHighlight /&gt;</code> 可能是為了產生回饋的視覺效果，而有效能上的問題。但在 <code>0.28.x</code> 之後，至少我實際使用到現在還沒有遇到嚴重的效能問題，即使是在最複雜的編輯履歷頁面也沒有。</p>
+<h2 id="lt-View-gt-與自訂-component-的規格差異"><a href="#lt-View-gt-與自訂-component-的規格差異" class="headerlink" title="&lt;View /&gt; 與自訂 component 的規格差異"></a><code>&lt;View /&gt;</code> 與自訂 component 的規格差異</h2><p>官方文件建議如果要在 <code>Touchable</code> 系列裡使用多個 component，如以下的形式，直接寫是行不通的。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;TouchableHighlight&gt;</span><br><span class="line">  &lt;ChildOne /&gt;</span><br><span class="line">  &lt;ChildTwo /&gt;</span><br><span class="line">&lt;<span class="regexp">/TouchableHighlight&gt;</span></span><br></pre></td></tr></table></figure>
+<p>必須改寫成以下形式。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;TouchableHighlight&gt;</span><br><span class="line">  &lt;View&gt;</span><br><span class="line">    &lt;ChildOne /&gt;</span><br><span class="line">    &lt;ChildTwo /&gt;</span><br><span class="line">  &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>TouchableHighlight&gt;</span><br></pre></td></tr></table></figure>
+<p>而重點就在這個 <code>&lt;View /&gt;</code>。這個 <code>&lt;View /&gt;</code> 在 <code>0.28.x</code> 時不能以自訂的 component 取代。例如以下的程式碼，在 <code>0.28.x</code> 有一定的機率造成 <code>Touchable</code> 失去效果。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MyComp = <span class="function">(<span class="params">&#123;children&#125;</span>) =&gt;</span> (</span><br><span class="line">  &lt;View&gt;</span><br><span class="line">    &#123;children&#125;</span><br><span class="line">  &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">const Touchable = () =&gt; (</span></span><br><span class="line"><span class="regexp">  &lt;TouchableHighlight&gt;</span></span><br><span class="line"><span class="regexp">    &lt;MyComp&gt;</span></span><br><span class="line"><span class="regexp">      &lt;ChildOne /</span>&gt;</span><br><span class="line">      &lt;ChildTwo /&gt;</span><br><span class="line">    &lt;<span class="regexp">/MyComp&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>TouchableHighlight&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>如果寫成以上的形式，則 React Native 在執行的時候會展開成以下形式。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Touchable = <span class="function"><span class="params">()</span> =&gt;</span> (</span><br><span class="line">  &lt;TouchableHighlight&gt;</span><br><span class="line">    &lt;MyComp&gt;</span><br><span class="line">      &lt;View&gt;</span><br><span class="line">        &lt;ChildOne /&gt;</span><br><span class="line">        &lt;ChildTwo /&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>MyComp&gt;</span><br><span class="line">  &lt;<span class="regexp">/TouchableHighlight&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
+<p>這時候會發生錯誤導致 React Native 無法執行。原因是 <code>&lt;MyComp /&gt;</code> 並不是一個 native component，因此當 <code>Touchable</code> 在為這個 component 注入一些屬性時，會發生某些 <code>&lt;View /&gt;</code> 有定義 function 在自訂 component 中沒有被定義 (<code>[函數名稱] is undefined</code>) 的錯誤。</p>
+<p>根據 <span class="exturl" data-url="aHR0cHM6Ly9mYWNlYm9vay5naXRodWIuaW8vcmVhY3QtbmF0aXZlL2RvY3MvZGlyZWN0LW1hbmlwdWxhdGlvbi5odG1s" title="https://facebook.github.io/react-native/docs/direct-manipulation.html">Direct Manipulation<i class="fa fa-external-link"></i></span> 中的說明，如果要將一個自訂的 component <strong>偽裝</strong> 成 native component，則需要實作 <code>setNativeProps</code> 這個 function，然後把 native props 傳遞給要自訂的 component。</p>
+<p>但實際測試之後，<code>setNativeProps</code> 的效果並不如預期地是 100% 正常運作。因此建議如果沒有特別的需求，盡量還是直接使用 <code>&lt;View /&gt;</code> 來包裝 child component。</p>
+<p>我知道畫面上一堆 <code>&lt;View /&gt;</code> 會讓可讀性變得非常差，否則我們也不需要自己實作自己的 component，但這是目前已知唯一 100% 有效的實作方法。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/react-native-upgrade-and-flexbox/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/react-native-upgrade-and-flexbox/" class="post-title-link" itemprop="url">React Native 從 0.28.x 升級與 flexbox</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2016-07-29 00:00:00" itemprop="dateCreated datePublished" datetime="2016-07-29T00:00:00+08:00">2016-07-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-16 11:59:45" itemprop="dateModified" datetime="2019-06-16T11:59:45+08:00">2019-06-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>React Native 雖然有 React 一詞，但與 React.js 的關係還是僅止於名稱而已。從 <code>0.28.x</code> 開始，flexbox 被調整地更接近 CSS3 標準。在 <code>0.28.x</code> 之前，對一個 <code>&lt;View /&gt;</code> 填上 <code>flex: 1</code> 屬性並不會劇烈地改變 <code>&lt;View /&gt;</code> 的呈現形式。但 <code>0.28.x</code> 之後，<code>flex</code> 屬性開始具備延展性。也就是說，<strong>我們不能再隨意地為 <code>&lt;View /&gt;</code> 添加 <code>flex</code> 屬性</strong>。<strong>否則在需要 inline 樣式的容器中，所有的元素將被延展</strong>，導致元素與容器一起變形。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhY2Vib29rL3JlYWN0LW5hdGl2ZS9pc3N1ZXMvODY5MQ==" title="https://github.com/facebook/react-native/issues/8691">#8691 [0.29] With flexWrap: ‘wrap’, unexpected margin appears between wrapped rows<i class="fa fa-external-link"></i></span></p>
+<p>另外，像標籤這樣需要一個接著一個排成一列的樣式，在 <code>0.28.x</code> 之前只要加上 <code>flexDirection: &#39;row&#39;</code> 與 <code>flexWrap: &#39;wrap&#39;</code> 即可；但 <code>0.28.x</code> 之後，還需要加上 <code>alignItems: &#39;left&#39;</code> (或 <code>alignItems: &#39;right&#39;</code>，如果需要靠右對齊的話)，在此可以簡單地類比成網頁端的 <code>float: left</code> (或 <code>float: right</code>)。如果不加上這個屬性的話，容器內的元素將會在底部產生成因不明的空白，如 issue 中的截圖所示。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/react-native-moment-locale/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/react-native-moment-locale/" class="post-title-link" itemprop="url">在 React Native 中使用 moment.js 無法載入語系檔案</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2016-07-20 00:00:00" itemprop="dateCreated datePublished" datetime="2016-07-20T00:00:00+08:00">2016-07-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-16 11:59:45" itemprop="dateModified" datetime="2019-06-16T11:59:45+08:00">2019-06-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><span class="exturl" data-url="aHR0cDovL21vbWVudGpzLmNvbS8=" title="http://momentjs.com/">moment.js<i class="fa fa-external-link"></i></span> 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 <code>(new Date()).getFullYear()</code>，如果使用 moment.js 我可以只寫 <code>moment().get(&#39;year&#39;)</code>，可讀性增強許多。</p>
+<h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>React Native 0.29.x 預設使用 ES6，並支援 <code>import</code> 語法。問題出在如果遵照官方網站的說明去載入語系檔，會發生找不到模組 (cannot find module) 的錯誤。推測可能是 moment.js 從 ES5 移植到 ES6 沒有轉換完全。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> moment <span class="keyword">from</span> <span class="string">'moment'</span>;</span><br><span class="line">moment.locale(<span class="string">'zh-tw'</span>); <span class="comment">// 這一行會出錯</span></span><br><span class="line"><span class="built_in">console</span>.log(moment.months());</span><br></pre></td></tr></table></figure>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>GitHub 上已經有人回報相關錯誤，參考 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhY2Vib29rL3JlYWN0LW5hdGl2ZS9pc3N1ZXMvMTYyOQ==" title="https://github.com/facebook/react-native/issues/1629">facebook/react-native#1629<i class="fa fa-external-link"></i></span> 得出以下解法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> moment <span class="keyword">from</span> <span class="string">'moment'</span>;</span><br><span class="line"><span class="keyword">import</span> momentLocale <span class="keyword">from</span> <span class="string">'moment/locale/zh-tw'</span>; <span class="comment">// 多這一行</span></span><br><span class="line">moment.updateLocale(<span class="string">'zh-tw'</span>, momentLocale); <span class="comment">// 改這一行</span></span><br><span class="line"><span class="built_in">console</span>.log(moment.months());</span><br></pre></td></tr></table></figure>
+<p>原理是使用 ES6 的語法將語系檔案手動載入之後使用 <code>updateLocale</code> 手動覆寫。issue 中的 <code>locale([locale_name], [locale_hash])</code> 已經被 deprecated，必須改用 <code>updateLocale</code>。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/dismiss-keyboard-in-react-native/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/dismiss-keyboard-in-react-native/" class="post-title-link" itemprop="url">React Native 手動關閉螢幕鍵盤</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2016-06-04 00:00:00" itemprop="dateCreated datePublished" datetime="2016-06-04T00:00:00+08:00">2016-06-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-16 11:59:45" itemprop="dateModified" datetime="2019-06-16T11:59:45+08:00">2019-06-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>iOS app 雖然會在使用者不再輸入文字時自動隱藏螢幕鍵盤，但鍵盤隱藏時有過場動畫，如果鍵盤的過場動畫與自訂動畫同時發生，就會有螢幕卡頓的情形。</p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>目前 React Native 官方文件還沒有揭露，但 React Native 其實已經有實作手動關閉螢幕鍵盤的 API 了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> dismissKeyboard <span class="keyword">from</span> <span class="string">'dismissKeyboard'</span>;</span><br><span class="line">...</span><br><span class="line">dismissKeyboard();</span><br></pre></td></tr></table></figure>
+<p>如果螢幕鍵盤目前是開啟的狀態，在呼叫 <code>dismissKeyboard</code> 之後螢幕鍵盤就會被隱藏起來。</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>React Native 更新的速度非常快，導致文件更新的速度遠遠落後程式碼。最快的方式還是直接 Google 關鍵字，然後回去參考原始碼。之所以要參考原始碼的原因在於有些程式碼可能會被標記為 <code>deprecated</code>，如此就必須另尋方法。</p>
+<p>另外，React Native 不要追最新的版本，尤其是 0.24 到 0.25 如果有使用任何第三方程式碼請注意第三方使用者有追上最新版本再進行更新。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/react-native-animations/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/react-native-animations/" class="post-title-link" itemprop="url">React Native 動畫初體驗</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2016-06-04 00:00:00" itemprop="dateCreated datePublished" datetime="2016-06-04T00:00:00+08:00">2016-06-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-16 11:59:45" itemprop="dateModified" datetime="2019-06-16T11:59:45+08:00">2019-06-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>開發 app，你必須有 <strong>總有一天一定要處理轉場動畫</strong> 的覺悟。死拖活拖幾個月後，我還是迎來了第一個 React Native 動畫。</p>
+<p><span class="exturl" data-url="aHR0cDovL21vZHVzY3JlYXRlLmNvbS9leHBhbmRpbmctYW5kLWNvbGxhcHNpbmctZWxlbWVudHMtdXNpbmctYW5pbWF0aW9ucy1pbi1yZWFjdC1uYXRpdmUv" title="http://moduscreate.com/expanding-and-collapsing-elements-using-animations-in-react-native/">Expanding and Collapsing Elements Using Animations in React Native<i class="fa fa-external-link"></i></span></p>
+<p>雖然 <strong>React Native 沒有 CSS</strong>，但它們也不是真的被完全拿掉，而是以另外一種形式借屍還魂。</p>
+<h2 id="舉例"><a href="#舉例" class="headerlink" title="舉例"></a>舉例</h2><p>在此推薦一項對於 React Native 開發者來說非常好用的服務 <span class="exturl" data-url="aHR0cHM6Ly9ybnBsYXkub3JnLw==" title="https://rnplay.org/">React Native Playground<i class="fa fa-external-link"></i></span>，這項服務可以說是 React Native 開發者的 <span class="exturl" data-url="aHR0cHM6Ly9jb2RlcGVuLmlvLw==" title="https://codepen.io/">codepen<i class="fa fa-external-link"></i></span>。</p>
+<p>先來看靜態的例子：<span class="exturl" data-url="aHR0cHM6Ly9ybnBsYXkub3JnL2FwcHMvSXJ1Wk1B" title="https://rnplay.org/apps/IruZMA">React Native Animation (Static)<i class="fa fa-external-link"></i></span></p>
+<p>再來看動態的例子：<span class="exturl" data-url="aHR0cHM6Ly9ybnBsYXkub3JnL2FwcHMvRXZ6MFdR" title="https://rnplay.org/apps/Evz0WQ">React Native Animation (Animated)<i class="fa fa-external-link"></i></span></p>
+<p>從結構上看起來一模一樣。兩組程式最大的差別如下：</p>
+<ol>
+<li>動畫版新增了一個 state <code>opacity</code>，值是 <code>Animated.Value</code>。這個 <code>Animated.Value</code> 會隨著不同的動畫函數被呼叫、依據相對應的函數產生不同的數值變動。唯一的參數是動畫函數的起始值。</li>
+<li>在 <code>render</code> callback 中，直接將 <code>opacity</code> state 做為 style 的屬性直接傳入。當 <code>opacity</code> 值一變動就會觸發 <code>render</code> 重新繪製畫面，完成動畫效果。</li>
+<li>在 <strong>適當的時機</strong> 呼叫動畫函數以啟動動畫，在我提供的例子中是 <code>componentDidMount</code> callback。React Native 支援 <code>spring</code>、<code>decay</code>、<code>timing</code> 等動畫變數。<code>toValue</code> 指動畫函數的最終數值，另外可以傳入 <code>duration</code> 來控制動畫的長度，至於動畫的函數變動情形 <code>Animated.Value</code> 會自動計算，不需要開發者操心。</li>
+</ol>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>動畫效果在數學上的定義就是一個以時間做為參數傳入的函數，輸出是座標值或是對應位置的一個數字。React Native 把開發者最頭痛的動畫函數寫好了，開發者只需要傳入必要的參數剩下的就交給 React Native 去煩惱即可。唯一還要注意的是 app 與網頁最大的不同在於 app 為了增進使用者體驗有許多內建的過場 (transition) 與回饋 (feeback) 動畫，在啟動自訂動畫的同時，必須注意這些過場動畫會不會與自訂動畫同時啟動，造成畫面卡頓。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/truncates-extra-spacing-produced-by-letter-spacing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/truncates-extra-spacing-produced-by-letter-spacing/" class="post-title-link" itemprop="url">去除 letter-spacing 行末的多餘空白</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2016-06-04 00:00:00" itemprop="dateCreated datePublished" datetime="2016-06-04T00:00:00+08:00">2016-06-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-16 11:59:45" itemprop="dateModified" datetime="2019-06-16T11:59:45+08:00">2019-06-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p><code>letter-spacing</code> 會在 <strong>所有字元的尾端</strong> 都加上空白以達成字元間隔的效果。但事實上我們需要的只有 <strong>在字元與字元間</strong> 插入空白即可，最後的字元其實不需要加上空白。因此我們需要做一些 hack 來調整。</p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>善用 <code>margin-right</code>。<code>letter-spacing</code> 設定多少，就以多少的 <code>margin-right</code> 回補。舉個例子，如果 <code>letter-spacing</code> 設定 <code>2rem</code>，<code>margin-right</code> 就設定 <code>-2rem</code> 回補，就可以把文字的位置調整回視覺上應該出現的位置。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9qc2ZpZGRsZS5uZXQvNDR5dHFuODEv" title="https://jsfiddle.net/44ytqn81/">letter-spacing on JSFiddle<i class="fa fa-external-link"></i></span></p>
+<p>上面的文字沒有進行調整，整串文字往左邊歪；下面的文字經過調整，看起來就有置中了。</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>由於這是一個 CSS hack，不排除未來會有任何修正。但在 React Native 中，所有的樣式都會被轉譯成 native 的樣式，如果 native 的 API 沒有被修改，我們就可以確保這樣的 CSS hack 也不會有太劇烈的改變。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/prevent-dot-dot-in-react-native/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/prevent-dot-dot-in-react-native/" class="post-title-link" itemprop="url">在 React Native 裡避免大量的 ../../</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2016-05-25 00:00:00" itemprop="dateCreated datePublished" datetime="2016-05-25T00:00:00+08:00">2016-05-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-16 11:59:45" itemprop="dateModified" datetime="2019-06-16T11:59:45+08:00">2019-06-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>React Native 採用 ES6 做為開發語言，而 ES6 的 <code>import</code> 語法指定檔案時採用相對路徑。如果採用 <span class="exturl" data-url="aHR0cDovL3JlZHV4LmpzLm9yZy8=" title="http://redux.js.org/">Redux<i class="fa fa-external-link"></i></span> 架構開發，很快地 <code>Component</code> 就會開始出現以下一堆亂七八糟的 <code>import</code> 語句。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> DoSomething <span class="keyword">from</span> <span class="string">'../actions/DoSomething'</span>;</span><br><span class="line"><span class="keyword">import</span> DoAnotherThing <span class="keyword">from</span> <span class="string">'../actions/DoAnotherThing'</span>;</span><br></pre></td></tr></table></figure>
+<p>如果是從 HTML4 時代就開始寫 JavaScript 的工程師，乍看之下沒有什麼不好，因為絕對路徑與相對路徑的好壞在 HTML4 的時代就吵過一次，最後的結論也都是有好有壞。<strong>但 React Native 不是 ES5</strong>，規模很容易膨脹到超過傳統 ES5 專案的程度，因此應該另尋專為大型專案設計的解決方法。</p>
+<h2 id="他山之石"><a href="#他山之石" class="headerlink" title="他山之石"></a>他山之石</h2><p>讓我們來看看 Python 與 Java 的 <code>import</code> 語句。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> flask_sqlalchemy <span class="keyword">import</span> SQLAlchemy</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> app <span class="keyword">import</span> MyApp</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> butterknife.BindView;</span><br><span class="line"><span class="keyword">import</span> butterknife.BindViews;</span><br><span class="line"><span class="keyword">import</span> butterknife.ButterKnife;</span><br><span class="line"><span class="keyword">import</span> butterknife.OnClick;</span><br><span class="line"><span class="keyword">import</span> butterknife.OnItemClick;</span><br><span class="line"><span class="keyword">import</span> butterknife.OnLongClick;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tw.com.sudo.JavaProject.DummyClass;</span><br></pre></td></tr></table></figure>
+<p>Python 跟 Java 都號稱專為大型專案設計，而他們的 <code>import</code> 語法也驚人地相似。簡而言之，它們原理就是 <strong>以專案目錄為起點，去定位被 import 的檔案位置</strong>。因此無論你的檔案怎麼搬動，只要還在專案目錄下，<code>import</code> 語句的起點都不會改變，讓重構的意願提高。</p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>如果是 React Native，<strong>你什麼事都不必做</strong>，因為 React Native 已經內建了從專案目錄計算 import 路徑的功能。雖然 React Native 已經支援了相關功能，但由於官方文件並沒有明確說明，只有 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhY2Vib29rL3JlYWN0LW5hdGl2ZS9pc3N1ZXMvMzA5OQ==" title="https://github.com/facebook/react-native/issues/3099">相關的 issue<i class="fa fa-external-link"></i></span>，具體的方法是在 <span class="exturl" data-url="aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3F1ZXN0aW9ucy8zMDA0MDUzNC9sb2NhbC1yZXF1aXJlLXBhdGhzLWZvci1yZWFjdC1uYXRpdmU=" title="http://stackoverflow.com/questions/30040534/local-require-paths-for-react-native">StackOverflow<i class="fa fa-external-link"></i></span> 上找到的，因此如果要使用在 production 上要特別小心。</p>
+<p>如果你要嘗鮮，以下是具體寫法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/foo/DummyClass.js</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DummyClass</span> </span>&#123; ... &#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> DummyClass;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// src/package.json</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"@src"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/components/Bar.js</span></span><br><span class="line"><span class="keyword">import</span> DummyClass <span class="keyword">from</span> <span class="string">'@src/foo/DummyClass'</span>;</span><br></pre></td></tr></table></figure>
+<p>整體而言就是透過 <code>package.json</code> 去為 <code>package.json</code> 的目錄命名 (在此命名為 <code>@src</code>，越特別越好，不然可能會與其他來自 npm 的 package 撞名)，之後所有在專案下的 ES6 檔案的 <code>import</code> 路徑就會多一個以 <code>@src</code> 開頭的路徑，起點從 <code>src/</code> 開始。</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>掰掰，<code>../../</code>。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/react-native-screenshot-with-fastlane/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/react-native-screenshot-with-fastlane/" class="post-title-link" itemprop="url">React Native 使用 fastlane 螢幕截圖</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2016-05-18 00:00:00" itemprop="dateCreated datePublished" datetime="2016-05-18T00:00:00+08:00">2016-05-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-16 11:59:45" itemprop="dateModified" datetime="2019-06-16T11:59:45+08:00">2019-06-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><blockquote>
 <p>App 上架一定要上傳螢幕截圖，我想要為 React Native 做自動螢幕截圖。</p>
 </blockquote>
-<p><a href="https://github.com/facebook/react-native" target="_blank" rel="noopener">React Native</a> 目前還是處於開發活躍期，官方文件混亂、第三方文件少，有些功能還要自己跳下去爬原始碼才知道。本文所描述的螢幕截圖，基本上官方的文件一丁點都沒有提到，網路上的資料也是片片斷斷非常稀少，讓我排列組合了一整天才有了今天的成果。</p></div><p class="readmore"><a href="/react-native-screenshot-with-fastlane/">閱讀全文</a></p></div><nav class="page-navigator"><a class="extend prev" rel="prev" href="/page/2/">上一頁</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">下一頁</a></nav></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/weekly-25/">美得讓人窒息</a></li><li class="post-list-item"><a class="post-list-link" href="/meaning-of-title/">標題的意義</a></li><li class="post-list-item"><a class="post-list-link" href="/weekly-2/">分享我每週的所見所聞</a></li><li class="post-list-item"><a class="post-list-link" href="/weekly-1/">記錄我每週的所見所聞</a></li><li class="post-list-item"><a class="post-list-link" href="/2018-july-week-4/">2018 七月第四週</a></li><li class="post-list-item"><a class="post-list-link" href="/probot/">完善 GitHub Flow 最後一哩路 — Probot</a></li><li class="post-list-item"><a class="post-list-link" href="/hahow-blue-green-deployment/">淺談 Hahow 藍綠部署</a></li><li class="post-list-item"><a class="post-list-link" href="/drupal-s3-imce.html/">Drupal 搬遷到 S3 後從 IMCE 再也看不到搬遷前上傳的檔案</a></li><li class="post-list-item"><a class="post-list-link" href="/migrate-from-cloudflare-to-aws/">從 Cloudflare 搬家到 AWS，而且是「徹底搬家」</a></li><li class="post-list-item"><a class="post-list-link" href="/replace-security-groups-in-terraform/">在 Terraform 抽換 Security Group</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">Life is a YOLO Game.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
-if (search_path.length == 0) {
-   search_path = 'search.xml';
-}
-var path = '/' + search_path;
-searchFunc(path, 'local-search-input', 'local-search-result');
-</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhY2Vib29rL3JlYWN0LW5hdGl2ZQ==" title="https://github.com/facebook/react-native">React Native<i class="fa fa-external-link"></i></span> 目前還是處於開發活躍期，官方文件混亂、第三方文件少，有些功能還要自己跳下去爬原始碼才知道。本文所描述的螢幕截圖，基本上官方的文件一丁點都沒有提到，網路上的資料也是片片斷斷非常稀少，讓我排列組合了一整天才有了今天的成果。</p>
+<h2 id="假設"><a href="#假設" class="headerlink" title="假設"></a>假設</h2><ol>
+<li>假設你使用 React Native 開發 app，而且是 iOS app。</li>
+<li>假設你採用 <span class="exturl" data-url="aHR0cHM6Ly9mYXN0bGFuZS50b29scy8=" title="https://fastlane.tools/">fastlane<i class="fa fa-external-link"></i></span> 自動化開發流程，想要使用 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Zhc3RsYW5lL2Zhc3RsYW5lL3RyZWUvbWFzdGVyL3NuYXBzaG90I3JlYWRtZQ==" title="https://github.com/fastlane/fastlane/tree/master/snapshot#readme">snapshot<i class="fa fa-external-link"></i></span> 做自動截圖。</li>
+<li>假設你懂一點的 Swift。 (你也可以使用 Objective-C，但要自己轉換)</li>
+</ol>
+<h2 id="前置作業"><a href="#前置作業" class="headerlink" title="前置作業"></a>前置作業</h2><p>在放置 <code>fastlane</code> 資料夾那層目錄執行 <code>snapshot init</code>，在 <code>fastlane</code> 目錄產生 <code>Sanpfile</code> 與 <code>SnapshotHelper.swift</code>。我自己是放在 React Native 的專案根目錄，因為之後預計也會讓 Android 使用 fastlane 進行開發流程自動化。</p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><h3 id="1-Snapshot-目前只支援透過-UI-testing-做螢幕截圖"><a href="#1-Snapshot-目前只支援透過-UI-testing-做螢幕截圖" class="headerlink" title="1. Snapshot 目前只支援透過 UI testing 做螢幕截圖"></a>1. Snapshot 目前只支援透過 UI testing 做螢幕截圖</h3><p>首先，在 iOS 上，Snapshot 目前只支援透過 UI testing 做螢幕截圖。</p>
+<p>UI testing 是 for Mac OS X and iOS app 的 UI 測試框架，提供點擊、滑動等 API，讓 Xcode 模擬使用者的行為。透過 UI testing + Snapshot，你可以做到 <strong>進入某個畫面、先滑動一次之後再截圖</strong> 這種非常精細的擷取操作。</p>
+<p>所以如果要讓 Snapshot 做自動截圖，你勢必要 <strong>讓 UI testing 有辦法串接到 React Native</strong> 。</p>
+<h3 id="2-透過-testID-property-為-React-Native-component-命名"><a href="#2-透過-testID-property-為-React-Native-component-命名" class="headerlink" title="2. 透過 testID property 為 React Native component 命名"></a>2. 透過 <code>testID</code> property 為 React Native component 命名</h3><blockquote>
+<p><strong>testID</strong> string</p>
+<p>Used to locate this view in end-to-end tests. NB: disables the ‘layout-only view removal’ optimization for this view!</p>
+<p>- 擷取自 React Native <span class="exturl" data-url="aHR0cHM6Ly9mYWNlYm9vay5naXRodWIuaW8vcmVhY3QtbmF0aXZlL2RvY3Mvdmlldy5odG1sI3Rlc3RpZA==" title="https://facebook.github.io/react-native/docs/view.html#testid">官方文件<i class="fa fa-external-link"></i></span></p>
+</blockquote>
+<p>官方文件完全看不懂在寫什麼。</p>
+<blockquote>
+<p>Notice that I added <code>testID=&quot;test-id-textfield&quot;</code> and <code>testID=&quot;test-id-textfield-result&quot;</code> to the TextInput and the View. This causes React Native to set a <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuYXBwbGUuY29tL2xpYnJhcnkvaW9zL2RvY3VtZW50YXRpb24vVUlLaXQvUmVmZXJlbmNlL1VJQWNjZXNzaWJpbGl0eUlkZW50aWZpY2F0aW9uX1Byb3RvY29sL2luZGV4Lmh0bWwjLy9hcHBsZV9yZWYvb2NjL2ludGZwL1VJQWNjZXNzaWJpbGl0eUlkZW50aWZpY2F0aW9uL2FjY2Vzc2liaWxpdHlJZGVudGlmaWVy" title="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAccessibilityIdentification_Protocol/index.html#//apple_ref/occ/intfp/UIAccessibilityIdentification/accessibilityIdentifier">accessibilityIdentifier<i class="fa fa-external-link"></i></span> on the native view. This is something we can use to find the elements in our UI test.</p>
+<p>- 擷取自 <span class="exturl" data-url="aHR0cDovL2Jsb2cueGViaWEuY29tL2F1dG9tYXRlZC11aS10ZXN0aW5nLXdpdGgtcmVhY3QtbmF0aXZlLW9uLWlvcy8=" title="http://blog.xebia.com/automated-ui-testing-with-react-native-on-ios/">Automated UI Testing with React Native on iOS<i class="fa fa-external-link"></i></span></p>
+</blockquote>
+<p>這篇文章的解釋好多了。</p>
+<p>簡而言之，為 component 標上 <code>testID</code>，React Native 在編譯之後會為轉換出來的 native component 設定 <code>accessibilityIdentifier</code> 的屬性 (它是一個 <em>Optional String</em>)，這個屬性你可以類比成 HTML5 DOM 的 <code>id</code>，在同一份網頁中 (在 React Native 則是 <strong>同一隻 app 中</strong>) 是一個全域的 <em>identifier</em>，也就讓 Snapshot 在 UI testing 時可以透過這個 identifier 鎖定特定的 React Native component 了。</p>
+<h3 id="3-等待-UI-component-出現在畫面上"><a href="#3-等待-UI-component-出現在畫面上" class="headerlink" title="3. 等待 UI component 出現在畫面上"></a>3. 等待 UI component 出現在畫面上</h3><p>React Native 由於程式語言採用 JavaScript，非同步的操作寫起來非常爽 (除去 callback hell 這些不好的回憶)，結果有時候爽過頭，在測試的時候忘記 component 是非同步的，有時候測試會過有時候又不會過，實在讓人丈二金剛摸不著頭緒。</p>
+<p>UI testing 提供 <strong>等待 UI component 出現在畫面上、但如果等太久就讓測試失敗</strong> 的 API。</p>
+<blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">let</span> nextGame = <span class="keyword">self</span>.app.staticTexts[<span class="string">"Game 4 - Tomorrow"</span>]</span><br><span class="line">&gt; <span class="keyword">let</span> exists = <span class="type">NSPredicate</span>(format: <span class="string">"exists == true"</span>)</span><br><span class="line">&gt; expectationForPredicate(exists, evaluatedWithObject: nextGame, handler: <span class="literal">nil</span>)</span><br><span class="line">&gt;</span><br><span class="line">&gt; app.buttons[<span class="string">"Load More Games"</span>].tap()</span><br><span class="line">&gt;</span><br><span class="line">&gt; waitForExpectationsWithTimeout(<span class="number">5</span>, handler: <span class="literal">nil</span>)</span><br><span class="line">&gt; <span class="type">XCTAssert</span>(nextGameLabel.exists)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>Here we create a query to wait for a label with text “Game 4 - Tomorrow” to appear. The predicate matches when the element exists (element.exists == true).</p>
+<p>We then pass the predicate in and evaluate it on the label. Finally, we kick off the waiting game with waitForExpectationsWithTimeout:handler:. If five seconds pass before the expectation is met then the test will fail.</p>
+<p>- 擷取自 <span class="exturl" data-url="aHR0cDovL21hc2lsb3R0aS5jb20vdWktdGVzdGluZy1jaGVhdC1zaGVldC8=" title="http://masilotti.com/ui-testing-cheat-sheet/">UI Testing Cheat Sheet and Examples<i class="fa fa-external-link"></i></span></p>
+</blockquote>
+<p>這兩個 API 就是 <code>expectationForPredicate</code> 與 <code>waitForExpectationsWithTimeout</code>，具體的用法如擷取文字所示。如果要配合 React Native，寫出來的樣子就會如下所示：</p>
+<h4 id="1-在-React-Native-裡為-View-標上-testID"><a href="#1-在-React-Native-裡為-View-標上-testID" class="headerlink" title="1. 在 React Native 裡為 View 標上 testID"></a>1. 在 React Native 裡為 <code>View</code> 標上 <code>testID</code></h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">View</span> <span class="attr">testID</span>=<span class="string">&#123;</span>'<span class="attr">name-me-whatever-you-like</span>'&#125;&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">TouchableWithoutFeedback</span> <span class="attr">onPress</span>=<span class="string">&#123;onPressHandler&#125;</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">TouchableWithoutFeedback</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">View</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-1-在-UI-testing-中存取"><a href="#2-1-在-UI-testing-中存取" class="headerlink" title="2-1. 在 UI testing 中存取"></a>2-1. 在 UI testing 中存取</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">APPTests</span>: <span class="title">XCTestCase</span> </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> app = <span class="type">XCUIApplication</span>()</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">setUp</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.setUp()</span><br><span class="line">    continueAfterFailure = <span class="literal">false</span></span><br><span class="line">    setupSnapshot(app) <span class="comment">// 啟用 Snapshot</span></span><br><span class="line">    app.launch()</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">testAScreen</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> touchable = app.otherElements[<span class="string">"name-me-whatever-you-like"</span>]</span><br><span class="line">    touchable.tap() <span class="comment">// 模擬點擊</span></span><br><span class="line">    snapshot(<span class="string">"0AScreen"</span>) <span class="comment">// 截圖！</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>snapshot(&quot;0AScreen&quot;)</code> 執行之後的截圖就是該 <code>View</code> 被使用者點擊之後的畫面。</p>
+<h4 id="2-2-等待-component-出現之後再截圖"><a href="#2-2-等待-component-出現之後再截圖" class="headerlink" title="2-2. 等待 component 出現之後再截圖"></a>2-2. 等待 component 出現之後再截圖</h4><p>有時候 component 可能是某個非同步操作完成之後才會出現在畫面上，這個時候就需要剛剛提到的兩隻 API 輔助了。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">APPTests</span>: <span class="title">XCTestCase</span> </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> app = <span class="type">XCUIApplication</span>()</span><br><span class="line">  <span class="keyword">let</span> exists = <span class="type">NSPredicate</span>(format: <span class="string">"exists == true"</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">setUp</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.setUp()</span><br><span class="line">    continueAfterFailure = <span class="literal">false</span></span><br><span class="line">    setupSnapshot(app) <span class="comment">// 啟用 Snapshot</span></span><br><span class="line">    app.launch()</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">testAScreen</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> touchable = app.otherElements[<span class="string">"name-me-whatever-you-like"</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 等 touchable 出現在畫面上，最多等 5 秒，不然就 test fail</span></span><br><span class="line">    expectationForPredicate(exists, evaluatedWithObject: touchable, handler: <span class="literal">nil</span>)</span><br><span class="line">    waitForExpectationsWithTimeout(<span class="number">5</span>, handler: <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line">    touchable.tap() <span class="comment">// 模擬點擊</span></span><br><span class="line">    snapshot(<span class="string">"0AScreen"</span>) <span class="comment">// 截圖！</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Snapshot 執行完之後就會建立一個 HTML 文件，展示所有在 UI testing 執行的過程中擷取到的螢幕截圖。這個文件在之後 fastlane <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Zhc3RsYW5lL2Zhc3RsYW5lL3RyZWUvbWFzdGVyL2RlbGl2ZXIjcmVhZG1l" title="https://github.com/fastlane/fastlane/tree/master/deliver#readme">Deliver<i class="fa fa-external-link"></i></span> 會使用到，但你可以把它放進 <code>.gitignore</code>，因為每次需要上傳截圖之前理論上都會跑一次 Snapshot 更新截圖。</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><blockquote>
+<p>React Native 不是 JavaScript，他只是語言採用 JavaScript 來加速開發。</p>
+</blockquote>
+<p>在本篇文章中，我們用到了不少 Swift 的知識與語法去實踐自動化螢幕截圖的功能，所以即使是採用 React Native，如果你是 native app 開發出身的工程師，也絕對不能忘記原來的背景知識 (e.g. Cocoapods、Objective-C、Swift、Java、Gradle…等)。因為 React Native 的資源還非常非常少，很多時候我們必須自己動手去橋接 native modules 給 React Native 使用，幸好 React Native 將橋接這件事情做得非常簡單，基本上只要介面 (Objective-C 的 <code>@interface</code>)寫好，剩下的事情就交給 React Native 去完成了。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一頁"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Heng-Yi Wu</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-name">文章</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分類</span>
+                  
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Heng-Yi Wu</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 強力驅動 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Pisces</span> v7.1.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+  <script src="/js/exturl.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

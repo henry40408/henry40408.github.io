@@ -1,10 +1,437 @@
-<!DOCTYPE html><html lang="zh-TW"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>從 Cloudflare 搬家到 AWS，而且是「徹底搬家」 | Life is a YOLO Game</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-ga('create','UA-6529501-15','auto');ga('send','pageview');
-</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">從 Cloudflare 搬家到 AWS，而且是「徹底搬家」</h1><a id="logo" href="/.">Life is a YOLO Game</a><p class="description">So play it well</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首頁</i></a><a href="/archives/"><i class="fa fa-archive"> 所有文章</i></a><a href="https://github.com/henry40408"><i class="fa fa-github"> GitHub</i></a><a href="https://medium.com/@henry40408"><i class="fa fa-medium"> Medium</i></a><a href="/atom.xml"><i class="fa fa-rss"> 訂閱</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">從 Cloudflare 搬家到 AWS，而且是「徹底搬家」</h1><div class="post-meta">Mar 5, 2017</div><div class="post-content"><p><img src="cloudflare-migrate-to-aws.png" alt="Cloudflare migrate to AWS"></p>
-<p>使用了很長一段時間的 Cloudflare，最近在資安上捅出了一個大摟子：<a href="https://blog.cloudflare.com/incident-report-on-memory-leak-caused-by-cloudflare-parser-bug/" target="_blank" rel="noopener">Cloudbleed</a>。於是開始研究其他類似 Cloudflare 的服務，第一個想到的就是另外一個我自己也已經使用很久的 <a href="https://aws.amazon.com/tw/" target="_blank" rel="noopener">Amazon Web Services</a>。</p>
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-TW">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="使用了很長一段時間的 Cloudflare，最近在資安上捅出了一個大摟子：Cloudbleed。於是開始研究其他類似 Cloudflare 的服務，第一個想到的就是另外一個我自己也已經使用很久的 Amazon Web Services。 Cloudflare 提供什麼服務？在 AWS 上有哪些替代服務？   服務 Cloudflare AWS     DNS 免費 付費，一個 hosted zo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="從 Cloudflare 搬家到 AWS，而且是「徹底搬家」">
+<meta property="og:url" content="https://henry40408.com/migrate-from-cloudflare-to-aws/index.html">
+<meta property="og:site_name" content="Life is a YOLO Game">
+<meta property="og:description" content="使用了很長一段時間的 Cloudflare，最近在資安上捅出了一個大摟子：Cloudbleed。於是開始研究其他類似 Cloudflare 的服務，第一個想到的就是另外一個我自己也已經使用很久的 Amazon Web Services。 Cloudflare 提供什麼服務？在 AWS 上有哪些替代服務？   服務 Cloudflare AWS     DNS 免費 付費，一個 hosted zo">
+<meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="https://henry40408.com/migrate-from-cloudflare-to-aws/cloudflare-migrate-to-aws.png">
+<meta property="og:updated_time" content="2019-06-16T03:59:45.697Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="從 Cloudflare 搬家到 AWS，而且是「徹底搬家」">
+<meta name="twitter:description" content="使用了很長一段時間的 Cloudflare，最近在資安上捅出了一個大摟子：Cloudbleed。於是開始研究其他類似 Cloudflare 的服務，第一個想到的就是另外一個我自己也已經使用很久的 Amazon Web Services。 Cloudflare 提供什麼服務？在 AWS 上有哪些替代服務？   服務 Cloudflare AWS     DNS 免費 付費，一個 hosted zo">
+<meta name="twitter:image" content="https://henry40408.com/migrate-from-cloudflare-to-aws/cloudflare-migrate-to-aws.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Life is a YOLO Game" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://henry40408.com/migrate-from-cloudflare-to-aws/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>從 Cloudflare 搬家到 AWS，而且是「徹底搬家」 | Life is a YOLO Game</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-TW">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Life is a YOLO Game</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">So play it well</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切換導航欄">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-github">
+
+    
+    
+    
+      
+    
+
+    
+
+    <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg="><i class="menu-item-icon fa fa-fw fa-github"></i> <br>GitHub</span>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-medium">
+
+    
+    
+    
+      
+    
+
+    
+
+    <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BoZW5yeTQwNDA4"><i class="menu-item-icon fa fa-fw fa-medium"></i> <br>Medium</span>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg="><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></span>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/migrate-from-cloudflare-to-aws/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">從 Cloudflare 搬家到 AWS，而且是「徹底搬家」
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2017-03-06 00:00:00" itemprop="dateCreated datePublished" datetime="2017-03-06T00:00:00+08:00">2017-03-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-16 11:59:45" itemprop="dateModified" datetime="2019-06-16T11:59:45+08:00">2019-06-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="cloudflare-migrate-to-aws.png" alt="Cloudflare migrate to AWS"></p>
+<p>使用了很長一段時間的 Cloudflare，最近在資安上捅出了一個大摟子：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNsb3VkZmxhcmUuY29tL2luY2lkZW50LXJlcG9ydC1vbi1tZW1vcnktbGVhay1jYXVzZWQtYnktY2xvdWRmbGFyZS1wYXJzZXItYnVnLw==" title="https://blog.cloudflare.com/incident-report-on-memory-leak-caused-by-cloudflare-parser-bug/">Cloudbleed<i class="fa fa-external-link"></i></span>。於是開始研究其他類似 Cloudflare 的服務，第一個想到的就是另外一個我自己也已經使用很久的 <span class="exturl" data-url="aHR0cHM6Ly9hd3MuYW1hem9uLmNvbS90dy8=" title="https://aws.amazon.com/tw/">Amazon Web Services<i class="fa fa-external-link"></i></span>。</p>
 <h2 id="Cloudflare-提供什麼服務？在-AWS-上有哪些替代服務？"><a href="#Cloudflare-提供什麼服務？在-AWS-上有哪些替代服務？" class="headerlink" title="Cloudflare 提供什麼服務？在 AWS 上有哪些替代服務？"></a>Cloudflare 提供什麼服務？在 AWS 上有哪些替代服務？</h2><table>
 <thead>
 <tr>
@@ -17,18 +444,18 @@ ga('create','UA-6529501-15','auto');ga('send','pageview');
 <tr>
 <td>DNS</td>
 <td>免費</td>
-<td><strong><a href="https://aws.amazon.com/tw/route53/" target="_blank" rel="noopener">付費</a>，一個 hosted zone 0.5 美金/月</strong>[^1]</td>
+<td><strong><span class="exturl" data-url="aHR0cHM6Ly9hd3MuYW1hem9uLmNvbS90dy9yb3V0ZTUzLw==" title="https://aws.amazon.com/tw/route53/">付費<i class="fa fa-external-link"></i></span>，一個 hosted zone 0.5 美金/月</strong>[^1]</td>
 </tr>
 <tr>
 <td>SSL</td>
 <td>免費，Flexible SSL</td>
-<td><a href="https://aws.amazon.com/tw/certificate-manager/" target="_blank" rel="noopener">免費</a>，Amazon Certificate Manager[^2] 或 <a href="https://letsencrypt.org/" target="_blank" rel="noopener">Let’s Encrypt</a></td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9hd3MuYW1hem9uLmNvbS90dy9jZXJ0aWZpY2F0ZS1tYW5hZ2VyLw==" title="https://aws.amazon.com/tw/certificate-manager/">免費<i class="fa fa-external-link"></i></span>，Amazon Certificate Manager[^2] 或 <span class="exturl" data-url="aHR0cHM6Ly9sZXRzZW5jcnlwdC5vcmcv" title="https://letsencrypt.org/">Let’s Encrypt<i class="fa fa-external-link"></i></span></td>
 </tr>
 </tbody>
 </table>
 <p>Amazon Certificate Manager (ACM) 與 Let’s Encrypt 最大的差別在於，<strong>ACM 需要附加在 Cloudfront 或 ELB 上</strong>，ELB 是 AWS 的負載平衡服務，價格不菲；Cloudfront 則是 AWS 的 CDN 服務，雖然非常便宜，但如果對於網站的流量與速度沒有太大的需求[^3]，直接使用 Let’s Encrypt 即可。</p>
-<h2 id="實際使用案例"><a href="#實際使用案例" class="headerlink" title="實際使用案例"></a>實際使用案例</h2><h3 id="原來的設定"><a href="#原來的設定" class="headerlink" title="原來的設定"></a>原來的設定</h3><p>我自己手上目前有兩個 domain name，一個是個人網域，指向部落格，以下稱 <code>foo.com</code>；一個是之前用來接案的網域，指向客戶的網站，以下稱 <code>bar.com</code>。兩個都從台灣的網域代理商購得，然後按照 <a href="https://support.cloudflare.com/hc/en-us/articles/205195708-Step-3-Change-your-domain-name-servers-to-Cloudflare" target="_blank" rel="noopener">Cloudflare 上的說明</a>，將網域代理商的設定改成 <strong>自管 DNS</strong>，指向 Cloudflare 管理的 DNS，然後啟用 Cloudflare 提供的 <strong>Flexible SSL</strong>。</p>
-<h3 id="部落格網域-foo-com"><a href="#部落格網域-foo-com" class="headerlink" title="部落格網域 foo.com"></a>部落格網域 foo.com</h3><p>目前我的部落格是 host 在 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> 上，然後 <a href="https://github.com/isaacs/github/issues/156" target="_blank" rel="noopener">GitHub 又打死不提供 custom domain SSL</a>。所以只能摸摸鼻子，花點小錢使用 Cloudfront，否則就沒有辦法掛 ACM 提供的憑證。礙於篇幅，我推薦直接參考 <a href="http://strd6.com/2016/02/github-pages-custom-domain-with-ssltls/" target="_blank" rel="noopener">GitHub Pages Custom Domain with SSL/TLS</a>，我自己就是按照這篇文章設定，作者還很用心地放上了螢幕截圖。</p>
+<h2 id="實際使用案例"><a href="#實際使用案例" class="headerlink" title="實際使用案例"></a>實際使用案例</h2><h3 id="原來的設定"><a href="#原來的設定" class="headerlink" title="原來的設定"></a>原來的設定</h3><p>我自己手上目前有兩個 domain name，一個是個人網域，指向部落格，以下稱 <code>foo.com</code>；一個是之前用來接案的網域，指向客戶的網站，以下稱 <code>bar.com</code>。兩個都從台灣的網域代理商購得，然後按照 <span class="exturl" data-url="aHR0cHM6Ly9zdXBwb3J0LmNsb3VkZmxhcmUuY29tL2hjL2VuLXVzL2FydGljbGVzLzIwNTE5NTcwOC1TdGVwLTMtQ2hhbmdlLXlvdXItZG9tYWluLW5hbWUtc2VydmVycy10by1DbG91ZGZsYXJl" title="https://support.cloudflare.com/hc/en-us/articles/205195708-Step-3-Change-your-domain-name-servers-to-Cloudflare">Cloudflare 上的說明<i class="fa fa-external-link"></i></span>，將網域代理商的設定改成 <strong>自管 DNS</strong>，指向 Cloudflare 管理的 DNS，然後啟用 Cloudflare 提供的 <strong>Flexible SSL</strong>。</p>
+<h3 id="部落格網域-foo-com"><a href="#部落格網域-foo-com" class="headerlink" title="部落格網域 foo.com"></a>部落格網域 foo.com</h3><p>目前我的部落格是 host 在 <span class="exturl" data-url="aHR0cHM6Ly9wYWdlcy5naXRodWIuY29tLw==" title="https://pages.github.com/">GitHub Pages<i class="fa fa-external-link"></i></span> 上，然後 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lzYWFjcy9naXRodWIvaXNzdWVzLzE1Ng==" title="https://github.com/isaacs/github/issues/156">GitHub 又打死不提供 custom domain SSL<i class="fa fa-external-link"></i></span>。所以只能摸摸鼻子，花點小錢使用 Cloudfront，否則就沒有辦法掛 ACM 提供的憑證。礙於篇幅，我推薦直接參考 <span class="exturl" data-url="aHR0cDovL3N0cmQ2LmNvbS8yMDE2LzAyL2dpdGh1Yi1wYWdlcy1jdXN0b20tZG9tYWluLXdpdGgtc3NsdGxzLw==" title="http://strd6.com/2016/02/github-pages-custom-domain-with-ssltls/">GitHub Pages Custom Domain with SSL/TLS<i class="fa fa-external-link"></i></span>，我自己就是按照這篇文章設定，作者還很用心地放上了螢幕截圖。</p>
 <h3 id="接案用網域-bar-com"><a href="#接案用網域-bar-com" class="headerlink" title="接案用網域 bar.com"></a>接案用網域 bar.com</h3><p>接案用的網域與部落格的網域相比簡單許多，但也繁雜許多。</p>
 <h4 id="1-先到-Route53-建立-Hosted-zone"><a href="#1-先到-Route53-建立-Hosted-zone" class="headerlink" title="1. 先到 Route53 建立 Hosted zone"></a>1. 先到 Route53 建立 Hosted zone</h4><p>Name 欄位在這個例子中是 <code>bar.com</code>。要注意的是，<strong>Route53 的 Hosted zone 一旦建立，就會收取 0.5 美金的費用，所以務必謹慎、不要打錯網域名稱</strong>。</p>
 <h4 id="2-將-DNS-records-一筆一筆地從-Cloudflare-複製、貼上到-Hosted-zone-下"><a href="#2-將-DNS-records-一筆一筆地從-Cloudflare-複製、貼上到-Hosted-zone-下" class="headerlink" title="2. 將 DNS records 一筆一筆地從 Cloudflare 複製、貼上到 Hosted zone 下"></a>2. 將 DNS records 一筆一筆地從 Cloudflare 複製、貼上到 Hosted zone 下</h4><p>A record 就是 A record、CNAME record 就是 CNAME record、TXT record 就是 TXT record，名稱、值都是直接複製貼上。到目前為止我發現唯一不同的是，<strong>MX record 在 Cloudflare 上，多個的 priority 會切成多筆紀錄，但到了 Route53 上會合併成一筆</strong>。舉例來說如果在 Cloudflare 上，假設 MX record 有兩個 priority，就會有兩筆記錄：</p>
@@ -84,10 +511,10 @@ ga('create','UA-6529501-15','auto');ga('send','pageview');
 <p>其中 <code>XX</code> 都是數字。</p>
 <h4 id="3-確認-DNS-已經生效"><a href="#3-確認-DNS-已經生效" class="headerlink" title="3. 確認 DNS 已經生效"></a>3. 確認 DNS 已經生效</h4><p>由於 Let’s Encrypt 需要認證網域，<strong>所以在認證之前請先確定 Route53 已確實生效</strong>，domain name 有辦法指向網站主機，例如 EC2 instance 的 IP。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ nslookup bar.com</span><br><span class="line">Server:   8.8.8.8</span><br><span class="line">Address:  8.8.8.8<span class="comment">#53</span></span><br><span class="line"></span><br><span class="line">Non-authoritative answer:</span><br><span class="line">Name: bar.com</span><br><span class="line">Address: 123.246.123.246 <span class="comment"># ← 確定這裡的 IP 是對的</span></span><br><span class="line">$</span><br></pre></td></tr></table></figure>
-<h4 id="4-設定-nginx-的-well-known-directive"><a href="#4-設定-nginx-的-well-known-directive" class="headerlink" title="4. 設定 nginx 的 .well-known directive"></a>4. 設定 nginx 的 <code>.well-known</code> directive</h4><p>如果伺服器是 nginx，要先設定 <code>.well-known</code> 路徑，<a href="https://letsencrypt.org/how-it-works/#domain-validation" target="_blank" rel="noopener">讓 Let’s Encrypt 認證網域</a>。在此之前一定要先確定 DNS 已經生效，而且 IP 可以直接從外網訪問，否則 Let’s Encrypt 會無法連線，<strong>修改完設定檔之後記得重新啟動 nginx</strong>。</p>
+<h4 id="4-設定-nginx-的-well-known-directive"><a href="#4-設定-nginx-的-well-known-directive" class="headerlink" title="4. 設定 nginx 的 .well-known directive"></a>4. 設定 nginx 的 <code>.well-known</code> directive</h4><p>如果伺服器是 nginx，要先設定 <code>.well-known</code> 路徑，<span class="exturl" data-url="aHR0cHM6Ly9sZXRzZW5jcnlwdC5vcmcvaG93LWl0LXdvcmtzLyNkb21haW4tdmFsaWRhdGlvbg==" title="https://letsencrypt.org/how-it-works/#domain-validation">讓 Let’s Encrypt 認證網域<i class="fa fa-external-link"></i></span>。在此之前一定要先確定 DNS 已經生效，而且 IP 可以直接從外網訪問，否則 Let’s Encrypt 會無法連線，<strong>修改完設定檔之後記得重新啟動 nginx</strong>。</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">  <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">  <span class="attribute">server_name</span> bar.com;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 其他設定</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">location</span> <span class="regexp">~ /.well-known</span> &#123;</span><br><span class="line">    <span class="attribute">allow</span> all;</span><br><span class="line">    <span class="attribute">root</span> /usr/share/nginx/html;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 其他設定</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>記得重新啟動 nginx</strong>，因為很重要所以再說一次。</p>
-<h4 id="5-從-Let’s-Encrypt-取得憑證"><a href="#5-從-Let’s-Encrypt-取得憑證" class="headerlink" title="5. 從 Let’s Encrypt 取得憑證"></a>5. 從 Let’s Encrypt 取得憑證</h4><p>Let’s Encrypt 現在只要安裝一個 <a href="https://certbot.eff.org/" target="_blank" rel="noopener">certbot</a> 的小程式。</p>
+<h4 id="5-從-Let’s-Encrypt-取得憑證"><a href="#5-從-Let’s-Encrypt-取得憑證" class="headerlink" title="5. 從 Let’s Encrypt 取得憑證"></a>5. 從 Let’s Encrypt 取得憑證</h4><p>Let’s Encrypt 現在只要安裝一個 <span class="exturl" data-url="aHR0cHM6Ly9jZXJ0Ym90LmVmZi5vcmcv" title="https://certbot.eff.org/">certbot<i class="fa fa-external-link"></i></span> 的小程式。</p>
 <blockquote>
 <p>幹，變得超方便啊，以前為了 Let’s Encrypt 裝了一堆不知道是三小的垃圾。</p>
 </blockquote>
@@ -107,14 +534,376 @@ ga('create','UA-6529501-15','auto');ga('send','pageview');
 <li>私有 IP 或公開 IP：IP 位址一定要是可以從外網存取得到的公開 IP，否則 Let’s Encrypt 會沒辦法存取。</li>
 <li>DNS 還沒生效：傳統的 DNS 會需要 24 至 48 小時來更新紀錄，但現在這樣的 DNS 已經很少了。如果還是遇到了趕快換一家吧，否則如果不幸遇到 DNS hijack，根本連防禦的時間都沒有。</li>
 </ol>
-<h4 id="6-為-nginx-加上-HTTPS、設定-HTTP-轉址到-HTTPS"><a href="#6-為-nginx-加上-HTTPS、設定-HTTP-轉址到-HTTPS" class="headerlink" title="6. 為 nginx 加上 HTTPS、設定 HTTP 轉址到 HTTPS"></a>6. 為 nginx 加上 HTTPS、設定 HTTP 轉址到 HTTPS</h4><p>礙於篇幅，在此引用 DigitalOcean 社群的文章 <a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04" target="_blank" rel="noopener">How To Secure Nginx with Let’s Encrypt on Ubuntu 14.04</a>，其中 <a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04#step-3-—-configure-tls-ssl-on-web-server-nginx" target="_blank" rel="noopener">Step 3 — Configure TLS/SSL on Web Server (Nginx)</a> 就包含了在 nginx 設定 SSL 與設定 HTTP 自動轉址 HTTPS。</p>
+<h4 id="6-為-nginx-加上-HTTPS、設定-HTTP-轉址到-HTTPS"><a href="#6-為-nginx-加上-HTTPS、設定-HTTP-轉址到-HTTPS" class="headerlink" title="6. 為 nginx 加上 HTTPS、設定 HTTP 轉址到 HTTPS"></a>6. 為 nginx 加上 HTTPS、設定 HTTP 轉址到 HTTPS</h4><p>礙於篇幅，在此引用 DigitalOcean 社群的文章 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGlnaXRhbG9jZWFuLmNvbS9jb21tdW5pdHkvdHV0b3JpYWxzL2hvdy10by1zZWN1cmUtbmdpbngtd2l0aC1sZXQtcy1lbmNyeXB0LW9uLXVidW50dS0xNC0wNA==" title="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04">How To Secure Nginx with Let’s Encrypt on Ubuntu 14.04<i class="fa fa-external-link"></i></span>，其中 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGlnaXRhbG9jZWFuLmNvbS9jb21tdW5pdHkvdHV0b3JpYWxzL2hvdy10by1zZWN1cmUtbmdpbngtd2l0aC1sZXQtcy1lbmNyeXB0LW9uLXVidW50dS0xNC0wNCNzdGVwLTMt4oCULWNvbmZpZ3VyZS10bHMtc3NsLW9uLXdlYi1zZXJ2ZXItbmdpbng=" title="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04#step-3-—-configure-tls-ssl-on-web-server-nginx">Step 3 — Configure TLS/SSL on Web Server (Nginx)<i class="fa fa-external-link"></i></span> 就包含了在 nginx 設定 SSL 與設定 HTTP 自動轉址 HTTPS。</p>
 <p>[^1]: 與其他 AWS 的服務不同的是，Route53 的 Hosted zone 一旦建立，就會立刻收取 0.5 美金的費用。</p>
 <p>[^2]: 憑證一定要在 us-east-1 region (N. Virginia) 申請、核發，否則在 Cloudfront 不會出現選項。</p>
 <p>[^3]: 甚至是安全。因為如果沒有掛 CDN 或切割內外網，只要使用 <code>nslookup</code> 等工具就可以直接知道主機的真實 IP。</p>
-</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/drupal-s3-imce.html/">Drupal 搬遷到 S3 後從 IMCE 再也看不到搬遷前上傳的檔案</a><a class="next" href="/replace-security-groups-in-terraform/">在 Terraform 抽換 Security Group</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/weekly-25/">美得讓人窒息</a></li><li class="post-list-item"><a class="post-list-link" href="/meaning-of-title/">標題的意義</a></li><li class="post-list-item"><a class="post-list-link" href="/weekly-2/">分享我每週的所見所聞</a></li><li class="post-list-item"><a class="post-list-link" href="/weekly-1/">記錄我每週的所見所聞</a></li><li class="post-list-item"><a class="post-list-link" href="/2018-july-week-4/">2018 七月第四週</a></li><li class="post-list-item"><a class="post-list-link" href="/probot/">完善 GitHub Flow 最後一哩路 — Probot</a></li><li class="post-list-item"><a class="post-list-link" href="/hahow-blue-green-deployment/">淺談 Hahow 藍綠部署</a></li><li class="post-list-item"><a class="post-list-link" href="/drupal-s3-imce.html/">Drupal 搬遷到 S3 後從 IMCE 再也看不到搬遷前上傳的檔案</a></li><li class="post-list-item"><a class="post-list-link" href="/migrate-from-cloudflare-to-aws/">從 Cloudflare 搬家到 AWS，而且是「徹底搬家」</a></li><li class="post-list-item"><a class="post-list-link" href="/replace-security-groups-in-terraform/">在 Terraform 抽換 Security Group</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">Life is a YOLO Game.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
-if (search_path.length == 0) {
-   search_path = 'search.xml';
-}
-var path = '/' + search_path;
-searchFunc(path, 'local-search-input', 'local-search-result');
-</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/mongoose-collection-index/" rel="next" title="MongoDB 與 Mongoose 執行測試時注意刪除 database 同時也會刪除 collection 的 index">
+                <i class="fa fa-chevron-left"></i> MongoDB 與 Mongoose 執行測試時注意刪除 database 同時也會刪除 collection 的 index
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/terraform-note/" rel="prev" title="Terraform 雜記">
+                Terraform 雜記 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概要
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Heng-Yi Wu</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-name">文章</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分類</span>
+                  
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cloudflare-提供什麼服務？在-AWS-上有哪些替代服務？"><span class="nav-number">1.</span> <span class="nav-text">Cloudflare 提供什麼服務？在 AWS 上有哪些替代服務？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#實際使用案例"><span class="nav-number">2.</span> <span class="nav-text">實際使用案例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原來的設定"><span class="nav-number">2.1.</span> <span class="nav-text">原來的設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部落格網域-foo-com"><span class="nav-number">2.2.</span> <span class="nav-text">部落格網域 foo.com</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接案用網域-bar-com"><span class="nav-number">2.3.</span> <span class="nav-text">接案用網域 bar.com</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-先到-Route53-建立-Hosted-zone"><span class="nav-number">2.3.1.</span> <span class="nav-text">1. 先到 Route53 建立 Hosted zone</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-將-DNS-records-一筆一筆地從-Cloudflare-複製、貼上到-Hosted-zone-下"><span class="nav-number">2.3.2.</span> <span class="nav-text">2. 將 DNS records 一筆一筆地從 Cloudflare 複製、貼上到 Hosted zone 下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-確認-DNS-已經生效"><span class="nav-number">2.3.3.</span> <span class="nav-text">3. 確認 DNS 已經生效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-設定-nginx-的-well-known-directive"><span class="nav-number">2.3.4.</span> <span class="nav-text">4. 設定 nginx 的 .well-known directive</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-從-Let’s-Encrypt-取得憑證"><span class="nav-number">2.3.5.</span> <span class="nav-text">5. 從 Let’s Encrypt 取得憑證</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-404-Not-Found"><span class="nav-number">2.3.6.</span> <span class="nav-text">5.1. 404 Not Found</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-找不到-domain-name-或-domain-name-指向的還是-Cloudflare-的-DNS"><span class="nav-number">2.3.7.</span> <span class="nav-text">5.2. 找不到 domain name 或 domain name 指向的還是 Cloudflare 的 DNS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-為-nginx-加上-HTTPS、設定-HTTP-轉址到-HTTPS"><span class="nav-number">2.3.8.</span> <span class="nav-text">6. 為 nginx 加上 HTTPS、設定 HTTP 轉址到 HTTPS</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Heng-Yi Wu</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 強力驅動 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Pisces</span> v7.1.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+  <script src="/js/exturl.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

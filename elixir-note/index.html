@@ -1,9 +1,434 @@
-<!DOCTYPE html><html lang="zh-TW"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Elixir 雜記 | Life is a YOLO Game</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-ga('create','UA-6529501-15','auto');ga('send','pageview');
-</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Elixir 雜記</h1><a id="logo" href="/.">Life is a YOLO Game</a><p class="description">So play it well</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首頁</i></a><a href="/archives/"><i class="fa fa-archive"> 所有文章</i></a><a href="https://github.com/henry40408"><i class="fa fa-github"> GitHub</i></a><a href="https://medium.com/@henry40408"><i class="fa fa-medium"> Medium</i></a><a href="/atom.xml"><i class="fa fa-rss"> 訂閱</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Elixir 雜記</h1><div class="post-meta">Oct 16, 2016</div><div class="post-content"><blockquote>
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-TW">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="說文解字：雜記 就是沒有整理過的筆記，內容沒有結構而混亂，筆者想到什麼就寫什麼。 例句：這一篇文章是一篇雜記。  前言 Elixir 少說也研究了一個月，個人對於該語言揉合了 Ruby 與 erlang 的特性格外著迷。 Elixir 實務上是一種執行在 erlang VM 上的語言，而且已經完成了程式語言的 自舉 (bootstrap)。 以 Elixir 為例，所謂的自舉就是 Elixir">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Elixir 雜記">
+<meta property="og:url" content="https://henry40408.com/elixir-note/index.html">
+<meta property="og:site_name" content="Life is a YOLO Game">
+<meta property="og:description" content="說文解字：雜記 就是沒有整理過的筆記，內容沒有結構而混亂，筆者想到什麼就寫什麼。 例句：這一篇文章是一篇雜記。  前言 Elixir 少說也研究了一個月，個人對於該語言揉合了 Ruby 與 erlang 的特性格外著迷。 Elixir 實務上是一種執行在 erlang VM 上的語言，而且已經完成了程式語言的 自舉 (bootstrap)。 以 Elixir 為例，所謂的自舉就是 Elixir">
+<meta property="og:locale" content="zh-TW">
+<meta property="og:updated_time" content="2019-06-16T03:59:45.677Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Elixir 雜記">
+<meta name="twitter:description" content="說文解字：雜記 就是沒有整理過的筆記，內容沒有結構而混亂，筆者想到什麼就寫什麼。 例句：這一篇文章是一篇雜記。  前言 Elixir 少說也研究了一個月，個人對於該語言揉合了 Ruby 與 erlang 的特性格外著迷。 Elixir 實務上是一種執行在 erlang VM 上的語言，而且已經完成了程式語言的 自舉 (bootstrap)。 以 Elixir 為例，所謂的自舉就是 Elixir">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Life is a YOLO Game" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://henry40408.com/elixir-note/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Elixir 雜記 | Life is a YOLO Game</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-TW">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Life is a YOLO Game</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">So play it well</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切換導航欄">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-github">
+
+    
+    
+    
+      
+    
+
+    
+
+    <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg="><i class="menu-item-icon fa fa-fw fa-github"></i> <br>GitHub</span>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-medium">
+
+    
+    
+    
+      
+    
+
+    
+
+    <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BoZW5yeTQwNDA4"><i class="menu-item-icon fa fa-fw fa-medium"></i> <br>Medium</span>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg="><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></span>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/elixir-note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Elixir 雜記
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2016-10-17 00:00:00" itemprop="dateCreated datePublished" datetime="2016-10-17T00:00:00+08:00">2016-10-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-16 11:59:45" itemprop="dateModified" datetime="2019-06-16T11:59:45+08:00">2019-06-16</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
 <p>說文解字：雜記</p>
 <p>就是沒有整理過的筆記，內容沒有結構而混亂，筆者想到什麼就寫什麼。</p>
 <p>例句：這一篇文章是一篇雜記。</p>
@@ -13,25 +438,25 @@ ga('create','UA-6529501-15','auto');ga('send','pageview');
 <li>Elixir 實務上是一種執行在 erlang VM 上的語言，而且已經完成了程式語言的 <u>自舉</u> (bootstrap)。<ul>
 <li>以 Elixir 為例，所謂的自舉就是 Elixir 編譯器的絕大部分模組都已經可以使用純 Elixir 實作，只留下極少部分不得不使用 erlang 的部分，才會借助 erlang 完成。</li>
 <li>程式語言完成自舉有什麼好處？<ul>
-<li>一是如果一項程式語言完成了自舉，那麼該語言的開發者相對來說就比較不需要擔心如果一開始實作該編譯器的語言有任何劇烈變動，會連帶影響到自己的專案。<a href="http://programmers.stackexchange.com/a/306420" target="_blank" rel="noopener">ref.</a></li>
-<li>二是自舉算是一項挑戰。如果一種語言可以完成自舉，代表這種語言在一定的程度上已經足以完成複雜的工作。<a href="http://programmers.stackexchange.com/a/306421" target="_blank" rel="noopener">ref.</a></li>
+<li>一是如果一項程式語言完成了自舉，那麼該語言的開發者相對來說就比較不需要擔心如果一開始實作該編譯器的語言有任何劇烈變動，會連帶影響到自己的專案。<span class="exturl" data-url="aHR0cDovL3Byb2dyYW1tZXJzLnN0YWNrZXhjaGFuZ2UuY29tL2EvMzA2NDIw" title="http://programmers.stackexchange.com/a/306420">ref.<i class="fa fa-external-link"></i></span></li>
+<li>二是自舉算是一項挑戰。如果一種語言可以完成自舉，代表這種語言在一定的程度上已經足以完成複雜的工作。<span class="exturl" data-url="aHR0cDovL3Byb2dyYW1tZXJzLnN0YWNrZXhjaGFuZ2UuY29tL2EvMzA2NDIx" title="http://programmers.stackexchange.com/a/306421">ref.<i class="fa fa-external-link"></i></span></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 <h2 id="名詞解釋"><a href="#名詞解釋" class="headerlink" title="名詞解釋"></a>名詞解釋</h2><h3 id="erlang"><a href="#erlang" class="headerlink" title="erlang"></a>erlang</h3><blockquote>
-<p>Erlang is a programming language used to build massively scalable soft real-time systems with requirements on high availability. Some of its uses are in telecoms, banking, e-commerce, computer telephony and instant messaging. <strong>Erlang’s runtime system has built-in support for concurrency, distribution and fault tolerance</strong>. <a href="http://www.erlang.org/" target="_blank" rel="noopener">ref.</a></p>
+<p>Erlang is a programming language used to build massively scalable soft real-time systems with requirements on high availability. Some of its uses are in telecoms, banking, e-commerce, computer telephony and instant messaging. <strong>Erlang’s runtime system has built-in support for concurrency, distribution and fault tolerance</strong>. <span class="exturl" data-url="aHR0cDovL3d3dy5lcmxhbmcub3JnLw==" title="http://www.erlang.org/">ref.<i class="fa fa-external-link"></i></span></p>
 </blockquote>
 <h3 id="OTP"><a href="#OTP" class="headerlink" title="OTP"></a>OTP</h3><blockquote>
-<p><strong>OTP (a.k.a. Open Telecom Platform) is set of Erlang libraries and design principles providing middle-ware to develop these systems</strong>. It includes its own distributed database, applications to interface towards other languages, debugging and release handling tools. <a href="https://github.com/erlang/otp" target="_blank" rel="noopener">ref.</a></p>
+<p><strong>OTP (a.k.a. Open Telecom Platform) is set of Erlang libraries and design principles providing middle-ware to develop these systems</strong>. It includes its own distributed database, applications to interface towards other languages, debugging and release handling tools. <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2VybGFuZy9vdHA=" title="https://github.com/erlang/otp">ref.<i class="fa fa-external-link"></i></span></p>
 </blockquote>
 <h3 id="erlang-VM-BEAM"><a href="#erlang-VM-BEAM" class="headerlink" title="erlang VM / BEAM"></a>erlang VM / BEAM</h3><ul>
 <li>The Erlang runtime environment (a virtual machine, much like the Java virtual machine) means that code compiled on one architecture runs anywhere. <strong>The runtime system also allows code in a running system to be updated without interrupting the program</strong>.</li>
 <li>erlang 曾經有嘗試要編譯成 C 語言執行，現階段的做法是編譯成 byte code 在 erlang VM 上執行。</li>
 <li><u>Bogdan’s Erlang Abstract Machine</u> (a.k.a. BEAM) 是其中一種 erlang VM，現階段在 PC 上執行的 erlang VM 基本上都是 BEAM。</li>
 </ul>
-<h2 id="學習前準備"><a href="#學習前準備" class="headerlink" title="學習前準備"></a>學習前準備</h2><h3 id="必讀文章"><a href="#必讀文章" class="headerlink" title="必讀文章"></a>必讀文章</h3><p><a href="https://goo.gl/DBEM3T" target="_blank" rel="noopener">So You Want to be a Functional Programmer</a> 共六個 part，適合已經在 OOP 世界浸淫已久的工程師閱讀。</p>
+<h2 id="學習前準備"><a href="#學習前準備" class="headerlink" title="學習前準備"></a>學習前準備</h2><h3 id="必讀文章"><a href="#必讀文章" class="headerlink" title="必讀文章"></a>必讀文章</h3><p><span class="exturl" data-url="aHR0cHM6Ly9nb28uZ2wvREJFTTNU" title="https://goo.gl/DBEM3T">So You Want to be a Functional Programmer<i class="fa fa-external-link"></i></span> 共六個 part，適合已經在 OOP 世界浸淫已久的工程師閱讀。</p>
 <h3 id="忘記-OOP，徹底"><a href="#忘記-OOP，徹底" class="headerlink" title="忘記 OOP，徹底"></a>忘記 OOP，徹底</h3><p>學習經驗如果你曾經寫過 OOP，<strong>沒有任何妥協的空間，一定要把它全部忘光</strong>。請看看以下程式碼：</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Foo.bar(<span class="string">"baz"</span>)</span><br></pre></td></tr></table></figure>
 <p>如果沒有把 OOP 忘記，第一眼你會把上面這個函數呼叫解釋成呼叫 <code>Foo</code> object 或 <code>Foo</code> class 的 <code>bar</code> method。<strong>但在 Elixir 的世界裡沒有 class 或 object</strong>，以上這行程式如果以 OOP 的概念解釋一定錯。所以如果沒有把 OOP 的概念徹底忘記，很多 Elixir 的概念就很難內化，學起來就會很痛苦。</p>
@@ -41,18 +466,18 @@ ga('create','UA-6529501-15','auto');ga('send','pageview');
 </blockquote>
 <p>這一句話很難理解嗎？天天看它，某天靈光乍現的時候你就學會遞迴了。</p>
 <h2 id="開始學習"><a href="#開始學習" class="headerlink" title="開始學習"></a>開始學習</h2><ul>
-<li><a href="https://learnxinyminutes.com/docs/elixir/" target="_blank" rel="noopener">Learn elixir in Y minutes</a> 單純想看看 Elixir 語法長什麼樣子，或是忌諱一開始就花太多時間學習一門新語言可以先從這裡開始。</li>
-<li><a href="http://elixir-lang.org/getting-started/introduction.html" target="_blank" rel="noopener">Getting started</a> 官方文件永遠是最好的起點。</li>
-<li><a href="https://elixirschool.com/" target="_blank" rel="noopener">Elixir School</a> Elixir 社群維護的學習文件。</li>
-<li><a href="https://github.com/seven1m/30-days-of-elixir" target="_blank" rel="noopener">30 Days of Elixir</a> 我知道有些人很討厭 N 天學會 X 這種聳動的殺人標題，但單純看看無妨吧？</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9sZWFybnhpbnltaW51dGVzLmNvbS9kb2NzL2VsaXhpci8=" title="https://learnxinyminutes.com/docs/elixir/">Learn elixir in Y minutes<i class="fa fa-external-link"></i></span> 單純想看看 Elixir 語法長什麼樣子，或是忌諱一開始就花太多時間學習一門新語言可以先從這裡開始。</li>
+<li><span class="exturl" data-url="aHR0cDovL2VsaXhpci1sYW5nLm9yZy9nZXR0aW5nLXN0YXJ0ZWQvaW50cm9kdWN0aW9uLmh0bWw=" title="http://elixir-lang.org/getting-started/introduction.html">Getting started<i class="fa fa-external-link"></i></span> 官方文件永遠是最好的起點。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9lbGl4aXJzY2hvb2wuY29tLw==" title="https://elixirschool.com/">Elixir School<i class="fa fa-external-link"></i></span> Elixir 社群維護的學習文件。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldmVuMW0vMzAtZGF5cy1vZi1lbGl4aXI=" title="https://github.com/seven1m/30-days-of-elixir">30 Days of Elixir<i class="fa fa-external-link"></i></span> 我知道有些人很討厭 N 天學會 X 這種聳動的殺人標題，但單純看看無妨吧？</li>
 </ul>
 <h2 id="資源"><a href="#資源" class="headerlink" title="資源"></a>資源</h2><ul>
-<li><a href="https://github.com/h4cc/awesome-elixir" target="_blank" rel="noopener">awesome-elixir</a> 偶爾可以來這裡挖寶。</li>
-<li><a href="https://elixir-slackin.herokuapp.com/" target="_blank" rel="noopener">Elixir on Slack</a> Elixir 官方的 Slack 社群，非常活躍。</li>
-<li><a href="http://play.elixirbyexample.com/" target="_blank" rel="noopener">Elixir playground</a> 在瀏覽器玩玩 Elixir。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2g0Y2MvYXdlc29tZS1lbGl4aXI=" title="https://github.com/h4cc/awesome-elixir">awesome-elixir<i class="fa fa-external-link"></i></span> 偶爾可以來這裡挖寶。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9lbGl4aXItc2xhY2tpbi5oZXJva3VhcHAuY29tLw==" title="https://elixir-slackin.herokuapp.com/">Elixir on Slack<i class="fa fa-external-link"></i></span> Elixir 官方的 Slack 社群，非常活躍。</li>
+<li><span class="exturl" data-url="aHR0cDovL3BsYXkuZWxpeGlyYnlleGFtcGxlLmNvbS8=" title="http://play.elixirbyexample.com/">Elixir playground<i class="fa fa-external-link"></i></span> 在瀏覽器玩玩 Elixir。</li>
 </ul>
 <h2 id="為什麼要學-Elixir？"><a href="#為什麼要學-Elixir？" class="headerlink" title="為什麼要學 Elixir？"></a>為什麼要學 Elixir？</h2><p>會想學習 Elixir 的人不外乎以下幾種。</p>
-<h3 id="第一種：終極目標在精通-erlang"><a href="#第一種：終極目標在精通-erlang" class="headerlink" title="第一種：終極目標在精通 erlang"></a>第一種：終極目標在精通 erlang</h3><p><a href="http://stackoverflow.com/a/37966947" target="_blank" rel="noopener">TL; DR - Start with Elixir</a></p>
+<h3 id="第一種：終極目標在精通-erlang"><a href="#第一種：終極目標在精通-erlang" class="headerlink" title="第一種：終極目標在精通 erlang"></a>第一種：終極目標在精通 erlang</h3><p><span class="exturl" data-url="aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL2EvMzc5NjY5NDc=" title="http://stackoverflow.com/a/37966947">TL; DR - Start with Elixir<i class="fa fa-external-link"></i></span></p>
 <p>erlang 是非常純粹的 functional programming language，但就是因為太純粹了，寫起來非常地違背人類的直覺，<strong>從 Elixir 下手，慢慢地熟悉 functional programming 的概念之後，再轉換跑道到 erlang 更容易上手</strong>。</p>
 <blockquote>
 <p>但話說回來，如果目標擺在要精通 erlang，為什麼不要像忘記 OOP 一樣，要求自己一定要去熟悉 erlang 的語法呢？老實說，這並無不可；但單就我個人來說，程式語言語法從視覺所造成的錯離感 (e.g. 一直看到像外星語法一樣的 erlang，每次要修改程式的時候都不知道要從何下手) 所帶來的挫折，比起捨棄抽象的概念 (e.g. 徹底忘記 OOP) 來得更加強烈。</p>
@@ -63,17 +488,17 @@ ga('create','UA-6529501-15','auto');ga('send','pageview');
 <h3 id="第三種：之前寫過-Ruby，想要找一門-functional-programming-language-學習的人"><a href="#第三種：之前寫過-Ruby，想要找一門-functional-programming-language-學習的人" class="headerlink" title="第三種：之前寫過 Ruby，想要找一門 functional programming language 學習的人"></a>第三種：之前寫過 Ruby，想要找一門 functional programming language 學習的人</h3><p><strong>這種人對於 Elixir 來說簡直是 perfect match</strong>。</p>
 <p>為什麼？Elixir 的語法跟 Ruby 長得根本快一模一樣。事實上，之所以會選擇 Elixir，其中一個很大的原因，就是我自己在學習 Elixir 之前剛好已經寫過了好一陣子的 Ruby，而且只寫 Ruby。因為已經非常熟悉了 Ruby 的語法架構，在掌握 Elixir 的「語感」時有很大的幫助。</p>
 <p><strong>但千萬不要把 Elixir 當成 Ruby 來學</strong>，兩者還是截然不同的語言，只是長得九分像而已。</p>
-<h2 id="我可以拿-Elixir-來做什麼？"><a href="#我可以拿-Elixir-來做什麼？" class="headerlink" title="我可以拿 Elixir 來做什麼？"></a>我可以拿 Elixir 來做什麼？</h2><p><strong>拿 <a href="http://www.phoenixframework.org/" target="_blank" rel="noopener">Phoenix framework</a> 來寫 web application</strong>，目前想到的、玩過的只有這個。尋找 Elixir 的應用情境時，不妨把它當作 erlang 去想，只要是 <strong>高併發、需要平行運算、講求執行效率</strong> 的情境都是 Elixir 可以發揮的場合。</p>
+<h2 id="我可以拿-Elixir-來做什麼？"><a href="#我可以拿-Elixir-來做什麼？" class="headerlink" title="我可以拿 Elixir 來做什麼？"></a>我可以拿 Elixir 來做什麼？</h2><p><strong>拿 <span class="exturl" data-url="aHR0cDovL3d3dy5waG9lbml4ZnJhbWV3b3JrLm9yZy8=" title="http://www.phoenixframework.org/">Phoenix framework<i class="fa fa-external-link"></i></span> 來寫 web application</strong>，目前想到的、玩過的只有這個。尋找 Elixir 的應用情境時，不妨把它當作 erlang 去想，只要是 <strong>高併發、需要平行運算、講求執行效率</strong> 的情境都是 Elixir 可以發揮的場合。</p>
 <p>至於 erlang 與 Elixir 效能上的差異，由於還沒有遇到足以看出差異的大規模併發，所以我無法下結論。</p>
 <h2 id="Elixir-的社群發展？"><a href="#Elixir-的社群發展？" class="headerlink" title="Elixir 的社群發展？"></a>Elixir 的社群發展？</h2><p>由於時差的關係，我加入 Elixir Slack 之後，到了晚上我還必須手動把通知關掉，否則沒辦法睡覺，<strong>由此可見歪國人討論之熱烈</strong>，社群的活躍度基本上沒有問題。</p>
-<p>另外，一種語言能否成功，一項很重要的關鍵在各地的貢獻者，能否很順利地將自己寫的模組快速地貢獻出來。<strong>原來在 erlang 就有一套套件發佈平台 <a href="https://hex.pm/" target="_blank" rel="noopener">Hex</a></strong>，Elixir 既然相容於 erlang VM，就直接沿用下去了。但也必須承認，如果與 Ruby 相比，Elixir 的套件數量的確望塵莫及。<strong>不過除了 Hex 上該有的都有了，再加上原本 OTP 就提供了不少的 library 跟 middleware，基本上也足以應付日常開發了</strong>。</p>
+<p>另外，一種語言能否成功，一項很重要的關鍵在各地的貢獻者，能否很順利地將自己寫的模組快速地貢獻出來。<strong>原來在 erlang 就有一套套件發佈平台 <span class="exturl" data-url="aHR0cHM6Ly9oZXgucG0v" title="https://hex.pm/">Hex<i class="fa fa-external-link"></i></span></strong>，Elixir 既然相容於 erlang VM，就直接沿用下去了。但也必須承認，如果與 Ruby 相比，Elixir 的套件數量的確望塵莫及。<strong>不過除了 Hex 上該有的都有了，再加上原本 OTP 就提供了不少的 library 跟 middleware，基本上也足以應付日常開發了</strong>。</p>
 <h2 id="Elixir-文章"><a href="#Elixir-文章" class="headerlink" title="Elixir 文章"></a>Elixir 文章</h2><ul>
-<li><a href="https://medium.com/@lasseebert/iterating-in-elixir-90fdc0005dfc" target="_blank" rel="noopener">Iterating in Elixir</a> 還以為這篇文章單純在講 Elixir 的迭代，內文也以兩個例子闡述如果把 Elixir 的經驗拿到 Ruby 實作對於程式的架構有什麼好處。簡而言之，<strong>就是無論以什麼程式語言開發，心中都要常存 immutablility</strong>。</li>
-<li><a href="https://www.bignerdranch.com/blog/elixir-and-io-lists-part-1-building-output-efficiently/" target="_blank" rel="noopener">Elixir and IO Lists, Part 1: Building Output Efficiently</a> 這篇我個人覺得非常地走火入魔 XD 從 <code>IO.puts</code> 開始檢討一般程式語言常用的 string concatenation 在記憶體的效能與 GC 的分配上有什麼樣的影響，最後以檔案操作為例，建議開發者盡量使用 List 來傳遞 IO 操作時所需要的參數。</li>
-<li><a href="https://simonh1000.github.io/2016/10/elm-phoenix-gulp/" target="_blank" rel="noopener">Developing Elm using Gulp with Elixir / Phoenix</a> 在 Elixir 裡使用 Elm。不過也不用這麼麻煩啦，Hex 上有一個 <a href="https://github.com/zambal/eml" target="_blank" rel="noopener">eml</a>，雖然是 Elixir 的實作，寫起來跟 Elm 非常像，喜歡 Elm 的開發者可以參考看看。</li>
-<li><a href="https://github.com/k-tsj/pattern-match" target="_blank" rel="noopener">k-tsj/pattern-match</a> 以 Ruby 實作的 pattern matching。是說 Ruby 開發者也不會這麼開發就是了⋯⋯</li>
-<li><a href="https://blog.drewolson.org/composable-queries-ecto/" target="_blank" rel="noopener">Composable Queries with Ecto</a> 以類似 ActiveRecord 的方式組合資料庫查詢。</li>
-<li><a href="http://thepugautomatic.com/2015/10/understanding-elixir-macros/" target="_blank" rel="noopener">Understanding Elixir macros</a> Elixir 絕大多數的實作，都透過 macro 完成，由此可見 macro 在 Elixir 中位處非常基礎卻十分強大的地位。但就像蜘蛛人一樣，能力愈大、責任愈大，如何在不惡搞到自己的情況下，順利地使用 macro 將 Elixir 擴充成自己想要的樣子，就是一個很值得研究並一再研究下去的課題了。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BsYXNzZWViZXJ0L2l0ZXJhdGluZy1pbi1lbGl4aXItOTBmZGMwMDA1ZGZj" title="https://medium.com/@lasseebert/iterating-in-elixir-90fdc0005dfc">Iterating in Elixir<i class="fa fa-external-link"></i></span> 還以為這篇文章單純在講 Elixir 的迭代，內文也以兩個例子闡述如果把 Elixir 的經驗拿到 Ruby 實作對於程式的架構有什麼好處。簡而言之，<strong>就是無論以什麼程式語言開發，心中都要常存 immutablility</strong>。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlnbmVyZHJhbmNoLmNvbS9ibG9nL2VsaXhpci1hbmQtaW8tbGlzdHMtcGFydC0xLWJ1aWxkaW5nLW91dHB1dC1lZmZpY2llbnRseS8=" title="https://www.bignerdranch.com/blog/elixir-and-io-lists-part-1-building-output-efficiently/">Elixir and IO Lists, Part 1: Building Output Efficiently<i class="fa fa-external-link"></i></span> 這篇我個人覺得非常地走火入魔 XD 從 <code>IO.puts</code> 開始檢討一般程式語言常用的 string concatenation 在記憶體的效能與 GC 的分配上有什麼樣的影響，最後以檔案操作為例，建議開發者盡量使用 List 來傳遞 IO 操作時所需要的參數。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9zaW1vbmgxMDAwLmdpdGh1Yi5pby8yMDE2LzEwL2VsbS1waG9lbml4LWd1bHAv" title="https://simonh1000.github.io/2016/10/elm-phoenix-gulp/">Developing Elm using Gulp with Elixir / Phoenix<i class="fa fa-external-link"></i></span> 在 Elixir 裡使用 Elm。不過也不用這麼麻煩啦，Hex 上有一個 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3phbWJhbC9lbWw=" title="https://github.com/zambal/eml">eml<i class="fa fa-external-link"></i></span>，雖然是 Elixir 的實作，寫起來跟 Elm 非常像，喜歡 Elm 的開發者可以參考看看。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2stdHNqL3BhdHRlcm4tbWF0Y2g=" title="https://github.com/k-tsj/pattern-match">k-tsj/pattern-match<i class="fa fa-external-link"></i></span> 以 Ruby 實作的 pattern matching。是說 Ruby 開發者也不會這麼開發就是了⋯⋯</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmRyZXdvbHNvbi5vcmcvY29tcG9zYWJsZS1xdWVyaWVzLWVjdG8v" title="https://blog.drewolson.org/composable-queries-ecto/">Composable Queries with Ecto<i class="fa fa-external-link"></i></span> 以類似 ActiveRecord 的方式組合資料庫查詢。</li>
+<li><span class="exturl" data-url="aHR0cDovL3RoZXB1Z2F1dG9tYXRpYy5jb20vMjAxNS8xMC91bmRlcnN0YW5kaW5nLWVsaXhpci1tYWNyb3Mv" title="http://thepugautomatic.com/2015/10/understanding-elixir-macros/">Understanding Elixir macros<i class="fa fa-external-link"></i></span> Elixir 絕大多數的實作，都透過 macro 完成，由此可見 macro 在 Elixir 中位處非常基礎卻十分強大的地位。但就像蜘蛛人一樣，能力愈大、責任愈大，如何在不惡搞到自己的情況下，順利地使用 macro 將 Elixir 擴充成自己想要的樣子，就是一個很值得研究並一再研究下去的課題了。</li>
 </ul>
 <h2 id="Elixir-小撇步"><a href="#Elixir-小撇步" class="headerlink" title="Elixir 小撇步"></a>Elixir 小撇步</h2><ul>
 <li>取得現在時間 (使用 <code>Ecto</code>)<ol>
@@ -108,7 +533,7 @@ ga('create','UA-6529501-15','auto');ga('send','pageview');
 </li>
 <li><strong>一個 Repo 對應一個資料源</strong>，所以如果一個專案之前有 legacy database，但又必須與現在的資料庫並存，開發者可為這兩個資料庫設定各自的 Repo。拜 Repo 的設計所賜，<strong>即使是兩個使用不同 adapter的資料源也可以並存</strong> (例如 PostgreSQL 與 MySQL 並存)。</li>
 <li>如果要在 <code>Ecto.Query</code> 中<strong>使用變數</strong>，<strong>必須使用 <code>^</code> (pin operator) 把變數 pin 住</strong>，否則 <code>Ecto.Query</code> 會主動報錯並提醒開發者。<ul>
-<li><a href="http://elixir-lang.org/getting-started/pattern-matching.html#the-pin-operator" target="_blank" rel="noopener">The pin operator</a> in Elixir Getting Started</li>
+<li><span class="exturl" data-url="aHR0cDovL2VsaXhpci1sYW5nLm9yZy9nZXR0aW5nLXN0YXJ0ZWQvcGF0dGVybi1tYXRjaGluZy5odG1sI3RoZS1waW4tb3BlcmF0b3I=" title="http://elixir-lang.org/getting-started/pattern-matching.html#the-pin-operator">The pin operator<i class="fa fa-external-link"></i></span> in Elixir Getting Started</li>
 </ul>
 </li>
 <li><strong>永遠要告訴 <code>Ecto.Query</code> 你要 <code>select</code> 什麼</strong> (e.g. 整筆資料？某幾個欄位？)。</li>
@@ -126,17 +551,379 @@ ga('create','UA-6529501-15','auto');ga('send','pageview');
 </ul>
 </li>
 <li>在 Ecto 進行關聯查詢時，你必須要明確地 (explicitly) 告訴 Ecto 什麼時候要載入關聯性資料表的記錄。<ul>
-<li>使用 <a href="https://hexdocs.pm/ecto/Ecto.Query.html#preload/3" target="_blank" rel="noopener"><code>preload</code></a> keyword。</li>
-<li>如果 Ecto 自作主張地預先載入關聯性資料庫的記錄，除了 <a href="https://ihower.tw/rails/performance.html#sec0" target="_blank" rel="noopener">N+1 queries</a> 的問題，甚至可能塞爆記憶體。</li>
+<li>使用 <span class="exturl" data-url="aHR0cHM6Ly9oZXhkb2NzLnBtL2VjdG8vRWN0by5RdWVyeS5odG1sI3ByZWxvYWQvMw==" title="https://hexdocs.pm/ecto/Ecto.Query.html#preload/3"><code>preload</code><i class="fa fa-external-link"></i></span> keyword。</li>
+<li>如果 Ecto 自作主張地預先載入關聯性資料庫的記錄，除了 <span class="exturl" data-url="aHR0cHM6Ly9paG93ZXIudHcvcmFpbHMvcGVyZm9ybWFuY2UuaHRtbCNzZWMw" title="https://ihower.tw/rails/performance.html#sec0">N+1 queries<i class="fa fa-external-link"></i></span> 的問題，甚至可能塞爆記憶體。</li>
 <li>否則你就會遇到 <code>Ecto.Association.NotLoaded</code> 的錯誤。</li>
 </ul>
 </li>
 <li><code>Ecto.Schema</code> 可以不需要與任何資料源關聯而獨自運作，也就是 virtual schema，這也是為什麼 Ecto 可以串接不同的資料源的原因。</li>
 </ul>
-</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/twil-1/">TWIL #1</a><a class="next" href="/kitchen-and-packer/">Kitchen 與 Packer 實戰</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/weekly-25/">美得讓人窒息</a></li><li class="post-list-item"><a class="post-list-link" href="/meaning-of-title/">標題的意義</a></li><li class="post-list-item"><a class="post-list-link" href="/weekly-2/">分享我每週的所見所聞</a></li><li class="post-list-item"><a class="post-list-link" href="/weekly-1/">記錄我每週的所見所聞</a></li><li class="post-list-item"><a class="post-list-link" href="/2018-july-week-4/">2018 七月第四週</a></li><li class="post-list-item"><a class="post-list-link" href="/probot/">完善 GitHub Flow 最後一哩路 — Probot</a></li><li class="post-list-item"><a class="post-list-link" href="/hahow-blue-green-deployment/">淺談 Hahow 藍綠部署</a></li><li class="post-list-item"><a class="post-list-link" href="/drupal-s3-imce.html/">Drupal 搬遷到 S3 後從 IMCE 再也看不到搬遷前上傳的檔案</a></li><li class="post-list-item"><a class="post-list-link" href="/migrate-from-cloudflare-to-aws/">從 Cloudflare 搬家到 AWS，而且是「徹底搬家」</a></li><li class="post-list-item"><a class="post-list-link" href="/replace-security-groups-in-terraform/">在 Terraform 抽換 Security Group</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">Life is a YOLO Game.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
-if (search_path.length == 0) {
-   search_path = 'search.xml';
-}
-var path = '/' + search_path;
-searchFunc(path, 'local-search-input', 'local-search-result');
-</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/kitchen-and-packer/" rel="next" title="Kitchen 與 Packer 實戰">
+                <i class="fa fa-chevron-left"></i> Kitchen 與 Packer 實戰
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/twil-1/" rel="prev" title="TWIL #1">
+                TWIL #1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概要
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Heng-Yi Wu</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-name">文章</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分類</span>
+                  
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#名詞解釋"><span class="nav-number">2.</span> <span class="nav-text">名詞解釋</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#erlang"><span class="nav-number">2.1.</span> <span class="nav-text">erlang</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OTP"><span class="nav-number">2.2.</span> <span class="nav-text">OTP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#erlang-VM-BEAM"><span class="nav-number">2.3.</span> <span class="nav-text">erlang VM / BEAM</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#學習前準備"><span class="nav-number">3.</span> <span class="nav-text">學習前準備</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#必讀文章"><span class="nav-number">3.1.</span> <span class="nav-text">必讀文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#忘記-OOP，徹底"><span class="nav-number">3.2.</span> <span class="nav-text">忘記 OOP，徹底</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#忘記迴圈"><span class="nav-number">3.3.</span> <span class="nav-text">忘記迴圈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#開始學習"><span class="nav-number">4.</span> <span class="nav-text">開始學習</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#資源"><span class="nav-number">5.</span> <span class="nav-text">資源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#為什麼要學-Elixir？"><span class="nav-number">6.</span> <span class="nav-text">為什麼要學 Elixir？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一種：終極目標在精通-erlang"><span class="nav-number">6.1.</span> <span class="nav-text">第一種：終極目標在精通 erlang</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二種：單純想學習另外一種-functional-programming-language-的人"><span class="nav-number">6.2.</span> <span class="nav-text">第二種：單純想學習另外一種 functional programming language 的人</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三種：之前寫過-Ruby，想要找一門-functional-programming-language-學習的人"><span class="nav-number">6.3.</span> <span class="nav-text">第三種：之前寫過 Ruby，想要找一門 functional programming language 學習的人</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我可以拿-Elixir-來做什麼？"><span class="nav-number">7.</span> <span class="nav-text">我可以拿 Elixir 來做什麼？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elixir-的社群發展？"><span class="nav-number">8.</span> <span class="nav-text">Elixir 的社群發展？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elixir-文章"><span class="nav-number">9.</span> <span class="nav-text">Elixir 文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elixir-小撇步"><span class="nav-number">10.</span> <span class="nav-text">Elixir 小撇步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-Phoenix-實作-soft-delete"><span class="nav-number">11.</span> <span class="nav-text">在 Phoenix 實作 soft delete</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事前假設"><span class="nav-number">11.1.</span> <span class="nav-text">事前假設</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步驟"><span class="nav-number">11.2.</span> <span class="nav-text">步驟</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ElixirConf-2016-Leveling-Up-with-Ecto"><span class="nav-number">12.</span> <span class="nav-text">ElixirConf 2016 - Leveling Up with Ecto</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Heng-Yi Wu</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 強力驅動 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Pisces</span> v7.1.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+  <script src="/js/exturl.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
