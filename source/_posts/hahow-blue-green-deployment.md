@@ -1,6 +1,5 @@
 ---
 title: 淺談 Hahow 藍綠部署
-description: 故事要從老師透過客服回報的一個 bug 開始說起…
 date: '2017-08-16T02:58:31.371Z'
 categories: []
 keywords: []
@@ -44,7 +43,7 @@ Hahow 會實作藍綠部署，主要目的就是要解決這個 bug 背後真正
 
 #### 原子化
 
-所謂的 _原子化_，指的是將好幾筆寫入資料庫的操作打包成一次寫入，如果失敗就將資料庫還原到寫入被發動前的狀態。使用 MongoDB 提供的 [$isolated](https://docs.mongodb.com/v2.6/reference/operator/update/isolated/) [operator](https://docs.mongodb.com/v2.6/reference/operator/update/isolated/) 理論上就可以解決這個問題，算是一個治本的方法，問題是如果要找出所有的資料庫操作並加上 `$isolated`，曠日費時、緩不濟急，來不及改完的 API 可能又會發生一樣的錯誤。
+所謂的 _原子化_，指的是將好幾筆寫入資料庫的操作打包成一次寫入，如果失敗就將資料庫還原到寫入被發動前的狀態。使用 MongoDB 提供的 [\$isolated](https://docs.mongodb.com/v2.6/reference/operator/update/isolated/) [operator](https://docs.mongodb.com/v2.6/reference/operator/update/isolated/) 理論上就可以解決這個問題，算是一個治本的方法，問題是如果要找出所有的資料庫操作並加上 `$isolated`，曠日費時、緩不濟急，來不及改完的 API 可能又會發生一樣的錯誤。
 
 #### 讀寫分離
 
@@ -58,7 +57,7 @@ Hahow 會實作藍綠部署，主要目的就是要解決這個 bug 背後真正
 
 ### 藍綠部署
 
-當 server 有新功能完成，或有 bug 被修復，必須經過一個 *程序* 將新版本的 server 推送上線，該 *程序* 即軟體部署（software deployment），而藍綠部署（blue-green deployment）是其中一種。
+當 server 有新功能完成，或有 bug 被修復，必須經過一個 _程序_ 將新版本的 server 推送上線，該 _程序_ 即軟體部署（software deployment），而藍綠部署（blue-green deployment）是其中一種。
 
 > As you prepare a new version of your software, deployment and the final stage of testing takes place in the environment that is not live: in this example, Green. Once you have deployed and fully tested the software in Green, you switch the router so all incoming requests now go to Green instead of Blue. Green is now live, and Blue is idle. 
 > -  [Using Blue-Green Deployment to Reduce Downtime and Risk](https://docs.cloudfoundry.org/devguide/deploy-apps/blue-green.html)
@@ -180,12 +179,14 @@ nginx 收到重啟指令後、正式重啟前會先檢查設定檔，如果 shel
 
 先引用一段 nginx 文件，是關於 nginx master process 與 child process 的分工與關係：
 
-> nginx has one master process and several worker processes. The main purpose of the master process is to read and evaluate configuration, and maintain worker processes. Worker processes do actual processing of requests. 
+> nginx has one master process and several worker processes. The main purpose of the master process is to read and evaluate configuration, and maintain worker processes. Worker processes do actual processing of requests.
+>
 > - [_Beginner’s Guide_](http://nginx.org/en/docs/beginners_guide.html)
 
 nginx 啟動時會建立一個 master process 與好幾個 child process，其中 master process 負責讀取、驗證設定檔並管理所有 child process，而實際處理 HTTP request 的是 child process。另外一段引文，同樣出自 nginx 文件，內容是關於 nginx 收到重啟指令、完成設定檔驗證後的流程：
 
 > Once the master process receives the signal to reload configuration, it checks the syntax validity of the new configuration file and tries to apply the configuration provided in it. If this is a success, **the master process starts new worker processes and sends messages to old worker processes, requesting them to shut down**. Otherwise, the master process rolls back the changes and continues to work with the old configuration. Old worker processes, receiving a command to shut down, stop accepting new connections and continue to service current requests until all such requests are serviced. After that, the old worker processes exit.
+>
 > - [Starting, Stopping, and Reloading Configuration](http://nginx.org/en/docs/beginners_guide.html#control)
 
 nginx 重啟時，會分批替換掉 child process。首先 nginx 會禁止根據舊版設定檔產生的 child process 繼續接收 HTTP request，要求其處理完執行中的 HTTP request 後立刻退出；並依據新版設定檔建立 child process，讓新版 child process 接手處理新進的 HTTP request。

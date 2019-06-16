@@ -1,6 +1,5 @@
 ---
 title: 完善 GitHub Flow 最後一哩路 — Probot
-description: Hahow 的工程團隊現在有十個工程師，每個人都有自己的成長背景（工程師成長之路）、信仰的價值（架構優於效率、文件優於慣例⋯等等）、coding style（Hahow 自己就發生過兩次「分號」防衛戰）⋯⋯
 date: '2017-12-21T14:23:08.549Z'
 categories: []
 keywords: []
