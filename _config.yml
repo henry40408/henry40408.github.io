@@ -100,6 +100,8 @@ theme_config:
   google_analytics:
     tracking_id: UA-6529501-15
     localhost_ignored: true
+  commento:
+    enable: true
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
