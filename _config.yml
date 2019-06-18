@@ -4,7 +4,7 @@
 
 # Site
 title: Life is a YOLO Game
-subtitle: So play it well
+subtitle: so play it well
 description:
 keywords:
 author: Heng-Yi Wu
@@ -81,6 +81,11 @@ theme_config:
   social:
     GitHub: https://github.com/henry40408 || github
     Medium: https://medium.com/@henry40408 || medium
+    LinkedIn: https://www.linkedin.com/in/henry40408/ || linkedin
+    Resume: https://www.cakeresume.com/henry40408 || file
+  social_icons:
+    enable: true
+    icons_only: true
   github_banner:
     enable: true
     permalink: https://github.com/henry40408
