@@ -1,7 +1,7 @@
 ---
 title: 淺談 Hahow 藍綠部署
 date: '2017-08-16T02:58:31.371Z'
-categories: []
+categories: ['DevOps']
 keywords: []
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "去除 letter-spacing 行末的多餘空白"
 date: 2016-06-04
+categories: ['React Native']
 ---
 
 ## 問題

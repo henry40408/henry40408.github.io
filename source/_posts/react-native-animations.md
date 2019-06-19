@@ -1,6 +1,7 @@
 ---
 title: "React Native 動畫初體驗"
 date: 2016-06-04
+categories: ['React Native']
 ---
 
 ## 前言

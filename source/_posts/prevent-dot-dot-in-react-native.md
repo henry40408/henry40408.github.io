@@ -1,6 +1,7 @@
 ---
 title: "在 React Native 裡避免大量的 ../../"
 date: 2016-05-25
+categories: ['React Native']
 ---
 
 ## 問題

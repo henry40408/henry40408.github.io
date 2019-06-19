@@ -1,6 +1,7 @@
 ---
 title: "React Native 使用 fastlane 螢幕截圖"
 date: 2016-05-18
+categories: ['React Native']
 ---
 
 ## 問題

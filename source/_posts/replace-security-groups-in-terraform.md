@@ -1,6 +1,7 @@
 ---
 title: "在 Terraform 抽換 Security Group"
 date: 2017-03-06
+categories: ['DevOps']
 ---
 
 {% asset_img replace-security-group-with-terraform.png Terraform %}

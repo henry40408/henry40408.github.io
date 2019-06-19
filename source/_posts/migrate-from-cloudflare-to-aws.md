@@ -1,6 +1,7 @@
 ---
 title: "從 Cloudflare 搬家到 AWS，而且是「徹底搬家」"
 date: 2017-03-06
+categories: ['DevOps']
 ---
 
 {% asset_img cloudflare-migrate-to-aws.png Cloudflare migrate to AWS %}

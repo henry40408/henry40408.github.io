@@ -1,6 +1,7 @@
 ---
 title: "Terraform 雜記"
 date: 2017-03-06
+categories: ['DevOps']
 ---
 
 {% asset_img terraform-note.png Terraform %}

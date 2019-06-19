@@ -1,6 +1,7 @@
 ---
 title: "rbenv 2.x 的 readline 問題"
 date: 2015-07-30
+categories: ['Ruby']
 ---
 
 最近參考 [Deploy Ruby On Rails on Ubuntu 14.04 Trusty Tahr](https://gorails.com/deploy/ubuntu/14.04) 部署了兩隻 Ruby on Rails 應用程式，卻都發生 rails console 無法在部署的機器上執行的問題。每次要執行 rails console 的時候，都會發生 `LoadError`（詳細輸出請參考 [這篇 StackOverflow](http://stackoverflow.com/q/22915676)）。一開始也懶得去解決，想說遠端機器使用 rails console 的機會沒有想像中的多。但小問題不解決，總有一天變成大問題。如果急著要用 rails console 卻怎麼樣也開不起來，那就真的火燒屁股了。

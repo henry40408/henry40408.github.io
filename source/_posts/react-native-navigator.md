@@ -1,6 +1,7 @@
 ---
 title: "React Native Navigator 求生紀實"
 date: 2016-08-12
+categories: ['React Native']
 ---
 
 在跟 React Native 搏鬥近兩個月後，navigation 還是在我不經意的情況下爆炸了。

@@ -1,6 +1,7 @@
 ---
 title: "TWIL #2"
 date: 2016-10-30
+categories: ['每週分享']
 ---
 
 ## 瑣事

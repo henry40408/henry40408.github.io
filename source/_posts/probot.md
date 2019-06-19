@@ -1,7 +1,7 @@
 ---
 title: 完善 GitHub Flow 最後一哩路 — Probot
 date: '2017-12-21T14:23:08.549Z'
-categories: []
+categories: ['DevOps']
 keywords: []
 ---
 

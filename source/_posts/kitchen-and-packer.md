@@ -1,6 +1,7 @@
 ---
 title: "Kitchen 與 Packer 實戰"
 date: 2016-09-01 11:28
+categories: ['DevOps']
 ---
 
 ## 目標

@@ -1,6 +1,7 @@
 ---
 title: "MongoDB 與 Mongoose 執行測試時注意刪除 database 同時也會刪除 collection 的 index"
 date: 2017-02-04
+categories: ['MongoDB']
 ---
 
 > 這篇文章適合使用 MongoDB 與 Mongoose 的 Node.js 開發者

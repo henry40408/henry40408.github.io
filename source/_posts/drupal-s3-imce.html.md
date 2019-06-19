@@ -1,6 +1,7 @@
 ---
 title: Drupal 搬遷到 S3 後從 IMCE 再也看不到搬遷前上傳的檔案
 date: 2017-06-14
+categories: ['Drupal']
 ---
 
 > 這一篇適合熟悉 Aamzon Web Services 與 Drupal 的開發者或網站管理員

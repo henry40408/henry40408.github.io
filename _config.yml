@@ -139,6 +139,10 @@ theme_config:
     rounded: true
   scroll_to_more: true
   save_scroll: true
+  menu:
+    home: / || home
+    archives: /archives/ || archive
+    categories: /categories/ || th
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

@@ -1,6 +1,7 @@
 ---
 title: "React Native 手動關閉螢幕鍵盤"
 date: 2016-06-04
+categories: ['React Native']
 ---
 
 ## 問題

@@ -1,6 +1,7 @@
 ---
 title: "2018 七月第四週"
 date: 2018-07-22
+categories: ['每週分享']
 ---
 
 本週我把部落格從 Jekyll 換到 gatsby、看了一部投石機的 maker 影片。

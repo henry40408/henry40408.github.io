@@ -1,6 +1,7 @@
 ---
 title: foreman 偵測不到 .env.local
 date: 2016-02-18
+categories: ['Ruby']
 ---
 
 由於我自己會習慣寫一個簡單的 shell script 去啟動 foreman，但最近發現無論怎麼設定 foreman 都不會再去讀取  `.env.local`。GitHub 上有人回報類似的問題  [bkeepers/dotenv#234](https://github.com/bkeepers/dotenv/issues/234)，雖然主旨是 **`heroku local` makes it impossible to override settings from `.env.<environment>`** ，但解法也適用 foreman。

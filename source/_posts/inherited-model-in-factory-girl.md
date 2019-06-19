@@ -1,6 +1,7 @@
 ---
 title: 如何在 factory_girl 中為有繼承關係的 Rails model 定義 Factory
 date: 2016-08-07
+categories: ['Ruby on Rails']
 ---
 
 ## 問題

@@ -1,6 +1,7 @@
 ---
 title: "React Native 的觸控區域"
 date: 2016-07-29
+categories: ['React Native']
 ---
 
 ## 樣式上的差異

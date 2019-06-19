@@ -1,6 +1,7 @@
 ---
 title: "當 iTerm 執行完 RSpec 之後彈出通知"
 date: 2016-07-29
+categories: ['Ruby on Rails']
 ---
 
 ## 問題

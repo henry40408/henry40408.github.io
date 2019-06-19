@@ -1,6 +1,7 @@
 ---
 title: Elixir 雜記
 date: 2016-10-17
+categories: ['Uncategorized']
 ---
 
 > 說文解字：雜記

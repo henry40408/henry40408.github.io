@@ -1,6 +1,7 @@
 ---
 title: "在 React Native 中使用 moment.js 無法載入語系檔案"
 date: 2016-07-20
+categories: ['React Native']
 ---
 
 [moment.js](http://momentjs.com/) 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 `(new Date()).getFullYear()`，如果使用 moment.js 我可以只寫 `moment().get('year')`，可讀性增強許多。

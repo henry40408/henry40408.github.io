@@ -1,6 +1,7 @@
 ---
 title: "React Native, react-native-fbsdk 與 Facebook SDK"
 date: 2016-08-08
+categories: ['React Native']
 ---
 
 由於 app 需要 Facebook 第三方登入的功能，需要 Facebook SDK；好歹 React Native 也是 Facebook 官方的開源專案，為 React Native 開發一個 [react-native-fbsdk](https://github.com/facebook/react-native-fbsdk) package 是一定要的。SDK、npm package 與開發框架全員到齊，一副勢如破竹的氣勢，要寫出一支強大的 app 應該不會有什麼問題了吧？

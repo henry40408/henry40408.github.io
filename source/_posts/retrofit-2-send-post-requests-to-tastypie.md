@@ -1,6 +1,7 @@
 ---
 title: "Retrofit 2 對 Tastypie 發出 POST 請求時的地雷"
 date: 2015-12-06
+categories: ['Android']
 ---
 
 最近從 [碼天狗](http://weekly.codetengu.com/issues/18#start) 得知[Retrofit 推出了第二版](http://inthecheesefactory.com/blog/retrofit-2.0/en)，號稱 **Android 上最知名的 REST client** ，我寫 Android 起碼也有半年了，居然都沒聽過這一套 library，自覺應該趁現在來好好地研究一下。
