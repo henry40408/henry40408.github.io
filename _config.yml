@@ -82,7 +82,7 @@ theme_config:
     GitHub: https://github.com/henry40408 || github
     Medium: https://medium.com/@henry40408 || medium
     LinkedIn: https://www.linkedin.com/in/henry40408/ || linkedin
-    Resume: https://www.cakeresume.com/henry40408 || file
+    Resume: https://www.cakeresume.com/henry40408 || file-text
   social_icons:
     enable: true
     icons_only: true
@@ -122,8 +122,23 @@ theme_config:
     #mixins: source/_data/mixins.styl
     # Default path: source/css/_custom/custom.styl
     #styles: source/_data/styles.styl
-
-
+  creative_commons:
+    license: by-nc-nd
+    sidebar: true
+    post: true
+    language: deed.zh_TW
+  favicon:
+    small: /images/favicon-16x16.png
+    medium: /images/favicon-32x32.png
+    apple_touch_icon: /images/apple-touch-icon.png
+    safari_pinned_tab: /images/safari-pinned-tab.svg
+    android_manifest: /images/site.webmanifest
+    ms_browserconfig: /images/browserconfig.xml
+  avatar:
+    url: /images/avatar.jpg
+    rounded: true
+  scroll_to_more: true
+  save_scroll: true
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
