@@ -47,18 +47,22 @@
 <link rel="stylesheet" href="/css/main.css?v=7.1.2">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.1.2">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=7.1.2" color="#222">
 
 
+  <link rel="manifest" href="/images/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
 
 
@@ -101,7 +105,7 @@
 <meta property="og:site_name" content="Life is a YOLO Game">
 <meta property="og:description" content="本週我把部落格從 Jekyll 換到 gatsby、看了一部投石機的 maker 影片。  工程升級 Jekyll，升著升著就跳槽到 gatsby 了痛死了，完全沒有以前在寫 Ruby 時那種無時無刻無痛升級的爽感。 我的部落格（嘿對就是這個）原來是以 Jekyll 產生的靜態網站，會想要去升級部落格的 Ruby gems，是因為 Orange Tsai 找到了一個 sprockets 的洞 Ra">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-06-16T16:05:34.845Z">
+<meta property="og:updated_time" content="2019-06-19T17:08:52.597Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2018 七月第四週">
 <meta name="twitter:description" content="本週我把部落格從 Jekyll 換到 gatsby、看了一部投石機的 maker 影片。  工程升級 Jekyll，升著升著就跳槽到 gatsby 了痛死了，完全沒有以前在寫 Ruby 時那種無時無刻無痛升級的爽感。 我的部落格（嘿對就是這個）原來是以 Jekyll 產生的靜態網站，會想要去升級部落格的 Ruby gems，是因為 Orange Tsai 找到了一個 sprockets 的洞 Ra">
@@ -200,7 +204,7 @@
     </div>
     
       
-        <p class="site-subtitle">So play it well</p>
+        <p class="site-subtitle">so play it well</p>
       
     
     
@@ -253,6 +257,23 @@
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>歸檔</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分類</a>
 
   </li>
 
@@ -345,7 +366,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Heng-Yi Wu">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -400,11 +421,29 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/每週分享/" itemprop="url" rel="index"><span itemprop="name">每週分享</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -442,6 +481,7 @@
 <p>我原本有使用一套 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JvYndpZXJ6Ym93c2tpL2pla3lsbC1waWN0dXJlLXRhZw==" title="https://github.com/robwierzbowski/jekyll-picture-tag">jekyll-picture-tag<i class="fa fa-external-link"></i></span>，上次更新已經是 2015 年的事了。</p>
 <p>後來找到了 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dpbGRseWluYWNjdXJhdGUvamVreWxsLXJlc3BvbnNpdmUtaW1hZ2U=" title="https://github.com/wildlyinaccurate/jekyll-responsive-image">jekyll-responsive-image<i class="fa fa-external-link"></i></span>，傻了，這一套要怎麼用啊？圖片要放哪裡？放圖片的目錄結構要長什麼樣子？為什麼 Liquid tag 的樣子跟我之前用 Jekyll 的時候長得不太一樣？一定不是文件沒有寫清楚，而是我看不懂。</p>
 <p>最後決定把 Jekyll 換成 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2F0c2J5anMub3JnLw==" title="https://www.gatsbyjs.org/">gastby<i class="fa fa-external-link"></i></span>，使用體驗到目前為止還不錯，原來部落格有用到的功能 gastby 都有支援，SEO 看起來也沒什麼問題，就先湊合著用吧！之後看看運作的怎麼樣，有機會再來寫寫使用心得。</p>
+<a id="more"></a>
 <h3 id="Bitwarden"><a href="#Bitwarden" class="headerlink" title="Bitwarden"></a><span class="exturl" data-url="aHR0cHM6Ly9iaXR3YXJkZW4uY29tLw==" title="https://bitwarden.com/">Bitwarden<i class="fa fa-external-link"></i></span></h3><p>繼 1password、master password 之後，又一套密碼管理工具。</p>
 <p>我自己是用 <span class="exturl" data-url="aHR0cDovL3d3dy5tYXN0ZXJwYXNzd29yZGFwcC5jb20v" title="http://www.masterpasswordapp.com/">master password<i class="fa fa-external-link"></i></span>，沒有任何同步機制。這個坑我自己推也不如 Pseric 大大推地好，不如直接引用他的文章：</p>
 <blockquote>
@@ -511,6 +551,30 @@
     
 
     
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>作者： </strong>Heng-Yi Wu</li>
+  <li class="post-copyright-link">
+    <strong>文章連結：</strong>
+    
+    <a href="https://henry40408.com/2018-july-week-4/" title="2018 七月第四週">https://henry40408.com/2018-july-week-4/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC9kZWVkLnpoX1RX"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-ND</span> 許可協議。轉載請註明出處！</li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
@@ -533,8 +597,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/weekly-1/" rel="prev" title="記錄我每週的所見所聞">
-                記錄我每週的所見所聞 <i class="fa fa-chevron-right"></i>
+              <a href="/weekly-1/" rel="prev" title="#1 記錄我每週的所見所聞">
+                #1 記錄我每週的所見所聞 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -598,6 +662,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Heng-Yi Wu">
+            
               <p class="site-author-name" itemprop="name">Heng-Yi Wu</p>
               <div class="site-description motion-element" itemprop="description"></div>
           </div>
@@ -621,12 +687,32 @@
                 <div class="site-state-item site-state-categories">
                   
                     
+                      <a href="/categories/">
+                    
+                  
+                    
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分類</span>
-                  
+                  </a>
                 </div>
               
 
@@ -651,28 +737,52 @@
                 <span class="links-of-author-item">
                   
                   
-                    
-                  
                   
                     
                   
-                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg=" title="GitHub &rarr; https://github.com/henry40408"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg=" title="GitHub &rarr; https://github.com/henry40408"><i class="fa fa-fw fa-github"></i></span>
                 </span>
               
                 <span class="links-of-author-item">
                   
                   
-                    
-                  
                   
                     
                   
-                  <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BoZW5yeTQwNDA4" title="Medium &rarr; https://medium.com/@henry40408"><i class="fa fa-fw fa-medium"></i>Medium</span>
+                  <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BoZW5yeTQwNDA4" title="Medium &rarr; https://medium.com/@henry40408"><i class="fa fa-fw fa-medium"></i></span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2hlbnJ5NDA0MDgv" title="LinkedIn &rarr; https://www.linkedin.com/in/henry40408/"><i class="fa fa-fw fa-linkedin"></i></span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93d3cuY2FrZXJlc3VtZS5jb20vaGVucnk0MDQwOA==" title="Resume &rarr; https://www.cakeresume.com/henry40408"><i class="fa fa-fw fa-file-text"></i></span>
                 </span>
               
             </div>
           
 
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC9kZWVkLnpoX1RX"><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></span>
+             </div>
           
 
           
@@ -845,6 +955,9 @@
 
 
   
+  <script src="/js/js.cookie.js?v=7.1.2"></script>
+  <script src="/js/scroll-cookie.js?v=7.1.2"></script>
+
 
   
   <script src="/js/exturl.js?v=7.1.2"></script>

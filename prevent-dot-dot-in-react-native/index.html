@@ -47,18 +47,22 @@
 <link rel="stylesheet" href="/css/main.css?v=7.1.2">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.1.2">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=7.1.2" color="#222">
 
 
+  <link rel="manifest" href="/images/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
 
 
@@ -101,7 +105,7 @@
 <meta property="og:site_name" content="Life is a YOLO Game">
 <meta property="og:description" content="問題React Native 採用 ES6 做為開發語言，而 ES6 的 import 語法指定檔案時採用相對路徑。如果採用 Redux 架構開發，很快地 Component 就會開始出現以下一堆亂七八糟的 import 語句。 12import DoSomething from &apos;../actions/DoSomething&apos;;import DoAnotherThing from &apos;../act">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-06-16T16:05:34.857Z">
+<meta property="og:updated_time" content="2019-06-19T17:08:52.605Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在 React Native 裡避免大量的 ..&#x2F;..&#x2F;">
 <meta name="twitter:description" content="問題React Native 採用 ES6 做為開發語言，而 ES6 的 import 語法指定檔案時採用相對路徑。如果採用 Redux 架構開發，很快地 Component 就會開始出現以下一堆亂七八糟的 import 語句。 12import DoSomething from &apos;../actions/DoSomething&apos;;import DoAnotherThing from &apos;../act">
@@ -200,7 +204,7 @@
     </div>
     
       
-        <p class="site-subtitle">So play it well</p>
+        <p class="site-subtitle">so play it well</p>
       
     
     
@@ -253,6 +257,23 @@
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>歸檔</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分類</a>
 
   </li>
 
@@ -345,7 +366,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Heng-Yi Wu">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -400,11 +421,29 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React-Native/" itemprop="url" rel="index"><span itemprop="name">React Native</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -437,6 +476,7 @@
         <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>React Native 採用 ES6 做為開發語言，而 ES6 的 <code>import</code> 語法指定檔案時採用相對路徑。如果採用 <span class="exturl" data-url="aHR0cDovL3JlZHV4LmpzLm9yZy8=" title="http://redux.js.org/">Redux<i class="fa fa-external-link"></i></span> 架構開發，很快地 <code>Component</code> 就會開始出現以下一堆亂七八糟的 <code>import</code> 語句。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> DoSomething <span class="keyword">from</span> <span class="string">'../actions/DoSomething'</span>;</span><br><span class="line"><span class="keyword">import</span> DoAnotherThing <span class="keyword">from</span> <span class="string">'../actions/DoAnotherThing'</span>;</span><br></pre></td></tr></table></figure>
 <p>如果是從 HTML4 時代就開始寫 JavaScript 的工程師，乍看之下沒有什麼不好，因為絕對路徑與相對路徑的好壞在 HTML4 的時代就吵過一次，最後的結論也都是有好有壞。<strong>但 React Native 不是 ES5</strong>，規模很容易膨脹到超過傳統 ES5 專案的程度，因此應該另尋專為大型專案設計的解決方法。</p>
+<a id="more"></a>
 <h2 id="他山之石"><a href="#他山之石" class="headerlink" title="他山之石"></a>他山之石</h2><p>讓我們來看看 Python 與 Java 的 <code>import</code> 語句。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> flask_sqlalchemy <span class="keyword">import</span> SQLAlchemy</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> app <span class="keyword">import</span> MyApp</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> butterknife.BindView;</span><br><span class="line"><span class="keyword">import</span> butterknife.BindViews;</span><br><span class="line"><span class="keyword">import</span> butterknife.ButterKnife;</span><br><span class="line"><span class="keyword">import</span> butterknife.OnClick;</span><br><span class="line"><span class="keyword">import</span> butterknife.OnItemClick;</span><br><span class="line"><span class="keyword">import</span> butterknife.OnLongClick;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tw.com.sudo.JavaProject.DummyClass;</span><br></pre></td></tr></table></figure>
@@ -466,6 +506,30 @@
     
 
     
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>作者： </strong>Heng-Yi Wu</li>
+  <li class="post-copyright-link">
+    <strong>文章連結：</strong>
+    
+    <a href="https://henry40408.com/prevent-dot-dot-in-react-native/" title="在 React Native 裡避免大量的 ../../">https://henry40408.com/prevent-dot-dot-in-react-native/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC9kZWVkLnpoX1RX"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-ND</span> 許可協議。轉載請註明出處！</li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
@@ -488,8 +552,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/react-native-animations/" rel="prev" title="React Native 動畫初體驗">
-                React Native 動畫初體驗 <i class="fa fa-chevron-right"></i>
+              <a href="/dismiss-keyboard-in-react-native/" rel="prev" title="React Native 手動關閉螢幕鍵盤">
+                React Native 手動關閉螢幕鍵盤 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -553,6 +617,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Heng-Yi Wu">
+            
               <p class="site-author-name" itemprop="name">Heng-Yi Wu</p>
               <div class="site-description motion-element" itemprop="description"></div>
           </div>
@@ -576,12 +642,32 @@
                 <div class="site-state-item site-state-categories">
                   
                     
+                      <a href="/categories/">
+                    
+                  
+                    
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分類</span>
-                  
+                  </a>
                 </div>
               
 
@@ -606,28 +692,52 @@
                 <span class="links-of-author-item">
                   
                   
-                    
-                  
                   
                     
                   
-                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg=" title="GitHub &rarr; https://github.com/henry40408"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg=" title="GitHub &rarr; https://github.com/henry40408"><i class="fa fa-fw fa-github"></i></span>
                 </span>
               
                 <span class="links-of-author-item">
                   
                   
-                    
-                  
                   
                     
                   
-                  <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BoZW5yeTQwNDA4" title="Medium &rarr; https://medium.com/@henry40408"><i class="fa fa-fw fa-medium"></i>Medium</span>
+                  <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BoZW5yeTQwNDA4" title="Medium &rarr; https://medium.com/@henry40408"><i class="fa fa-fw fa-medium"></i></span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2hlbnJ5NDA0MDgv" title="LinkedIn &rarr; https://www.linkedin.com/in/henry40408/"><i class="fa fa-fw fa-linkedin"></i></span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93d3cuY2FrZXJlc3VtZS5jb20vaGVucnk0MDQwOA==" title="Resume &rarr; https://www.cakeresume.com/henry40408"><i class="fa fa-fw fa-file-text"></i></span>
                 </span>
               
             </div>
           
 
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC9kZWVkLnpoX1RX"><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></span>
+             </div>
           
 
           
@@ -800,6 +910,9 @@
 
 
   
+  <script src="/js/js.cookie.js?v=7.1.2"></script>
+  <script src="/js/scroll-cookie.js?v=7.1.2"></script>
+
 
   
   <script src="/js/exturl.js?v=7.1.2"></script>

@@ -47,18 +47,22 @@
 <link rel="stylesheet" href="/css/main.css?v=7.1.2">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.1.2">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=7.1.2" color="#222">
 
 
+  <link rel="manifest" href="/images/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
 
 
@@ -197,7 +201,7 @@
     </div>
     
       
-        <p class="site-subtitle">So play it well</p>
+        <p class="site-subtitle">so play it well</p>
       
     
     
@@ -250,6 +254,23 @@
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>歸檔</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分類</a>
 
   </li>
 
@@ -342,7 +363,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Heng-Yi Wu">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -399,11 +420,29 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React-Native/" itemprop="url" rel="index"><span itemprop="name">React Native</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -434,55 +473,19 @@
 
       
         
-          
-            <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><blockquote>
+          <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><blockquote>
 <p>App 上架一定要上傳螢幕截圖，我想要為 React Native 做自動螢幕截圖。</p>
 </blockquote>
 <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhY2Vib29rL3JlYWN0LW5hdGl2ZQ==" title="https://github.com/facebook/react-native">React Native<i class="fa fa-external-link"></i></span> 目前還是處於開發活躍期，官方文件混亂、第三方文件少，有些功能還要自己跳下去爬原始碼才知道。本文所描述的螢幕截圖，基本上官方的文件一丁點都沒有提到，網路上的資料也是片片斷斷非常稀少，讓我排列組合了一整天才有了今天的成果。</p>
-<h2 id="假設"><a href="#假設" class="headerlink" title="假設"></a>假設</h2><ol>
-<li>假設你使用 React Native 開發 app，而且是 iOS app。</li>
-<li>假設你採用 <span class="exturl" data-url="aHR0cHM6Ly9mYXN0bGFuZS50b29scy8=" title="https://fastlane.tools/">fastlane<i class="fa fa-external-link"></i></span> 自動化開發流程，想要使用 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Zhc3RsYW5lL2Zhc3RsYW5lL3RyZWUvbWFzdGVyL3NuYXBzaG90I3JlYWRtZQ==" title="https://github.com/fastlane/fastlane/tree/master/snapshot#readme">snapshot<i class="fa fa-external-link"></i></span> 做自動截圖。</li>
-<li>假設你懂一點的 Swift。 (你也可以使用 Objective-C，但要自己轉換)</li>
-</ol>
-<h2 id="前置作業"><a href="#前置作業" class="headerlink" title="前置作業"></a>前置作業</h2><p>在放置 <code>fastlane</code> 資料夾那層目錄執行 <code>snapshot init</code>，在 <code>fastlane</code> 目錄產生 <code>Sanpfile</code> 與 <code>SnapshotHelper.swift</code>。我自己是放在 React Native 的專案根目錄，因為之後預計也會讓 Android 使用 fastlane 進行開發流程自動化。</p>
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><h3 id="1-Snapshot-目前只支援透過-UI-testing-做螢幕截圖"><a href="#1-Snapshot-目前只支援透過-UI-testing-做螢幕截圖" class="headerlink" title="1. Snapshot 目前只支援透過 UI testing 做螢幕截圖"></a>1. Snapshot 目前只支援透過 UI testing 做螢幕截圖</h3><p>首先，在 iOS 上，Snapshot 目前只支援透過 UI testing 做螢幕截圖。</p>
-<p>UI testing 是 for Mac OS X and iOS app 的 UI 測試框架，提供點擊、滑動等 API，讓 Xcode 模擬使用者的行為。透過 UI testing + Snapshot，你可以做到 <strong>進入某個畫面、先滑動一次之後再截圖</strong> 這種非常精細的擷取操作。</p>
-<p>所以如果要讓 Snapshot 做自動截圖，你勢必要 <strong>讓 UI testing 有辦法串接到 React Native</strong> 。</p>
-<h3 id="2-透過-testID-property-為-React-Native-component-命名"><a href="#2-透過-testID-property-為-React-Native-component-命名" class="headerlink" title="2. 透過 testID property 為 React Native component 命名"></a>2. 透過 <code>testID</code> property 為 React Native component 命名</h3><blockquote>
-<p><strong>testID</strong> string</p>
-<p>Used to locate this view in end-to-end tests. NB: disables the ‘layout-only view removal’ optimization for this view!</p>
-<p>- 擷取自 React Native <span class="exturl" data-url="aHR0cHM6Ly9mYWNlYm9vay5naXRodWIuaW8vcmVhY3QtbmF0aXZlL2RvY3Mvdmlldy5odG1sI3Rlc3RpZA==" title="https://facebook.github.io/react-native/docs/view.html#testid">官方文件<i class="fa fa-external-link"></i></span></p>
-</blockquote>
-<p>官方文件完全看不懂在寫什麼。</p>
-<blockquote>
-<p>Notice that I added <code>testID=&quot;test-id-textfield&quot;</code> and <code>testID=&quot;test-id-textfield-result&quot;</code> to the TextInput and the View. This causes React Native to set a <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuYXBwbGUuY29tL2xpYnJhcnkvaW9zL2RvY3VtZW50YXRpb24vVUlLaXQvUmVmZXJlbmNlL1VJQWNjZXNzaWJpbGl0eUlkZW50aWZpY2F0aW9uX1Byb3RvY29sL2luZGV4Lmh0bWwjLy9hcHBsZV9yZWYvb2NjL2ludGZwL1VJQWNjZXNzaWJpbGl0eUlkZW50aWZpY2F0aW9uL2FjY2Vzc2liaWxpdHlJZGVudGlmaWVy" title="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAccessibilityIdentification_Protocol/index.html#//apple_ref/occ/intfp/UIAccessibilityIdentification/accessibilityIdentifier">accessibilityIdentifier<i class="fa fa-external-link"></i></span> on the native view. This is something we can use to find the elements in our UI test.</p>
-<p>- 擷取自 <span class="exturl" data-url="aHR0cDovL2Jsb2cueGViaWEuY29tL2F1dG9tYXRlZC11aS10ZXN0aW5nLXdpdGgtcmVhY3QtbmF0aXZlLW9uLWlvcy8=" title="http://blog.xebia.com/automated-ui-testing-with-react-native-on-ios/">Automated UI Testing with React Native on iOS<i class="fa fa-external-link"></i></span></p>
-</blockquote>
-<p>這篇文章的解釋好多了。</p>
-<p>簡而言之，為 component 標上 <code>testID</code>，React Native 在編譯之後會為轉換出來的 native component 設定 <code>accessibilityIdentifier</code> 的屬性 (它是一個 <em>Optional String</em>)，這個屬性你可以類比成 HTML5 DOM 的 <code>id</code>，在同一份網頁中 (在 React Native 則是 <strong>同一隻 app 中</strong>) 是一個全域的 <em>identifier</em>，也就讓 Snapshot 在 UI testing 時可以透過這個 identifier 鎖定特定的 React Native component 了。</p>
-<h3 id="3-等待-UI-component-出現在畫面上"><a href="#3-等待-UI-component-出現在畫面上" class="headerlink" title="3. 等待 UI component 出現在畫面上"></a>3. 等待 UI component 出現在畫面上</h3><p>React Native 由於程式語言採用 JavaScript，非同步的操作寫起來非常爽 (除去 callback hell 這些不好的回憶)，結果有時候爽過頭，在測試的時候忘記 component 是非同步的，有時候測試會過有時候又不會過，實在讓人丈二金剛摸不著頭緒。</p>
-<p>UI testing 提供 <strong>等待 UI component 出現在畫面上、但如果等太久就讓測試失敗</strong> 的 API。</p>
-<blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">let</span> nextGame = <span class="keyword">self</span>.app.staticTexts[<span class="string">"Game 4 - Tomorrow"</span>]</span><br><span class="line">&gt; <span class="keyword">let</span> exists = <span class="type">NSPredicate</span>(format: <span class="string">"exists == true"</span>)</span><br><span class="line">&gt; expectationForPredicate(exists, evaluatedWithObject: nextGame, handler: <span class="literal">nil</span>)</span><br><span class="line">&gt;</span><br><span class="line">&gt; app.buttons[<span class="string">"Load More Games"</span>].tap()</span><br><span class="line">&gt;</span><br><span class="line">&gt; waitForExpectationsWithTimeout(<span class="number">5</span>, handler: <span class="literal">nil</span>)</span><br><span class="line">&gt; <span class="type">XCTAssert</span>(nextGameLabel.exists)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>Here we create a query to wait for a label with text “Game 4 - Tomorrow” to appear. The predicate matches when the element exists (element.exists == true).</p>
-<p>We then pass the predicate in and evaluate it on the label. Finally, we kick off the waiting game with waitForExpectationsWithTimeout:handler:. If five seconds pass before the expectation is met then the test will fail.</p>
-<p>- 擷取自 <span class="exturl" data-url="aHR0cDovL21hc2lsb3R0aS5jb20vdWktdGVzdGluZy1jaGVhdC1zaGVldC8=" title="http://masilotti.com/ui-testing-cheat-sheet/">UI Testing Cheat Sheet and Examples<i class="fa fa-external-link"></i></span></p>
-</blockquote>
-<p>這兩個 API 就是 <code>expectationForPredicate</code> 與 <code>waitForExpectationsWithTimeout</code>，具體的用法如擷取文字所示。如果要配合 React Native，寫出來的樣子就會如下所示：</p>
-<h4 id="1-在-React-Native-裡為-View-標上-testID"><a href="#1-在-React-Native-裡為-View-標上-testID" class="headerlink" title="1. 在 React Native 裡為 View 標上 testID"></a>1. 在 React Native 裡為 <code>View</code> 標上 <code>testID</code></h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">View</span> <span class="attr">testID</span>=<span class="string">&#123;</span>'<span class="attr">name-me-whatever-you-like</span>'&#125;&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">TouchableWithoutFeedback</span> <span class="attr">onPress</span>=<span class="string">&#123;onPressHandler&#125;</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">TouchableWithoutFeedback</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">View</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-1-在-UI-testing-中存取"><a href="#2-1-在-UI-testing-中存取" class="headerlink" title="2-1. 在 UI testing 中存取"></a>2-1. 在 UI testing 中存取</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">APPTests</span>: <span class="title">XCTestCase</span> </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> app = <span class="type">XCUIApplication</span>()</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">setUp</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.setUp()</span><br><span class="line">    continueAfterFailure = <span class="literal">false</span></span><br><span class="line">    setupSnapshot(app) <span class="comment">// 啟用 Snapshot</span></span><br><span class="line">    app.launch()</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">testAScreen</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> touchable = app.otherElements[<span class="string">"name-me-whatever-you-like"</span>]</span><br><span class="line">    touchable.tap() <span class="comment">// 模擬點擊</span></span><br><span class="line">    snapshot(<span class="string">"0AScreen"</span>) <span class="comment">// 截圖！</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>snapshot(&quot;0AScreen&quot;)</code> 執行之後的截圖就是該 <code>View</code> 被使用者點擊之後的畫面。</p>
-<h4 id="2-2-等待-component-出現之後再截圖"><a href="#2-2-等待-component-出現之後再截圖" class="headerlink" title="2-2. 等待 component 出現之後再截圖"></a>2-2. 等待 component 出現之後再截圖</h4><p>有時候 component 可能是某個非同步操作完成之後才會出現在畫面上，這個時候就需要剛剛提到的兩隻 API 輔助了。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">APPTests</span>: <span class="title">XCTestCase</span> </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> app = <span class="type">XCUIApplication</span>()</span><br><span class="line">  <span class="keyword">let</span> exists = <span class="type">NSPredicate</span>(format: <span class="string">"exists == true"</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">setUp</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.setUp()</span><br><span class="line">    continueAfterFailure = <span class="literal">false</span></span><br><span class="line">    setupSnapshot(app) <span class="comment">// 啟用 Snapshot</span></span><br><span class="line">    app.launch()</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">testAScreen</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> touchable = app.otherElements[<span class="string">"name-me-whatever-you-like"</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 等 touchable 出現在畫面上，最多等 5 秒，不然就 test fail</span></span><br><span class="line">    expectationForPredicate(exists, evaluatedWithObject: touchable, handler: <span class="literal">nil</span>)</span><br><span class="line">    waitForExpectationsWithTimeout(<span class="number">5</span>, handler: <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line">    touchable.tap() <span class="comment">// 模擬點擊</span></span><br><span class="line">    snapshot(<span class="string">"0AScreen"</span>) <span class="comment">// 截圖！</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Snapshot 執行完之後就會建立一個 HTML 文件，展示所有在 UI testing 執行的過程中擷取到的螢幕截圖。這個文件在之後 fastlane <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Zhc3RsYW5lL2Zhc3RsYW5lL3RyZWUvbWFzdGVyL2RlbGl2ZXIjcmVhZG1l" title="https://github.com/fastlane/fastlane/tree/master/deliver#readme">Deliver<i class="fa fa-external-link"></i></span> 會使用到，但你可以把它放進 <code>.gitignore</code>，因為每次需要上傳截圖之前理論上都會跑一次 Snapshot 更新截圖。</p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><blockquote>
-<p>React Native 不是 JavaScript，他只是語言採用 JavaScript 來加速開發。</p>
-</blockquote>
-<p>在本篇文章中，我們用到了不少 Swift 的知識與語法去實踐自動化螢幕截圖的功能，所以即使是採用 React Native，如果你是 native app 開發出身的工程師，也絕對不能忘記原來的背景知識 (e.g. Cocoapods、Objective-C、Swift、Java、Gradle…等)。因為 React Native 的資源還非常非常少，很多時候我們必須自己動手去橋接 native modules 給 React Native 使用，幸好 React Native 將橋接這件事情做得非常簡單，基本上只要介面 (Objective-C 的 <code>@interface</code>)寫好，剩下的事情就交給 React Native 去完成了。</p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/react-native-screenshot-with-fastlane/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -542,7 +545,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Heng-Yi Wu">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -599,11 +602,29 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/每週分享/" itemprop="url" rel="index"><span itemprop="name">每週分享</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -634,28 +655,17 @@
 
       
         
-          
-            <h2 id="工作內容"><a href="#工作內容" class="headerlink" title="工作內容"></a>工作內容</h2><h3 id="1-整合-Fabric"><a href="#1-整合-Fabric" class="headerlink" title="1. 整合 Fabric"></a>1. 整合 <span class="exturl" data-url="aHR0cDovL2ZhYnJpYy5pby8=" title="http://fabric.io/">Fabric<i class="fa fa-external-link"></i></span></h3><p>Fabric 是 Twitter 旗下的行動應用程式開發平台，平台提供 <span class="exturl" data-url="aHR0cHM6Ly9mYWJyaWMuaW8va2l0cy9pb3MvY3Jhc2hseXRpY3M=" title="https://fabric.io/kits/ios/crashlytics">Crashlytics<i class="fa fa-external-link"></i></span> 負責錯誤回報與 <span class="exturl" data-url="aHR0cHM6Ly9mYWJyaWMuaW8va2l0cy9pb3MvYW5zd2Vycw==" title="https://fabric.io/kits/ios/answers">Answers<i class="fa fa-external-link"></i></span> 負責使用者行為分析。</p>
+          <h2 id="工作內容"><a href="#工作內容" class="headerlink" title="工作內容"></a>工作內容</h2><h3 id="1-整合-Fabric"><a href="#1-整合-Fabric" class="headerlink" title="1. 整合 Fabric"></a>1. 整合 <span class="exturl" data-url="aHR0cDovL2ZhYnJpYy5pby8=" title="http://fabric.io/">Fabric<i class="fa fa-external-link"></i></span></h3><p>Fabric 是 Twitter 旗下的行動應用程式開發平台，平台提供 <span class="exturl" data-url="aHR0cHM6Ly9mYWJyaWMuaW8va2l0cy9pb3MvY3Jhc2hseXRpY3M=" title="https://fabric.io/kits/ios/crashlytics">Crashlytics<i class="fa fa-external-link"></i></span> 負責錯誤回報與 <span class="exturl" data-url="aHR0cHM6Ly9mYWJyaWMuaW8va2l0cy9pb3MvYW5zd2Vycw==" title="https://fabric.io/kits/ios/answers">Answers<i class="fa fa-external-link"></i></span> 負責使用者行為分析。</p>
 <p>會使用 Crashlytics 是因為平常使用的 <span class="exturl" data-url="aHR0cHM6Ly9yb2xsYmFyLmNvbS8=" title="https://rollbar.com/">Rollbar<i class="fa fa-external-link"></i></span> 雖然有支援 JavaScript，但 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JvbGxiYXIvcm9sbGJhci5qcy9pc3N1ZXMvMTg1" title="https://github.com/rollbar/rollbar.js/issues/185">不支援 React Native<i class="fa fa-external-link"></i></span>；Answers 我必須承認使用起來跟 Google Analytics 別無二致，會使用 Answers 只是為了將日常工具 (Crashlytics + Answers) 都整合在同一個平台 (Fabric) 方便日後管理。</p>
-<h3 id="2-整合-AppHub"><a href="#2-整合-AppHub" class="headerlink" title="2. 整合 AppHub"></a>2. 整合 <span class="exturl" data-url="aHR0cHM6Ly9hcHBodWIuaW8v" title="https://apphub.io/">AppHub<i class="fa fa-external-link"></i></span></h3><p>中國的 app 開發商流行對 app 進行 <strong>熱部署</strong> (hot deploy)，AppHub 是其中一家提供該服務的廠商。</p>
-<p>熱部署就是在 app 中嵌入可以自我更新部分程式碼的小程式，藉此透過第三方服務更新所有已經部署到使用者手機上的 app。由於送審曠日費時 (最新消息: <span class="exturl" data-url="aHR0cDovL3RlY2huZXdzLnR3LzIwMTYvMDUvMTMvYXBwc3RvcmUtcmV2aWV3LXRpbWVzLWJvb3N0Lw==" title="http://technews.tw/2016/05/13/appstore-review-times-boost/">蘋果 App Store 的審核時間，大幅減少到不用 2 天<i class="fa fa-external-link"></i></span>)，透過熱部署可以快速地修復可能會或已經造成 app 閃退、安全性漏洞等可能發生嚴重公關問題的 bug。</p>
-<p>AppHub 的介面簡單 (真的有夠簡單，什麼功能都沒有)，但吸引我眼球的原因是 AppHub 官方直接支援 React Native，提供 <span class="exturl" data-url="aHR0cDovL2RvY3MuYXBwaHViLmlvL2RvY3M=" title="http://docs.apphub.io/docs">相對完整的開發文件<i class="fa fa-external-link"></i></span>，方便開發者將服務整合到 app 中。</p>
-<h2 id="其他新東西"><a href="#其他新東西" class="headerlink" title="其他新東西"></a>其他新東西</h2><h3 id="1-ListView-的陷阱"><a href="#1-ListView-的陷阱" class="headerlink" title="1. ListView 的陷阱"></a>1. ListView 的陷阱</h3><blockquote>
-<p><em>Rate-limited row rendering - By default, only one row is rendered per event-loop (customizable with the pageSize prop). This breaks up the work into smaller chunks to reduce the chance of dropping frames while rendering rows.</em> – 截自 React Native 官方文件 ListView 章節</p>
-</blockquote>
-<p>React Native 的 <code>ListView</code> 預設<strong>一次動畫 (例如往左滑動，從畫面開始移動到畫面靜止算一次動畫) 結束後只會從 DataSource 載入一筆資料</strong>。如果你需要配合無限捲動 (我是使用 <span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvcmVhY3QtbmF0aXZlLWluZmluaXRlLXNjcm9sbC12aWV3" title="https://www.npmjs.com/package/react-native-infinite-scroll-view">react-native-infinite-scroll-view<i class="fa fa-external-link"></i></span> 達成) 的效果，記得要透過 <code>pageSize</code> 將一次載入的資料筆數調高 (例如一次十筆)，不然後面的資料一筆一筆載入，使用如果滑動的速度夠快資料就會在滑到列表結尾才載入，會讓使用者有卡住的感覺。</p>
-<h3 id="2-Xcode-如果修改過-Target-name，記得要將舊-library-從專案中移除，否則-ld-會出錯"><a href="#2-Xcode-如果修改過-Target-name，記得要將舊-library-從專案中移除，否則-ld-會出錯" class="headerlink" title="2. Xcode 如果修改過 Target name，記得要將舊 library 從專案中移除，否則 ld 會出錯"></a>2. Xcode 如果修改過 Target name，記得要將舊 library 從專案中移除，否則 <code>ld</code> 會出錯</h3><p>因為我看別人的文章 Target name 都是取有意義的名字，我修改了 Target name，修改之後就一直 app 就一直無法通過 build。我很確定我做了以下幾個步驟：</p>
-<ol>
-<li><code>rm node_modules &amp;&amp; npm install</code> 重新安裝所有 npm packages，單純以防萬一。</li>
-<li><code>cd ios &amp;&amp; pod install &amp;&amp; cd ..</code> 重新安裝所有 Cocoapods 套件與 Xcode workspace 檔案，確定 library 都有正確連結到專案上。</li>
-<li><strong>重新啟動 Xcode</strong> 這一步常常被忘掉 XD 雖然不一定必要但重開治百病。</li>
-</ol>
-<p>以上步驟做完狀況仍然沒有被排除。翻翻找找之後，我發現由於 Cocoapods 會生成 <code>libPods-[target name].a</code> 來與專案連結，<strong>Linked Frameworks and Libraries</strong> 還殘留著舊的 library。刪掉之後也不用重開 Xcode，直接 Clean &amp; Build 就可以了。</p>
-<p>當然如果在此遇到奇怪的問題，還是重開 Xcode 看看，重開治百病。</p>
-<h3 id="3-React-Native-盡可能使用-Flexbox-而不是-position"><a href="#3-React-Native-盡可能使用-Flexbox-而不是-position" class="headerlink" title="3. React Native 盡可能使用 Flexbox 而不是 position"></a>3. React Native 盡可能使用 Flexbox 而不是 <code>position</code></h3><p>React Native 是我看過對 Flexbox 支援最完整的平台，因此在調整樣式的選擇上盡可能地選擇使用 Flexbox 來排版。</p>
-<p>我目前遇到的特殊情形只有浮動的按鈕 (e.g. iOS 返回用的關閉按鈕，口語上的叉叉符號)，其他版面都可以透過純 Flexbox 達成。由於我跟 Flexbox 還是很不熟，我還是需要參考 cheatsheet，在此提供我常用的 cheatsheet <span class="exturl" data-url="aHR0cHM6Ly9jc3MtdHJpY2tzLmNvbS9zbmlwcGV0cy9jc3MvYS1ndWlkZS10by1mbGV4Ym94Lw==" title="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox<i class="fa fa-external-link"></i></span>，基本上上面列出來的 Flexbox 屬性到現在還沒有遇到 React Native 不支援的情形。</p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/issue-2016-05-13/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -715,7 +725,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Heng-Yi Wu">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -772,11 +782,29 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/每週分享/" itemprop="url" rel="index"><span itemprop="name">每週分享</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -807,52 +835,18 @@
 
       
         
-          
-            <h2 id="工作內容"><a href="#工作內容" class="headerlink" title="工作內容"></a>工作內容</h2><ul>
+          <h2 id="工作內容"><a href="#工作內容" class="headerlink" title="工作內容"></a>工作內容</h2><ul>
 <li>app 新功能大致開發完成，開始收斂修 bug，準備第一版送審</li>
 </ul>
-<h2 id="新發現的東西"><a href="#新發現的東西" class="headerlink" title="新發現的東西"></a>新發現的東西</h2><h3 id="1-Jenkins-2-0-on-Docker"><a href="#1-Jenkins-2-0-on-Docker" class="headerlink" title="1. Jenkins 2.0 on Docker"></a>1. Jenkins 2.0 on Docker</h3><p>很多團隊都不敢貿然在開發流程中導入 Docker，一個很大的原因是許多 service 都還沒有針對 Docker 做過最佳化。2015 年 Docker 大流行時，網路上也出現不少質疑 Docker 將 service 虛擬化之後隨之而來的效能瓶頸。但持該論點的文章，大多都是採用短時間、高併發的 benchmarking (套一句行話來說就是「燒機」式的測試) 去測試 Docker 的性能，而不是真的讓 MySQL 跑在 production 環境上一段時間然後慢慢調整效能。但說實在地，未經測試的架構，誰又有這麼大顆的心臟敢放它在 production 環境上跑呢？</p>
-<p>扯太遠了。這一週主要是發現 Jenkins 2.0 在 Docker 上執行的效能比 1.x 來說有非常顯著的改善。由於目前 Sudo 是使用 CircleCI 做 CI，還沒有做 CD，但在正式導入 CD 之前我預想到了一個問題。</p>
-<blockquote>
-<p>CircleCI 的 IP 不固定，要怎麼樣在兼顧 AWS Security Group 政策的前提下執行 CD？</p>
-</blockquote>
-<p>我目前想到最合理的替代方案是直接在 AWS 內建立自己的 CI/CD 環境 (至於怎麼架設還需要再研究，因為最終目的是一台 EC2 都不要管，全部改用 ECS)，而 Jenkins 正是這一方面領域的佼佼者。但自行測試幾次 Jenkins 1.x 之後，不是安裝 plugins 時讓系統的 load 飆高到連 shell 都卡住的地步，不然就是正式建置專案時記憶體被塞爆 (在已經掛上 swap 的前提下)。曾經試著開 spot instance 去執行，但問題沒有解決。</p>
-<p>連官方都在 Downloads 的選項中正式提供 Docker 的安裝方式，Jenkins 2.0 這次的表現讓我又對它抱持一線希望。</p>
-<h3 id="2-React-Native-串接-Cocoapods-並透過-fastlane-部署時的陷阱"><a href="#2-React-Native-串接-Cocoapods-並透過-fastlane-部署時的陷阱" class="headerlink" title="2. React Native 串接 Cocoapods 並透過 fastlane 部署時的陷阱"></a>2. React Native 串接 Cocoapods 並透過 fastlane 部署時的陷阱</h3><p>在茫茫 Google 中尋覓是否有人寫好 Flurry 或 Google Analytics 的 wrapper 一陣子之後，我放棄了。因為不是寫完之後就擺在那裡根本沒去更新 iOS library，不然就是一抓下來掛上去噴奇怪的錯誤 (Google Analytics 的 wrapper 在虛擬器中測試會噴 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2x3YW5zYnJvdWdoL3JlYWN0LW5hdGl2ZS1nb29nbGUtYW5hbHl0aWNzL2lzc3Vlcy8yOA==" title="https://github.com/lwansbrough/react-native-google-analytics/issues/28">奇怪的錯誤<i class="fa fa-external-link"></i></span>)。絕望之下，我只好捲起袖子自己橋接 React Native 與 iOS library 了。</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9mYWNlYm9vay5naXRodWIuaW8vcmVhY3QtbmF0aXZlL2RvY3MvbmF0aXZlLW1vZHVsZXMtaW9zLmh0bWw=" title="https://facebook.github.io/react-native/docs/native-modules-ios.html">官方文件<i class="fa fa-external-link"></i></span> 寫得很詳細，而且我從 <span class="exturl" data-url="aHR0cHM6Ly9mYWNlYm9vay5naXRodWIuaW8vcmVhY3QtbmF0aXZlL2RvY3MvbmF0aXZlLW1vZHVsZXMtaW9zLmh0bWwjZXhwb3J0aW5nLXN3aWZ0" title="https://facebook.github.io/react-native/docs/native-modules-ios.html#exporting-swift">Exporting Swift<i class="fa fa-external-link"></i></span> (我很慚愧地表示我不會 Objective-C) 開始做，步驟少得有點過分。顫抖地按下編譯並執行，還真的可以跑 (數據有確實地傳回 Google Analytics，真心不騙)。</p>
-<blockquote>
-<p>My code works but I don’t know why.</p>
-</blockquote>
-<p>扯遠了。這一次真正要分享的是如果 React Native 有掛 Cocoapods，<code>Fastfile</code> 要一併更新，否則會發生找不到 library 的錯誤。例如以下這一行：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gym(<span class="symbol">scheme:</span> <span class="string">"app"</span>, <span class="symbol">project:</span> <span class="string">"ios/app.xcodeproj"</span>)</span><br></pre></td></tr></table></figure>
-<p>一開始開發 React Native 與設定 fastlane 時，它不會預設你未來會掛 Cocoapods 上去，因為不是每個人都會用到 Cocoapods，或可能使用了 Cocoapods 以外的套件管理工具。但如果第一次執行完 <code>pod install</code>，Cocoapods 其實會提醒你之後記得都要使用 <code>*.xcworkspace</code> 當作開發時的專案檔：</p>
-<pre><code>[!] From now on use `app.xcworkspace`.
-</code></pre><p>我記得這件事，之後也都是使用 <code>*.xcworkspace</code> 開發，但每次透過 fastlane 部署的時候都會在 <code>gym</code> 那一步出錯，跟我抱怨說 <code>ld</code> 找不到 library 連結。<strong>明明開發時在虛擬機上面跑都沒有問題，為什麼部署的時候就會出錯？</strong></p>
-<p>這兩者唯一的差異不就是一個透過 Xcode 執行，一個透過 fastlane 執行嗎？</p>
-<p>於是我打開 <code>Fastfile</code>，將那行該死的 <code>gym</code> 改成以下形式：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gym(<span class="symbol">scheme:</span> <span class="string">"app"</span>, <span class="symbol">workspace:</span> <span class="string">"ios/app.xcworkspace"</span>)</span><br></pre></td></tr></table></figure>
-<p><strong>然後什麼都不必改，因為 Cocoapods 在建立 workspace 時已經把設定都寫進去了</strong>。部署成功。</p>
-<p>於是，<code>ld</code> 找到它的歸屬，與 iOS library 從此過著幸福快樂的日子。</p>
-<p>必須承認 React Native library 還是這麼少是非戰之罪，因為自己動手橋接真是太容易了，而且有很多 library 是依附在平台之上，要跨平台沒有這麼容易，根本讓人沒有動力去寫 for React Native 的 library。</p>
-<h2 id="3-React-Native-動畫效果不要濫用"><a href="#3-React-Native-動畫效果不要濫用" class="headerlink" title="3. React Native 動畫效果不要濫用"></a>3. React Native 動畫效果不要濫用</h2><p>從 iOS 7 開始支援一種新的手勢，如果你從螢幕邊緣向右滑動，就可以回到上一個畫面。</p>
-<p><img src="http://static.iphonelife.com/sites/iphonelife.com/files/u31936/Swipe%20Mail.png" alt="Swipe gesture in Apple Mail"></p>
-<p>React Native 支援以下過場動畫效果，透過實作 <code>Navigator</code> 的 <span class="exturl" data-url="aHR0cHM6Ly9mYWNlYm9vay5naXRodWIuaW8vcmVhY3QtbmF0aXZlL2RvY3MvbmF2aWdhdG9yLmh0bWwjY29uZmlndXJlc2NlbmU=" title="https://facebook.github.io/react-native/docs/navigator.html#configurescene"><code>configureScene</code><i class="fa fa-external-link"></i></span> 來控制，目前支援以下幾種：</p>
-<ul>
-<li>Navigator.SceneConfigs.PushFromRight (default)</li>
-<li>Navigator.SceneConfigs.FloatFromRight</li>
-<li>Navigator.SceneConfigs.FloatFromLeft</li>
-<li>Navigator.SceneConfigs.FloatFromBottom</li>
-<li>Navigator.SceneConfigs.FloatFromBottomAndroid</li>
-<li>Navigator.SceneConfigs.FadeAndroid</li>
-<li>Navigator.SceneConfigs.HorizontalSwipeJump</li>
-<li>Navigator.SceneConfigs.HorizontalSwipeJumpFromRight</li>
-<li>Navigator.SceneConfigs.VerticalUpSwipeJump</li>
-<li>Navigator.SceneConfigs.VerticalDownSwipeJump</li>
-</ul>
-<p>其中最後名稱中包含 “Swipe” 字樣的四種效果使用上需特別謹慎，尤其是當你的畫面中有 carousel 的元件時，使用者的左右滑動會被 bubble up 到最上層的 <code>View</code>，然後被辨識為 iOS 的滑動返回手勢，這對使用者來說是預期之外的行為，應該避免。</p>
-<p>目前的解決方案是在使用 carousel 元件的 <code>View</code> 上避免 Swipe 類的過場特效，改以 Float 或預設的 Push 取代。另外有一個潛在的解決方法是覆寫 carousel 的 <code>onTouchStart</code> 避免 event 被 bubble up，但由於還沒有認真研究過 React Native 的事件處理機制，所以就先不嘗試了。</p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/issue-2016-05-06/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -912,7 +906,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Heng-Yi Wu">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -969,11 +963,29 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/每週分享/" itemprop="url" rel="index"><span itemprop="name">每週分享</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1004,29 +1016,19 @@
 
       
         
-          
-            <h2 id="工作內容"><a href="#工作內容" class="headerlink" title="工作內容"></a>工作內容</h2><ul>
+          <h2 id="工作內容"><a href="#工作內容" class="headerlink" title="工作內容"></a>工作內容</h2><ul>
 <li>持續推進 app 其他元件的進度。</li>
 <li>下一週送審第一版後會開始重構，我隱約感覺這會是 React Native 的重頭戲，也會是下週分享的重點。</li>
 </ul>
-<h2 id="其他新東西"><a href="#其他新東西" class="headerlink" title="其他新東西"></a>其他新東西</h2><h2 id="1-關於-AWS-架構的反思"><a href="#1-關於-AWS-架構的反思" class="headerlink" title="1. 關於 AWS 架構的反思"></a>1. 關於 AWS 架構的反思</h2><p>最近迷上 AWS 那 <em>用多少，收多少</em> (一個月十美金撐著四個 php 網站 + 一個 Dokku 建立的 Heroku-like 平台，根本物超所值) 又極為彈性的架構，一股衝動上來想要把所有的現有架構全部搬到 AWS 上，卻落入了 <em>過度設計</em> 的陷阱。</p>
-<p>上週曾試著使用 AWS Lambda 寫一個模擬 web cron 的小 app。在使用 AWS Lambda 之前，我是透過一個簡單的 Rails app 去達成一樣的目的。</p>
-<blockquote>
-<p>為什麼你不使用 Linux cron 就好了呢？</p>
-</blockquote>
-<p>這是我跳脫 Linux cron 架構之後最常被問到的問題。原先想要從 Linux cron 搬出來的原因是 <strong>Linux cron 太依賴主機</strong>，在這個 <em>主機是畜牲，不是寵物</em> 的虛擬化平台年代，每一台主機都應該具備 immutable 的特性， <strong>就算主機消滅了，只要透過系統化的步驟，就可以讓服務在可控制的時間內重新上線</strong>。</p>
-<p>搬出來之後，我研究了 Rails app 的 scheduler，研究了 Rails 如何與 Slack 串接然後發送通知。實際串接一個已上線的 Drupal 網站測試兩個月之後，我觀察到以下情形：</p>
-<ol>
-<li>我根本不 care Slack 送來的通知，因為我內心深處知道一定又是一個成功的 cron。這讓 Slack 通知變得非常雞肋。</li>
-<li>如果 cron 執行失敗了，會另外發送電子郵件提醒，而 Drupal cron 失敗的機率又非常低。</li>
-</ol>
-<p>於是，三個月之後，歷經 Linux cron、<span class="exturl" data-url="aHR0cHM6Ly93d3cuc2V0Y3JvbmpvYi5jb20v" title="https://www.setcronjob.com/">SetCronJob<i class="fa fa-external-link"></i></span>、AWS Lambda 之後，我又回到 Linux cron，配合 <span class="exturl" data-url="aHR0cHM6Ly91cHRpbWVyb2JvdC5jb20v" title="https://uptimerobot.com/">Uptime Robot<i class="fa fa-external-link"></i></span> 接收網站下線警告。這是我最初的架構，也是最穩定、最簡單的架構。</p>
-<blockquote>
-<p>工程師應該要想辦法降低自己的工作負載，而不是讓自己一直過勞。<br>– 佚名 <em>實際上是我忘記誰說的了 XD</em></p>
-</blockquote>
-<p>其實 AWS Lambda 讓我想起 Parse 之前推出的 Cloud code，兩者簡直是一模一樣的服務。只是隨著 Parse 被 Facebook 死刑定讞，那些過往雲煙就讓它隨風飄逝吧。</p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/issue-2016-04-29/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1086,7 +1088,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Heng-Yi Wu">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1143,11 +1145,29 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/每週分享/" itemprop="url" rel="index"><span itemprop="name">每週分享</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1178,29 +1198,18 @@
 
       
         
-          
-            <h2 id="工作內容"><a href="#工作內容" class="headerlink" title="工作內容"></a>工作內容</h2><ul>
+          <h2 id="工作內容"><a href="#工作內容" class="headerlink" title="工作內容"></a>工作內容</h2><ul>
 <li>棄用 <code>recompose</code>，改用 <code>redux</code> 重構 Sudo app</li>
 </ul>
-<h2 id="其他新東西"><a href="#其他新東西" class="headerlink" title="其他新東西"></a>其他新東西</h2><h3 id="1-JSX-超級懶人語法"><a href="#1-JSX-超級懶人語法" class="headerlink" title="1. JSX 超級懶人語法"></a>1. JSX 超級懶人語法</h3><p>在 React JSX，我們常常使用以下語法去分發 props：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Component alpha=&#123;alpha&#125; beta=&#123;beta&#125; gamma=&#123;gamma&#125; /&gt;</span><br></pre></td></tr></table></figure>
-<p>但我忘記在哪裡發現了一個超級懶人寫法，由於使用到 ES6 的 object destructuring，前提是 你的 property name 必須跟 variable name 相同：</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Component &#123;...&#123; alpha, beta, gamma &#125; &#125; /&gt;</span><br></pre></td></tr></table></figure>
-<p>夠懶夠簡潔。</p>
-<h3 id="2-gitignore-與-LICENSE-產生器"><a href="#2-gitignore-與-LICENSE-產生器" class="headerlink" title="2. .gitignore 與 LICENSE 產生器"></a>2. .gitignore 與 LICENSE 產生器</h3><ul>
-<li>gitignore.io: <span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2l0aWdub3JlLmlvLw==" title="https://www.gitignore.io/">https://www.gitignore.io/<i class="fa fa-external-link"></i></span></li>
-</ul>
-<p>以前曾經在 JetBrains 系列產品使用過類似的 plugin，把自己現在使用的工具或語言勾起來 .gitignore 就幫你產生好了，非常方便，沒想到有 web application 版本，回傳值還是 plain text，非常適合跟 curl 整合成 command line 工具。</p>
-<ul>
-<li>lincese command: <span class="exturl" data-url="aHR0cHM6Ly9uaXNoYW50aHMuZ2l0aHViLmlvL2xpY2Vuc2Uv" title="https://nishanths.github.io/license/">https://nishanths.github.io/license/<i class="fa fa-external-link"></i></span></li>
-</ul>
-<p>既然有人提供自動生成 .gitignore 的工具，舉一反三是否有人提供自動生成 LICENSE 的工具呢？還真的有，而且直接幫你整合成 command line 工具了。透過 homebrew 就可以安裝使用。</p>
-<h3 id="3-Docker-安全建議書"><a href="#3-Docker-安全建議書" class="headerlink" title="3. Docker 安全建議書"></a>3. Docker 安全建議書</h3><ul>
-<li>Docker Bench for Security: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvY2tlci9kb2NrZXItYmVuY2gtc2VjdXJpdHk=" title="https://github.com/docker/docker-bench-security">https://github.com/docker/docker-bench-security<i class="fa fa-external-link"></i></span></li>
-</ul>
-<p>最近心血來潮，想研究 Docker 安全性設定，google 才發現 Docker 官方已經 release 出一套自己開發的安全性檢測工具 Docker Bench for Security。這一套工具非常簡單，第一步在你的 docker machine 上把它 git clone 下來，第二步 sudo docker-bench-security.sh 它就會產生一張安全性建議的清單給你。</p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/issue-2016-04-25/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1260,7 +1269,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Heng-Yi Wu">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1317,11 +1326,29 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/每週分享/" itemprop="url" rel="index"><span itemprop="name">每週分享</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1352,52 +1379,22 @@
 
       
         
-          
-            <h2 id="工作內容"><a href="#工作內容" class="headerlink" title="工作內容"></a>工作內容</h2><h3 id="1-完成-app-的自動化部署"><a href="#1-完成-app-的自動化部署" class="headerlink" title="1. 完成 app 的自動化部署"></a>1. 完成 app 的自動化部署</h3><ul>
+          <h2 id="工作內容"><a href="#工作內容" class="headerlink" title="工作內容"></a>工作內容</h2><h3 id="1-完成-app-的自動化部署"><a href="#1-完成-app-的自動化部署" class="headerlink" title="1. 完成 app 的自動化部署"></a>1. 完成 app 的自動化部署</h3><ul>
 <li>使用 <span class="exturl" data-url="aHR0cHM6Ly9mYXN0bGFuZS50b29scy8=" title="https://fastlane.tools/">fastlane<i class="fa fa-external-link"></i></span> 進行部署。</li>
 <li>使用 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuYXBwbGUuY29tL3Rlc3RmbGlnaHQv" title="https://developer.apple.com/testflight/">testflight<i class="fa fa-external-link"></i></span> 向測試人員發送通知與推送新版本。</li>
 </ul>
 <h3 id="2-app-主體"><a href="#2-app-主體" class="headerlink" title="2. app 主體"></a>2. app 主體</h3><ul>
 <li>將 app 改寫成 redux-like 架構，之所以加上 <em>-like</em> 是因為真正實作的工具是 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjZGxpdGUvcmVjb21wb3Nl" title="https://github.com/acdlite/recompose"><code>recompose</code><i class="fa fa-external-link"></i></span>。</li>
 </ul>
-<h2 id="其他新東西"><a href="#其他新東西" class="headerlink" title="其他新東西"></a>其他新東西</h2><h3 id="1-fastlane"><a href="#1-fastlane" class="headerlink" title="1. fastlane"></a>1. fastlane</h3><p>fastlane 可以類比成行動平台的 capistrano，主要的兩大平台 iOS、Android 都有支援。fastlane 由好幾支工具組成，<code>fastlane</code> 指令本身只負責將參數轉送給這些工具。從 <strong>測試</strong>、<strong>編譯</strong>、<strong>後勤支援</strong> (e.g. 螢幕截圖、更新 app 資訊) 到 <strong>打包</strong>、<strong>上傳</strong> Testflight，甚至最後 <strong>送審上架</strong> 都可以透過 fastlane 完成。</p>
-<p>fastlane 的主體與設定檔採用 Ruby 開發，開發前請注意機器上是否有安裝 Ruby。</p>
-<p>這次主要使用到的 fastlane 元件有 match、gym 跟 pilot，分別介紹如下。</p>
-<h4 id="A-match"><a href="#A-match" class="headerlink" title="A. match"></a>A. <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Zhc3RsYW5lL2Zhc3RsYW5lL3RyZWUvbWFzdGVyL21hdGNo" title="https://github.com/fastlane/fastlane/tree/master/match">match<i class="fa fa-external-link"></i></span></h4><p>透過 Git 管理開發時使用的各類憑證：</p>
-<ol>
-<li><strong>private key</strong> 存取 Apple 開發者平台所需的私鑰。</li>
-<li><strong>certificates</strong> app 的身分證。</li>
-<li><strong>provisioning profiles</strong> 與開發環境連動的設定檔，主要分為 <code>development</code> (開發用) 與 <code>ad-hoc</code> (內部測試時使用，在這次 app 開發中被 Testflight 取代)。</li>
-</ol>
-<p>有開發過 iOS 的工程師大概都經歷過管理這些憑證的痛苦，match 透過 Git repository 配合 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Zhc3RsYW5lL2Zhc3RsYW5lL3RyZWUvbWFzdGVyL3NwYWNlc2hpcA==" title="https://github.com/fastlane/fastlane/tree/master/spaceship">spaceship<i class="fa fa-external-link"></i></span> (fastlane 團隊實作的 Apple Developer Portal API)，將這些憑證的簽發與同步的工作透過一個 <code>match</code> 指令完成。</p>
-<p>因為一支 Git repository 保存的只有與 app 有關的 certificates 與 provisioning profiles，因此 <strong>一支 repository 對應一支 app</strong>，也就是開發團隊的所有成員如果要參與開發都是 <strong>同步同一支 Git repository</strong>。</p>
-<p>至於 <code>match</code> 的安全性：</p>
-<ol>
-<li><strong>match 強烈建議使用者將使用 private repository 管理憑證</strong>，可以大幅降低資安風險。</li>
-<li><strong>簽發憑證時 <code>match</code> 會要求使用者輸入 passphrase 做加密</strong>，因此即使 repository 被入侵，如果 passphrase 的強度足夠有心人士短期內也很難解鎖，相對也可以幫團隊爭取到更換憑證的時間。</li>
-<li><strong>private key 透過 Mac 的 Keychain 工具程式保存在本機上</strong>，不會同步到 Git repository。所以惡意人士即使取得 repository 的控制權，也無從偽裝成開發者的身份進一步控制 Apple 開發者帳號。</li>
-</ol>
-<h4 id="B-gym"><a href="#B-gym" class="headerlink" title="B. gym"></a>B. <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Zhc3RsYW5lL2Zhc3RsYW5lL3RyZWUvbWFzdGVyL2d5bQ==" title="https://github.com/fastlane/fastlane/tree/master/gym">gym<i class="fa fa-external-link"></i></span></h4><p>由於 Xcode 的 command line 編譯指令十分複雜：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> xcodebuild clean archive -archivePath build/MyApp \</span></span><br><span class="line">                           -scheme MyApp</span><br><span class="line"><span class="meta">$</span><span class="bash"> xcodebuild -exportArchive \</span></span><br><span class="line">             -exportFormat ipa \</span><br><span class="line">             -archivePath "build/MyApp.xcarchive" \</span><br><span class="line">             -exportPath "build/MyApp.ipa" \</span><br><span class="line">             -exportProvisioningProfile "ProvisioningProfileName"</span><br></pre></td></tr></table></figure>
-<p>透過 gym 則可以大幅降低編譯的指令長度：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gym</span></span><br></pre></td></tr></table></figure>
-<p>但卻不失彈性：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gym --workspace <span class="string">"Example.xcworkspace"</span> --scheme <span class="string">"AppName"</span> --clean</span></span><br></pre></td></tr></table></figure>
-<h4 id="C-pilot"><a href="#C-pilot" class="headerlink" title="C. pilot"></a>C. <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Zhc3RsYW5lL2Zhc3RsYW5lL3RyZWUvbWFzdGVyL3BpbG90" title="https://github.com/fastlane/fastlane/tree/master/pilot">pilot<i class="fa fa-external-link"></i></span></h4><p>pilot 負責將 app <strong>打包</strong>、<strong>簽呈</strong> (將憑證包入 app) 並 <strong>上傳</strong> 到 <span class="exturl" data-url="aHR0cHM6Ly9pdHVuZXNjb25uZWN0LmFwcGxlLmNvbS8=" title="https://itunesconnect.apple.com/">iTunes Connect<i class="fa fa-external-link"></i></span>。</p>
-<p>iTunes Connect 可以想成是 iTunes 的後台，所有 app 的 <strong>測試</strong>、<strong>送審</strong> 與 <strong>發布</strong> 都在 iTunes Connect 上解決。app 上傳後，已加入該 app Testflight 測試計畫的使用者都會收到更新通知。</p>
-<h3 id="2-Testflight"><a href="#2-Testflight" class="headerlink" title="2. Testflight"></a>2. <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuYXBwbGUuY29tL3Rlc3RmbGlnaHQv" title="https://developer.apple.com/testflight/">Testflight<i class="fa fa-external-link"></i></span></h3><p>原來是獨立一家公司，主要業務是 iOS app 的測試服務，之後被 Apple 收購。透過 Testflight，Apple 開發者可以邀請 <strong>不具備 Apple 開發者身份</strong> 的非開發人員或特定客戶，透過 <span class="exturl" data-url="aHR0cHM6Ly9pdHVuZXMuYXBwbGUuY29tL3R3L2FwcC90ZXN0ZmxpZ2h0L2lkODk5MjQ3NjY0P210PTg=" title="https://itunes.apple.com/tw/app/testflight/id899247664?mt=8">Testflight app<i class="fa fa-external-link"></i></span> 加入 app 的測試流程。</p>
-<h3 id="3-recompose"><a href="#3-recompose" class="headerlink" title="3. recompose"></a>3. <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjZGxpdGUvcmVjb21wb3Nl" title="https://github.com/acdlite/recompose">recompose<i class="fa fa-external-link"></i></span></h3><p>這算是從 React 衍生出來的一套工具程式，在 React ecosystem 中與 Redux 同級。</p>
-<pre><code>Forget ES6 classes vs. createClass().
-
-An idiomatic React application consists mostly of function components.
-
--- recompose
-</code></pre><p>recompose 希望透過 high-order functions 與 functional programming 的實作 (curry、compose 等函數包裝方法) ，而不是 ES6 的 class 操作 React component。</p>
-<p>簡而言之，<strong>一個 high-order function 就是一個 component</strong>。</p>
-<p>原來想透過 Redux 重寫 app 的主體架構，順便將排版的 flexbox 從頭到尾整理一次，為接下來串接 API 做準備。打開 Redux 的文件才發現 Redux 有很大一部分的實作都已經非常地 <em>functionalized</em>，這才想起之前看過的 recompose，想說如果 Redux 都被 functionalized 了不如直接使用 recompose，API 也比 Redux 簡潔許多。</p>
-<p>唯一要注意的是 component 的 lifecycle 在 recompose 中被 implicated 了，很容易不小心就在 <code>render</code> 的部分改動了 state。由於之後的動畫的啟動與重新繪製很容易去踩到這條不明顯的界線，要如何分割 component 是接下來要研究的部分。</p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/issue-2016-04-11/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1457,7 +1454,7 @@ An idiomatic React application consists mostly of function components.
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Heng-Yi Wu">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1514,11 +1511,29 @@ An idiomatic React application consists mostly of function components.
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/每週分享/" itemprop="url" rel="index"><span itemprop="name">每週分享</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1631,7 +1646,7 @@ An idiomatic React application consists mostly of function components.
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Heng-Yi Wu">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1688,11 +1703,29 @@ An idiomatic React application consists mostly of function components.
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Ruby-on-Rails/" itemprop="url" rel="index"><span itemprop="name">Ruby on Rails</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1723,30 +1756,16 @@ An idiomatic React application consists mostly of function components.
 
       
         
+          <p>列輸出一直是我在使用 CSS framework 時視而不見的問題。直接看 code 比較快，討論以下三種解決方案。</p>
+          <!--noindex-->
           
-            <p>列輸出一直是我在使用 CSS framework 時視而不見的問題。直接看 code 比較快，討論以下三種解決方案。</p>
-<h2 id="第一種：直接把所有資料丟在同一列裡"><a href="#第一種：直接把所有資料丟在同一列裡" class="headerlink" title="第一種：直接把所有資料丟在同一列裡"></a>第一種：直接把所有資料丟在同一列裡</h2><p>在 ERB 的部分什麼事情都不做，然後在撰寫 CSS 時修改樣式解決。</p>
-<figure class="highlight erb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="container"&gt;</span><br><span class="line">    &lt;h3&gt;All data in one row&lt;/h3&gt;</span><br><span class="line">    &lt;div class="row"&gt;</span><br><span class="line">    &lt;% @dataset.each do |data| %&gt;</span><br><span class="line">        &lt;div class="three columns"&gt;&lt;%= data %&gt;&lt;/div&gt;</span><br><span class="line">    &lt;% end %&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>其實這麼做也不會有什麼太大的問題，只是每一次自行覆寫 CSS 都要擔心內部樣式被覆寫掉，尤其是當你使用 Twitter Bootstrap 或 Zurb Foundation 時都要擔心受怕，下 <code>class</code> name 的時候都要謹慎再謹慎。</p>
-<h2 id="第二種：使用-運算子切分每一列"><a href="#第二種：使用-運算子切分每一列" class="headerlink" title="第二種：使用 % 運算子切分每一列"></a>第二種：使用 <code>%</code> 運算子切分每一列</h2><p>這一種是最直觀的寫法，但由於自己最近剛看完 <span class="exturl" data-url="aHR0cDovL3d3dy5lZmZlY3RpdmVweXRob24uY29tLw==" title="http://www.effectivepython.com/">Effective Python<i class="fa fa-external-link"></i></span>，開始對自己 code 裡 <strong>視覺雜訊</strong> 感到不安。</p>
-<figure class="highlight erb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="container"&gt;</span><br><span class="line">    &lt;h3&gt;Use % operator to separate rows&lt;/h3&gt;</span><br><span class="line">    &lt;% @dataset.each_with_index do |data, index| %&gt;</span><br><span class="line">    &lt;% if index % 4 == 0 %&gt;</span><br><span class="line">        &lt;div class="row"&gt;&lt;% end %&gt;</span><br><span class="line">        &lt;div class="three columns"&gt;&lt;%= "##&#123;index&#125;. #&#123;data&#125;" %&gt;&lt;/div&gt;</span><br><span class="line">    &lt;% if index % 4 == 3 or index == @dataset.size - 1 %&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;% end %&gt;</span><br><span class="line">    &lt;% end %&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>將 code 放大來看，我所謂的視覺雜訊出現在以下這裡行：</p>
-<figure class="highlight erb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if index % 4 == 0 %&gt;</span><br><span class="line">&lt;div class="row"&gt;</span><br><span class="line">&lt;% end %&gt;</span><br><span class="line">    &lt;div class="three columns"&gt;&lt;%= "##&#123;index&#125;. #&#123;data&#125;" %&gt;&lt;/div&gt;</span><br><span class="line">&lt;% if index % 4 == 3 or index == @dataset.size - 1 %&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;% end %&gt;</span><br></pre></td></tr></table></figure>
-<p>開頭與結尾的 <code>if</code> 區塊與運算式把 HTML 標籤的開頭 <code>&lt;div class=&quot;row&quot;&gt;</code> 與結尾 <code>&lt;/div&gt;</code> 分開夾住，在檢視 code 的時候會有一種標籤被硬生生切開的斷裂感。尤其是受到嚴格 HTML 訓練的工程師， <strong>HTML 標籤必須成對出現</strong> 的規則幾乎已經是不可以妥協的基本要件。</p>
-<p>說地白話一點，<strong>第二種作法的 code 會讓網頁工程師強迫症發作</strong>。</p>
-<p>只要會讓我邊寫邊抑制腦中既定規則的程式碼，就存在視覺雜訊。</p>
-<p>另外是 <code>index % 4</code> 這樣的運算式出現了一次以上，之後在修改 code 的時候很容易漏掉，尤其是 <code>index % 4 == 3</code> 等號右邊的餘數常常變成漏網之魚。</p>
-<p><strong>view 盡量不要摻雜邏輯</strong> 的原則是有道理的。 <span class="exturl" data-url="aHR0cDovL2Jsb2cueGRpdGUubmV0L3Bvc3RzLzIwMTEvMTIvMTAvaG93LXRvLWRlc2lnbi1oZWxwZXJzLTIv" title="http://blog.xdite.net/posts/2011/12/10/how-to-design-helpers-2/">其一：在 View 裡面實作 LOGIC 是不好的。<i class="fa fa-external-link"></i></span></p>
-<h2 id="第三種：使用-each-slice-切分每一列"><a href="#第三種：使用-each-slice-切分每一列" class="headerlink" title="第三種：使用 each_slice 切分每一列"></a>第三種：使用 <code>each_slice</code> 切分每一列</h2><p>第三種是最 Ruby-style 的寫法，在其他的程式語言可能會表達成巢狀迴圈，但 Ruby 的 <strong>Everything in Ruby is an Object</strong> 原則與 block 語法讓 embeded Ruby 即使是內嵌在 HTML 文件時還是可以保持優雅。</p>
-<p><span class="exturl" data-url="aHR0cDovL3J1YnktZG9jLm9yZy9jb3JlLTIuMy4wL0VudW1lcmFibGUuaHRtbCNtZXRob2QtaS1lYWNoX3NsaWNl" title="http://ruby-doc.org/core-2.3.0/Enumerable.html#method-i-each_slice">each_slice<i class="fa fa-external-link"></i></span> 的用途很單純，就是把一個 Enumerable 物件依據傳入的長度切割成幾個比較小的 Enumerable 物件。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>].each_slice(<span class="number">3</span>).each <span class="keyword">do</span> <span class="params">|slice|</span></span><br><span class="line">   p slice</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># [1, 2, 3]</span></span><br><span class="line"><span class="comment"># [4, 5, 6]</span></span><br><span class="line"><span class="comment"># [7]</span></span><br><span class="line"><span class="comment"># =&gt; nil</span></span><br></pre></td></tr></table></figure>
-<p>這就是我要的，現學現用。</p>
-<figure class="highlight erb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="container"&gt;</span><br><span class="line">    &lt;h3&gt;Use each_slice to separate rows&lt;/h3&gt;</span><br><span class="line">    &lt;%<span class="ruby"> @dataset.each_slice(<span class="number">4</span>) <span class="keyword">do</span> <span class="params">|slice|</span> </span>%&gt;</span><br><span class="line">    &lt;div class="row"&gt;</span><br><span class="line">        &lt;%<span class="ruby"> slice.each <span class="keyword">do</span> <span class="params">|data|</span> </span>%&gt;</span><br><span class="line">        &lt;div class="three columns"&gt;&lt;%=<span class="ruby"> data </span>%&gt;&lt;/div&gt;</span><br><span class="line">        &lt;%<span class="ruby"> <span class="keyword">end</span> </span>%&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;%<span class="ruby"> <span class="keyword">end</span> </span>%&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>這樣好多了！</p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>工程師真的要會下關鍵字。我翻了一個晚上的 Ruby 文件才發現 <code>each_slice</code>，以為自己發現新大陸，Google <code>rails row</code> 立刻就找到了 <span class="exturl" data-url="aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3F1ZXN0aW9ucy80MDM3NjY4L2Rpc3BsYXktNS1yZWNvcmRzLXBlci1yb3c=" title="http://stackoverflow.com/questions/4037668/display-5-records-per-row">Display 5 records per row?<i class="fa fa-external-link"></i></span> 這個問題，才發現功力深厚的 Ruby 工程師早就知道類似的作法了。</p>
-<p>在 StackOverflow 的答案中有提供另外一個 <span class="exturl" data-url="aHR0cDovL2FwaS5ydWJ5b25yYWlscy5vcmcvY2xhc3Nlcy9BcnJheS5odG1sI21ldGhvZC1pLWluX2dyb3Vwc19vZg==" title="http://api.rubyonrails.org/classes/Array.html#method-i-in_groups_of">in_groups_of<i class="fa fa-external-link"></i></span>，跟 <code>each_slice</code> 最大的差別在於 <code>in_groups_of</code> 會忽略 <code>nil</code>。但由於這個 method 是 <code>rails</code> gem 提供的，並不是 pure-Ruby 的解法，因此就不特別提出了。</p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/activerecord-and-rows/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -1806,7 +1825,7 @@ An idiomatic React application consists mostly of function components.
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Heng-Yi Wu">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1863,11 +1882,29 @@ An idiomatic React application consists mostly of function components.
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Ruby/" itemprop="url" rel="index"><span itemprop="name">Ruby</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1967,7 +2004,7 @@ An idiomatic React application consists mostly of function components.
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Heng-Yi Wu">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -2024,11 +2061,29 @@ An idiomatic React application consists mostly of function components.
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Drupal/" itemprop="url" rel="index"><span itemprop="name">Drupal</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -2059,25 +2114,17 @@ An idiomatic React application consists mostly of function components.
 
       
         
-          
-            <p>很久沒使用 Drupal 7 開發網站了。最近搬遷一個舊 Drupal 網站的時候遇到一個很雷的問題。由於這個問題以前就遇到過，這次再遇到我決定把它記錄下來，一勞永逸，或多或少也可以幫助到受困於同樣問題的同道中人。</p>
+          <p>很久沒使用 Drupal 7 開發網站了。最近搬遷一個舊 Drupal 網站的時候遇到一個很雷的問題。由於這個問題以前就遇到過，這次再遇到我決定把它記錄下來，一勞永逸，或多或少也可以幫助到受困於同樣問題的同道中人。</p>
 <p>但在開始之前，你必須先完成幾個必要步驟。</p>
-<h2 id="必要步驟"><a href="#必要步驟" class="headerlink" title="必要步驟"></a>必要步驟</h2><h3 id="第一步，啟用-mod-rewrite，如果你是使用-Apache2-的話"><a href="#第一步，啟用-mod-rewrite，如果你是使用-Apache2-的話" class="headerlink" title="第一步，啟用 mod_rewrite，如果你是使用 Apache2 的話"></a>第一步，啟用 <code>mod_rewrite</code>，如果你是使用 Apache2 的話</h3><p><strong>Ubuntu 14.04 預設不會啟用</strong>，所以這一點要特別注意。</p>
-<p>如果是使用 nginx，可以參考<span class="exturl" data-url="aHR0cHM6Ly93d3cubmdpbnguY29tL3Jlc291cmNlcy93aWtpL3N0YXJ0L3RvcGljcy9yZWNpcGVzL2RydXBhbC8=" title="https://www.nginx.com/resources/wiki/start/topics/recipes/drupal/">官方網站<i class="fa fa-external-link"></i></span>。</p>
-<h3 id="第二步，確定在-Apache2-的設定檔中有開啟-AllowOverride"><a href="#第二步，確定在-Apache2-的設定檔中有開啟-AllowOverride" class="headerlink" title="第二步，確定在 Apache2 的設定檔中有開啟 AllowOverride"></a>第二步，確定在 Apache2 的設定檔中有開啟 <code>AllowOverride</code></h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;Directory [網站跟目錄]&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="attribute">AllowOverride</span> <span class="literal">All</span></span><br><span class="line">    ...</span><br><span class="line"><span class="section">&lt;/Directory&gt;</span></span><br></pre></td></tr></table></figure>
-<p>如果沒有做這一步，網站的 <code>.htaccess</code> 裡的設定 Apache2 會讀取不到。如果你的設定是放在 <code>&lt;VirtualHost&gt;</code> 標籤中，請確定這一組 <code>&lt;Directory&gt;</code> 標籤放在裡面，不然重新啟動的時候會過不了設定檔案測試。</p>
-<h3 id="第三步，重新啟動伺服器"><a href="#第三步，重新啟動伺服器" class="headerlink" title="第三步，重新啟動伺服器"></a>第三步，<strong>重新啟動伺服器</strong></h3><p>不管你是用 Apache2 或 nginx。<strong>如果閃神一定會遺漏這一步</strong>，尤其是困在一個問題上太久一定會精神渙散，少了這一步之前無論做多少設定都是做白工。</p>
-<p>如果以上步驟都完成了，進到設定還是找不到 <code>Enable clean URLs</code> 的勾選按鈕，那你就遇到跟我一樣的問題。</p>
-<h2 id="Drupal-官方討論區提供的解法"><a href="#Drupal-官方討論區提供的解法" class="headerlink" title="Drupal 官方討論區提供的解法"></a>Drupal 官方討論區提供的解法</h2><blockquote>
-<p>Try navigating to “/admin/config/search/clean-urls” (remove the ?q= from the URL). It sounds silly but it worked for me.</p>
-<p>– <span class="exturl" data-url="aHR0cHM6Ly93d3cuZHJ1cGFsLm9yZy9ub2RlLzE3MTk0NzYjY29tbWVudC02OTIzNTcy" title="https://www.drupal.org/node/1719476#comment-6923572">DaisyMaeH’s comment<i class="fa fa-external-link"></i></span></p>
-</blockquote>
-<p>我同意這位使用者的想法，<em>這個解法真的很 silly、很無腦</em>，而且各位看到的時候腦中一定會閃過「我怎麼沒有想到」的想法。但老實說解法真的就是這麼簡單，而且簡單地也有他的道理。而且沒有想到也不是你的錯，<strong>因為 Drupal 也沒有很明確地指出錯誤何在</strong>。</p>
-<p>注意網址列，如果你的網址是 <code>http://&lt;site-url&gt;/index.php?q=admin/config/search/clean-urls</code>，請把它改成 <code>http://&lt;site-url&gt;/admin/config/search/clean-urls</code>，<strong>然後你就會發現 <code>Enable clean URLs</code> 的勾選方塊出現了</strong>。</p>
-<p>老實說我覺得真正無腦的是那個 <code>Run the clean URLs</code> 按鈕，因為測試通常都不會過，但也不會告訴你具體原因，你只能盲猜，<strong>但其實真正的問題一直都是出在網址列上</strong>。</p>
-<p>原來是網址列啊，我怎麼都沒有想到。</p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/clean-urls-in-drupal-7/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -2152,6 +2199,8 @@ An idiomatic React application consists mostly of function components.
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Heng-Yi Wu">
+            
               <p class="site-author-name" itemprop="name">Heng-Yi Wu</p>
               <div class="site-description motion-element" itemprop="description"></div>
           </div>
@@ -2175,12 +2224,32 @@ An idiomatic React application consists mostly of function components.
                 <div class="site-state-item site-state-categories">
                   
                     
+                      <a href="/categories/">
+                    
+                  
+                    
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分類</span>
-                  
+                  </a>
                 </div>
               
 
@@ -2205,28 +2274,52 @@ An idiomatic React application consists mostly of function components.
                 <span class="links-of-author-item">
                   
                   
-                    
-                  
                   
                     
                   
-                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg=" title="GitHub &rarr; https://github.com/henry40408"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg=" title="GitHub &rarr; https://github.com/henry40408"><i class="fa fa-fw fa-github"></i></span>
                 </span>
               
                 <span class="links-of-author-item">
                   
                   
-                    
-                  
                   
                     
                   
-                  <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BoZW5yeTQwNDA4" title="Medium &rarr; https://medium.com/@henry40408"><i class="fa fa-fw fa-medium"></i>Medium</span>
+                  <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BoZW5yeTQwNDA4" title="Medium &rarr; https://medium.com/@henry40408"><i class="fa fa-fw fa-medium"></i></span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2hlbnJ5NDA0MDgv" title="LinkedIn &rarr; https://www.linkedin.com/in/henry40408/"><i class="fa fa-fw fa-linkedin"></i></span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93d3cuY2FrZXJlc3VtZS5jb20vaGVucnk0MDQwOA==" title="Resume &rarr; https://www.cakeresume.com/henry40408"><i class="fa fa-fw fa-file-text"></i></span>
                 </span>
               
             </div>
           
 
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC9kZWVkLnpoX1RX"><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></span>
+             </div>
           
 
           
@@ -2378,6 +2471,9 @@ An idiomatic React application consists mostly of function components.
 
 
   
+  <script src="/js/js.cookie.js?v=7.1.2"></script>
+  <script src="/js/scroll-cookie.js?v=7.1.2"></script>
+
 
   
   <script src="/js/exturl.js?v=7.1.2"></script>

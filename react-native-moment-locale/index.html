@@ -47,18 +47,22 @@
 <link rel="stylesheet" href="/css/main.css?v=7.1.2">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.1.2">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=7.1.2" color="#222">
 
 
+  <link rel="manifest" href="/images/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
 
 
@@ -94,17 +98,17 @@
 
 
 
-  <meta name="description" content="moment.js 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 (new Date()).getFullYear()，如果使用 moment.js 我可以只寫 moment().get(&amp;#39;year&amp;#39;)，可讀性增強許多。 問題React Native 0.29.x 預設使用 ES6，並支援 import 語法。問題出在如果遵照官方網站的說">
+  <meta name="description" content="moment.js 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 (new Date()).getFullYear()，如果使用 moment.js 我可以只寫 moment().get(&amp;#39;year&amp;#39;)，可讀性增強許多。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在 React Native 中使用 moment.js 無法載入語系檔案">
 <meta property="og:url" content="https://henry40408.com/react-native-moment-locale/index.html">
 <meta property="og:site_name" content="Life is a YOLO Game">
-<meta property="og:description" content="moment.js 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 (new Date()).getFullYear()，如果使用 moment.js 我可以只寫 moment().get(&amp;#39;year&amp;#39;)，可讀性增強許多。 問題React Native 0.29.x 預設使用 ES6，並支援 import 語法。問題出在如果遵照官方網站的說">
+<meta property="og:description" content="moment.js 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 (new Date()).getFullYear()，如果使用 moment.js 我可以只寫 moment().get(&amp;#39;year&amp;#39;)，可讀性增強許多。">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-06-16T16:05:34.857Z">
+<meta property="og:updated_time" content="2019-06-19T17:08:52.605Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在 React Native 中使用 moment.js 無法載入語系檔案">
-<meta name="twitter:description" content="moment.js 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 (new Date()).getFullYear()，如果使用 moment.js 我可以只寫 moment().get(&amp;#39;year&amp;#39;)，可讀性增強許多。 問題React Native 0.29.x 預設使用 ES6，並支援 import 語法。問題出在如果遵照官方網站的說">
+<meta name="twitter:description" content="moment.js 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 (new Date()).getFullYear()，如果使用 moment.js 我可以只寫 moment().get(&amp;#39;year&amp;#39;)，可讀性增強許多。">
 
 
 
@@ -200,7 +204,7 @@
     </div>
     
       
-        <p class="site-subtitle">So play it well</p>
+        <p class="site-subtitle">so play it well</p>
       
     
     
@@ -253,6 +257,23 @@
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>歸檔</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分類</a>
 
   </li>
 
@@ -345,7 +366,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Heng-Yi Wu">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -400,11 +421,29 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React-Native/" itemprop="url" rel="index"><span itemprop="name">React Native</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -435,6 +474,7 @@
 
       
         <p><span class="exturl" data-url="aHR0cDovL21vbWVudGpzLmNvbS8=" title="http://momentjs.com/">moment.js<i class="fa fa-external-link"></i></span> 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 <code>(new Date()).getFullYear()</code>，如果使用 moment.js 我可以只寫 <code>moment().get(&#39;year&#39;)</code>，可讀性增強許多。</p>
+<a id="more"></a>
 <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>React Native 0.29.x 預設使用 ES6，並支援 <code>import</code> 語法。問題出在如果遵照官方網站的說明去載入語系檔，會發生找不到模組 (cannot find module) 的錯誤。推測可能是 moment.js 從 ES5 移植到 ES6 沒有轉換完全。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> moment <span class="keyword">from</span> <span class="string">'moment'</span>;</span><br><span class="line">moment.locale(<span class="string">'zh-tw'</span>); <span class="comment">// 這一行會出錯</span></span><br><span class="line"><span class="built_in">console</span>.log(moment.months());</span><br></pre></td></tr></table></figure>
 <h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>GitHub 上已經有人回報相關錯誤，參考 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhY2Vib29rL3JlYWN0LW5hdGl2ZS9pc3N1ZXMvMTYyOQ==" title="https://github.com/facebook/react-native/issues/1629">facebook/react-native#1629<i class="fa fa-external-link"></i></span> 得出以下解法。</p>
@@ -458,6 +498,30 @@
     
 
     
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>作者： </strong>Heng-Yi Wu</li>
+  <li class="post-copyright-link">
+    <strong>文章連結：</strong>
+    
+    <a href="https://henry40408.com/react-native-moment-locale/" title="在 React Native 中使用 moment.js 無法載入語系檔案">https://henry40408.com/react-native-moment-locale/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC9kZWVkLnpoX1RX"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-ND</span> 許可協議。轉載請註明出處！</li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
@@ -480,8 +544,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/react-native-upgrade-and-flexbox/" rel="prev" title="React Native 從 0.28.x 升級與 flexbox">
-                React Native 從 0.28.x 升級與 flexbox <i class="fa fa-chevron-right"></i>
+              <a href="/notify-after-rspec-command-finished/" rel="prev" title="當 iTerm 執行完 RSpec 之後彈出通知">
+                當 iTerm 執行完 RSpec 之後彈出通知 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -545,6 +609,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Heng-Yi Wu">
+            
               <p class="site-author-name" itemprop="name">Heng-Yi Wu</p>
               <div class="site-description motion-element" itemprop="description"></div>
           </div>
@@ -568,12 +634,32 @@
                 <div class="site-state-item site-state-categories">
                   
                     
+                      <a href="/categories/">
+                    
+                  
+                    
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分類</span>
-                  
+                  </a>
                 </div>
               
 
@@ -598,28 +684,52 @@
                 <span class="links-of-author-item">
                   
                   
-                    
-                  
                   
                     
                   
-                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg=" title="GitHub &rarr; https://github.com/henry40408"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg=" title="GitHub &rarr; https://github.com/henry40408"><i class="fa fa-fw fa-github"></i></span>
                 </span>
               
                 <span class="links-of-author-item">
                   
                   
-                    
-                  
                   
                     
                   
-                  <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BoZW5yeTQwNDA4" title="Medium &rarr; https://medium.com/@henry40408"><i class="fa fa-fw fa-medium"></i>Medium</span>
+                  <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BoZW5yeTQwNDA4" title="Medium &rarr; https://medium.com/@henry40408"><i class="fa fa-fw fa-medium"></i></span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2hlbnJ5NDA0MDgv" title="LinkedIn &rarr; https://www.linkedin.com/in/henry40408/"><i class="fa fa-fw fa-linkedin"></i></span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93d3cuY2FrZXJlc3VtZS5jb20vaGVucnk0MDQwOA==" title="Resume &rarr; https://www.cakeresume.com/henry40408"><i class="fa fa-fw fa-file-text"></i></span>
                 </span>
               
             </div>
           
 
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC9kZWVkLnpoX1RX"><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></span>
+             </div>
           
 
           
@@ -792,6 +902,9 @@
 
 
   
+  <script src="/js/js.cookie.js?v=7.1.2"></script>
+  <script src="/js/scroll-cookie.js?v=7.1.2"></script>
+
 
   
   <script src="/js/exturl.js?v=7.1.2"></script>

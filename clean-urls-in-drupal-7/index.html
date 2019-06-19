@@ -47,18 +47,22 @@
 <link rel="stylesheet" href="/css/main.css?v=7.1.2">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.1.2">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=7.1.2" color="#222">
 
 
+  <link rel="manifest" href="/images/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
 
 
@@ -94,17 +98,17 @@
 
 
 
-  <meta name="description" content="很久沒使用 Drupal 7 開發網站了。最近搬遷一個舊 Drupal 網站的時候遇到一個很雷的問題。由於這個問題以前就遇到過，這次再遇到我決定把它記錄下來，一勞永逸，或多或少也可以幫助到受困於同樣問題的同道中人。 但在開始之前，你必須先完成幾個必要步驟。 必要步驟第一步，啟用 mod_rewrite，如果你是使用 Apache2 的話Ubuntu 14.04 預設不會啟用，所以這一點要特別注意。">
+  <meta name="description" content="很久沒使用 Drupal 7 開發網站了。最近搬遷一個舊 Drupal 網站的時候遇到一個很雷的問題。由於這個問題以前就遇到過，這次再遇到我決定把它記錄下來，一勞永逸，或多或少也可以幫助到受困於同樣問題的同道中人。 但在開始之前，你必須先完成幾個必要步驟。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="啟用 Drupal 7 簡潔網址時的地雷">
 <meta property="og:url" content="https://henry40408.com/clean-urls-in-drupal-7/index.html">
 <meta property="og:site_name" content="Life is a YOLO Game">
-<meta property="og:description" content="很久沒使用 Drupal 7 開發網站了。最近搬遷一個舊 Drupal 網站的時候遇到一個很雷的問題。由於這個問題以前就遇到過，這次再遇到我決定把它記錄下來，一勞永逸，或多或少也可以幫助到受困於同樣問題的同道中人。 但在開始之前，你必須先完成幾個必要步驟。 必要步驟第一步，啟用 mod_rewrite，如果你是使用 Apache2 的話Ubuntu 14.04 預設不會啟用，所以這一點要特別注意。">
+<meta property="og:description" content="很久沒使用 Drupal 7 開發網站了。最近搬遷一個舊 Drupal 網站的時候遇到一個很雷的問題。由於這個問題以前就遇到過，這次再遇到我決定把它記錄下來，一勞永逸，或多或少也可以幫助到受困於同樣問題的同道中人。 但在開始之前，你必須先完成幾個必要步驟。">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-06-16T16:05:34.845Z">
+<meta property="og:updated_time" content="2019-06-19T17:08:52.597Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="啟用 Drupal 7 簡潔網址時的地雷">
-<meta name="twitter:description" content="很久沒使用 Drupal 7 開發網站了。最近搬遷一個舊 Drupal 網站的時候遇到一個很雷的問題。由於這個問題以前就遇到過，這次再遇到我決定把它記錄下來，一勞永逸，或多或少也可以幫助到受困於同樣問題的同道中人。 但在開始之前，你必須先完成幾個必要步驟。 必要步驟第一步，啟用 mod_rewrite，如果你是使用 Apache2 的話Ubuntu 14.04 預設不會啟用，所以這一點要特別注意。">
+<meta name="twitter:description" content="很久沒使用 Drupal 7 開發網站了。最近搬遷一個舊 Drupal 網站的時候遇到一個很雷的問題。由於這個問題以前就遇到過，這次再遇到我決定把它記錄下來，一勞永逸，或多或少也可以幫助到受困於同樣問題的同道中人。 但在開始之前，你必須先完成幾個必要步驟。">
 
 
 
@@ -200,7 +204,7 @@
     </div>
     
       
-        <p class="site-subtitle">So play it well</p>
+        <p class="site-subtitle">so play it well</p>
       
     
     
@@ -253,6 +257,23 @@
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>歸檔</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分類</a>
 
   </li>
 
@@ -345,7 +366,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Heng-Yi Wu">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -400,11 +421,29 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Drupal/" itemprop="url" rel="index"><span itemprop="name">Drupal</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -436,6 +475,7 @@
       
         <p>很久沒使用 Drupal 7 開發網站了。最近搬遷一個舊 Drupal 網站的時候遇到一個很雷的問題。由於這個問題以前就遇到過，這次再遇到我決定把它記錄下來，一勞永逸，或多或少也可以幫助到受困於同樣問題的同道中人。</p>
 <p>但在開始之前，你必須先完成幾個必要步驟。</p>
+<a id="more"></a>
 <h2 id="必要步驟"><a href="#必要步驟" class="headerlink" title="必要步驟"></a>必要步驟</h2><h3 id="第一步，啟用-mod-rewrite，如果你是使用-Apache2-的話"><a href="#第一步，啟用-mod-rewrite，如果你是使用-Apache2-的話" class="headerlink" title="第一步，啟用 mod_rewrite，如果你是使用 Apache2 的話"></a>第一步，啟用 <code>mod_rewrite</code>，如果你是使用 Apache2 的話</h3><p><strong>Ubuntu 14.04 預設不會啟用</strong>，所以這一點要特別注意。</p>
 <p>如果是使用 nginx，可以參考<span class="exturl" data-url="aHR0cHM6Ly93d3cubmdpbnguY29tL3Jlc291cmNlcy93aWtpL3N0YXJ0L3RvcGljcy9yZWNpcGVzL2RydXBhbC8=" title="https://www.nginx.com/resources/wiki/start/topics/recipes/drupal/">官方網站<i class="fa fa-external-link"></i></span>。</p>
 <h3 id="第二步，確定在-Apache2-的設定檔中有開啟-AllowOverride"><a href="#第二步，確定在-Apache2-的設定檔中有開啟-AllowOverride" class="headerlink" title="第二步，確定在 Apache2 的設定檔中有開啟 AllowOverride"></a>第二步，確定在 Apache2 的設定檔中有開啟 <code>AllowOverride</code></h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;Directory [網站跟目錄]&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="attribute">AllowOverride</span> <span class="literal">All</span></span><br><span class="line">    ...</span><br><span class="line"><span class="section">&lt;/Directory&gt;</span></span><br></pre></td></tr></table></figure>
@@ -467,6 +507,30 @@
     
     
 
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>作者： </strong>Heng-Yi Wu</li>
+  <li class="post-copyright-link">
+    <strong>文章連結：</strong>
+    
+    <a href="https://henry40408.com/clean-urls-in-drupal-7/" title="啟用 Drupal 7 簡潔網址時的地雷">https://henry40408.com/clean-urls-in-drupal-7/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC9kZWVkLnpoX1RX"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-ND</span> 許可協議。轉載請註明出處！</li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -555,6 +619,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Heng-Yi Wu">
+            
               <p class="site-author-name" itemprop="name">Heng-Yi Wu</p>
               <div class="site-description motion-element" itemprop="description"></div>
           </div>
@@ -578,12 +644,32 @@
                 <div class="site-state-item site-state-categories">
                   
                     
+                      <a href="/categories/">
+                    
+                  
+                    
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分類</span>
-                  
+                  </a>
                 </div>
               
 
@@ -608,28 +694,52 @@
                 <span class="links-of-author-item">
                   
                   
-                    
-                  
                   
                     
                   
-                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg=" title="GitHub &rarr; https://github.com/henry40408"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg=" title="GitHub &rarr; https://github.com/henry40408"><i class="fa fa-fw fa-github"></i></span>
                 </span>
               
                 <span class="links-of-author-item">
                   
                   
-                    
-                  
                   
                     
                   
-                  <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BoZW5yeTQwNDA4" title="Medium &rarr; https://medium.com/@henry40408"><i class="fa fa-fw fa-medium"></i>Medium</span>
+                  <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BoZW5yeTQwNDA4" title="Medium &rarr; https://medium.com/@henry40408"><i class="fa fa-fw fa-medium"></i></span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2hlbnJ5NDA0MDgv" title="LinkedIn &rarr; https://www.linkedin.com/in/henry40408/"><i class="fa fa-fw fa-linkedin"></i></span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93d3cuY2FrZXJlc3VtZS5jb20vaGVucnk0MDQwOA==" title="Resume &rarr; https://www.cakeresume.com/henry40408"><i class="fa fa-fw fa-file-text"></i></span>
                 </span>
               
             </div>
           
 
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC9kZWVkLnpoX1RX"><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></span>
+             </div>
           
 
           
@@ -802,6 +912,9 @@
 
 
   
+  <script src="/js/js.cookie.js?v=7.1.2"></script>
+  <script src="/js/scroll-cookie.js?v=7.1.2"></script>
+
 
   
   <script src="/js/exturl.js?v=7.1.2"></script>

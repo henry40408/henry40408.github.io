@@ -47,18 +47,22 @@
 <link rel="stylesheet" href="/css/main.css?v=7.1.2">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.1.2">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=7.1.2" color="#222">
 
 
+  <link rel="manifest" href="/images/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
 
 
@@ -197,7 +201,7 @@
     </div>
     
       
-        <p class="site-subtitle">So play it well</p>
+        <p class="site-subtitle">so play it well</p>
       
     
     
@@ -250,6 +254,23 @@
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>歸檔</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分類</a>
 
   </li>
 
@@ -342,7 +363,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Heng-Yi Wu">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -399,11 +420,29 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -434,38 +473,19 @@
 
       
         
-          
-            <p>最近從 <span class="exturl" data-url="aHR0cDovL3dlZWtseS5jb2RldGVuZ3UuY29tL2lzc3Vlcy8xOCNzdGFydA==" title="http://weekly.codetengu.com/issues/18#start">碼天狗<i class="fa fa-external-link"></i></span> 得知<span class="exturl" data-url="aHR0cDovL2ludGhlY2hlZXNlZmFjdG9yeS5jb20vYmxvZy9yZXRyb2ZpdC0yLjAvZW4=" title="http://inthecheesefactory.com/blog/retrofit-2.0/en">Retrofit 推出了第二版<i class="fa fa-external-link"></i></span>，號稱 <strong>Android 上最知名的 REST client</strong> ，我寫 Android 起碼也有半年了，居然都沒聽過這一套 library，自覺應該趁現在來好好地研究一下。</p>
+          <p>最近從 <span class="exturl" data-url="aHR0cDovL3dlZWtseS5jb2RldGVuZ3UuY29tL2lzc3Vlcy8xOCNzdGFydA==" title="http://weekly.codetengu.com/issues/18#start">碼天狗<i class="fa fa-external-link"></i></span> 得知<span class="exturl" data-url="aHR0cDovL2ludGhlY2hlZXNlZmFjdG9yeS5jb20vYmxvZy9yZXRyb2ZpdC0yLjAvZW4=" title="http://inthecheesefactory.com/blog/retrofit-2.0/en">Retrofit 推出了第二版<i class="fa fa-external-link"></i></span>，號稱 <strong>Android 上最知名的 REST client</strong> ，我寫 Android 起碼也有半年了，居然都沒聽過這一套 library，自覺應該趁現在來好好地研究一下。</p>
 <p>之前沒有自己寫 API 與 Android app 串在一起的經驗，自然也就沒有機會去 survey REST client。但由於 Parse 真的是太難用了，所以專案 deadline 已經火燒屁股的情況下，我決定挑戰底線自己去寫一套 REST API 出來給 app 串接。</p>
 <p>Retrofit 的概念很簡單，基本上就是類比 database v.s. ORM 的關係， <strong>將 REST API 對應成 Java 的函數來呼叫</strong> 。</p>
 <p>這次的地雷是一顆詭雷，我解了快一個下午才解開。</p>
-<h2 id="環境假設"><a href="#環境假設" class="headerlink" title="環境假設"></a>環境假設</h2><ol>
-<li>今天以 Django + Tastypie 架設了一台 REST API server ，網址是 <code>http://api.example.com</code>。</li>
-<li>這台 server 提供一個 API endpoint <code>/api/v1/article</code> ，對這個 API 發出 <code>POST</code> 請求即可新增文章。由於詭雷埋設的地點在 <code>POST</code> 請求，其他 <code>GET</code> 類型的請求就在此不予討論。</li>
-<li><code>POST</code> 請求的 Content-Type 是 JSON，格式如下： <code>{&quot;title&quot;: &quot;文章標題&quot;, &quot;body&quot;: &quot;文章內文&quot;}</code>。</li>
-<li>API endpoint 嚴格遵守 HTTP status code 的 SPEC。如果新增成功會傳回 <code>201 CREATED</code>。</li>
-</ol>
-<h2 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a>程式碼</h2><p>為了迅速表達我的意思，這裡寫的是 Android 架構的 pseudo code，會省略 <code>import</code> 之類的語句，因為 Android Studio 的自動完成已經做得很方便了，就不再另外提示。另外由於被同事嚴重洗腦，沒有 import Rx code 就寫不下去，因此還引入了 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1JlYWN0aXZlWC9SeEphdmE=" title="https://github.com/ReactiveX/RxJava">RxJava<i class="fa fa-external-link"></i></span> 來簡化程式碼。如果要在 Android 裡使用 Rx，建議一併裝上 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1JlYWN0aXZlWC9SeEFuZHJvaWQ=" title="https://github.com/ReactiveX/RxAndroid">RxAndroid<i class="fa fa-external-link"></i></span>。</p>
-<p>這裡有一篇強國 Android 高手寫的 <span class="exturl" data-url="aHR0cDovL2dhbmsuaW8vcG9zdC81NjBlMTViZTJkY2E5MzBlMDBkYTEwODM=" title="http://gank.io/post/560e15be2dca930e00da1083">給 Android 開發者的 RxJava 詳解<i class="fa fa-external-link"></i></span>，內容紮實，我在 Android 上的 RxJava 入門就看這一篇，強力推薦。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @file src/Article.java</span></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Article</span> </span>&#123;</span><br><span class="line">    <span class="meta">@SerializedName</span>(<span class="string">"id"</span>) <span class="keyword">public</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="meta">@SerializedName</span>(<span class="string">"title"</span>) <span class="keyword">public</span> String title;</span><br><span class="line">    <span class="meta">@SerializedName</span>(<span class="string">"body"</span>) <span class="keyword">public</span> String body;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @file src/ArticleAPI.java</span></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ArticleAPI</span> </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="meta">@GET</span>(<span class="string">"api/v1/article"</span>)</span><br><span class="line">    <span class="function">Observable&lt;Article&gt; <span class="title">sendArticle</span><span class="params">(@Header(<span class="string">"Authorization"</span>)</span> String authorization, @Body Article article)</span>;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// @file src/ExampleService.java</span></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleService</span> </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="comment">// 第一個地雷</span></span><br><span class="line">    <span class="keyword">final</span> String BASEURL = <span class="string">"http://api.example.com"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Retrofit mRetrofit;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ArticleAPI mArticleApi;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ExampleService</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        mRetrofit = <span class="keyword">new</span> Retrofit.Builder()</span><br><span class="line">            .baseUrl(BASEURL)</span><br><span class="line">            <span class="comment">// 第二個地雷 開始</span></span><br><span class="line">            .addConverterFactory(GsonConverterFactory.create())</span><br><span class="line">            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())</span><br><span class="line">            <span class="comment">// 第二個地雷 結束</span></span><br><span class="line">            .build();</span><br><span class="line">        mArticleApi = mRetrofit.create(ArticleAPI.class);</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Observable&lt;Article&gt; <span class="title">sendArticle</span><span class="params">(User user, String title, String body)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 備註一</span></span><br><span class="line">        String credential = getCredential(user);</span><br><span class="line"></span><br><span class="line">        Article article = <span class="keyword">new</span> Article();</span><br><span class="line">        article.title = title;</span><br><span class="line">        article.body = body;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> mArticleApi.sendArticle(credential, body)</span><br><span class="line">            .observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">            .subscribeOn(Schedulers.io());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
-<h2 id="解釋"><a href="#解釋" class="headerlink" title="解釋"></a>解釋</h2><ol>
-<li>第一顆地雷： <span class="exturl" data-url="aHR0cDovL2ludGhlY2hlZXNlZmFjdG9yeS5jb20vYmxvZy9yZXRyb2ZpdC0yLjAvZW4=" title="http://inthecheesefactory.com/blog/retrofit-2.0/en">Retrofit 2 發佈公告<i class="fa fa-external-link"></i></span> 的<strong>New URL resolving concept. The same way as &lt;a href&gt;</strong> 章節提到，建議 <strong>Base URL 最後一定要加上斜線</strong> ， <strong><code>@GET</code> 、 <code>@POST</code> 等 annotation 的 URL 前面不要加上斜線</strong> 。這是有公告的地雷。</li>
-<li>第二顆地雷：Retrofit 第一版跟第二版其中一個最大的差異在於很多與第一版綁定的 library 在第二版都被拆開來了。也就是說如果你要使用第一版的 <em>內建功能</em> ，有可能需要自己再另外加到 <code>build.gradle</code> 中。至於有哪些 library 被抽離出來了，根據發佈公告 <code>GsonConverterFactory</code> 跟 <code>RxJavaCallAdapterFactory</code> 都需要另外加到 <code>build.gradle</code> 中。</li>
-</ol>
-<p>偏偏 <span class="exturl" data-url="aHR0cDovL3NxdWFyZS5naXRodWIuaW8vcmV0cm9maXQv" title="http://square.github.io/retrofit/">Retrofit 官方網站<i class="fa fa-external-link"></i></span> 又什麼文件都沒有，library 的強大跟官網的懶散真的是形成強烈的對比。</p>
-<h2 id="第三顆地雷-詭雷"><a href="#第三顆地雷-詭雷" class="headerlink" title="第三顆地雷 (詭雷)"></a>第三顆地雷 (詭雷)</h2><p>不用回去找了，我故意沒在程式碼裡標記出來，目的在展示這個地雷有多麼地無聲無息。</p>
-<p>因為嚴格來說這顆地雷不是 Retrofit 埋的，只是它在 debug 的時候也沒有提供開發者任何相關訊息，一切就這樣無聲無息地…<strong>爆炸了</strong>。如果你有使用 cURL 、<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2prYnJ6dC9odHRwaWU=" title="https://github.com/jkbrzt/httpie">httpie<i class="fa fa-external-link"></i></span> 或 <span class="exturl" data-url="aHR0cHM6Ly9jaHJvbWUuZ29vZ2xlLmNvbS93ZWJzdG9yZS9kZXRhaWwvcG9zdG1hbi9maGJqZ2JpZmxpbmpiZGdnZWhjZGRjYm5jZGRkb21vcA==" title="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop">Postman<i class="fa fa-external-link"></i></span><br>除錯過 Tastypie，就會發現如果 API endpoint 的最後如果沒有加上斜線，Tastypie 就會吐 <code>301 MOVE PERMANENTLY</code> 回來。</p>
-<blockquote>
-<p>關鍵就在這個 <code>301 MOVE PERMANENTLY</code>。</p>
-<p>因為 Retrofit 沒有去處理這個 301 狀態碼，可能是默默地、乖乖地就轉址了然後沒把參數帶過去，最後變成對該 API endpoint 發出 <code>GET</code> 請求。</p>
-</blockquote>
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>很簡單，把斜線加上去就可以了。而且之後請養成習慣，最後都要把斜線加上去。如果原本就是打 <code>GET</code> 請求的加上這個斜線不會有什麼影響，但 <code>POST</code> 沒有加上這個重要的斜線就會發生預期之外的事。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @file src/ArticleAPI.java</span></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ArticleAPI</span> </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="meta">@GET</span>(<span class="string">"api/v1/article/"</span>) <span class="comment">// 原來是 @GET("api/v1/article") ，差一條斜線</span></span><br><span class="line">  <span class="function">Observable&lt;Article&gt; <span class="title">sendArticle</span><span class="params">(@Header(<span class="string">"Authorization"</span>)</span> String authorization, @Body Article article)</span>;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
-<p>一個小斜線，浪費了我一個下午。</p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/retrofit-2-send-post-requests-to-tastypie/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -525,7 +545,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Heng-Yi Wu">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -582,11 +602,29 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Ruby/" itemprop="url" rel="index"><span itemprop="name">Ruby</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -617,28 +655,17 @@
 
       
         
-          
-            <p>最近參考 <span class="exturl" data-url="aHR0cHM6Ly9nb3JhaWxzLmNvbS9kZXBsb3kvdWJ1bnR1LzE0LjA0" title="https://gorails.com/deploy/ubuntu/14.04">Deploy Ruby On Rails on Ubuntu 14.04 Trusty Tahr<i class="fa fa-external-link"></i></span> 部署了兩隻 Ruby on Rails 應用程式，卻都發生 rails console 無法在部署的機器上執行的問題。每次要執行 rails console 的時候，都會發生 <code>LoadError</code>（詳細輸出請參考 <span class="exturl" data-url="aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3EvMjI5MTU2NzY=" title="http://stackoverflow.com/q/22915676">這篇 StackOverflow<i class="fa fa-external-link"></i></span>）。一開始也懶得去解決，想說遠端機器使用 rails console 的機會沒有想像中的多。但小問題不解決，總有一天變成大問題。如果急著要用 rails console 卻怎麼樣也開不起來，那就真的火燒屁股了。</p>
+          <p>最近參考 <span class="exturl" data-url="aHR0cHM6Ly9nb3JhaWxzLmNvbS9kZXBsb3kvdWJ1bnR1LzE0LjA0" title="https://gorails.com/deploy/ubuntu/14.04">Deploy Ruby On Rails on Ubuntu 14.04 Trusty Tahr<i class="fa fa-external-link"></i></span> 部署了兩隻 Ruby on Rails 應用程式，卻都發生 rails console 無法在部署的機器上執行的問題。每次要執行 rails console 的時候，都會發生 <code>LoadError</code>（詳細輸出請參考 <span class="exturl" data-url="aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3EvMjI5MTU2NzY=" title="http://stackoverflow.com/q/22915676">這篇 StackOverflow<i class="fa fa-external-link"></i></span>）。一開始也懶得去解決，想說遠端機器使用 rails console 的機會沒有想像中的多。但小問題不解決，總有一天變成大問題。如果急著要用 rails console 卻怎麼樣也開不起來，那就真的火燒屁股了。</p>
 <p>接下來一步一步分析。</p>
-<h2 id="最明顯的第一步：找不到-readline"><a href="#最明顯的第一步：找不到-readline" class="headerlink" title="最明顯的第一步：找不到 readline"></a>最明顯的第一步：找不到 readline</h2><p>直接下 <code>sudo apt-get install libreadline6 libreadline6-dev</code> 試著解決。</p>
-<p>結果這兩個套件都安裝了，問題不是出在這。</p>
-<h2 id="readline-在，但-ruby-找不到它"><a href="#readline-在，但-ruby-找不到它" class="headerlink" title="readline 在，但 ruby 找不到它"></a>readline 在，但 ruby 找不到它</h2><p>直接貼錯誤到 Google 上搜尋。</p>
-<p>參考 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NzdGVwaGVuc29uL3J1YnktYnVpbGQ=" title="https://github.com/sstephenson/ruby-build">ruby-build<i class="fa fa-external-link"></i></span> 的 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NzdGVwaGVuc29uL3J1YnktYnVpbGQvd2lraSNzdWdnZXN0ZWQtYnVpbGQtZW52aXJvbm1lbnQ=" title="https://github.com/sstephenson/ruby-build/wiki#suggested-build-environment">Suggested build environment<i class="fa fa-external-link"></i></span> 章節，最下面有提到 <strong>如果在編譯 ruby 時發生跟 readline 有關的問題，傳一個參數 <code>RUBY_CONFIGURE_OPTS</code> 與 readline 的路徑給 rbenv 解決</strong> 。</p>
-<blockquote>
-<p>If you get error with <code>readline</code> during the build of <code>ruby</code>, use the <code>RUBY_CONFIGURE_OPTS</code> to specify where to find <code>libreadline.so</code>. By example, to install <code>ruby 2.1.1</code>, use the whole following command: <code>RUBY_CONFIGURE_OPTS=--with-readline-dir=&quot;/usr/lib/libreadline.so&quot; rbenv install 2.1.1</code>.</p>
-</blockquote>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NzdGVwaGVuc29uL3JiZW52" title="https://github.com/sstephenson/rbenv">rbenv<i class="fa fa-external-link"></i></span> 透過 ruby-build 編譯 ruby。</p>
-<p>從這一點來看， ruby-build 自己在編譯 ruby 的時候不會主動去找 readline 來編譯，所以需要另外指定。</p>
-<p>找到一個答案，又出現另外一個問題。</p>
-<h2 id="readline-成功-import，但-ruby-編譯失敗"><a href="#readline-成功-import，但-ruby-編譯失敗" class="headerlink" title="readline 成功 import，但 ruby 編譯失敗"></a>readline 成功 import，但 ruby 編譯失敗</h2><p>GitHub 上面有段非常精彩的 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NzdGVwaGVuc29uL3J1YnktYnVpbGQvaXNzdWVzLzUyNg==" title="https://github.com/sstephenson/ruby-build/issues/526">Issue<i class="fa fa-external-link"></i></span>，討論 import readline 後 ruby 編譯之後還是會失敗的問題。一開始某位核心貢獻者認為這個問題不應該是 ruby-build 的問題，因此斷然地把 Issue 給關掉了，卻因此惹惱另外一個開發者，覺得關掉 issue 的貢獻者在推諉卸責。幸好大家都還是很理性，後續的討論提供了不少解決方法。在此僅提供集大成，且徹底解決我問題的 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NzdGVwaGVuc29uL3J1YnktYnVpbGQvaXNzdWVzLzUyNiNpc3N1ZWNvbW1lbnQtMzc5MzMyNDI=" title="https://github.com/sstephenson/ruby-build/issues/526#issuecomment-37933242">mislav 的 comment<i class="fa fa-external-link"></i></span>。</p>
-<h2 id="終極解法"><a href="#終極解法" class="headerlink" title="終極解法"></a>終極解法</h2><p>先移除沒有編譯 readline 的跛腳版本。(2.1.1 記得代換成你自己的 ruby 版本)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rbenv uninstall 2.1.1</span><br></pre></td></tr></table></figure>
-<p>再打上社群提供的 patch</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -fsSL https://gist.github.com/mislav/a18b9d7f0dc5b9efc162.txt | rbenv install --patch 2.1.1</span><br></pre></td></tr></table></figure>
-<p>完成之後，切換到專案的 current 目錄下，輸入以下指令就可以使用 <code>rails console</code> 了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ RAILS_ENV=production bundle <span class="built_in">exec</span> rails console</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/readline-error-when-calling-rails-console-on-rbenv-2-x/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -713,6 +740,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Heng-Yi Wu">
+            
               <p class="site-author-name" itemprop="name">Heng-Yi Wu</p>
               <div class="site-description motion-element" itemprop="description"></div>
           </div>
@@ -736,12 +765,32 @@
                 <div class="site-state-item site-state-categories">
                   
                     
+                      <a href="/categories/">
+                    
+                  
+                    
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分類</span>
-                  
+                  </a>
                 </div>
               
 
@@ -766,28 +815,52 @@
                 <span class="links-of-author-item">
                   
                   
-                    
-                  
                   
                     
                   
-                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg=" title="GitHub &rarr; https://github.com/henry40408"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg=" title="GitHub &rarr; https://github.com/henry40408"><i class="fa fa-fw fa-github"></i></span>
                 </span>
               
                 <span class="links-of-author-item">
                   
                   
-                    
-                  
                   
                     
                   
-                  <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BoZW5yeTQwNDA4" title="Medium &rarr; https://medium.com/@henry40408"><i class="fa fa-fw fa-medium"></i>Medium</span>
+                  <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BoZW5yeTQwNDA4" title="Medium &rarr; https://medium.com/@henry40408"><i class="fa fa-fw fa-medium"></i></span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2hlbnJ5NDA0MDgv" title="LinkedIn &rarr; https://www.linkedin.com/in/henry40408/"><i class="fa fa-fw fa-linkedin"></i></span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93d3cuY2FrZXJlc3VtZS5jb20vaGVucnk0MDQwOA==" title="Resume &rarr; https://www.cakeresume.com/henry40408"><i class="fa fa-fw fa-file-text"></i></span>
                 </span>
               
             </div>
           
 
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC9kZWVkLnpoX1RX"><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></span>
+             </div>
           
 
           
@@ -939,6 +1012,9 @@
 
 
   
+  <script src="/js/js.cookie.js?v=7.1.2"></script>
+  <script src="/js/scroll-cookie.js?v=7.1.2"></script>
+
 
   
   <script src="/js/exturl.js?v=7.1.2"></script>

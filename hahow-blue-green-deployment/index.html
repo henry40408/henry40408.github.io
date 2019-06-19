@@ -47,18 +47,22 @@
 <link rel="stylesheet" href="/css/main.css?v=7.1.2">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.1.2">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=7.1.2" color="#222">
 
 
+  <link rel="manifest" href="/images/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
 
 
@@ -94,12 +98,12 @@
 
 
 
-  <meta name="description" content="故事要從老師透過客服回報的一個 bug 開始說起…  老師 A 從自己的課程（Course）下刪除了一筆課程單元（Lecture），後台顯示的課程單元總數卻沒有變化（課程單元總數在某一筆課程單元被刪除後應該要減一）。  Hahow 會實作藍綠部署，主要目的就是要解決這個 bug 背後真正的問題。 環境介紹在切入本文前，由於會在文中被頻繁地提及，因此先快速且簡短地帶過 Hahow 目前的 infra">
+  <meta name="description" content="故事要從老師透過客服回報的一個 bug 開始說起…  老師 A 從自己的課程（Course）下刪除了一筆課程單元（Lecture），後台顯示的課程單元總數卻沒有變化（課程單元總數在某一筆課程單元被刪除後應該要減一）。  Hahow 會實作藍綠部署，主要目的就是要解決這個 bug 背後真正的問題。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="淺談 Hahow 藍綠部署">
 <meta property="og:url" content="https://henry40408.com/hahow-blue-green-deployment/index.html">
 <meta property="og:site_name" content="Life is a YOLO Game">
-<meta property="og:description" content="故事要從老師透過客服回報的一個 bug 開始說起…  老師 A 從自己的課程（Course）下刪除了一筆課程單元（Lecture），後台顯示的課程單元總數卻沒有變化（課程單元總數在某一筆課程單元被刪除後應該要減一）。  Hahow 會實作藍綠部署，主要目的就是要解決這個 bug 背後真正的問題。 環境介紹在切入本文前，由於會在文中被頻繁地提及，因此先快速且簡短地帶過 Hahow 目前的 infra">
+<meta property="og:description" content="故事要從老師透過客服回報的一個 bug 開始說起…  老師 A 從自己的課程（Course）下刪除了一筆課程單元（Lecture），後台顯示的課程單元總數卻沒有變化（課程單元總數在某一筆課程單元被刪除後應該要減一）。  Hahow 會實作藍綠部署，主要目的就是要解決這個 bug 背後真正的問題。">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https://henry40408.com/hahow-blue-green-deployment/1*ADmLntt1LYxyosjsXsi2vg.png">
 <meta property="og:image" content="https://henry40408.com/hahow-blue-green-deployment/0*cUEHsKzEEu3Wlcov.gif">
@@ -122,10 +126,10 @@
 <meta property="og:image" content="https://henry40408.com/hahow-blue-green-deployment/0*xghK08LWdA1W9HNB.png">
 <meta property="og:image" content="https://henry40408.com/hahow-blue-green-deployment/0*1MYRBcuLoN_ZMxgI.png">
 <meta property="og:image" content="https://henry40408.com/hahow-blue-green-deployment/0*cyzdw815K1gGB5cQ.png">
-<meta property="og:updated_time" content="2019-06-16T16:05:34.845Z">
+<meta property="og:updated_time" content="2019-06-19T17:08:52.597Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="淺談 Hahow 藍綠部署">
-<meta name="twitter:description" content="故事要從老師透過客服回報的一個 bug 開始說起…  老師 A 從自己的課程（Course）下刪除了一筆課程單元（Lecture），後台顯示的課程單元總數卻沒有變化（課程單元總數在某一筆課程單元被刪除後應該要減一）。  Hahow 會實作藍綠部署，主要目的就是要解決這個 bug 背後真正的問題。 環境介紹在切入本文前，由於會在文中被頻繁地提及，因此先快速且簡短地帶過 Hahow 目前的 infra">
+<meta name="twitter:description" content="故事要從老師透過客服回報的一個 bug 開始說起…  老師 A 從自己的課程（Course）下刪除了一筆課程單元（Lecture），後台顯示的課程單元總數卻沒有變化（課程單元總數在某一筆課程單元被刪除後應該要減一）。  Hahow 會實作藍綠部署，主要目的就是要解決這個 bug 背後真正的問題。">
 <meta name="twitter:image" content="https://henry40408.com/hahow-blue-green-deployment/1*ADmLntt1LYxyosjsXsi2vg.png">
 
 
@@ -222,7 +226,7 @@
     </div>
     
       
-        <p class="site-subtitle">So play it well</p>
+        <p class="site-subtitle">so play it well</p>
       
     
     
@@ -275,6 +279,23 @@
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>歸檔</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分類</a>
 
   </li>
 
@@ -367,7 +388,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Heng-Yi Wu">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -422,11 +443,29 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/DevOps/" itemprop="url" rel="index"><span itemprop="name">DevOps</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -461,6 +500,7 @@
 <p><em>老師 A 從自己的課程（Course）下刪除了一筆課程單元（Lecture），後台顯示的課程單元總數卻沒有變化（課程單元總數在某一筆課程單元被刪除後應該要減一）。</em></p>
 </blockquote>
 <p>Hahow 會實作藍綠部署，主要目的就是要解決這個 bug 背後真正的問題。</p>
+<a id="more"></a>
 <h3 id="環境介紹"><a href="#環境介紹" class="headerlink" title="環境介紹"></a>環境介紹</h3><p>在切入本文前，由於會在文中被頻繁地提及，因此先快速且簡短地帶過 Hahow 目前的 infrastructure。</p>
 <img src="/hahow-blue-green-deployment/1*ADmLntt1LYxyosjsXsi2vg.png" title="Hahow 目前的 infrastructure">
 <p>從 client-server 架構的角度切入，Hahow 目前只有一台 API server 搭配一組 MongoDB cluster 處理來自前端的所有請求。MongoDB cluster 是透過 <span class="exturl" data-url="aHR0cHM6Ly93d3cubW9uZ29kYi5jb20vY2xvdWQ=" title="https://www.mongodb.com/cloud">MongoDB Cloud<i class="fa fa-external-link"></i></span> 架設的 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1vbmdvZGIuY29tL21hbnVhbC9yZXBsaWNhdGlvbi8=" title="https://docs.mongodb.com/manual/replication/">replication set<i class="fa fa-external-link"></i></span>，內含一台 master 與兩台 slave，三台 database instance 都跑在同一台 GCE instance 上；API server 則是在 Docker container 裡執行，host 在另外一台獨立的 GCE 上。</p>
@@ -583,6 +623,30 @@
     
 
     
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>作者： </strong>Heng-Yi Wu</li>
+  <li class="post-copyright-link">
+    <strong>文章連結：</strong>
+    
+    <a href="https://henry40408.com/hahow-blue-green-deployment/" title="淺談 Hahow 藍綠部署">https://henry40408.com/hahow-blue-green-deployment/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC9kZWVkLnpoX1RX"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-ND</span> 許可協議。轉載請註明出處！</li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
@@ -670,6 +734,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Heng-Yi Wu">
+            
               <p class="site-author-name" itemprop="name">Heng-Yi Wu</p>
               <div class="site-description motion-element" itemprop="description"></div>
           </div>
@@ -693,12 +759,32 @@
                 <div class="site-state-item site-state-categories">
                   
                     
+                      <a href="/categories/">
+                    
+                  
+                    
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分類</span>
-                  
+                  </a>
                 </div>
               
 
@@ -723,28 +809,52 @@
                 <span class="links-of-author-item">
                   
                   
-                    
-                  
                   
                     
                   
-                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg=" title="GitHub &rarr; https://github.com/henry40408"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg=" title="GitHub &rarr; https://github.com/henry40408"><i class="fa fa-fw fa-github"></i></span>
                 </span>
               
                 <span class="links-of-author-item">
                   
                   
-                    
-                  
                   
                     
                   
-                  <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BoZW5yeTQwNDA4" title="Medium &rarr; https://medium.com/@henry40408"><i class="fa fa-fw fa-medium"></i>Medium</span>
+                  <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BoZW5yeTQwNDA4" title="Medium &rarr; https://medium.com/@henry40408"><i class="fa fa-fw fa-medium"></i></span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2hlbnJ5NDA0MDgv" title="LinkedIn &rarr; https://www.linkedin.com/in/henry40408/"><i class="fa fa-fw fa-linkedin"></i></span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93d3cuY2FrZXJlc3VtZS5jb20vaGVucnk0MDQwOA==" title="Resume &rarr; https://www.cakeresume.com/henry40408"><i class="fa fa-fw fa-file-text"></i></span>
                 </span>
               
             </div>
           
 
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC9kZWVkLnpoX1RX"><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></span>
+             </div>
           
 
           
@@ -917,6 +1027,9 @@
 
 
   
+  <script src="/js/js.cookie.js?v=7.1.2"></script>
+  <script src="/js/scroll-cookie.js?v=7.1.2"></script>
+
 
   
   <script src="/js/exturl.js?v=7.1.2"></script>

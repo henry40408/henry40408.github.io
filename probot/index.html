@@ -47,18 +47,22 @@
 <link rel="stylesheet" href="/css/main.css?v=7.1.2">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.1.2">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=7.1.2" color="#222">
 
 
+  <link rel="manifest" href="/images/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
 
 
@@ -102,7 +106,7 @@
 <meta property="og:description" content="Hahow 的工程團隊現在有十個工程師，每個人都有自己的成長背景（工程師成長之路）、信仰的價值（架構優於效率、文件優於慣例 ⋯ 等等）、coding style（Hahow 自己就發生過兩次「分號」防衛戰），如果沒有一套一致的慣例遵循，只要 PR 一 merge 勢必要大戰個三天三夜。 說到規範，不外乎兩個層面： 程式面 與 流程面 。程式面我們現在交給 ESLint 負責，前端套 Airbnb">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https://henry40408.com/probot/0*sNAZgn2pnGIlUFRy.png">
-<meta property="og:updated_time" content="2019-06-16T16:05:34.857Z">
+<meta property="og:updated_time" content="2019-06-19T17:08:52.605Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="完善 GitHub Flow 最後一哩路 — Probot">
 <meta name="twitter:description" content="Hahow 的工程團隊現在有十個工程師，每個人都有自己的成長背景（工程師成長之路）、信仰的價值（架構優於效率、文件優於慣例 ⋯ 等等）、coding style（Hahow 自己就發生過兩次「分號」防衛戰），如果沒有一套一致的慣例遵循，只要 PR 一 merge 勢必要大戰個三天三夜。 說到規範，不外乎兩個層面： 程式面 與 流程面 。程式面我們現在交給 ESLint 負責，前端套 Airbnb">
@@ -202,7 +206,7 @@
     </div>
     
       
-        <p class="site-subtitle">So play it well</p>
+        <p class="site-subtitle">so play it well</p>
       
     
     
@@ -255,6 +259,23 @@
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>歸檔</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分類</a>
 
   </li>
 
@@ -347,7 +368,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Heng-Yi Wu">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -402,11 +423,29 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-17 00:05:34" itemprop="dateModified" datetime="2019-06-17T00:05:34+08:00">2019-06-17</time>
+                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/DevOps/" itemprop="url" rel="index"><span itemprop="name">DevOps</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -439,6 +478,7 @@
         <p>Hahow 的工程團隊現在有十個工程師，每個人都有自己的成長背景（工程師成長之路）、信仰的價值（架構優於效率、文件優於慣例 ⋯ 等等）、coding style（Hahow 自己就發生過兩次「分號」防衛戰），如果沒有一套一致的慣例遵循，只要 PR 一 merge 勢必要大戰個三天三夜。</p>
 <p>說到規範，不外乎兩個層面： <em>程式面</em> 與 <em>流程面</em> 。程式面我們現在交給 ESLint 負責，前端套 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FpcmJuYi9qYXZhc2NyaXB0L3RyZWUvbWFzdGVyL3BhY2thZ2VzL2VzbGludC1jb25maWctYWlyYm5i" title="https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb">Airbnb 的 rule-set<i class="fa fa-external-link"></i></span>、後端則是根據 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hhaG93L2VzbGludC1jb25maWctaGFob3c=" title="https://github.com/hahow/eslint-config-hahow">Standard 擴展的 Hahow rule-set<i class="fa fa-external-link"></i></span>。</p>
 <p>流程面的部分，又可以再細分為兩個層面：一個是<em>團隊成員在平台上的協作規範</em>；一個是<em>審核 PR 時的流程</em>。關於前者，我們目前是以某種比例混用 Git + GitHub Flow；後者 <em>原則上</em> 沒有什麼太大的問題，但由於 <em>實作上</em> 牽涉到 GitHub 的介面，讓我們在遵照流程審核 PR 時，顛簸感如影隨形。</p>
+<a id="more"></a>
 <p>例如 Hahow 有一條被嚴格遵守的規定：</p>
 <blockquote>
 <p>第 87 條：審核 PR 者，應在完成審核後，指定（assign）PR 之作者，並將自己從 Assignees 移除。 -《Hahow 工程團隊工作章程・PR 編》</p>
@@ -544,6 +584,30 @@
     
 
     
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>作者： </strong>Heng-Yi Wu</li>
+  <li class="post-copyright-link">
+    <strong>文章連結：</strong>
+    
+    <a href="https://henry40408.com/probot/" title="完善 GitHub Flow 最後一哩路 — Probot">https://henry40408.com/probot/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC9kZWVkLnpoX1RX"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-ND</span> 許可協議。轉載請註明出處！</li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
@@ -631,6 +695,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Heng-Yi Wu">
+            
               <p class="site-author-name" itemprop="name">Heng-Yi Wu</p>
               <div class="site-description motion-element" itemprop="description"></div>
           </div>
@@ -654,12 +720,32 @@
                 <div class="site-state-item site-state-categories">
                   
                     
+                      <a href="/categories/">
+                    
+                  
+                    
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分類</span>
-                  
+                  </a>
                 </div>
               
 
@@ -684,28 +770,52 @@
                 <span class="links-of-author-item">
                   
                   
-                    
-                  
                   
                     
                   
-                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg=" title="GitHub &rarr; https://github.com/henry40408"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hlbnJ5NDA0MDg=" title="GitHub &rarr; https://github.com/henry40408"><i class="fa fa-fw fa-github"></i></span>
                 </span>
               
                 <span class="links-of-author-item">
                   
                   
-                    
-                  
                   
                     
                   
-                  <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BoZW5yeTQwNDA4" title="Medium &rarr; https://medium.com/@henry40408"><i class="fa fa-fw fa-medium"></i>Medium</span>
+                  <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BoZW5yeTQwNDA4" title="Medium &rarr; https://medium.com/@henry40408"><i class="fa fa-fw fa-medium"></i></span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2hlbnJ5NDA0MDgv" title="LinkedIn &rarr; https://www.linkedin.com/in/henry40408/"><i class="fa fa-fw fa-linkedin"></i></span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly93d3cuY2FrZXJlc3VtZS5jb20vaGVucnk0MDQwOA==" title="Resume &rarr; https://www.cakeresume.com/henry40408"><i class="fa fa-fw fa-file-text"></i></span>
                 </span>
               
             </div>
           
 
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC9kZWVkLnpoX1RX"><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></span>
+             </div>
           
 
           
@@ -878,6 +988,9 @@
 
 
   
+  <script src="/js/js.cookie.js?v=7.1.2"></script>
+  <script src="/js/scroll-cookie.js?v=7.1.2"></script>
+
 
   
   <script src="/js/exturl.js?v=7.1.2"></script>
