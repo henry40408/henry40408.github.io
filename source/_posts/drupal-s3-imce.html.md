@@ -1,6 +1,7 @@
 ---
 title: Drupal 搬遷到 S3 後從 IMCE 再也看不到搬遷前上傳的檔案
 date: 2017-06-14
+categories: ['Drupal']
 ---
 
 > 這一篇適合熟悉 Aamzon Web Services 與 Drupal 的開發者或網站管理員
@@ -8,6 +9,8 @@ date: 2017-06-14
 ## 緣起
 
 最近想把手上的 Drupal 網站全部 Dockerize，由於檔案系統屬於 *有狀態* (stateful) 的部分，第一步決定把檔案系統搬遷到 AWS S3 上。搬遷完成後，**發現從 IMCE 的 File Browser 再也看不到搬遷前上傳的檔案**。
+
+<!-- more -->
 
 ## 環境
 

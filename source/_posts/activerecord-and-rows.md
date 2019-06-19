@@ -1,9 +1,12 @@
 ---
 title: "ActiveRecord 與列輸出"
 date: 2016-02-25
+categories: ['Ruby on Rails']
 ---
 
 列輸出一直是我在使用 CSS framework 時視而不見的問題。直接看 code 比較快，討論以下三種解決方案。
+
+<!-- more -->
 
 ## 第一種：直接把所有資料丟在同一列裡
 

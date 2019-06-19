@@ -1,6 +1,7 @@
 ---
 title: "在 React Native 裡避免大量的 ../../"
 date: 2016-05-25
+categories: ['React Native']
 ---
 
 ## 問題
@@ -13,6 +14,8 @@ import DoAnotherThing from '../actions/DoAnotherThing';
 ```
 
 如果是從 HTML4 時代就開始寫 JavaScript 的工程師，乍看之下沒有什麼不好，因為絕對路徑與相對路徑的好壞在 HTML4 的時代就吵過一次，最後的結論也都是有好有壞。**但 React Native 不是 ES5**，規模很容易膨脹到超過傳統 ES5 專案的程度，因此應該另尋專為大型專案設計的解決方法。
+
+<!-- more -->
 
 ## 他山之石
 

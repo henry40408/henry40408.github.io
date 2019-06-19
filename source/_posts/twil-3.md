@@ -1,6 +1,7 @@
 ---
 title: "TWIL #3"
 date: 2016-11-15
+categories: ['每週分享']
 ---
 
 ## 瑣事
@@ -12,6 +13,8 @@ date: 2016-11-15
 後來想想還是把 Daily UI 的成果放在 [Codepen](https://codepen.io/) 好了，畢竟人家都幫你準備好 SCSS + Babel 的環境，不用自己架還不用那真的是太對不起自己了。所以呢，我決定把原來 ECMAScript 5 的程式碼轉換回 Babel。以免訪客以為我只會寫 ECMAScript 5 卻不會 ECMAScript 6。這件事很重要啊！如果訪客是你下一份工作的面試官呢？
 
 有發現 Lebab 是 Babel 倒過來嗎？
+
+<!-- more -->
 
 ### [Change 2-space indent to 4-space in vim](http://stackoverflow.com/a/16892086)
 

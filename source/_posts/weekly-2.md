@@ -1,5 +1,5 @@
 ---
-title: 分享我每週的所見所聞
+title: '#2 分享我每週的所見所聞'
 date: '2018-12-24T12:36:05.913Z'
 categories: ['每週分享']
 keywords: []
@@ -14,6 +14,8 @@ keywords: []
 #### 每週一圖
 
 SpaceX 的 Falcon 9 火箭與 Crew Dragon 太空船，目前停泊在佛羅里達的甘迺迪太空中心 Kennedy Space Center，預計 2019 年 1 月 17 日升空測試。
+
+<!-- more -->
 
 #### 新聞：[文字處理器發明者 Evelyn Berezin  去世](https://www.nytimes.com/2018/12/10/obituaries/evelyn-berezin-dead.html)
 

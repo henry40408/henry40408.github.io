@@ -1,11 +1,14 @@
 ---
 title: "從 Cloudflare 搬家到 AWS，而且是「徹底搬家」"
 date: 2017-03-06
+categories: ['DevOps']
 ---
 
-![Cloudflare migrate to AWS](cloudflare-migrate-to-aws.png)
+{% asset_img cloudflare-migrate-to-aws.png Cloudflare migrate to AWS %}
 
 使用了很長一段時間的 Cloudflare，最近在資安上捅出了一個大摟子：[Cloudbleed][1]。於是開始研究其他類似 Cloudflare 的服務，第一個想到的就是另外一個我自己也已經使用很久的 [Amazon Web Services](https://aws.amazon.com/tw/)。
+
+<!-- more -->
 
 ## Cloudflare 提供什麼服務？在 AWS 上有哪些替代服務？
 

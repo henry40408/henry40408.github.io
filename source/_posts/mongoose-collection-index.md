@@ -1,6 +1,7 @@
 ---
 title: "MongoDB 與 Mongoose 執行測試時注意刪除 database 同時也會刪除 collection 的 index"
 date: 2017-02-04
+categories: ['MongoDB']
 ---
 
 > 這篇文章適合使用 MongoDB 與 Mongoose 的 Node.js 開發者
@@ -18,6 +19,8 @@ date: 2017-02-04
 3. `after` hook function 收拾殘局。
 
 在準備環境的階段，通常會建立一個暫時性的資料庫，讓 test runner (e.g. Mocha) 去模擬資料庫的讀寫，最後在收拾殘局的階段把資料庫刪掉。如果專案採用的資料庫是關聯式資料庫，因為資料與定義是分開的，這個程序基本上不會有什麼問題；但如果採用的資料庫是 MongoDB，adapter 是 Mongoose，**那要特別注意資料庫被刪除的同時 collection 的 scheme 也會被一起刪掉**。
+
+<!-- more -->
 
 ## 每次執行專案或測試 Mongoose 建立資料庫的程序只會執行一次
 

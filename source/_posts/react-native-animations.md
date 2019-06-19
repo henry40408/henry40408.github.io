@@ -1,6 +1,7 @@
 ---
 title: "React Native 動畫初體驗"
 date: 2016-06-04
+categories: ['React Native']
 ---
 
 ## 前言
@@ -10,6 +11,8 @@ date: 2016-06-04
 [Expanding and Collapsing Elements Using Animations in React Native](http://moduscreate.com/expanding-and-collapsing-elements-using-animations-in-react-native/)
 
 雖然 **React Native 沒有 CSS**，但它們也不是真的被完全拿掉，而是以另外一種形式借屍還魂。
+
+<!-- more -->
 
 ## 舉例
 

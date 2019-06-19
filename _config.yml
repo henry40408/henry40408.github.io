@@ -4,7 +4,7 @@
 
 # Site
 title: Life is a YOLO Game
-subtitle: So play it well
+subtitle: so play it well
 description:
 keywords:
 author: Heng-Yi Wu
@@ -81,6 +81,11 @@ theme_config:
   social:
     GitHub: https://github.com/henry40408 || github
     Medium: https://medium.com/@henry40408 || medium
+    LinkedIn: https://www.linkedin.com/in/henry40408/ || linkedin
+    Resume: https://www.cakeresume.com/henry40408 || file-text
+  social_icons:
+    enable: true
+    icons_only: true
   github_banner:
     enable: true
     permalink: https://github.com/henry40408
@@ -102,6 +107,42 @@ theme_config:
     localhost_ignored: true
   commento:
     enable: true
+  # For example, you want to put your custom styles file
+  # outside theme directory in root `source/_data`, set
+  # `styles: source/_data/styles.styl`
+  custom_file_path:
+    # Default paths: layout/_custom/*
+    head: source/_data/head.swig
+    #header: source/_data/header.swig
+    #sidebar: source/_data/sidebar.swig
+
+    # Default path: source/css/_variables/custom.styl
+    #variables: source/_data/variables.styl
+    # Default path: source/css/_mixins/custom.styl
+    #mixins: source/_data/mixins.styl
+    # Default path: source/css/_custom/custom.styl
+    #styles: source/_data/styles.styl
+  creative_commons:
+    license: by-nc-nd
+    sidebar: true
+    post: true
+    language: deed.zh_TW
+  favicon:
+    small: /images/favicon-16x16.png
+    medium: /images/favicon-32x32.png
+    apple_touch_icon: /images/apple-touch-icon.png
+    safari_pinned_tab: /images/safari-pinned-tab.svg
+    android_manifest: /images/site.webmanifest
+    ms_browserconfig: /images/browserconfig.xml
+  avatar:
+    url: /images/avatar.jpg
+    rounded: true
+  scroll_to_more: true
+  save_scroll: true
+  menu:
+    home: / || home
+    archives: /archives/ || archive
+    categories: /categories/ || th
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -122,3 +163,19 @@ search:
   field: post
   format: html
   limit: 10000
+  
+# hexo-generator-amp 
+# The following settings is the quick start options. 
+ 
+generator_amp:
+  templateDir: amp-template
+  assetDistDir: amp-dist
+  logo:
+    path: avatar.png
+    width: 180
+    height: 180
+  substituteTitleImage:
+    path: life-is-a-yolo-game-so-play-it-well.png
+    width: 1200
+    height: 630
+  warningLog: false   # To display warning, please set true.

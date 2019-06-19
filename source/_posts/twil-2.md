@@ -1,6 +1,7 @@
 ---
 title: "TWIL #2"
 date: 2016-10-30
+categories: ['每週分享']
 ---
 
 ## 瑣事
@@ -8,6 +9,8 @@ date: 2016-10-30
 ### [vim-plug](https://github.com/junegunn/vim-plug)
 
 我最一開始是使用 [NeoBundle](https://github.com/Shougo/neobundle.vim) 管理 vim 套件，後來聽說 NeoBundle 的 [作者](https://github.com/Shougo) 又做了一支善用 vim 8 asynchronous API 的套件管理工具 [dein](https://github.com/Shougo/dein.vim)，號稱 *a dark powered plugin manager*[^2]。
+
+<!-- more -->
 
 但改用 dein 之後，我覺得速度上跟 NeoBundle 相比幾乎沒有改進，而且 dein 把指令全部拿掉，如果要呼叫某功能要自己下 `:call dein#some_function()` 之類的 vimscript。這讓日常使用變得很不方便，畢竟不是每個 vim 使用者都學過 vimscript。
 

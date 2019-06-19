@@ -1,9 +1,10 @@
 ---
 title: "Terraform 雜記"
 date: 2017-03-06
+categories: ['DevOps']
 ---
 
-![Terraform](terraform-note.png)
+{% asset_img terraform-note.png Terraform %}
 
 最近在鼓搗 [Terraform][1]，遇到了幾個 Terraform 還沒有解決的問題，在此一併跟使用上的小技巧一起記錄下來，希望可以幫助到也想要嘗試看看 Terraform 的同好。
 
@@ -11,6 +12,8 @@ date: 2017-03-06
 
 1.  首先 AWS 非常便宜。**如果我沒記錯的話不滿一小時的時間會被加總，加總後不滿一小時以一小時計**，例如開 3 次每次 10 分鐘，月底計費的時候就會加總成 30 分鐘，只收一個小時的錢。
 2.  再來 Terraform 也可以很方便地 destroy 掉任何 Terraform 留下的痕跡，當然已經建立的 EC2 instance 等 resource 也不會受到 Terraform 的操作影響。
+
+<!-- more -->
 
 ## 分清楚 `variable`, `data`, `resource`, `output`
 

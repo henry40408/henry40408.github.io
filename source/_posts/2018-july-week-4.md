@@ -1,6 +1,7 @@
 ---
 title: "2018 七月第四週"
 date: 2018-07-22
+categories: ['每週分享']
 ---
 
 本週我把部落格從 Jekyll 換到 gatsby、看了一部投石機的 maker 影片。
@@ -22,6 +23,8 @@ date: 2018-07-22
 後來找到了 [jekyll-responsive-image](https://github.com/wildlyinaccurate/jekyll-responsive-image)，傻了，這一套要怎麼用啊？圖片要放哪裡？放圖片的目錄結構要長什麼樣子？為什麼 Liquid tag 的樣子跟我之前用 Jekyll 的時候長得不太一樣？一定不是文件沒有寫清楚，而是我看不懂。
 
 最後決定把 Jekyll 換成 [gastby](https://www.gatsbyjs.org/)，使用體驗到目前為止還不錯，原來部落格有用到的功能 gastby 都有支援，SEO 看起來也沒什麼問題，就先湊合著用吧！之後看看運作的怎麼樣，有機會再來寫寫使用心得。
+
+<!-- more -->
 
 ### [Bitwarden](https://bitwarden.com/)
 

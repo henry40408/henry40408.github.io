@@ -1,14 +1,17 @@
 ---
 title: "在 Terraform 抽換 Security Group"
 date: 2017-03-06
+categories: ['DevOps']
 ---
 
-![Terraform](replace-security-group-with-terraform.png)
+{% asset_img replace-security-group-with-terraform.png Terraform %}
 
 ## AWS 的限制
 
 - Security group 的 description 不可以更改，如果一定要更改，**要先刪除之後再重建**。
 - EC2 跟 RDS **至少要有一個** security group，**不可以完全沒有**。
+
+<!-- more -->
 
 ## Terraform 的折衷辦法
 

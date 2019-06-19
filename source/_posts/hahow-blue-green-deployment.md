@@ -1,7 +1,7 @@
 ---
 title: 淺談 Hahow 藍綠部署
 date: '2017-08-16T02:58:31.371Z'
-categories: []
+categories: ['DevOps']
 keywords: []
 ---
 
@@ -10,6 +10,8 @@ keywords: []
 > _老師 A 從自己的課程（Course）下刪除了一筆課程單元（Lecture），後台顯示的課程單元總數卻沒有變化（課程單元總數在某一筆課程單元被刪除後應該要減一）。_
 
 Hahow 會實作藍綠部署，主要目的就是要解決這個 bug 背後真正的問題。
+
+<!-- more -->
 
 ### 環境介紹
 

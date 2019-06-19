@@ -1,6 +1,7 @@
 ---
 title: 如何在 factory_girl 中為有繼承關係的 Rails model 定義 Factory
 date: 2016-08-07
+categories: ['Ruby on Rails']
 ---
 
 ## 問題
@@ -18,6 +19,8 @@ end
 ```
 
 `Member` 與 `Admin` 兩個 Rails model 之間有繼承關係，那它們的 `factory_girl` Factory 要怎麼寫呢？
+
+<!-- more -->
 
 ## 解答
 

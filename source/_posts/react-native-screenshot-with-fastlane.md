@@ -1,6 +1,7 @@
 ---
 title: "React Native 使用 fastlane 螢幕截圖"
 date: 2016-05-18
+categories: ['React Native']
 ---
 
 ## 問題
@@ -8,6 +9,8 @@ date: 2016-05-18
 > App 上架一定要上傳螢幕截圖，我想要為 React Native 做自動螢幕截圖。
 
 [React Native](https://github.com/facebook/react-native) 目前還是處於開發活躍期，官方文件混亂、第三方文件少，有些功能還要自己跳下去爬原始碼才知道。本文所描述的螢幕截圖，基本上官方的文件一丁點都沒有提到，網路上的資料也是片片斷斷非常稀少，讓我排列組合了一整天才有了今天的成果。
+
+<!-- more -->
 
 ## 假設
 

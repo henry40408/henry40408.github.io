@@ -1,6 +1,7 @@
 ---
 title: "Retrofit 2 對 Tastypie 發出 POST 請求時的地雷"
 date: 2015-12-06
+categories: ['Android']
 ---
 
 最近從 [碼天狗](http://weekly.codetengu.com/issues/18#start) 得知[Retrofit 推出了第二版](http://inthecheesefactory.com/blog/retrofit-2.0/en)，號稱 **Android 上最知名的 REST client** ，我寫 Android 起碼也有半年了，居然都沒聽過這一套 library，自覺應該趁現在來好好地研究一下。
@@ -10,6 +11,8 @@ date: 2015-12-06
 Retrofit 的概念很簡單，基本上就是類比 database v.s. ORM 的關係， **將 REST API 對應成 Java 的函數來呼叫** 。
 
 這次的地雷是一顆詭雷，我解了快一個下午才解開。
+
+<!-- more -->
 
 ## 環境假設
 

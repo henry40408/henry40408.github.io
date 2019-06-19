@@ -1,6 +1,7 @@
 ---
 title: "React Native 的觸控區域"
 date: 2016-07-29
+categories: ['React Native']
 ---
 
 ## 樣式上的差異
@@ -8,6 +9,8 @@ date: 2016-07-29
 在 React Native，如果需要觸控區域，我們有兩個選擇：`<TouchableWithoutFeedback />` 與 `<TouchableHighlight />`。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。
 
 實際使用之後，我發現兩者另外一項區別在於 `<TouchableWithoutFeedback />` 沒有預設樣式，實際使用起來就像是一個隱形的容器，包住內部的元素，但又不會與內部的容器互相影響；而 `<TouchableHighlight />` 本身則會形成一個區塊，會與內部的元素相互影響。至於之前的版本曾經有使用者提出 `<TouchableHighlight />` 可能是為了產生回饋的視覺效果，而有效能上的問題。但在 `0.28.x` 之後，至少我實際使用到現在還沒有遇到嚴重的效能問題，即使是在最複雜的編輯履歷頁面也沒有。
+
+<!-- more -->
 
 ## `<View />` 與自訂 component 的規格差異
 

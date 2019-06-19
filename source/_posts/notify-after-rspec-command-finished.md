@@ -1,6 +1,7 @@
 ---
 title: "當 iTerm 執行完 RSpec 之後彈出通知"
 date: 2016-07-29
+categories: ['Ruby on Rails']
 ---
 
 ## 問題
@@ -8,6 +9,8 @@ date: 2016-07-29
 我的 Ruby on Rails 專案我都習慣會寫 RSpec，但問題是只要專案一變大，RSpec 就會跑個二到三分鐘，以前我不是傻傻地盯著畫面等它完成，不然就是偷閒跑去看影集，往往把一集看完了才想起來有 RSpec 在執行。
 
 昨天晚上靈機一動，想到之前在學 webpack 時，別人寫的 Yeoman generator 透過 iTerm 的通知功能在 bundle 打包完成通知開發者 ([Turbo87/webpack-notifier](https://www.npmjs.com/package/webpack-notifier))。於是我就想，有沒有可能以盡量簡單的方法去解決這樣的問題？
+
+<!-- more -->
 
 ## 研究
 

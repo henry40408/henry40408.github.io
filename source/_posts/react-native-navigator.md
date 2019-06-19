@@ -1,6 +1,7 @@
 ---
 title: "React Native Navigator 求生紀實"
 date: 2016-08-12
+categories: ['React Native']
 ---
 
 在跟 React Native 搏鬥近兩個月後，navigation 還是在我不經意的情況下爆炸了。
@@ -8,6 +9,8 @@ date: 2016-08-12
 ## route decoupling
 
 這個問題出在我把 navigator 這個屬於 component 範疇的 object 傳給 redux action，導致 decoupling 不完全；另外一個問題是我違反了 component pattern，階層較低的 component 不該有機會能夠直接參考到階層較高的 component。例如以下的 code。
+
+<!-- more -->
 
 ```jsx
 const FooScene = () => (
