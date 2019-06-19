@@ -9,6 +9,8 @@ date: 2016-07-29
 
 昨天晚上靈機一動，想到之前在學 webpack 時，別人寫的 Yeoman generator 透過 iTerm 的通知功能在 bundle 打包完成通知開發者 ([Turbo87/webpack-notifier](https://www.npmjs.com/package/webpack-notifier))。於是我就想，有沒有可能以盡量簡單的方法去解決這樣的問題？
 
+<!-- more -->
+
 ## 研究
 
 首先，如果可能，**我盡可能地不要去寫程式**。寫程式的確有它的樂趣，但寫程式不可避免地一定要 debug。如果這些時間成本遠遠地超過問題的複雜度、所造成的困擾，那對我來說沒有任何價值。

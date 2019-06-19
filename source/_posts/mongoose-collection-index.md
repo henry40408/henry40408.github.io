@@ -19,6 +19,8 @@ date: 2017-02-04
 
 在準備環境的階段，通常會建立一個暫時性的資料庫，讓 test runner (e.g. Mocha) 去模擬資料庫的讀寫，最後在收拾殘局的階段把資料庫刪掉。如果專案採用的資料庫是關聯式資料庫，因為資料與定義是分開的，這個程序基本上不會有什麼問題；但如果採用的資料庫是 MongoDB，adapter 是 Mongoose，**那要特別注意資料庫被刪除的同時 collection 的 scheme 也會被一起刪掉**。
 
+<!-- more -->
+
 ## 每次執行專案或測試 Mongoose 建立資料庫的程序只會執行一次
 
 無論是專案或測試開始執行時，Mongoose 只會在最一開始時根據定義好的 schema 建立整個資料庫。而透過 Mongoose 執行寫入操作時，如果 database、collection 沒有先被建立，MongoDB 會在此時建立缺少的 database 與 collection，然後才執行寫入，**此時 Mongoose 就不會去參考專案定義的 schema 了**。

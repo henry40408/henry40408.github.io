@@ -19,6 +19,8 @@ end
 
 `Member` 與 `Admin` 兩個 Rails model 之間有繼承關係，那它們的 `factory_girl` Factory 要怎麼寫呢？
 
+<!-- more -->
+
 ## 解答
 
 ```ruby

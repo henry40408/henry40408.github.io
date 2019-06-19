@@ -7,6 +7,8 @@ date: 2016-06-04
 
 `letter-spacing` 會在 **所有字元的尾端** 都加上空白以達成字元間隔的效果。但事實上我們需要的只有 **在字元與字元間** 插入空白即可，最後的字元其實不需要加上空白。因此我們需要做一些 hack 來調整。
 
+<!-- more -->
+
 ## 解法
 
 善用 `margin-right`。`letter-spacing` 設定多少，就以多少的 `margin-right` 回補。舉個例子，如果 `letter-spacing` 設定 `2rem`，`margin-right` 就設定 `-2rem` 回補，就可以把文字的位置調整回視覺上應該出現的位置。

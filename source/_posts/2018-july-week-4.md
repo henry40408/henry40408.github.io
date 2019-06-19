@@ -23,6 +23,8 @@ date: 2018-07-22
 
 最後決定把 Jekyll 換成 [gastby](https://www.gatsbyjs.org/)，使用體驗到目前為止還不錯，原來部落格有用到的功能 gastby 都有支援，SEO 看起來也沒什麼問題，就先湊合著用吧！之後看看運作的怎麼樣，有機會再來寫寫使用心得。
 
+<!-- more -->
+
 ### [Bitwarden](https://bitwarden.com/)
 
 繼 1password、master password 之後，又一套密碼管理工具。

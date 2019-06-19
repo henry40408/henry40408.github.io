@@ -11,6 +11,8 @@ date: 2016-06-04
 
 雖然 **React Native 沒有 CSS**，但它們也不是真的被完全拿掉，而是以另外一種形式借屍還魂。
 
+<!-- more -->
+
 ## 舉例
 
 在此推薦一項對於 React Native 開發者來說非常好用的服務 [React Native Playground](https://rnplay.org/)，這項服務可以說是 React Native 開發者的 [codepen](https://codepen.io/)。

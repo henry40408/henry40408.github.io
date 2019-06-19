@@ -14,6 +14,8 @@ date: 2016-09-01 11:28
 
 當 AMI 啟動的瞬間，產生的 EC2 instance 會連線到 `consul`，取得其他更敏感的系統參數。然後使用 `consul-template` 工具將系統參數注入到 Ruby on Rails 可以取得的位置，以 Sudo 主站為例，延續 `capistrano` 配合 `figaro` 的慣例，這個位置在 `config/application.yml`。
 
+<!-- more -->
+
 ## 流程
 
 1. 某人在 GitHub merge 了一個 PR 到 master branch。

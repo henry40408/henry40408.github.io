@@ -9,6 +9,8 @@ date: 2016-08-12
 
 這個問題出在我把 navigator 這個屬於 component 範疇的 object 傳給 redux action，導致 decoupling 不完全；另外一個問題是我違反了 component pattern，階層較低的 component 不該有機會能夠直接參考到階層較高的 component。例如以下的 code。
 
+<!-- more -->
+
 ```jsx
 const FooScene = () => (
   <View />

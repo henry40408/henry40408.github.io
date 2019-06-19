@@ -7,6 +7,8 @@ date: 2015-07-30
 
 接下來一步一步分析。
 
+<!-- more -->
+
 ## 最明顯的第一步：找不到 readline
 
 直接下 `sudo apt-get install libreadline6 libreadline6-dev` 試著解決。

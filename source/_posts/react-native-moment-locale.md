@@ -5,6 +5,8 @@ date: 2016-07-20
 
 [moment.js](http://momentjs.com/) 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 `(new Date()).getFullYear()`，如果使用 moment.js 我可以只寫 `moment().get('year')`，可讀性增強許多。
 
+<!-- more -->
+
 ## 問題
 
 React Native 0.29.x 預設使用 ES6，並支援 `import` 語法。問題出在如果遵照官方網站的說明去載入語系檔，會發生找不到模組 (cannot find module) 的錯誤。推測可能是 moment.js 從 ES5 移植到 ES6 沒有轉換完全。

@@ -13,6 +13,8 @@ date: 2016-11-15
 
 有發現 Lebab 是 Babel 倒過來嗎？
 
+<!-- more -->
+
 ### [Change 2-space indent to 4-space in vim](http://stackoverflow.com/a/16892086)
 
 vim 快速將四格空白替換成兩格空白。其實原理就是切換 vim 的參數，配合 `retab` 指令強制縮排。看起來多此一舉，但好處是我們不需要另外安裝 plugin，因為偶爾才會遇到類似的情形。
