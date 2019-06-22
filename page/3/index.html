@@ -420,7 +420,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
+                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
               
             
           </span>
@@ -602,7 +602,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
+                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
               
             
           </span>
@@ -662,6 +662,186 @@
           
             <div class="post-button text-center">
               <a class="btn" href="/inherited-model-in-factory-girl/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/react-native-touchables/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/react-native-touchables/" class="post-title-link" itemprop="url">React Native 的觸控區域</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2016-07-29 00:00:00" itemprop="dateCreated datePublished" datetime="2016-07-29T00:00:00+08:00">2016-07-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React-Native/" itemprop="url" rel="index"><span itemprop="name">React Native</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="樣式上的差異"><a href="#樣式上的差異" class="headerlink" title="樣式上的差異"></a>樣式上的差異</h2><p>在 React Native，如果需要觸控區域，我們有兩個選擇：<code>&lt;TouchableWithoutFeedback /&gt;</code> 與 <code>&lt;TouchableHighlight /&gt;</code>。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。</p>
+<p>實際使用之後，我發現兩者另外一項區別在於 <code>&lt;TouchableWithoutFeedback /&gt;</code> 沒有預設樣式，實際使用起來就像是一個隱形的容器，包住內部的元素，但又不會與內部的容器互相影響；而 <code>&lt;TouchableHighlight /&gt;</code> 本身則會形成一個區塊，會與內部的元素相互影響。至於之前的版本曾經有使用者提出 <code>&lt;TouchableHighlight /&gt;</code> 可能是為了產生回饋的視覺效果，而有效能上的問題。但在 <code>0.28.x</code> 之後，至少我實際使用到現在還沒有遇到嚴重的效能問題，即使是在最複雜的編輯履歷頁面也沒有。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/react-native-touchables/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -783,7 +963,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
+                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
               
             
           </span>
@@ -842,186 +1022,6 @@
 <p>另外，像標籤這樣需要一個接著一個排成一列的樣式，在 <code>0.28.x</code> 之前只要加上 <code>flexDirection: &#39;row&#39;</code> 與 <code>flexWrap: &#39;wrap&#39;</code> 即可；但 <code>0.28.x</code> 之後，還需要加上 <code>alignItems: &#39;left&#39;</code> (或 <code>alignItems: &#39;right&#39;</code>，如果需要靠右對齊的話)，在此可以簡單地類比成網頁端的 <code>float: left</code> (或 <code>float: right</code>)。如果不加上這個屬性的話，容器內的元素將會在底部產生成因不明的空白，如 issue 中的截圖所示。</p>
 
           
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://henry40408.com/react-native-touchables/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Heng-Yi Wu">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Life is a YOLO Game">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/react-native-touchables/" class="post-title-link" itemprop="url">React Native 的觸控區域</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-
-              
-                
-              
-
-              <time title="創建時間：2016-07-29 00:00:00" itemprop="dateCreated datePublished" datetime="2016-07-29T00:00:00+08:00">2016-07-29</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新於</span>
-                
-                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React-Native/" itemprop="url" rel="index"><span itemprop="name">React Native</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="樣式上的差異"><a href="#樣式上的差異" class="headerlink" title="樣式上的差異"></a>樣式上的差異</h2><p>在 React Native，如果需要觸控區域，我們有兩個選擇：<code>&lt;TouchableWithoutFeedback /&gt;</code> 與 <code>&lt;TouchableHighlight /&gt;</code>。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。</p>
-<p>實際使用之後，我發現兩者另外一項區別在於 <code>&lt;TouchableWithoutFeedback /&gt;</code> 沒有預設樣式，實際使用起來就像是一個隱形的容器，包住內部的元素，但又不會與內部的容器互相影響；而 <code>&lt;TouchableHighlight /&gt;</code> 本身則會形成一個區塊，會與內部的元素相互影響。至於之前的版本曾經有使用者提出 <code>&lt;TouchableHighlight /&gt;</code> 可能是為了產生回饋的視覺效果，而有效能上的問題。但在 <code>0.28.x</code> 之後，至少我實際使用到現在還沒有遇到嚴重的效能問題，即使是在最複雜的編輯履歷頁面也沒有。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/react-native-touchables/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -1138,7 +1138,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
+                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
               
             
           </span>
@@ -1318,7 +1318,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
+                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
               
             
           </span>
@@ -1376,185 +1376,6 @@
           
             <div class="post-button text-center">
               <a class="btn" href="/react-native-moment-locale/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://henry40408.com/truncates-extra-spacing-produced-by-letter-spacing/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Heng-Yi Wu">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Life is a YOLO Game">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/truncates-extra-spacing-produced-by-letter-spacing/" class="post-title-link" itemprop="url">去除 letter-spacing 行末的多餘空白</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-
-              
-                
-              
-
-              <time title="創建時間：2016-06-04 00:00:00" itemprop="dateCreated datePublished" datetime="2016-06-04T00:00:00+08:00">2016-06-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新於</span>
-                
-                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React-Native/" itemprop="url" rel="index"><span itemprop="name">React Native</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p><code>letter-spacing</code> 會在 <strong>所有字元的尾端</strong> 都加上空白以達成字元間隔的效果。但事實上我們需要的只有 <strong>在字元與字元間</strong> 插入空白即可，最後的字元其實不需要加上空白。因此我們需要做一些 hack 來調整。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/truncates-extra-spacing-produced-by-letter-spacing/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -1676,7 +1497,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
+                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
               
             
           </span>
@@ -1857,7 +1678,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
+                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
               
             
           </span>
@@ -1915,6 +1736,185 @@
           
             <div class="post-button text-center">
               <a class="btn" href="/dismiss-keyboard-in-react-native/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/truncates-extra-spacing-produced-by-letter-spacing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/truncates-extra-spacing-produced-by-letter-spacing/" class="post-title-link" itemprop="url">去除 letter-spacing 行末的多餘空白</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2016-06-04 00:00:00" itemprop="dateCreated datePublished" datetime="2016-06-04T00:00:00+08:00">2016-06-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React-Native/" itemprop="url" rel="index"><span itemprop="name">React Native</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p><code>letter-spacing</code> 會在 <strong>所有字元的尾端</strong> 都加上空白以達成字元間隔的效果。但事實上我們需要的只有 <strong>在字元與字元間</strong> 插入空白即可，最後的字元其實不需要加上空白。因此我們需要做一些 hack 來調整。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/truncates-extra-spacing-produced-by-letter-spacing/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -2036,7 +2036,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-20 01:08:52" itemprop="dateModified" datetime="2019-06-20T01:08:52+08:00">2019-06-20</time>
+                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
               
             
           </span>

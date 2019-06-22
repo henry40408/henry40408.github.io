@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://henry40408.com/"/>
-  <updated>2019-06-19T17:08:52.617Z</updated>
+  <updated>2019-06-22T01:28:57.811Z</updated>
   <id>https://henry40408.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://henry40408.com/weekly-26/"/>
     <id>https://henry40408.com/weekly-26/</id>
     <published>2019-06-15T16:00:00.000Z</published>
-    <updated>2019-06-19T17:08:52.617Z</updated>
+    <updated>2019-06-22T01:28:57.811Z</updated>
     
     <summary type="html">
     
@@ -40,7 +40,7 @@
     <link href="https://henry40408.com/weekly-25/"/>
     <id>https://henry40408.com/weekly-25/</id>
     <published>2019-06-14T16:00:00.000Z</published>
-    <updated>2019-06-19T17:08:52.613Z</updated>
+    <updated>2019-06-22T01:28:57.807Z</updated>
     
     <summary type="html">
     
@@ -64,7 +64,7 @@
     <link href="https://henry40408.com/meaning-of-title/"/>
     <id>https://henry40408.com/meaning-of-title/</id>
     <published>2019-01-13T22:42:41.015Z</published>
-    <updated>2019-06-19T17:08:52.605Z</updated>
+    <updated>2019-06-22T01:28:57.799Z</updated>
     
     <summary type="html">
     
@@ -89,7 +89,7 @@
     <link href="https://henry40408.com/weekly-2/"/>
     <id>https://henry40408.com/weekly-2/</id>
     <published>2018-12-24T04:36:05.913Z</published>
-    <updated>2019-06-19T17:08:52.609Z</updated>
+    <updated>2019-06-22T01:28:57.803Z</updated>
     
     <summary type="html">
     
@@ -114,7 +114,7 @@
     <link href="https://henry40408.com/weekly-1/"/>
     <id>https://henry40408.com/weekly-1/</id>
     <published>2018-12-16T22:18:54.120Z</published>
-    <updated>2019-06-19T17:08:52.609Z</updated>
+    <updated>2019-06-22T01:28:57.799Z</updated>
     
     <summary type="html">
     
@@ -135,7 +135,7 @@
     <link href="https://henry40408.com/2018-july-week-4/"/>
     <id>https://henry40408.com/2018-july-week-4/</id>
     <published>2018-07-21T16:00:00.000Z</published>
-    <updated>2019-06-19T17:08:52.597Z</updated>
+    <updated>2019-06-22T01:28:57.787Z</updated>
     
     <summary type="html">
     
@@ -160,7 +160,7 @@
     <link href="https://henry40408.com/probot/"/>
     <id>https://henry40408.com/probot/</id>
     <published>2017-12-21T06:23:08.549Z</published>
-    <updated>2019-06-19T17:08:52.605Z</updated>
+    <updated>2019-06-22T01:28:57.799Z</updated>
     
     <summary type="html">
     
@@ -180,7 +180,7 @@
     <link href="https://henry40408.com/hahow-blue-green-deployment/"/>
     <id>https://henry40408.com/hahow-blue-green-deployment/</id>
     <published>2017-08-15T18:58:31.371Z</published>
-    <updated>2019-06-19T17:08:52.597Z</updated>
+    <updated>2019-06-22T01:28:57.787Z</updated>
     
     <summary type="html">
     
@@ -202,7 +202,7 @@
     <link href="https://henry40408.com/drupal-s3-imce.html/"/>
     <id>https://henry40408.com/drupal-s3-imce.html/</id>
     <published>2017-06-13T16:00:00.000Z</published>
-    <updated>2019-06-19T17:08:52.597Z</updated>
+    <updated>2019-06-22T01:28:57.787Z</updated>
     
     <summary type="html">
     
@@ -223,7 +223,7 @@
     <link href="https://henry40408.com/migrate-from-cloudflare-to-aws/"/>
     <id>https://henry40408.com/migrate-from-cloudflare-to-aws/</id>
     <published>2017-03-05T16:00:00.000Z</published>
-    <updated>2019-06-19T17:08:52.605Z</updated>
+    <updated>2019-06-22T01:28:57.799Z</updated>
     
     <summary type="html">
     
@@ -238,33 +238,11 @@
   </entry>
   
   <entry>
-    <title>在 Terraform 抽換 Security Group</title>
-    <link href="https://henry40408.com/replace-security-groups-in-terraform/"/>
-    <id>https://henry40408.com/replace-security-groups-in-terraform/</id>
-    <published>2017-03-05T16:00:00.000Z</published>
-    <updated>2019-06-19T17:08:52.605Z</updated>
-    
-    <summary type="html">
-    
-      &lt;img src=&quot;/replace-security-groups-in-terraform/replace-security-group-with-terraform.png&quot; title=&quot;Terraform&quot;&gt;
-&lt;h2 id=&quot;AWS-的限制&quot;&gt;&lt;a href=&quot;#AWS-的限制&quot; class=&quot;headerlink&quot; title=&quot;AWS 的限制&quot;&gt;&lt;/a&gt;AWS 的限制&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Security group 的 description 不可以更改，如果一定要更改，&lt;strong&gt;要先刪除之後再重建&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;EC2 跟 RDS &lt;strong&gt;至少要有一個&lt;/strong&gt; security group，&lt;strong&gt;不可以完全沒有&lt;/strong&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="DevOps" scheme="https://henry40408.com/categories/DevOps/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Terraform 雜記</title>
     <link href="https://henry40408.com/terraform-note/"/>
     <id>https://henry40408.com/terraform-note/</id>
     <published>2017-03-05T16:00:00.000Z</published>
-    <updated>2019-06-19T17:08:52.605Z</updated>
+    <updated>2019-06-22T01:28:57.799Z</updated>
     
     <summary type="html">
     
@@ -284,11 +262,33 @@
   </entry>
   
   <entry>
+    <title>在 Terraform 抽換 Security Group</title>
+    <link href="https://henry40408.com/replace-security-groups-in-terraform/"/>
+    <id>https://henry40408.com/replace-security-groups-in-terraform/</id>
+    <published>2017-03-05T16:00:00.000Z</published>
+    <updated>2019-06-22T01:28:57.799Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/replace-security-groups-in-terraform/replace-security-group-with-terraform.png&quot; title=&quot;Terraform&quot;&gt;
+&lt;h2 id=&quot;AWS-的限制&quot;&gt;&lt;a href=&quot;#AWS-的限制&quot; class=&quot;headerlink&quot; title=&quot;AWS 的限制&quot;&gt;&lt;/a&gt;AWS 的限制&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Security group 的 description 不可以更改，如果一定要更改，&lt;strong&gt;要先刪除之後再重建&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;EC2 跟 RDS &lt;strong&gt;至少要有一個&lt;/strong&gt; security group，&lt;strong&gt;不可以完全沒有&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://henry40408.com/categories/DevOps/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>MongoDB 與 Mongoose 執行測試時注意刪除 database 同時也會刪除 collection 的 index</title>
     <link href="https://henry40408.com/mongoose-collection-index/"/>
     <id>https://henry40408.com/mongoose-collection-index/</id>
     <published>2017-02-03T16:00:00.000Z</published>
-    <updated>2019-06-19T17:08:52.605Z</updated>
+    <updated>2019-06-22T01:28:57.799Z</updated>
     
     <summary type="html">
     
@@ -316,7 +316,7 @@
     <link href="https://henry40408.com/twil-4/"/>
     <id>https://henry40408.com/twil-4/</id>
     <published>2017-01-02T16:00:00.000Z</published>
-    <updated>2019-06-19T17:08:52.609Z</updated>
+    <updated>2019-06-22T01:28:57.799Z</updated>
     
     <summary type="html">
     
@@ -336,7 +336,7 @@
     <link href="https://henry40408.com/twil-3/"/>
     <id>https://henry40408.com/twil-3/</id>
     <published>2016-11-14T16:00:00.000Z</published>
-    <updated>2019-06-19T17:08:52.609Z</updated>
+    <updated>2019-06-22T01:28:57.799Z</updated>
     
     <summary type="html">
     
@@ -356,7 +356,7 @@
     <link href="https://henry40408.com/twil-2/"/>
     <id>https://henry40408.com/twil-2/</id>
     <published>2016-10-29T16:00:00.000Z</published>
-    <updated>2019-06-19T17:08:52.609Z</updated>
+    <updated>2019-06-22T01:28:57.799Z</updated>
     
     <summary type="html">
     
@@ -374,7 +374,7 @@
     <link href="https://henry40408.com/twil-1/"/>
     <id>https://henry40408.com/twil-1/</id>
     <published>2016-10-20T16:00:00.000Z</published>
-    <updated>2019-06-19T17:08:52.609Z</updated>
+    <updated>2019-06-22T01:28:57.799Z</updated>
     
     <summary type="html">
     
@@ -397,7 +397,7 @@
     <link href="https://henry40408.com/elixir-note/"/>
     <id>https://henry40408.com/elixir-note/</id>
     <published>2016-10-16T16:00:00.000Z</published>
-    <updated>2019-06-19T17:08:52.597Z</updated>
+    <updated>2019-06-22T01:28:57.787Z</updated>
     
     <summary type="html">
     
@@ -431,7 +431,7 @@
     <link href="https://henry40408.com/kitchen-and-packer/"/>
     <id>https://henry40408.com/kitchen-and-packer/</id>
     <published>2016-09-01T03:28:00.000Z</published>
-    <updated>2019-06-19T17:08:52.605Z</updated>
+    <updated>2019-06-22T01:28:57.799Z</updated>
     
     <summary type="html">
     
@@ -457,7 +457,7 @@
     <link href="https://henry40408.com/react-native-navigator/"/>
     <id>https://henry40408.com/react-native-navigator/</id>
     <published>2016-08-11T16:00:00.000Z</published>
-    <updated>2019-06-19T17:08:52.605Z</updated>
+    <updated>2019-06-22T01:28:57.799Z</updated>
     
     <summary type="html">
     
