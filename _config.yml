@@ -179,3 +179,16 @@ generator_amp:
     width: 1200
     height: 630
   warningLog: false   # To display warning, please set true.
+
+# Markdown-it config
+## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
+markdown:
+  plugins:
+    - markdown-it-footnote
+  render:
+    html: true
+    xhtmlOut: false
+    breaks: false
+    linkify: true
+    typographer: true
+    quotes: '“”‘’'
