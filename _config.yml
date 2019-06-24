@@ -143,6 +143,12 @@ theme_config:
     home: / || home
     archives: /archives/ || archive
     categories: /categories/ || th
+  font:
+    enable: true
+    global:
+      external: true
+      family: Noto Serif TC
+      size:
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
