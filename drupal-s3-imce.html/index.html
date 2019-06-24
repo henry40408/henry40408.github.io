@@ -98,18 +98,18 @@
 
 
 
-  <meta name="description" content="這一篇適合熟悉 Aamzon Web Services 與 Drupal 的開發者或網站管理員  緣起最近想把手上的 Drupal 網站全部 Dockerize，由於檔案系統屬於 有狀態 (stateful) 的部分，第一步決定把檔案系統搬遷到 AWS S3 上。搬遷完成後，發現從 IMCE 的 File Browser 再也看不到搬遷前上傳的檔案。">
+  <meta name="description" content="這一篇適合熟悉 Aamzon Web Services 與 Drupal 的開發者或網站管理員  緣起 最近想把手上的 Drupal 網站全部 Dockerize，由於檔案系統屬於 有狀態 (stateful) 的部分，第一步決定把檔案系統搬遷到 AWS S3 上。搬遷完成後，發現從 IMCE 的 File Browser 再也看不到搬遷前上傳的檔案。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Drupal 搬遷到 S3 後從 IMCE 再也看不到搬遷前上傳的檔案">
 <meta property="og:url" content="https://henry40408.com/drupal-s3-imce.html/index.html">
 <meta property="og:site_name" content="Life is a YOLO Game">
-<meta property="og:description" content="這一篇適合熟悉 Aamzon Web Services 與 Drupal 的開發者或網站管理員  緣起最近想把手上的 Drupal 網站全部 Dockerize，由於檔案系統屬於 有狀態 (stateful) 的部分，第一步決定把檔案系統搬遷到 AWS S3 上。搬遷完成後，發現從 IMCE 的 File Browser 再也看不到搬遷前上傳的檔案。">
+<meta property="og:description" content="這一篇適合熟悉 Aamzon Web Services 與 Drupal 的開發者或網站管理員  緣起 最近想把手上的 Drupal 網站全部 Dockerize，由於檔案系統屬於 有狀態 (stateful) 的部分，第一步決定把檔案系統搬遷到 AWS S3 上。搬遷完成後，發現從 IMCE 的 File Browser 再也看不到搬遷前上傳的檔案。">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="http://www.symphonythemes.com/system/files/images/blog/s3-make-public.jpg">
-<meta property="og:updated_time" content="2019-06-22T01:28:57.787Z">
+<meta property="og:updated_time" content="2019-06-24T14:03:00.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Drupal 搬遷到 S3 後從 IMCE 再也看不到搬遷前上傳的檔案">
-<meta name="twitter:description" content="這一篇適合熟悉 Aamzon Web Services 與 Drupal 的開發者或網站管理員  緣起最近想把手上的 Drupal 網站全部 Dockerize，由於檔案系統屬於 有狀態 (stateful) 的部分，第一步決定把檔案系統搬遷到 AWS S3 上。搬遷完成後，發現從 IMCE 的 File Browser 再也看不到搬遷前上傳的檔案。">
+<meta name="twitter:description" content="這一篇適合熟悉 Aamzon Web Services 與 Drupal 的開發者或網站管理員  緣起 最近想把手上的 Drupal 網站全部 Dockerize，由於檔案系統屬於 有狀態 (stateful) 的部分，第一步決定把檔案系統搬遷到 AWS S3 上。搬遷完成後，發現從 IMCE 的 File Browser 再也看不到搬遷前上傳的檔案。">
 <meta name="twitter:image" content="http://www.symphonythemes.com/system/files/images/blog/s3-make-public.jpg">
 
 
@@ -423,7 +423,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -478,33 +478,42 @@
         <blockquote>
 <p>這一篇適合熟悉 Aamzon Web Services 與 Drupal 的開發者或網站管理員</p>
 </blockquote>
-<h2 id="緣起"><a href="#緣起" class="headerlink" title="緣起"></a>緣起</h2><p>最近想把手上的 Drupal 網站全部 Dockerize，由於檔案系統屬於 <em>有狀態</em> (stateful) 的部分，第一步決定把檔案系統搬遷到 AWS S3 上。搬遷完成後，<strong>發現從 IMCE 的 File Browser 再也看不到搬遷前上傳的檔案</strong>。</p>
+<h2>緣起</h2>
+<p>最近想把手上的 Drupal 網站全部 Dockerize，由於檔案系統屬於 <em>有狀態</em> (stateful) 的部分，第一步決定把檔案系統搬遷到 AWS S3 上。搬遷完成後，<strong>發現從 IMCE 的 File Browser 再也看不到搬遷前上傳的檔案</strong>。</p>
 <a id="more"></a>
-<h2 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h2><h3 id="Amazon-Web-Services"><a href="#Amazon-Web-Services" class="headerlink" title="Amazon Web Services"></a>Amazon Web Services</h3><ol>
+<h2>環境</h2>
+<h3>Amazon Web Services</h3>
+<ol>
 <li>為網站新增一個 AWS S3 Bucket、AWS Cloudfront Distribution。</li>
 <li>為網站新增一個 IAM Role，並設定適當的 IAM Policy 能夠讀寫 S3 Bucket。</li>
 <li>IAM Role 產生一組 Access Key/Secret Key。</li>
 </ol>
-<h3 id="Drupal"><a href="#Drupal" class="headerlink" title="Drupal"></a>Drupal</h3><ol>
+<h3>Drupal</h3>
+<ol>
 <li>安裝 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZHJ1cGFsLm9yZy9wcm9qZWN0L3MzZnM=" title="https://www.drupal.org/project/s3fs">S3 File System<i class="fa fa-external-link"></i></span>，輸入 S3 Bucket 的資訊與 Access Key/Secret Key，設定 Drupal 使用 S3 做為檔案系統。<strong>此時已上傳的檔案在資料庫中還是會指向 local 的檔案系統 (e.g. <code>sites/default/files</code>)，檔案本體也不會立刻上傳到 S3 上</strong>。</li>
 <li>安裝 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZHJ1cGFsLm9yZy9wcm9qZWN0L3MzZnNfbWlncmF0ZQ==" title="https://www.drupal.org/project/s3fs_migrate">S3 File System Migate<i class="fa fa-external-link"></i></span>，透過 Drupal 的 cron <strong>將檔案正式搬移到 S3 上，檔案搬移之後模組也會去改寫資料庫的紀錄，改指向 S3</strong>。檔案的公開網址預設會使用 S3 的公開網址，但如果有安裝 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZHJ1cGFsLm9yZy9wcm9qZWN0L2Nkbg==" title="https://www.drupal.org/project/cdn">CDN<i class="fa fa-external-link"></i></span>，且設定 Cloudfront 為網站的 CDN，就會改用 Cloudfront 做為公開網址。</li>
 </ol>
-<h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>檔案搬遷到 S3 後，<strong>從 IMCE 的 File Browser 再也看不到搬遷前上傳的檔案</strong>。</p>
-<h2 id="診斷"><a href="#診斷" class="headerlink" title="診斷"></a>診斷</h2><ul>
+<h2>問題</h2>
+<p>檔案搬遷到 S3 後，<strong>從 IMCE 的 File Browser 再也看不到搬遷前上傳的檔案</strong>。</p>
+<h2>診斷</h2>
+<ul>
 <li>:white_check_mark: 透過 AWS S3 Console，可以看到檔案本體都已經上傳到 S3 上，隨便下載一個檔案檢查也沒有問題。</li>
 <li>:white_check_mark: 進入資料庫查看，會發現 <code>file_managed</code> 的 <code>uri</code> 欄位都變成了 <code>s3://...</code> 的形式。</li>
 <li>:white_check_mark: 直接在瀏覽器上輸入 Cloudfront 網址，也可以正常存取。</li>
-<li>:white_check_mark: 選擇一個有附加檔案的 Content Type，新增一筆資料，檔案可以正常上傳、瀏覽、下載。<ul>
+<li>:white_check_mark: 選擇一個有附加檔案的 Content Type，新增一筆資料，檔案可以正常上傳、瀏覽、下載。
+<ul>
 <li>由於有 CDN，所以一樣是透過 Cloudfront 提供的公開網址。</li>
 </ul>
 </li>
 <li>:x: 問題是，透過 <strong>IMCE 的 File Browser 就是找不到搬遷到 S3 前上傳的檔案</strong>。</li>
 </ul>
-<h2 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h2><p>最後在 <span class="exturl" data-url="aHR0cDovL3d3dy5zeW1waG9ueXRoZW1lcy5jb20vZHJ1cGFsLWJsb2cvZWFzeS1hbWF6b24tczMtZHJ1cGFsLXMzZnM=" title="http://www.symphonythemes.com/drupal-blog/easy-amazon-s3-drupal-s3fs">Easy Amazon S3 in Drupal with S3FS<i class="fa fa-external-link"></i></span> 這篇部落格找到我之前一直沒有做的一個步驟，<strong>將 S3 Bucket 公開 (Make Public)</strong>！</p>
+<h2>解決方法</h2>
+<p>最後在 <span class="exturl" data-url="aHR0cDovL3d3dy5zeW1waG9ueXRoZW1lcy5jb20vZHJ1cGFsLWJsb2cvZWFzeS1hbWF6b24tczMtZHJ1cGFsLXMzZnM=" title="http://www.symphonythemes.com/drupal-blog/easy-amazon-s3-drupal-s3fs">Easy Amazon S3 in Drupal with S3FS<i class="fa fa-external-link"></i></span> 這篇部落格找到我之前一直沒有做的一個步驟，<strong>將 S3 Bucket 公開 (Make Public)</strong>！</p>
 <p><img src="http://www.symphonythemes.com/system/files/images/blog/s3-make-public.jpg" alt="Make S3 Bucket Public"></p>
 <p>Photo Credit: <span class="exturl" data-url="aHR0cDovL3d3dy5zeW1waG9ueXRoZW1lcy5jb20v" title="http://www.symphonythemes.com/">www.symphonythemes.com<i class="fa fa-external-link"></i></span></p>
 <p>在 S3 Bucket Console 點擊 Make Public 之後，<strong>就可以透過 IMCE File Browser 看到搬遷前上傳的檔案了</strong>。</p>
-<h2 id="推測背後的原因"><a href="#推測背後的原因" class="headerlink" title="推測背後的原因"></a>推測背後的原因</h2><ol>
+<h2>推測背後的原因</h2>
+<ol>
 <li>IMCE 透過 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZHJ1cGFsLm9yZy9kb2NzLzcvYXBpL2ZpbGUtYXBpL3dyaXRpbmctc3RyZWFtLXdyYXBwZXJz" title="https://www.drupal.org/docs/7/api/file-api/writing-stream-wrappers">File Stream Wrapper<i class="fa fa-external-link"></i></span> 去轉譯 <code>s3://</code> 協定、取得已經上傳到 S3 上的檔案的真實網址。</li>
 <li>S3 Bucket 的權限預設不是 Public，因此 File Stream Wrapper 拿不到公開網址。</li>
 <li>File Stream Wrapper 回傳無效的資料給 IMCE，IMCE 直接忽略該檔案，也不會顯示任何錯誤。</li>
@@ -563,8 +572,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/migrate-from-cloudflare-to-aws/" rel="next" title="從 Cloudflare 搬家到 AWS，而且是「徹底搬家」">
-                <i class="fa fa-chevron-left"></i> 從 Cloudflare 搬家到 AWS，而且是「徹底搬家」
+              <a href="/replace-security-groups-in-terraform/" rel="next" title="在 Terraform 抽換 Security Group">
+                <i class="fa fa-chevron-left"></i> 在 Terraform 抽換 Security Group
               </a>
             
           </div>
@@ -651,7 +660,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>
@@ -783,7 +792,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#緣起"><span class="nav-number">1.</span> <span class="nav-text">緣起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#環境"><span class="nav-number">2.</span> <span class="nav-text">環境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Amazon-Web-Services"><span class="nav-number">2.1.</span> <span class="nav-text">Amazon Web Services</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Drupal"><span class="nav-number">2.2.</span> <span class="nav-text">Drupal</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#問題"><span class="nav-number">3.</span> <span class="nav-text">問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#診斷"><span class="nav-number">4.</span> <span class="nav-text">診斷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解決方法"><span class="nav-number">5.</span> <span class="nav-text">解決方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推測背後的原因"><span class="nav-number">6.</span> <span class="nav-text">推測背後的原因</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">緣起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">環境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">Amazon Web Services</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">Drupal</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">診斷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">解決方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">推測背後的原因</span></a></li></ol></div>
             
 
           </div>

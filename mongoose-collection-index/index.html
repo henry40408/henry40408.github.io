@@ -98,17 +98,17 @@
 
 
 
-  <meta name="description" content="這篇文章適合使用 MongoDB 與 Mongoose 的 Node.js 開發者  2017-06-14 更新之前有提到效能方面的問題，現在 test case 已經成長到 600 多筆，還沒有發生非常顯著的效能問題，因此 db.colleciton.ensureIndex 理論上可以放心使用了。 前言如果是 TDD 風格的測試，通常會經過以下步驟：  before hook function">
+  <meta name="description" content="這篇文章適合使用 MongoDB 與 Mongoose 的 Node.js 開發者  2017-06-14 更新 之前有提到效能方面的問題，現在 test case 已經成長到 600 多筆，還沒有發生非常顯著的效能問題，因此 db.colleciton.ensureIndex 理論上可以放心使用了。 前言 如果是 TDD 風格的測試，通常會經過以下步驟：  before hook functi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MongoDB 與 Mongoose 執行測試時注意刪除 database 同時也會刪除 collection 的 index">
 <meta property="og:url" content="https://henry40408.com/mongoose-collection-index/index.html">
 <meta property="og:site_name" content="Life is a YOLO Game">
-<meta property="og:description" content="這篇文章適合使用 MongoDB 與 Mongoose 的 Node.js 開發者  2017-06-14 更新之前有提到效能方面的問題，現在 test case 已經成長到 600 多筆，還沒有發生非常顯著的效能問題，因此 db.colleciton.ensureIndex 理論上可以放心使用了。 前言如果是 TDD 風格的測試，通常會經過以下步驟：  before hook function">
+<meta property="og:description" content="這篇文章適合使用 MongoDB 與 Mongoose 的 Node.js 開發者  2017-06-14 更新 之前有提到效能方面的問題，現在 test case 已經成長到 600 多筆，還沒有發生非常顯著的效能問題，因此 db.colleciton.ensureIndex 理論上可以放心使用了。 前言 如果是 TDD 風格的測試，通常會經過以下步驟：  before hook functi">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-06-22T01:28:57.799Z">
+<meta property="og:updated_time" content="2019-06-24T14:03:00.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MongoDB 與 Mongoose 執行測試時注意刪除 database 同時也會刪除 collection 的 index">
-<meta name="twitter:description" content="這篇文章適合使用 MongoDB 與 Mongoose 的 Node.js 開發者  2017-06-14 更新之前有提到效能方面的問題，現在 test case 已經成長到 600 多筆，還沒有發生非常顯著的效能問題，因此 db.colleciton.ensureIndex 理論上可以放心使用了。 前言如果是 TDD 風格的測試，通常會經過以下步驟：  before hook function">
+<meta name="twitter:description" content="這篇文章適合使用 MongoDB 與 Mongoose 的 Node.js 開發者  2017-06-14 更新 之前有提到效能方面的問題，現在 test case 已經成長到 600 多筆，還沒有發生非常顯著的效能問題，因此 db.colleciton.ensureIndex 理論上可以放心使用了。 前言 如果是 TDD 風格的測試，通常會經過以下步驟：  before hook functi">
 
 
 
@@ -421,7 +421,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -476,8 +476,10 @@
         <blockquote>
 <p>這篇文章適合使用 MongoDB 與 Mongoose 的 Node.js 開發者</p>
 </blockquote>
-<h3 id="2017-06-14-更新"><a href="#2017-06-14-更新" class="headerlink" title="2017-06-14 更新"></a>2017-06-14 更新</h3><p>之前有提到效能方面的問題，現在 test case 已經成長到 600 多筆，還沒有發生非常顯著的效能問題，因此 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1vbmdvZGIuY29tL3YyLjYvcmVmZXJlbmNlL21ldGhvZC9kYi5jb2xsZWN0aW9uLmVuc3VyZUluZGV4Lw==" title="https://docs.mongodb.com/v2.6/reference/method/db.collection.ensureIndex/"><code>db.colleciton.ensureIndex</code><i class="fa fa-external-link"></i></span> 理論上可以放心使用了。</p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如果是 TDD 風格的測試，通常會經過以下步驟：</p>
+<h3>2017-06-14 更新</h3>
+<p>之前有提到效能方面的問題，現在 test case 已經成長到 600 多筆，還沒有發生非常顯著的效能問題，因此 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1vbmdvZGIuY29tL3YyLjYvcmVmZXJlbmNlL21ldGhvZC9kYi5jb2xsZWN0aW9uLmVuc3VyZUluZGV4Lw==" title="https://docs.mongodb.com/v2.6/reference/method/db.collection.ensureIndex/"><code>db.colleciton.ensureIndex</code><i class="fa fa-external-link"></i></span> 理論上可以放心使用了。</p>
+<h2>前言</h2>
+<p>如果是 TDD 風格的測試，通常會經過以下步驟：</p>
 <ol>
 <li><code>before</code> hook function 準備環境。</li>
 <li><code>describe</code> 與 <code>it</code> 執行測試，有時候還會有 <code>context</code>。</li>
@@ -485,12 +487,16 @@
 </ol>
 <p>在準備環境的階段，通常會建立一個暫時性的資料庫，讓 test runner (e.g. Mocha) 去模擬資料庫的讀寫，最後在收拾殘局的階段把資料庫刪掉。如果專案採用的資料庫是關聯式資料庫，因為資料與定義是分開的，這個程序基本上不會有什麼問題；但如果採用的資料庫是 MongoDB，adapter 是 Mongoose，<strong>那要特別注意資料庫被刪除的同時 collection 的 scheme 也會被一起刪掉</strong>。</p>
 <a id="more"></a>
-<h2 id="每次執行專案或測試-Mongoose-建立資料庫的程序只會執行一次"><a href="#每次執行專案或測試-Mongoose-建立資料庫的程序只會執行一次" class="headerlink" title="每次執行專案或測試 Mongoose 建立資料庫的程序只會執行一次"></a>每次執行專案或測試 Mongoose 建立資料庫的程序只會執行一次</h2><p>無論是專案或測試開始執行時，Mongoose 只會在最一開始時根據定義好的 schema 建立整個資料庫。而透過 Mongoose 執行寫入操作時，如果 database、collection 沒有先被建立，MongoDB 會在此時建立缺少的 database 與 collection，然後才執行寫入，<strong>此時 Mongoose 就不會去參考專案定義的 schema 了</strong>。</p>
-<h2 id="MongoDB-的-unique-constraint-需要-unique-index-才能運作"><a href="#MongoDB-的-unique-constraint-需要-unique-index-才能運作" class="headerlink" title="MongoDB 的 unique constraint 需要 unique index 才能運作"></a>MongoDB 的 unique constraint 需要 unique index 才能運作</h2><p>假設我們在一個欄位的選項中設定 <code>{unique: true}</code>，Mongoose 在建立資料庫的階段，會在 collection 的 scheme 建立一個 unique index。如果沒有這個 unique index，那麼 unique constraint 就不會運作，<strong>新建立的 document 就有可能跟已經建立的 document 發生衝突，而且什麼事都不會發生，也不會有 exception 被拋出</strong>。</p>
-<h2 id="執行單一檔案會成功，但是執行所有檔案就會失敗"><a href="#執行單一檔案會成功，但是執行所有檔案就會失敗" class="headerlink" title="執行單一檔案會成功，但是執行所有檔案就會失敗"></a>執行單一檔案會成功，但是執行所有檔案就會失敗</h2><p>如果有設定 <code>gulp-watch</code> 來監看變動的檔案並執行測試，就有可能發現與 unique constraint 有關的 test case，在執行單一檔案時會通過，但執行所有檔案時卻會失敗的靈異現象。</p>
+<h2>每次執行專案或測試 Mongoose 建立資料庫的程序只會執行一次</h2>
+<p>無論是專案或測試開始執行時，Mongoose 只會在最一開始時根據定義好的 schema 建立整個資料庫。而透過 Mongoose 執行寫入操作時，如果 database、collection 沒有先被建立，MongoDB 會在此時建立缺少的 database 與 collection，然後才執行寫入，<strong>此時 Mongoose 就不會去參考專案定義的 schema 了</strong>。</p>
+<h2>MongoDB 的 unique constraint 需要 unique index 才能運作</h2>
+<p>假設我們在一個欄位的選項中設定 <code>{unique: true}</code>，Mongoose 在建立資料庫的階段，會在 collection 的 scheme 建立一個 unique index。如果沒有這個 unique index，那麼 unique constraint 就不會運作，<strong>新建立的 document 就有可能跟已經建立的 document 發生衝突，而且什麼事都不會發生，也不會有 exception 被拋出</strong>。</p>
+<h2>執行單一檔案會成功，但是執行所有檔案就會失敗</h2>
+<p>如果有設定 <code>gulp-watch</code> 來監看變動的檔案並執行測試，就有可能發現與 unique constraint 有關的 test case，在執行單一檔案時會通過，但執行所有檔案時卻會失敗的靈異現象。</p>
 <p><strong>這是因為無論是執行單一檔案或執行全部檔案，Mongoose 只會在最一開始時根據專案定義的 schema 去建立整個資料庫，然後就不會再執行</strong>。</p>
 <p>如果某個 <code>after</code> hook function 把資料庫整個刪掉，collection 的 unique index 也會被跟著刪掉，unique constraint 就不會被觸發。通常在 test case 我們會去捕捉是否有 exception 被拋出，所以 test case 就會因為沒有 exception 被拋出而失敗。</p>
-<h2 id="解決方案"><a href="#解決方案" class="headerlink" title="解決方案"></a>解決方案</h2><p>還好 MongoDB 有提供一個 method <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1vbmdvZGIuY29tL3YyLjYvcmVmZXJlbmNlL21ldGhvZC9kYi5jb2xsZWN0aW9uLmVuc3VyZUluZGV4Lw==" title="https://docs.mongodb.com/v2.6/reference/method/db.collection.ensureIndex/"><code>db.colleciton.ensureIndex</code><i class="fa fa-external-link"></i></span>，可以強迫資料庫根據定義的 schema 重建 collection index。既然 API 都有了，要做的只剩下在 <code>before</code> hook function 呼叫 ensureIndex。</p>
+<h2>解決方案</h2>
+<p>還好 MongoDB 有提供一個 method <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1vbmdvZGIuY29tL3YyLjYvcmVmZXJlbmNlL21ldGhvZC9kYi5jb2xsZWN0aW9uLmVuc3VyZUluZGV4Lw==" title="https://docs.mongodb.com/v2.6/reference/method/db.collection.ensureIndex/"><code>db.colleciton.ensureIndex</code><i class="fa fa-external-link"></i></span>，可以強迫資料庫根據定義的 schema 重建 collection index。既然 API 都有了，要做的只剩下在 <code>before</code> hook function 呼叫 ensureIndex。</p>
 <p>雖然這個解法可以完美排除掉 unique index 被一併刪除的問題，由於我現在遇到的 test case 大概只有 200 筆左右，對於效能是否會有影響需要更進一步的測試。</p>
 
       
@@ -556,8 +562,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/replace-security-groups-in-terraform/" rel="prev" title="在 Terraform 抽換 Security Group">
-                在 Terraform 抽換 Security Group <i class="fa fa-chevron-right"></i>
+              <a href="/migrate-from-cloudflare-to-aws/" rel="prev" title="從 Cloudflare 搬家到 AWS，而且是「徹底搬家」">
+                從 Cloudflare 搬家到 AWS，而且是「徹底搬家」 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -634,7 +640,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>
@@ -766,7 +772,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-06-14-更新"><span class="nav-number">1.</span> <span class="nav-text">2017-06-14 更新</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number"></span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#每次執行專案或測試-Mongoose-建立資料庫的程序只會執行一次"><span class="nav-number"></span> <span class="nav-text">每次執行專案或測試 Mongoose 建立資料庫的程序只會執行一次</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MongoDB-的-unique-constraint-需要-unique-index-才能運作"><span class="nav-number"></span> <span class="nav-text">MongoDB 的 unique constraint 需要 unique index 才能運作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#執行單一檔案會成功，但是執行所有檔案就會失敗"><span class="nav-number"></span> <span class="nav-text">執行單一檔案會成功，但是執行所有檔案就會失敗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解決方案"><span class="nav-number"></span> <span class="nav-text">解決方案</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">2017-06-14 更新</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">每次執行專案或測試 Mongoose 建立資料庫的程序只會執行一次</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">MongoDB 的 unique constraint 需要 unique index 才能運作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">執行單一檔案會成功，但是執行所有檔案就會失敗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">解決方案</span></a></li></div>
             
 
           </div>

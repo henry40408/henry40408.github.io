@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="Life is a YOLO Game">
 <meta property="og:description" content="最近參考 Deploy Ruby On Rails on Ubuntu 14.04 Trusty Tahr 部署了兩隻 Ruby on Rails 應用程式，卻都發生 rails console 無法在部署的機器上執行的問題。每次要執行 rails console 的時候，都會發生 LoadError（詳細輸出請參考 這篇 StackOverflow）。一開始也懶得去解決，想說遠端機器使用 rai">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-06-22T01:28:57.799Z">
+<meta property="og:updated_time" content="2019-06-24T14:03:00.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rbenv 2.x 的 readline 問題">
 <meta name="twitter:description" content="最近參考 Deploy Ruby On Rails on Ubuntu 14.04 Trusty Tahr 部署了兩隻 Ruby on Rails 應用程式，卻都發生 rails console 無法在部署的機器上執行的問題。每次要執行 rails console 的時候，都會發生 LoadError（詳細輸出請參考 這篇 StackOverflow）。一開始也懶得去解決，想說遠端機器使用 rai">
@@ -421,7 +421,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -476,9 +476,11 @@
         <p>最近參考 <span class="exturl" data-url="aHR0cHM6Ly9nb3JhaWxzLmNvbS9kZXBsb3kvdWJ1bnR1LzE0LjA0" title="https://gorails.com/deploy/ubuntu/14.04">Deploy Ruby On Rails on Ubuntu 14.04 Trusty Tahr<i class="fa fa-external-link"></i></span> 部署了兩隻 Ruby on Rails 應用程式，卻都發生 rails console 無法在部署的機器上執行的問題。每次要執行 rails console 的時候，都會發生 <code>LoadError</code>（詳細輸出請參考 <span class="exturl" data-url="aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3EvMjI5MTU2NzY=" title="http://stackoverflow.com/q/22915676">這篇 StackOverflow<i class="fa fa-external-link"></i></span>）。一開始也懶得去解決，想說遠端機器使用 rails console 的機會沒有想像中的多。但小問題不解決，總有一天變成大問題。如果急著要用 rails console 卻怎麼樣也開不起來，那就真的火燒屁股了。</p>
 <p>接下來一步一步分析。</p>
 <a id="more"></a>
-<h2 id="最明顯的第一步：找不到-readline"><a href="#最明顯的第一步：找不到-readline" class="headerlink" title="最明顯的第一步：找不到 readline"></a>最明顯的第一步：找不到 readline</h2><p>直接下 <code>sudo apt-get install libreadline6 libreadline6-dev</code> 試著解決。</p>
+<h2>最明顯的第一步：找不到 readline</h2>
+<p>直接下 <code>sudo apt-get install libreadline6 libreadline6-dev</code> 試著解決。</p>
 <p>結果這兩個套件都安裝了，問題不是出在這。</p>
-<h2 id="readline-在，但-ruby-找不到它"><a href="#readline-在，但-ruby-找不到它" class="headerlink" title="readline 在，但 ruby 找不到它"></a>readline 在，但 ruby 找不到它</h2><p>直接貼錯誤到 Google 上搜尋。</p>
+<h2>readline 在，但 ruby 找不到它</h2>
+<p>直接貼錯誤到 Google 上搜尋。</p>
 <p>參考 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NzdGVwaGVuc29uL3J1YnktYnVpbGQ=" title="https://github.com/sstephenson/ruby-build">ruby-build<i class="fa fa-external-link"></i></span> 的 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NzdGVwaGVuc29uL3J1YnktYnVpbGQvd2lraSNzdWdnZXN0ZWQtYnVpbGQtZW52aXJvbm1lbnQ=" title="https://github.com/sstephenson/ruby-build/wiki#suggested-build-environment">Suggested build environment<i class="fa fa-external-link"></i></span> 章節，最下面有提到 <strong>如果在編譯 ruby 時發生跟 readline 有關的問題，傳一個參數 <code>RUBY_CONFIGURE_OPTS</code> 與 readline 的路徑給 rbenv 解決</strong> 。</p>
 <blockquote>
 <p>If you get error with <code>readline</code> during the build of <code>ruby</code>, use the <code>RUBY_CONFIGURE_OPTS</code> to specify where to find <code>libreadline.so</code>. By example, to install <code>ruby 2.1.1</code>, use the whole following command: <code>RUBY_CONFIGURE_OPTS=--with-readline-dir=&quot;/usr/lib/libreadline.so&quot; rbenv install 2.1.1</code>.</p>
@@ -486,8 +488,10 @@
 <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NzdGVwaGVuc29uL3JiZW52" title="https://github.com/sstephenson/rbenv">rbenv<i class="fa fa-external-link"></i></span> 透過 ruby-build 編譯 ruby。</p>
 <p>從這一點來看， ruby-build 自己在編譯 ruby 的時候不會主動去找 readline 來編譯，所以需要另外指定。</p>
 <p>找到一個答案，又出現另外一個問題。</p>
-<h2 id="readline-成功-import，但-ruby-編譯失敗"><a href="#readline-成功-import，但-ruby-編譯失敗" class="headerlink" title="readline 成功 import，但 ruby 編譯失敗"></a>readline 成功 import，但 ruby 編譯失敗</h2><p>GitHub 上面有段非常精彩的 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NzdGVwaGVuc29uL3J1YnktYnVpbGQvaXNzdWVzLzUyNg==" title="https://github.com/sstephenson/ruby-build/issues/526">Issue<i class="fa fa-external-link"></i></span>，討論 import readline 後 ruby 編譯之後還是會失敗的問題。一開始某位核心貢獻者認為這個問題不應該是 ruby-build 的問題，因此斷然地把 Issue 給關掉了，卻因此惹惱另外一個開發者，覺得關掉 issue 的貢獻者在推諉卸責。幸好大家都還是很理性，後續的討論提供了不少解決方法。在此僅提供集大成，且徹底解決我問題的 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NzdGVwaGVuc29uL3J1YnktYnVpbGQvaXNzdWVzLzUyNiNpc3N1ZWNvbW1lbnQtMzc5MzMyNDI=" title="https://github.com/sstephenson/ruby-build/issues/526#issuecomment-37933242">mislav 的 comment<i class="fa fa-external-link"></i></span>。</p>
-<h2 id="終極解法"><a href="#終極解法" class="headerlink" title="終極解法"></a>終極解法</h2><p>先移除沒有編譯 readline 的跛腳版本。(2.1.1 記得代換成你自己的 ruby 版本)</p>
+<h2>readline 成功 import，但 ruby 編譯失敗</h2>
+<p>GitHub 上面有段非常精彩的 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NzdGVwaGVuc29uL3J1YnktYnVpbGQvaXNzdWVzLzUyNg==" title="https://github.com/sstephenson/ruby-build/issues/526">Issue<i class="fa fa-external-link"></i></span>，討論 import readline 後 ruby 編譯之後還是會失敗的問題。一開始某位核心貢獻者認為這個問題不應該是 ruby-build 的問題，因此斷然地把 Issue 給關掉了，卻因此惹惱另外一個開發者，覺得關掉 issue 的貢獻者在推諉卸責。幸好大家都還是很理性，後續的討論提供了不少解決方法。在此僅提供集大成，且徹底解決我問題的 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NzdGVwaGVuc29uL3J1YnktYnVpbGQvaXNzdWVzLzUyNiNpc3N1ZWNvbW1lbnQtMzc5MzMyNDI=" title="https://github.com/sstephenson/ruby-build/issues/526#issuecomment-37933242">mislav 的 comment<i class="fa fa-external-link"></i></span>。</p>
+<h2>終極解法</h2>
+<p>先移除沒有編譯 readline 的跛腳版本。(2.1.1 記得代換成你自己的 ruby 版本)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rbenv uninstall 2.1.1</span><br></pre></td></tr></table></figure>
 <p>再打上社群提供的 patch</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -fsSL https://gist.github.com/mislav/a18b9d7f0dc5b9efc162.txt | rbenv install --patch 2.1.1</span><br></pre></td></tr></table></figure>
@@ -631,7 +635,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>
@@ -763,7 +767,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最明顯的第一步：找不到-readline"><span class="nav-number">1.</span> <span class="nav-text">最明顯的第一步：找不到 readline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#readline-在，但-ruby-找不到它"><span class="nav-number">2.</span> <span class="nav-text">readline 在，但 ruby 找不到它</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#readline-成功-import，但-ruby-編譯失敗"><span class="nav-number">3.</span> <span class="nav-text">readline 成功 import，但 ruby 編譯失敗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#終極解法"><span class="nav-number">4.</span> <span class="nav-text">終極解法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">最明顯的第一步：找不到 readline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">readline 在，但 ruby 找不到它</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">readline 成功 import，但 ruby 編譯失敗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">終極解法</span></a></li></ol></div>
             
 
           </div>

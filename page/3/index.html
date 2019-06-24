@@ -358,6 +358,187 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/react-native-navigator/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/react-native-navigator/" class="post-title-link" itemprop="url">React Native Navigator 求生紀實</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2016-08-12 00:00:00" itemprop="dateCreated datePublished" datetime="2016-08-12T00:00:00+08:00">2016-08-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React-Native/" itemprop="url" rel="index"><span itemprop="name">React Native</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在跟 React Native 搏鬥近兩個月後，navigation 還是在我不經意的情況下爆炸了。</p>
+<h2>route decoupling</h2>
+<p>這個問題出在我把 navigator 這個屬於 component 範疇的 object 傳給 redux action，導致 decoupling 不完全；另外一個問題是我違反了 component pattern，階層較低的 component 不該有機會能夠直接參考到階層較高的 component。例如以下的 code。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/react-native-navigator/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://henry40408.com/react-native-fbsdk-and-facebook-sdk/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -420,7 +601,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -602,7 +783,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -655,193 +836,14 @@
 
       
         
-          <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>例如以下 Ruby on Rails 程式碼。</p>
+          <h2>問題</h2>
+<p>例如以下 Ruby on Rails 程式碼。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Member</span> &lt; ActiveRecord::Base</span></span><br><span class="line">  <span class="comment"># has a string column named `email`</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Admin</span> &lt; Member</span></span><br><span class="line">  <span class="comment"># ...</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <p><code>Member</code> 與 <code>Admin</code> 兩個 Rails model 之間有繼承關係，那它們的 <code>factory_girl</code> Factory 要怎麼寫呢？</p>
           <!--noindex-->
           
             <div class="post-button text-center">
               <a class="btn" href="/inherited-model-in-factory-girl/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://henry40408.com/react-native-touchables/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Heng-Yi Wu">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Life is a YOLO Game">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/react-native-touchables/" class="post-title-link" itemprop="url">React Native 的觸控區域</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-
-              
-                
-              
-
-              <time title="創建時間：2016-07-29 00:00:00" itemprop="dateCreated datePublished" datetime="2016-07-29T00:00:00+08:00">2016-07-29</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新於</span>
-                
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React-Native/" itemprop="url" rel="index"><span itemprop="name">React Native</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="樣式上的差異"><a href="#樣式上的差異" class="headerlink" title="樣式上的差異"></a>樣式上的差異</h2><p>在 React Native，如果需要觸控區域，我們有兩個選擇：<code>&lt;TouchableWithoutFeedback /&gt;</code> 與 <code>&lt;TouchableHighlight /&gt;</code>。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。</p>
-<p>實際使用之後，我發現兩者另外一項區別在於 <code>&lt;TouchableWithoutFeedback /&gt;</code> 沒有預設樣式，實際使用起來就像是一個隱形的容器，包住內部的元素，但又不會與內部的容器互相影響；而 <code>&lt;TouchableHighlight /&gt;</code> 本身則會形成一個區塊，會與內部的元素相互影響。至於之前的版本曾經有使用者提出 <code>&lt;TouchableHighlight /&gt;</code> 可能是為了產生回饋的視覺效果，而有效能上的問題。但在 <code>0.28.x</code> 之後，至少我實際使用到現在還沒有遇到嚴重的效能問題，即使是在最複雜的編輯履歷頁面也沒有。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/react-native-touchables/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -963,7 +965,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -1019,7 +1021,7 @@
           
             <p>React Native 雖然有 React 一詞，但與 React.js 的關係還是僅止於名稱而已。從 <code>0.28.x</code> 開始，flexbox 被調整地更接近 CSS3 標準。在 <code>0.28.x</code> 之前，對一個 <code>&lt;View /&gt;</code> 填上 <code>flex: 1</code> 屬性並不會劇烈地改變 <code>&lt;View /&gt;</code> 的呈現形式。但 <code>0.28.x</code> 之後，<code>flex</code> 屬性開始具備延展性。也就是說，<strong>我們不能再隨意地為 <code>&lt;View /&gt;</code> 添加 <code>flex</code> 屬性</strong>。<strong>否則在需要 inline 樣式的容器中，所有的元素將被延展</strong>，導致元素與容器一起變形。</p>
 <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhY2Vib29rL3JlYWN0LW5hdGl2ZS9pc3N1ZXMvODY5MQ==" title="https://github.com/facebook/react-native/issues/8691">#8691 [0.29] With flexWrap: ‘wrap’, unexpected margin appears between wrapped rows<i class="fa fa-external-link"></i></span></p>
-<p>另外，像標籤這樣需要一個接著一個排成一列的樣式，在 <code>0.28.x</code> 之前只要加上 <code>flexDirection: &#39;row&#39;</code> 與 <code>flexWrap: &#39;wrap&#39;</code> 即可；但 <code>0.28.x</code> 之後，還需要加上 <code>alignItems: &#39;left&#39;</code> (或 <code>alignItems: &#39;right&#39;</code>，如果需要靠右對齊的話)，在此可以簡單地類比成網頁端的 <code>float: left</code> (或 <code>float: right</code>)。如果不加上這個屬性的話，容器內的元素將會在底部產生成因不明的空白，如 issue 中的截圖所示。</p>
+<p>另外，像標籤這樣需要一個接著一個排成一列的樣式，在 <code>0.28.x</code> 之前只要加上 <code>flexDirection: 'row'</code> 與 <code>flexWrap: 'wrap'</code> 即可；但 <code>0.28.x</code> 之後，還需要加上 <code>alignItems: 'left'</code> (或 <code>alignItems: 'right'</code>，如果需要靠右對齊的話)，在此可以簡單地類比成網頁端的 <code>float: left</code> (或 <code>float: right</code>)。如果不加上這個屬性的話，容器內的元素將會在底部產生成因不明的空白，如 issue 中的截圖所示。</p>
 
           
         
@@ -1138,7 +1140,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -1191,12 +1193,194 @@
 
       
         
-          <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>我的 Ruby on Rails 專案我都習慣會寫 RSpec，但問題是只要專案一變大，RSpec 就會跑個二到三分鐘，以前我不是傻傻地盯著畫面等它完成，不然就是偷閒跑去看影集，往往把一集看完了才想起來有 RSpec 在執行。</p>
+          <h2>問題</h2>
+<p>我的 Ruby on Rails 專案我都習慣會寫 RSpec，但問題是只要專案一變大，RSpec 就會跑個二到三分鐘，以前我不是傻傻地盯著畫面等它完成，不然就是偷閒跑去看影集，往往把一集看完了才想起來有 RSpec 在執行。</p>
 <p>昨天晚上靈機一動，想到之前在學 webpack 時，別人寫的 Yeoman generator 透過 iTerm 的通知功能在 bundle 打包完成通知開發者 (<span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2Uvd2VicGFjay1ub3RpZmllcg==" title="https://www.npmjs.com/package/webpack-notifier">Turbo87/webpack-notifier<i class="fa fa-external-link"></i></span>)。於是我就想，有沒有可能以盡量簡單的方法去解決這樣的問題？</p>
           <!--noindex-->
           
             <div class="post-button text-center">
               <a class="btn" href="/notify-after-rspec-command-finished/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/react-native-touchables/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/react-native-touchables/" class="post-title-link" itemprop="url">React Native 的觸控區域</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2016-07-29 00:00:00" itemprop="dateCreated datePublished" datetime="2016-07-29T00:00:00+08:00">2016-07-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React-Native/" itemprop="url" rel="index"><span itemprop="name">React Native</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2>樣式上的差異</h2>
+<p>在 React Native，如果需要觸控區域，我們有兩個選擇：<code>&lt;TouchableWithoutFeedback /&gt;</code> 與 <code>&lt;TouchableHighlight /&gt;</code>。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。</p>
+<p>實際使用之後，我發現兩者另外一項區別在於 <code>&lt;TouchableWithoutFeedback /&gt;</code> 沒有預設樣式，實際使用起來就像是一個隱形的容器，包住內部的元素，但又不會與內部的容器互相影響；而 <code>&lt;TouchableHighlight /&gt;</code> 本身則會形成一個區塊，會與內部的元素相互影響。至於之前的版本曾經有使用者提出 <code>&lt;TouchableHighlight /&gt;</code> 可能是為了產生回饋的視覺效果，而有效能上的問題。但在 <code>0.28.x</code> 之後，至少我實際使用到現在還沒有遇到嚴重的效能問題，即使是在最複雜的編輯履歷頁面也沒有。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/react-native-touchables/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -1318,7 +1502,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -1371,7 +1555,7 @@
 
       
         
-          <p><span class="exturl" data-url="aHR0cDovL21vbWVudGpzLmNvbS8=" title="http://momentjs.com/">moment.js<i class="fa fa-external-link"></i></span> 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 <code>(new Date()).getFullYear()</code>，如果使用 moment.js 我可以只寫 <code>moment().get(&#39;year&#39;)</code>，可讀性增強許多。</p>
+          <p><span class="exturl" data-url="aHR0cDovL21vbWVudGpzLmNvbS8=" title="http://momentjs.com/">moment.js<i class="fa fa-external-link"></i></span> 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 <code>(new Date()).getFullYear()</code>，如果使用 moment.js 我可以只寫 <code>moment().get('year')</code>，可讀性增強許多。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1497,7 +1681,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -1550,192 +1734,14 @@
 
       
         
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>開發 app，你必須有 <strong>總有一天一定要處理轉場動畫</strong> 的覺悟。死拖活拖幾個月後，我還是迎來了第一個 React Native 動畫。</p>
+          <h2>前言</h2>
+<p>開發 app，你必須有 <strong>總有一天一定要處理轉場動畫</strong> 的覺悟。死拖活拖幾個月後，我還是迎來了第一個 React Native 動畫。</p>
 <p><span class="exturl" data-url="aHR0cDovL21vZHVzY3JlYXRlLmNvbS9leHBhbmRpbmctYW5kLWNvbGxhcHNpbmctZWxlbWVudHMtdXNpbmctYW5pbWF0aW9ucy1pbi1yZWFjdC1uYXRpdmUv" title="http://moduscreate.com/expanding-and-collapsing-elements-using-animations-in-react-native/">Expanding and Collapsing Elements Using Animations in React Native<i class="fa fa-external-link"></i></span></p>
 <p>雖然 <strong>React Native 沒有 CSS</strong>，但它們也不是真的被完全拿掉，而是以另外一種形式借屍還魂。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
               <a class="btn" href="/react-native-animations/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://henry40408.com/dismiss-keyboard-in-react-native/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Heng-Yi Wu">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Life is a YOLO Game">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/dismiss-keyboard-in-react-native/" class="post-title-link" itemprop="url">React Native 手動關閉螢幕鍵盤</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-
-              
-                
-              
-
-              <time title="創建時間：2016-06-04 00:00:00" itemprop="dateCreated datePublished" datetime="2016-06-04T00:00:00+08:00">2016-06-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新於</span>
-                
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React-Native/" itemprop="url" rel="index"><span itemprop="name">React Native</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>iOS app 雖然會在使用者不再輸入文字時自動隱藏螢幕鍵盤，但鍵盤隱藏時有過場動畫，如果鍵盤的過場動畫與自訂動畫同時發生，就會有螢幕卡頓的情形。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/dismiss-keyboard-in-react-native/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -1857,7 +1863,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -1910,7 +1916,8 @@
 
       
         
-          <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p><code>letter-spacing</code> 會在 <strong>所有字元的尾端</strong> 都加上空白以達成字元間隔的效果。但事實上我們需要的只有 <strong>在字元與字元間</strong> 插入空白即可，最後的字元其實不需要加上空白。因此我們需要做一些 hack 來調整。</p>
+          <h2>問題</h2>
+<p><code>letter-spacing</code> 會在 <strong>所有字元的尾端</strong> 都加上空白以達成字元間隔的效果。但事實上我們需要的只有 <strong>在字元與字元間</strong> 插入空白即可，最後的字元其實不需要加上空白。因此我們需要做一些 hack 來調整。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1974,7 +1981,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://henry40408.com/prevent-dot-dot-in-react-native/">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/dismiss-keyboard-in-react-native/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Heng-Yi Wu">
@@ -1994,7 +2001,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/prevent-dot-dot-in-react-native/" class="post-title-link" itemprop="url">在 React Native 裡避免大量的 ../../</a>
+                <a href="/dismiss-keyboard-in-react-native/" class="post-title-link" itemprop="url">React Native 手動關閉螢幕鍵盤</a>
               
             
           </h1>
@@ -2019,7 +2026,7 @@
                 
               
 
-              <time title="創建時間：2016-05-25 00:00:00" itemprop="dateCreated datePublished" datetime="2016-05-25T00:00:00+08:00">2016-05-25</time>
+              <time title="創建時間：2016-06-04 00:00:00" itemprop="dateCreated datePublished" datetime="2016-06-04T00:00:00+08:00">2016-06-04</time>
             
 
             
@@ -2036,7 +2043,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -2089,13 +2096,12 @@
 
       
         
-          <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>React Native 採用 ES6 做為開發語言，而 ES6 的 <code>import</code> 語法指定檔案時採用相對路徑。如果採用 <span class="exturl" data-url="aHR0cDovL3JlZHV4LmpzLm9yZy8=" title="http://redux.js.org/">Redux<i class="fa fa-external-link"></i></span> 架構開發，很快地 <code>Component</code> 就會開始出現以下一堆亂七八糟的 <code>import</code> 語句。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> DoSomething <span class="keyword">from</span> <span class="string">'../actions/DoSomething'</span>;</span><br><span class="line"><span class="keyword">import</span> DoAnotherThing <span class="keyword">from</span> <span class="string">'../actions/DoAnotherThing'</span>;</span><br></pre></td></tr></table></figure>
-<p>如果是從 HTML4 時代就開始寫 JavaScript 的工程師，乍看之下沒有什麼不好，因為絕對路徑與相對路徑的好壞在 HTML4 的時代就吵過一次，最後的結論也都是有好有壞。<strong>但 React Native 不是 ES5</strong>，規模很容易膨脹到超過傳統 ES5 專案的程度，因此應該另尋專為大型專案設計的解決方法。</p>
+          <h2>問題</h2>
+<p>iOS app 雖然會在使用者不再輸入文字時自動隱藏螢幕鍵盤，但鍵盤隱藏時有過場動畫，如果鍵盤的過場動畫與自訂動畫同時發生，就會有螢幕卡頓的情形。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/prevent-dot-dot-in-react-native/#more" rel="contents">
+              <a class="btn" href="/dismiss-keyboard-in-react-native/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -2188,7 +2194,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>

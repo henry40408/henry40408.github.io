@@ -14,7 +14,8 @@
 	
 	<meta property="og:site_name" content="Life is a YOLO Game">
 	
-		<meta property="og:description" content="&lt;h2 id=&#34;樣式上的差異&#34;&gt;&lt;a href=&#34;#樣式上的差異&#34; class=&#34;headerlink&#34; title=&#34;樣式上的差異&#34;&gt;&lt;/a&gt;樣式上的差異&lt;/h2&gt;&lt;p&gt;在 React Native，如果需要觸控區域，我們有兩個選擇：&lt;code&gt;&amp;lt;TouchableWithoutFeedback /&amp;gt;&lt;/code&gt; 與 &lt;code&gt;&amp;lt;TouchableHighlight /&amp;gt;&lt;/code&gt;。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。&lt;/p&gt;
+		<meta property="og:description" content="&lt;h2&gt;樣式上的差異&lt;/h2&gt;
+&lt;p&gt;在 React Native，如果需要觸控區域，我們有兩個選擇：&lt;code&gt;&amp;lt;TouchableWithoutFeedback /&amp;gt;&lt;/code&gt; 與 &lt;code&gt;&amp;lt;TouchableHighlight /&amp;gt;&lt;/code&gt;。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。&lt;/p&gt;
 &lt;p&gt;實際使用之後，我發現兩者另外一項區別在於 &lt;code&gt;&amp;lt;TouchableWithoutFeedback /&amp;gt;&lt;/code&gt; 沒有預設樣式，實際使用起來就像是一個隱形的容器，包住內部的元素，但又不會與內部的容器互相影響；而 &lt;code&gt;&amp;lt;TouchableHighlight /&amp;gt;&lt;/code&gt; 本身則會形成一個區塊，會與內部的元素相互影響。至於之前的版本曾經有使用者提出 &lt;code&gt;&amp;lt;TouchableHighlight /&amp;gt;&lt;/code&gt; 可能是為了產生回饋的視覺效果，而有效能上的問題。但在 &lt;code&gt;0.28.x&lt;/code&gt; 之後，至少我實際使用到現在還沒有遇到嚴重的效能問題，即使是在最複雜的編輯履歷頁面也沒有。&lt;/p&gt;">
 	
 	<meta name="twitter:card" content="summary_large_image" />
@@ -22,7 +23,8 @@
 	<meta name="twitter:url" content="https://henry40408.com/react-native-touchables/">
 	<meta name="twitter:title" content="React Native 的觸控區域 - Life is a YOLO Game">
 	
-		<meta name="twitter:description" content="&lt;h2 id=&#34;樣式上的差異&#34;&gt;&lt;a href=&#34;#樣式上的差異&#34; class=&#34;headerlink&#34; title=&#34;樣式上的差異&#34;&gt;&lt;/a&gt;樣式上的差異&lt;/h2&gt;&lt;p&gt;在 React Native，如果需要觸控區域，我們有兩個選擇：&lt;code&gt;&amp;lt;TouchableWithoutFeedback /&amp;gt;&lt;/code&gt; 與 &lt;code&gt;&amp;lt;TouchableHighlight /&amp;gt;&lt;/code&gt;。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。&lt;/p&gt;
+		<meta name="twitter:description" content="&lt;h2&gt;樣式上的差異&lt;/h2&gt;
+&lt;p&gt;在 React Native，如果需要觸控區域，我們有兩個選擇：&lt;code&gt;&amp;lt;TouchableWithoutFeedback /&amp;gt;&lt;/code&gt; 與 &lt;code&gt;&amp;lt;TouchableHighlight /&amp;gt;&lt;/code&gt;。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。&lt;/p&gt;
 &lt;p&gt;實際使用之後，我發現兩者另外一項區別在於 &lt;code&gt;&amp;lt;TouchableWithoutFeedback /&amp;gt;&lt;/code&gt; 沒有預設樣式，實際使用起來就像是一個隱形的容器，包住內部的元素，但又不會與內部的容器互相影響；而 &lt;code&gt;&amp;lt;TouchableHighlight /&amp;gt;&lt;/code&gt; 本身則會形成一個區塊，會與內部的元素相互影響。至於之前的版本曾經有使用者提出 &lt;code&gt;&amp;lt;TouchableHighlight /&amp;gt;&lt;/code&gt; 可能是為了產生回饋的視覺效果，而有效能上的問題。但在 &lt;code&gt;0.28.x&lt;/code&gt; 之後，至少我實際使用到現在還沒有遇到嚴重的效能問題，即使是在最複雜的編輯履歷頁面也沒有。&lt;/p&gt;">
 	
     
@@ -54,7 +56,8 @@
 			"@type": "BlogPosting",
 			"headline": "React Native 的觸控區域",
 			
-			"description": "&lt;h2 id=&#34;樣式上的差異&#34;&gt;&lt;a href=&#34;#樣式上的差異&#34; class=&#34;headerlink&#34; title=&#34;樣式上的差異&#34;&gt;&lt;/a&gt;樣式上的差異&lt;/h2&gt;&lt;p&gt;在 React Native，如果需要觸控區域，我們有兩個選擇：&lt;code&gt;&amp;lt;TouchableWithoutFeedback /&amp;gt;&lt;/code&gt; 與 &lt;code&gt;&amp;lt;TouchableHighlight /&amp;gt;&lt;/code&gt;。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。&lt;/p&gt;
+			"description": "&lt;h2&gt;樣式上的差異&lt;/h2&gt;
+&lt;p&gt;在 React Native，如果需要觸控區域，我們有兩個選擇：&lt;code&gt;&amp;lt;TouchableWithoutFeedback /&amp;gt;&lt;/code&gt; 與 &lt;code&gt;&amp;lt;TouchableHighlight /&amp;gt;&lt;/code&gt;。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。&lt;/p&gt;
 &lt;p&gt;實際使用之後，我發現兩者另外一項區別在於 &lt;code&gt;&amp;lt;TouchableWithoutFeedback /&amp;gt;&lt;/code&gt; 沒有預設樣式，實際使用起來就像是一個隱形的容器，包住內部的元素，但又不會與內部的容器互相影響；而 &lt;code&gt;&amp;lt;TouchableHighlight /&amp;gt;&lt;/code&gt; 本身則會形成一個區塊，會與內部的元素相互影響。至於之前的版本曾經有使用者提出 &lt;code&gt;&amp;lt;TouchableHighlight /&amp;gt;&lt;/code&gt; 可能是為了產生回饋的視覺效果，而有效能上的問題。但在 &lt;code&gt;0.28.x&lt;/code&gt; 之後，至少我實際使用到現在還沒有遇到嚴重的效能問題，即使是在最複雜的編輯履歷頁面也沒有。&lt;/p&gt;",
 			
 			"mainEntityOfPage":{
@@ -62,7 +65,7 @@
 			    "@id":"https://henry40408.com/react-native-touchables/"
 			},
 			"datePublished": "2016-07-28T16:00:00.000Z",
-			"dateModified": "2019-06-22T01:28:57.799Z",
+			"dateModified": "2019-06-24T14:03:00.114Z",
 			
 			"image": {
 				"@type": "ImageObject",
@@ -1852,10 +1855,12 @@ h6.categories {
                     
                     
 			    	<!-- content -->
-			  		<h2 id="&#x6A23;&#x5F0F;&#x4E0A;&#x7684;&#x5DEE;&#x7570;"><a href="#&#x6A23;&#x5F0F;&#x4E0A;&#x7684;&#x5DEE;&#x7570;" class="headerlink" title="&#x6A23;&#x5F0F;&#x4E0A;&#x7684;&#x5DEE;&#x7570;"></a>&#x6A23;&#x5F0F;&#x4E0A;&#x7684;&#x5DEE;&#x7570;</h2><p>&#x5728; React Native&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x89F8;&#x63A7;&#x5340;&#x57DF;&#xFF0C;&#x6211;&#x5011;&#x6709;&#x5169;&#x500B;&#x9078;&#x64C7;&#xFF1A;<code>&lt;TouchableWithoutFeedback /&gt;</code> &#x8207; <code>&lt;TouchableHighlight /&gt;</code>&#x3002;&#x6839;&#x64DA;&#x6587;&#x4EF6;&#xFF0C;&#x5B98;&#x65B9;&#x4E26;&#x4E0D;&#x5E0C;&#x671B;&#x6211;&#x5011;&#x4F7F;&#x7528;&#x524D;&#x8005;&#xFF0C;&#x539F;&#x56E0;&#x57FA;&#x65BC;&#x524D;&#x8005;&#x4E0D;&#x6703;&#x5C0D;&#x89F8;&#x63A7;&#x7522;&#x751F;&#x56DE;&#x994B;&#xFF0C;&#x6703;&#x8B93;&#x4F7F;&#x7528;&#x8005;&#x5C0D;&#x89F8;&#x63A7;&#x662F;&#x5426;&#x6709;&#x6548;&#x7522;&#x751F;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x8AA4;&#x89E3;&#x3002;</p>
+			  		<h2>&#x6A23;&#x5F0F;&#x4E0A;&#x7684;&#x5DEE;&#x7570;</h2>
+<p>&#x5728; React Native&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x89F8;&#x63A7;&#x5340;&#x57DF;&#xFF0C;&#x6211;&#x5011;&#x6709;&#x5169;&#x500B;&#x9078;&#x64C7;&#xFF1A;<code>&lt;TouchableWithoutFeedback /&gt;</code> &#x8207; <code>&lt;TouchableHighlight /&gt;</code>&#x3002;&#x6839;&#x64DA;&#x6587;&#x4EF6;&#xFF0C;&#x5B98;&#x65B9;&#x4E26;&#x4E0D;&#x5E0C;&#x671B;&#x6211;&#x5011;&#x4F7F;&#x7528;&#x524D;&#x8005;&#xFF0C;&#x539F;&#x56E0;&#x57FA;&#x65BC;&#x524D;&#x8005;&#x4E0D;&#x6703;&#x5C0D;&#x89F8;&#x63A7;&#x7522;&#x751F;&#x56DE;&#x994B;&#xFF0C;&#x6703;&#x8B93;&#x4F7F;&#x7528;&#x8005;&#x5C0D;&#x89F8;&#x63A7;&#x662F;&#x5426;&#x6709;&#x6548;&#x7522;&#x751F;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x8AA4;&#x89E3;&#x3002;</p>
 <p>&#x5BE6;&#x969B;&#x4F7F;&#x7528;&#x4E4B;&#x5F8C;&#xFF0C;&#x6211;&#x767C;&#x73FE;&#x5169;&#x8005;&#x53E6;&#x5916;&#x4E00;&#x9805;&#x5340;&#x5225;&#x5728;&#x65BC; <code>&lt;TouchableWithoutFeedback /&gt;</code> &#x6C92;&#x6709;&#x9810;&#x8A2D;&#x6A23;&#x5F0F;&#xFF0C;&#x5BE6;&#x969B;&#x4F7F;&#x7528;&#x8D77;&#x4F86;&#x5C31;&#x50CF;&#x662F;&#x4E00;&#x500B;&#x96B1;&#x5F62;&#x7684;&#x5BB9;&#x5668;&#xFF0C;&#x5305;&#x4F4F;&#x5167;&#x90E8;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x4F46;&#x53C8;&#x4E0D;&#x6703;&#x8207;&#x5167;&#x90E8;&#x7684;&#x5BB9;&#x5668;&#x4E92;&#x76F8;&#x5F71;&#x97FF;&#xFF1B;&#x800C; <code>&lt;TouchableHighlight /&gt;</code> &#x672C;&#x8EAB;&#x5247;&#x6703;&#x5F62;&#x6210;&#x4E00;&#x500B;&#x5340;&#x584A;&#xFF0C;&#x6703;&#x8207;&#x5167;&#x90E8;&#x7684;&#x5143;&#x7D20;&#x76F8;&#x4E92;&#x5F71;&#x97FF;&#x3002;&#x81F3;&#x65BC;&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;&#x66FE;&#x7D93;&#x6709;&#x4F7F;&#x7528;&#x8005;&#x63D0;&#x51FA; <code>&lt;TouchableHighlight /&gt;</code> &#x53EF;&#x80FD;&#x662F;&#x70BA;&#x4E86;&#x7522;&#x751F;&#x56DE;&#x994B;&#x7684;&#x8996;&#x89BA;&#x6548;&#x679C;&#xFF0C;&#x800C;&#x6709;&#x6548;&#x80FD;&#x4E0A;&#x7684;&#x554F;&#x984C;&#x3002;&#x4F46;&#x5728; <code>0.28.x</code> &#x4E4B;&#x5F8C;&#xFF0C;&#x81F3;&#x5C11;&#x6211;&#x5BE6;&#x969B;&#x4F7F;&#x7528;&#x5230;&#x73FE;&#x5728;&#x9084;&#x6C92;&#x6709;&#x9047;&#x5230;&#x56B4;&#x91CD;&#x7684;&#x6548;&#x80FD;&#x554F;&#x984C;&#xFF0C;&#x5373;&#x4F7F;&#x662F;&#x5728;&#x6700;&#x8907;&#x96DC;&#x7684;&#x7DE8;&#x8F2F;&#x5C65;&#x6B77;&#x9801;&#x9762;&#x4E5F;&#x6C92;&#x6709;&#x3002;</p>
 <a id="more"></a>
-<h2 id="lt-View-gt-&#x8207;&#x81EA;&#x8A02;-component-&#x7684;&#x898F;&#x683C;&#x5DEE;&#x7570;"><a href="#lt-View-gt-&#x8207;&#x81EA;&#x8A02;-component-&#x7684;&#x898F;&#x683C;&#x5DEE;&#x7570;" class="headerlink" title="&lt;View /&gt; &#x8207;&#x81EA;&#x8A02; component &#x7684;&#x898F;&#x683C;&#x5DEE;&#x7570;"></a><code>&lt;View /&gt;</code> &#x8207;&#x81EA;&#x8A02; component &#x7684;&#x898F;&#x683C;&#x5DEE;&#x7570;</h2><p>&#x5B98;&#x65B9;&#x6587;&#x4EF6;&#x5EFA;&#x8B70;&#x5982;&#x679C;&#x8981;&#x5728; <code>Touchable</code> &#x7CFB;&#x5217;&#x88E1;&#x4F7F;&#x7528;&#x591A;&#x500B; component&#xFF0C;&#x5982;&#x4EE5;&#x4E0B;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x76F4;&#x63A5;&#x5BEB;&#x662F;&#x884C;&#x4E0D;&#x901A;&#x7684;&#x3002;</p>
+<h2><code>&lt;View /&gt;</code> &#x8207;&#x81EA;&#x8A02; component &#x7684;&#x898F;&#x683C;&#x5DEE;&#x7570;</h2>
+<p>&#x5B98;&#x65B9;&#x6587;&#x4EF6;&#x5EFA;&#x8B70;&#x5982;&#x679C;&#x8981;&#x5728; <code>Touchable</code> &#x7CFB;&#x5217;&#x88E1;&#x4F7F;&#x7528;&#x591A;&#x500B; component&#xFF0C;&#x5982;&#x4EE5;&#x4E0B;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x76F4;&#x63A5;&#x5BEB;&#x662F;&#x884C;&#x4E0D;&#x901A;&#x7684;&#x3002;</p>
 <figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;TouchableHighlight&gt;</span><br><span class="line">  &lt;ChildOne /&gt;</span><br><span class="line">  &lt;ChildTwo /&gt;</span><br><span class="line">&lt;<span class="regexp">/TouchableHighlight&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 <p>&#x5FC5;&#x9808;&#x6539;&#x5BEB;&#x6210;&#x4EE5;&#x4E0B;&#x5F62;&#x5F0F;&#x3002;</p>
 <figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;TouchableHighlight&gt;</span><br><span class="line">  &lt;View&gt;</span><br><span class="line">    &lt;ChildOne /&gt;</span><br><span class="line">    &lt;ChildTwo /&gt;</span><br><span class="line">  &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>TouchableHighlight&gt;</span><br></pre></td></tr></tbody></table></figure>

@@ -98,17 +98,17 @@
 
 
 
-  <meta name="description" content="目標 讓 DevOps 可以在一鍵部署 準上線狀態 的 AMI。  所謂的準上線狀態，是這個 AMI 已經包含了…  最新版的 Ruby on Rails 程式碼。 連線到 consul 的連線參數。  當 AMI 啟動的瞬間，產生的 EC2 instance 會連線到 consul，取得其他更敏感的系統參數。然後使用 consul-template 工具將系統參數注入到 Ruby on Rail">
+  <meta name="description" content="目標  讓 DevOps 可以在一鍵部署 準上線狀態 的 AMI。  所謂的準上線狀態，是這個 AMI 已經包含了…  最新版的 Ruby on Rails 程式碼。 連線到 consul 的連線參數。  當 AMI 啟動的瞬間，產生的 EC2 instance 會連線到 consul，取得其他更敏感的系統參數。然後使用 consul-template 工具將系統參數注入到 Ruby on Rai">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kitchen 與 Packer 實戰">
 <meta property="og:url" content="https://henry40408.com/kitchen-and-packer/index.html">
 <meta property="og:site_name" content="Life is a YOLO Game">
-<meta property="og:description" content="目標 讓 DevOps 可以在一鍵部署 準上線狀態 的 AMI。  所謂的準上線狀態，是這個 AMI 已經包含了…  最新版的 Ruby on Rails 程式碼。 連線到 consul 的連線參數。  當 AMI 啟動的瞬間，產生的 EC2 instance 會連線到 consul，取得其他更敏感的系統參數。然後使用 consul-template 工具將系統參數注入到 Ruby on Rail">
+<meta property="og:description" content="目標  讓 DevOps 可以在一鍵部署 準上線狀態 的 AMI。  所謂的準上線狀態，是這個 AMI 已經包含了…  最新版的 Ruby on Rails 程式碼。 連線到 consul 的連線參數。  當 AMI 啟動的瞬間，產生的 EC2 instance 會連線到 consul，取得其他更敏感的系統參數。然後使用 consul-template 工具將系統參數注入到 Ruby on Rai">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-06-22T01:28:57.799Z">
+<meta property="og:updated_time" content="2019-06-24T14:03:00.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kitchen 與 Packer 實戰">
-<meta name="twitter:description" content="目標 讓 DevOps 可以在一鍵部署 準上線狀態 的 AMI。  所謂的準上線狀態，是這個 AMI 已經包含了…  最新版的 Ruby on Rails 程式碼。 連線到 consul 的連線參數。  當 AMI 啟動的瞬間，產生的 EC2 instance 會連線到 consul，取得其他更敏感的系統參數。然後使用 consul-template 工具將系統參數注入到 Ruby on Rail">
+<meta name="twitter:description" content="目標  讓 DevOps 可以在一鍵部署 準上線狀態 的 AMI。  所謂的準上線狀態，是這個 AMI 已經包含了…  最新版的 Ruby on Rails 程式碼。 連線到 consul 的連線參數。  當 AMI 啟動的瞬間，產生的 EC2 instance 會連線到 consul，取得其他更敏感的系統參數。然後使用 consul-template 工具將系統參數注入到 Ruby on Rai">
 
 
 
@@ -421,7 +421,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -473,7 +473,8 @@
       
 
       
-        <h2 id="目標"><a href="#目標" class="headerlink" title="目標"></a>目標</h2><blockquote>
+        <h2>目標</h2>
+<blockquote>
 <p>讓 DevOps 可以在一鍵部署 <strong>準上線狀態</strong> 的 AMI。</p>
 </blockquote>
 <p>所謂的準上線狀態，是這個 AMI 已經包含了…</p>
@@ -483,22 +484,29 @@
 </ol>
 <p>當 AMI 啟動的瞬間，產生的 EC2 instance 會連線到 <code>consul</code>，取得其他更敏感的系統參數。然後使用 <code>consul-template</code> 工具將系統參數注入到 Ruby on Rails 可以取得的位置，以 Sudo 主站為例，延續 <code>capistrano</code> 配合 <code>figaro</code> 的慣例，這個位置在 <code>config/application.yml</code>。</p>
 <a id="more"></a>
-<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><ol>
+<h2>流程</h2>
+<ol>
 <li>某人在 GitHub merge 了一個 PR 到 master branch。</li>
 <li>CircleCI 收到來自 GitHub 的 webhook request，開始執行測試。</li>
 <li>CircleCI 啟動 Packer 包裝 AMI (Amazon Managed Image)。</li>
 </ol>
-<h2 id="什麼是-provision？"><a href="#什麼是-provision？" class="headerlink" title="什麼是 provision？"></a>什麼是 provision？</h2><p>以往我們在部署應用程式時，必須先架設環境。<strong>架設環境的這個過程，就稱為 provision</strong>。雲端時代，由於 load balancer 的出現，開始需要大量、重複地 provision 機器。既然 provision 的過程重複性這麼高，腦筋動得快的工程師就乾脆針對 provision 製作一系列工具，讓整體流程不但可以自動化、複製，也可以降低人為錯誤。<strong>而這個自動化後的 provision 流程與工具，統稱為 <span class="exturl" data-url="aHR0cHM6Ly93d3cud2lraXdhbmQuY29tL2VuL0NvbmZpZ3VyYXRpb25fbWFuYWdlbWVudA==" title="https://www.wikiwand.com/en/Configuration_management">Configuration management<i class="fa fa-external-link"></i></span></strong>。目前 CM 在市面上的佼佼者有 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY2hlZi5pby9jaGVmLw==" title="https://www.chef.io/chef/">Chef<i class="fa fa-external-link"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly93d3cuYW5zaWJsZS5jb20v" title="https://www.ansible.com/">Ansible<i class="fa fa-external-link"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly9wdXBwZXQuY29tLw==" title="https://puppet.com/">Puppet<i class="fa fa-external-link"></i></span> 與 <span class="exturl" data-url="aHR0cHM6Ly9zYWx0c3RhY2suY29tLw==" title="https://saltstack.com/">SaltStack<i class="fa fa-external-link"></i></span>。</p>
-<h2 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h2><h3 id="使用-Kitchen-撰寫-Chef-cookbook"><a href="#使用-Kitchen-撰寫-Chef-cookbook" class="headerlink" title="使用 Kitchen 撰寫 Chef cookbook"></a>使用 <span class="exturl" data-url="aHR0cDovL2tpdGNoZW4uY2kv" title="http://kitchen.ci/">Kitchen<i class="fa fa-external-link"></i></span> 撰寫 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY2hlZi5pby8=" title="https://www.chef.io/">Chef<i class="fa fa-external-link"></i></span> cookbook</h3><p>Packer 支援 Chef 系列的工具 <code>chef-solo</code> 與 <code>chef-zero</code> 來建置環境，我自己選擇的是不需要另外架設 Chef server 的 <code>chef-solo</code>。<code>chef-solo</code> 的缺點在於需要在要 provision 的機器 (或稱為 target machine) 上安裝完整的 Chef toolkit、provision 的效率受限於 target machine 的規格，但優點則是不需要有 Chef server。<code>chef-zero</code> 的優點是 provision 的流程都在記憶體完成 (in-memory)，執行的速度非常快，但缺點在於還是需要有 Chef server。</p>
+<h2>什麼是 provision？</h2>
+<p>以往我們在部署應用程式時，必須先架設環境。<strong>架設環境的這個過程，就稱為 provision</strong>。雲端時代，由於 load balancer 的出現，開始需要大量、重複地 provision 機器。既然 provision 的過程重複性這麼高，腦筋動得快的工程師就乾脆針對 provision 製作一系列工具，讓整體流程不但可以自動化、複製，也可以降低人為錯誤。<strong>而這個自動化後的 provision 流程與工具，統稱為 <span class="exturl" data-url="aHR0cHM6Ly93d3cud2lraXdhbmQuY29tL2VuL0NvbmZpZ3VyYXRpb25fbWFuYWdlbWVudA==" title="https://www.wikiwand.com/en/Configuration_management">Configuration management<i class="fa fa-external-link"></i></span></strong>。目前 CM 在市面上的佼佼者有 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY2hlZi5pby9jaGVmLw==" title="https://www.chef.io/chef/">Chef<i class="fa fa-external-link"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly93d3cuYW5zaWJsZS5jb20v" title="https://www.ansible.com/">Ansible<i class="fa fa-external-link"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly9wdXBwZXQuY29tLw==" title="https://puppet.com/">Puppet<i class="fa fa-external-link"></i></span> 與 <span class="exturl" data-url="aHR0cHM6Ly9zYWx0c3RhY2suY29tLw==" title="https://saltstack.com/">SaltStack<i class="fa fa-external-link"></i></span>。</p>
+<h2>實作</h2>
+<h3>使用 <span class="exturl" data-url="aHR0cDovL2tpdGNoZW4uY2kv" title="http://kitchen.ci/">Kitchen<i class="fa fa-external-link"></i></span> 撰寫 <span class="exturl" data-url="aHR0cHM6Ly93d3cuY2hlZi5pby8=" title="https://www.chef.io/">Chef<i class="fa fa-external-link"></i></span> cookbook</h3>
+<p>Packer 支援 Chef 系列的工具 <code>chef-solo</code> 與 <code>chef-zero</code> 來建置環境，我自己選擇的是不需要另外架設 Chef server 的 <code>chef-solo</code>。<code>chef-solo</code> 的缺點在於需要在要 provision 的機器 (或稱為 target machine) 上安裝完整的 Chef toolkit、provision 的效率受限於 target machine 的規格，但優點則是不需要有 Chef server。<code>chef-zero</code> 的優點是 provision 的流程都在記憶體完成 (in-memory)，執行的速度非常快，但缺點在於還是需要有 Chef server。</p>
 <p>Kitchen 是 Chef 的測試框架。透過 Kitchen，你可以在自己的電腦上建置 Vagrant、Docker 或 EC2 instance 來測試自己寫的 Chef cookbook 有沒有問題。Kitchen 官網的文件寫得非常之爛，因此我推薦以下這幾篇文章，雖然各自側重 Kitchen 的不同功能，解釋地卻非常詳細。</p>
 <ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly9zZW1hcGhvcmVjaS5jb20vY29tbXVuaXR5L3R1dG9yaWFscy9pbnRlZ3JhdGlvbi10ZXN0aW5nLWZvci1jaGVmLWRyaXZlbi1pbmZyYXN0cnVjdHVyZS13aXRoLXRlc3Qta2l0Y2hlbg==" title="https://semaphoreci.com/community/tutorials/integration-testing-for-chef-driven-infrastructure-with-test-kitchen">Integration Testing for Chef-Driven Infrastructure with Test Kitchen<i class="fa fa-external-link"></i></span></li>
 <li><span class="exturl" data-url="aHR0cHM6Ly9taWNnby5uZXQvYXV0b21hdGluZy1jb29rYm9vay10ZXN0aW5nLXdpdGgtdGVzdC1raXRjaGVuLWJlcmtzaGVsZi12YWdyYW50LWFuZC1ndWFyZC8=" title="https://micgo.net/automating-cookbook-testing-with-test-kitchen-berkshelf-vagrant-and-guard/">Automating Cookbook Testing with Test-Kitchen, Berkshelf, Vagrant and Guard<i class="fa fa-external-link"></i></span></li>
 </ul>
 <p><span class="exturl" data-url="aHR0cDovL2JlcmtzaGVsZi5jb20v" title="http://berkshelf.com/">Berkshelf<i class="fa fa-external-link"></i></span> 是 Chef 用來管理第三方 cookbook 的工具。Chef 身為 Ruby 生態系的一員，自然也不希望開發者自幹輪子。<span class="exturl" data-url="aHR0cHM6Ly9zdXBlcm1hcmtldC5jaGVmLmlvLw==" title="https://supermarket.chef.io/">Chef Supermarket<i class="fa fa-external-link"></i></span> 是 Chef 的第三方倉庫，裡面該有的 cookbook 都有了。</p>
-<h3 id="再寫-Packer-設定檔-packer-json"><a href="#再寫-Packer-設定檔-packer-json" class="headerlink" title="再寫 Packer 設定檔 packer.json"></a>再寫 Packer 設定檔 <code>packer.json</code></h3><p>此時還沒有整合 CI，只是先在 AWS 上製作一次，看看 Chef 建置出來的環境有沒有問題。當初在建置 AMI 的時候我很擔心成本會因此暴增，但事實上 AWS 對於 AMI 的收費標準比照 S3，以使用的空間計費，所以整個流程成本最巨的資源還是 EC2 instance。為了節省成本，我自己在實際測試 Packer 時盡可能地使用 <code>m4.large</code> 的 <span class="exturl" data-url="aHR0cHM6Ly93d3cucGFja2VyLmlvL2RvY3MvYnVpbGRlcnMvYW1hem9uLWVicy5odG1sI3Nwb3RfcHJpY2U=" title="https://www.packer.io/docs/builders/amazon-ebs.html#spot_price">Spot instance<i class="fa fa-external-link"></i></span>，既可以加快 <code>chef-solo</code> 的執行速度，也可以有效節省成本。</p>
-<h3 id="再寫-CircleCI-設定檔-circle-yml"><a href="#再寫-CircleCI-設定檔-circle-yml" class="headerlink" title="再寫 CircleCI 設定檔 circle.yml"></a>再寫 CircleCI 設定檔 <code>circle.yml</code></h3><p>這一步是最困難的，其一即使在自己的電腦上測試沒有問題，到了 CircleCI 端還是有可能會出狀況；其二是參數要以環境變數的方式傳給 Packer，以確保安全性，但事情並沒有想像中的那麼簡單。</p>
-<h4 id="先透過環境變數傳遞檔案內容給-Packer-再傳遞給-Chef-時的陷阱"><a href="#先透過環境變數傳遞檔案內容給-Packer-再傳遞給-Chef-時的陷阱" class="headerlink" title="先透過環境變數傳遞檔案內容給 Packer 再傳遞給 Chef 時的陷阱"></a>先透過環境變數傳遞檔案內容給 Packer 再傳遞給 Chef 時的陷阱</h4><p>基於安全性上的考量，Sudo 主站使用 private repository。也就是說如果沒有認證，target machine 將無法存取 repository。我目前想到的只有<strong>先在 target machine 塞 SSH key，然後在 <code>git clone</code> 時使用這支 SSH key</strong> 這個方法。</p>
+<h3>再寫 Packer 設定檔 <code>packer.json</code></h3>
+<p>此時還沒有整合 CI，只是先在 AWS 上製作一次，看看 Chef 建置出來的環境有沒有問題。當初在建置 AMI 的時候我很擔心成本會因此暴增，但事實上 AWS 對於 AMI 的收費標準比照 S3，以使用的空間計費，所以整個流程成本最巨的資源還是 EC2 instance。為了節省成本，我自己在實際測試 Packer 時盡可能地使用 <code>m4.large</code> 的 <span class="exturl" data-url="aHR0cHM6Ly93d3cucGFja2VyLmlvL2RvY3MvYnVpbGRlcnMvYW1hem9uLWVicy5odG1sI3Nwb3RfcHJpY2U=" title="https://www.packer.io/docs/builders/amazon-ebs.html#spot_price">Spot instance<i class="fa fa-external-link"></i></span>，既可以加快 <code>chef-solo</code> 的執行速度，也可以有效節省成本。</p>
+<h3>再寫 CircleCI 設定檔 <code>circle.yml</code></h3>
+<p>這一步是最困難的，其一即使在自己的電腦上測試沒有問題，到了 CircleCI 端還是有可能會出狀況；其二是參數要以環境變數的方式傳給 Packer，以確保安全性，但事情並沒有想像中的那麼簡單。</p>
+<h4>先透過環境變數傳遞檔案內容給 Packer 再傳遞給 Chef 時的陷阱</h4>
+<p>基於安全性上的考量，Sudo 主站使用 private repository。也就是說如果沒有認證，target machine 將無法存取 repository。我目前想到的只有<strong>先在 target machine 塞 SSH key，然後在 <code>git clone</code> 時使用這支 SSH key</strong> 這個方法。</p>
 <p>我們先來看看一支 SSH key：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-----BEGIN RSA PRIVATE KEY-----</span><br><span class="line">MIIEpAIBAAKCAQEAx28Bk/c7u5/rc8h4FHFQm+fm/nsKQZ4qrGbTbKs1sdwtcCOg</span><br><span class="line">NHvX7L4PIwp6A81WYYRB3sclQZv2wurMfBfnS9pX0+NLyQlJBc6dBZsPkvm1AzrO</span><br><span class="line">Va3/XtuPhsJuCEdJdlsQvldqy8AF8u8YVr0EnwDxADFUGIQ9B35QV4lNnEHYoQ/2</span><br><span class="line">...</span><br><span class="line">KotzLQKBgQC7eDFYoBdPioMKndqp6X2dQZYhuJ0E+iXUppbxv3kPm0ut9OKzINFs</span><br><span class="line">d6epzpEtHkfDZebuc6mWrW/s6uzx7qRKqXuLAMQRJ6eVdVxsg/sWGteO7kzyOp5L</span><br><span class="line">w2B3v90VaF+cY0OibW5nFV2du04vmS1k74Lf9Mqkht0hdaxjNyoHvw==</span><br><span class="line">-----END RSA PRIVATE KEY-----</span><br></pre></td></tr></table></figure>
 <p>相信我，既然會公佈出來，我就不會再把它使用在其他地方。</p>
@@ -520,7 +528,8 @@
 <p>我目前想到的解法是手動將 <code>\n</code> 換掉，只針對 <code>id_rsa</code> 這個檔案。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cookbook.rb</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"></span><br><span class="line">file <span class="string">"/home/saitama/.ssh/id_rsa"</span> <span class="keyword">do</span></span><br><span class="line">  content node[<span class="string">"ssh_key"</span>].gsub(<span class="string">"\\n"</span>, <span class="string">"\n"</span>) <span class="comment"># 關鍵一行</span></span><br><span class="line">  group <span class="string">"saitama"</span></span><br><span class="line">  mode <span class="string">"0600"</span></span><br><span class="line">  owner <span class="string">"saitama"</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
 <p>目前的情形是完美解決了這個問題。但是不是一個完美的解法，我無法確定。</p>
-<h2 id="成果-sudo-recruit-pizza"><a href="#成果-sudo-recruit-pizza" class="headerlink" title="成果 sudo-recruit/pizza"></a>成果 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3N1ZG8tcmVjcnVpdC9waXp6YQ==" title="https://github.com/sudo-recruit/pizza">sudo-recruit/pizza<i class="fa fa-external-link"></i></span></h2><p>我盡可能地把文件寫完整，希望大家可以透過這個專案稍稍理解 Chef + Kitchen + Packer 之間的協作方式。如有缺漏之處歡迎大家 PR。</p>
+<h2>成果 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3N1ZG8tcmVjcnVpdC9waXp6YQ==" title="https://github.com/sudo-recruit/pizza">sudo-recruit/pizza<i class="fa fa-external-link"></i></span></h2>
+<p>我盡可能地把文件寫完整，希望大家可以透過這個專案稍稍理解 Chef + Kitchen + Packer 之間的協作方式。如有缺漏之處歡迎大家 PR。</p>
 
       
     </div>
@@ -663,7 +672,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>
@@ -795,7 +804,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目標"><span class="nav-number">1.</span> <span class="nav-text">目標</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程"><span class="nav-number">2.</span> <span class="nav-text">流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什麼是-provision？"><span class="nav-number">3.</span> <span class="nav-text">什麼是 provision？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#實作"><span class="nav-number">4.</span> <span class="nav-text">實作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Kitchen-撰寫-Chef-cookbook"><span class="nav-number">4.1.</span> <span class="nav-text">使用 Kitchen 撰寫 Chef cookbook</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#再寫-Packer-設定檔-packer-json"><span class="nav-number">4.2.</span> <span class="nav-text">再寫 Packer 設定檔 packer.json</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#再寫-CircleCI-設定檔-circle-yml"><span class="nav-number">4.3.</span> <span class="nav-text">再寫 CircleCI 設定檔 circle.yml</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#先透過環境變數傳遞檔案內容給-Packer-再傳遞給-Chef-時的陷阱"><span class="nav-number">4.3.1.</span> <span class="nav-text">先透過環境變數傳遞檔案內容給 Packer 再傳遞給 Chef 時的陷阱</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成果-sudo-recruit-pizza"><span class="nav-number">5.</span> <span class="nav-text">成果 sudo-recruit/pizza</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">目標</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">什麼是 provision？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">實作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.1.</span> <span class="nav-text">使用 Kitchen 撰寫 Chef cookbook</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.2.</span> <span class="nav-text">再寫 Packer 設定檔 packer.json</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.3.</span> <span class="nav-text">再寫 CircleCI 設定檔 circle.yml</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.3.1.</span> <span class="nav-text">先透過環境變數傳遞檔案內容給 Packer 再傳遞給 Chef 時的陷阱</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">成果 sudo-recruit/pizza</span></a></li></ol></div>
             
 
           </div>

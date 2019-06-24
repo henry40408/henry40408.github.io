@@ -15,7 +15,8 @@
 	<meta property="og:site_name" content="Life is a YOLO Game">
 	
 		<meta property="og:description" content="&lt;img src=&#34;/replace-security-groups-in-terraform/replace-security-group-with-terraform.png&#34; title=&#34;Terraform&#34;&gt;
-&lt;h2 id=&#34;AWS-的限制&#34;&gt;&lt;a href=&#34;#AWS-的限制&#34; class=&#34;headerlink&#34; title=&#34;AWS 的限制&#34;&gt;&lt;/a&gt;AWS 的限制&lt;/h2&gt;&lt;ul&gt;
+&lt;h2&gt;AWS 的限制&lt;/h2&gt;
+&lt;ul&gt;
 &lt;li&gt;Security group 的 description 不可以更改，如果一定要更改，&lt;strong&gt;要先刪除之後再重建&lt;/strong&gt;。&lt;/li&gt;
 &lt;li&gt;EC2 跟 RDS &lt;strong&gt;至少要有一個&lt;/strong&gt; security group，&lt;strong&gt;不可以完全沒有&lt;/strong&gt;。&lt;/li&gt;
 &lt;/ul&gt;">
@@ -26,7 +27,8 @@
 	<meta name="twitter:title" content="在 Terraform 抽換 Security Group - Life is a YOLO Game">
 	
 		<meta name="twitter:description" content="&lt;img src=&#34;/replace-security-groups-in-terraform/replace-security-group-with-terraform.png&#34; title=&#34;Terraform&#34;&gt;
-&lt;h2 id=&#34;AWS-的限制&#34;&gt;&lt;a href=&#34;#AWS-的限制&#34; class=&#34;headerlink&#34; title=&#34;AWS 的限制&#34;&gt;&lt;/a&gt;AWS 的限制&lt;/h2&gt;&lt;ul&gt;
+&lt;h2&gt;AWS 的限制&lt;/h2&gt;
+&lt;ul&gt;
 &lt;li&gt;Security group 的 description 不可以更改，如果一定要更改，&lt;strong&gt;要先刪除之後再重建&lt;/strong&gt;。&lt;/li&gt;
 &lt;li&gt;EC2 跟 RDS &lt;strong&gt;至少要有一個&lt;/strong&gt; security group，&lt;strong&gt;不可以完全沒有&lt;/strong&gt;。&lt;/li&gt;
 &lt;/ul&gt;">
@@ -61,7 +63,8 @@
 			"headline": "在 Terraform 抽換 Security Group",
 			
 			"description": "&lt;img src=&#34;/replace-security-groups-in-terraform/replace-security-group-with-terraform.png&#34; title=&#34;Terraform&#34;&gt;
-&lt;h2 id=&#34;AWS-的限制&#34;&gt;&lt;a href=&#34;#AWS-的限制&#34; class=&#34;headerlink&#34; title=&#34;AWS 的限制&#34;&gt;&lt;/a&gt;AWS 的限制&lt;/h2&gt;&lt;ul&gt;
+&lt;h2&gt;AWS 的限制&lt;/h2&gt;
+&lt;ul&gt;
 &lt;li&gt;Security group 的 description 不可以更改，如果一定要更改，&lt;strong&gt;要先刪除之後再重建&lt;/strong&gt;。&lt;/li&gt;
 &lt;li&gt;EC2 跟 RDS &lt;strong&gt;至少要有一個&lt;/strong&gt; security group，&lt;strong&gt;不可以完全沒有&lt;/strong&gt;。&lt;/li&gt;
 &lt;/ul&gt;",
@@ -71,7 +74,7 @@
 			    "@id":"https://henry40408.com/replace-security-groups-in-terraform/"
 			},
 			"datePublished": "2017-03-05T16:00:00.000Z",
-			"dateModified": "2019-06-22T01:28:57.799Z",
+			"dateModified": "2019-06-24T14:03:00.114Z",
 			
 			"image": {
 				"@type": "ImageObject",
@@ -1862,12 +1865,14 @@ h6.categories {
                     
 			    	<!-- content -->
 			  		<div class="amp-img-wrapper"><amp-img src="/replace-security-groups-in-terraform/replace-security-group-with-terraform.png" width="1200" height="630" layout="responsive"></amp-img></div>
-<h2 id="AWS-&#x7684;&#x9650;&#x5236;"><a href="#AWS-&#x7684;&#x9650;&#x5236;" class="headerlink" title="AWS &#x7684;&#x9650;&#x5236;"></a>AWS &#x7684;&#x9650;&#x5236;</h2><ul>
+<h2>AWS &#x7684;&#x9650;&#x5236;</h2>
+<ul>
 <li>Security group &#x7684; description &#x4E0D;&#x53EF;&#x4EE5;&#x66F4;&#x6539;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x5B9A;&#x8981;&#x66F4;&#x6539;&#xFF0C;<strong>&#x8981;&#x5148;&#x522A;&#x9664;&#x4E4B;&#x5F8C;&#x518D;&#x91CD;&#x5EFA;</strong>&#x3002;</li>
 <li>EC2 &#x8DDF; RDS <strong>&#x81F3;&#x5C11;&#x8981;&#x6709;&#x4E00;&#x500B;</strong> security group&#xFF0C;<strong>&#x4E0D;&#x53EF;&#x4EE5;&#x5B8C;&#x5168;&#x6C92;&#x6709;</strong>&#x3002;</li>
 </ul>
 <a id="more"></a>
-<h2 id="Terraform-&#x7684;&#x6298;&#x8877;&#x8FA6;&#x6CD5;"><a href="#Terraform-&#x7684;&#x6298;&#x8877;&#x8FA6;&#x6CD5;" class="headerlink" title="Terraform &#x7684;&#x6298;&#x8877;&#x8FA6;&#x6CD5;"></a>Terraform &#x7684;&#x6298;&#x8877;&#x8FA6;&#x6CD5;</h2><p>&#x4EE5;&#x4E0B;&#x6BCF;&#x500B;&#x6B65;&#x9A5F;&#x4E4B;&#x9593;&#xFF0C;&#x90FD;&#x8981;&#x8F38;&#x5165;&#x4EE5;&#x4E0B;&#x5169;&#x500B;&#x6307;&#x4EE4;&#xFF0C;<strong>&#x6700;&#x5F8C;&#x4E00;&#x6B65;&#x7D50;&#x675F;&#x4E4B;&#x5F8C;&#x4E5F;&#x8981;&#x8F38;&#x5165;</strong>&#xFF1A;</p>
+<h2>Terraform &#x7684;&#x6298;&#x8877;&#x8FA6;&#x6CD5;</h2>
+<p>&#x4EE5;&#x4E0B;&#x6BCF;&#x500B;&#x6B65;&#x9A5F;&#x4E4B;&#x9593;&#xFF0C;&#x90FD;&#x8981;&#x8F38;&#x5165;&#x4EE5;&#x4E0B;&#x5169;&#x500B;&#x6307;&#x4EE4;&#xFF0C;<strong>&#x6700;&#x5F8C;&#x4E00;&#x6B65;&#x7D50;&#x675F;&#x4E4B;&#x5F8C;&#x4E5F;&#x8981;&#x8F38;&#x5165;</strong>&#xFF1A;</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ terraform plan</span><br><span class="line">$ terraform apply</span><br></pre></td></tr></tbody></table></figure>
 <p>&#x4E0D;&#x5EFA;&#x8B70;&#x5169;&#x6B65;&#x5408;&#x4F75;&#x4E00;&#x6B65;&#x505A;&#xFF0C;&#x56E0;&#x70BA;&#x53EF;&#x80FD;&#x6703;&#x7834;&#x58DE;&#x6389; Terraform &#x7684; <code>terraform.tfstate</code>&#x3002;</p>
 <ol>
@@ -1878,7 +1883,8 @@ h6.categories {
 <li>&#x4FEE;&#x6539; <code>*.tf</code> &#x6A94;&#x6848;&#xFF0C;&#x5C07; dummy security group &#x5F9E; <code>aws_instance</code> &#x6216; <code>aws_db_instance</code> &#x7684; <code>vpc_security_group_ids</code> detach &#x6389;&#x3002;</li>
 <li>&#x4FEE;&#x6539; <code>*.tf</code> &#x6A94;&#x6848;&#xFF0C;&#x79FB;&#x9664;&#x6216;&#x8A3B;&#x89E3;&#x6389; dummy security group &#x7684; <code>aws_security_group</code> resource block&#x3002;</li>
 </ol>
-<h2 id="&#x7D50;&#x8A9E;"><a href="#&#x7D50;&#x8A9E;" class="headerlink" title="&#x7D50;&#x8A9E;"></a>&#x7D50;&#x8A9E;</h2><p>&#x4F7F;&#x7528; Terraform &#x62BD;&#x63DB; security group &#x7684;&#x6B65;&#x9A5F;&#x4E0D;&#x96E3;&#x4F46;&#x975E;&#x5E38;&#x7E41;&#x96DC;&#xFF0C;&#x5F88;&#x96E3;&#x60F3;&#x5230;&#x6709;&#x4EC0;&#x9EBC;&#x539F;&#x56E0;&#x6703;&#x8B93; AWS &#x4E0D;&#x51C6;&#x4F7F;&#x7528;&#x8005;&#x4FEE;&#x6539; security group &#x7684; description&#x3002;</p>
+<h2>&#x7D50;&#x8A9E;</h2>
+<p>&#x4F7F;&#x7528; Terraform &#x62BD;&#x63DB; security group &#x7684;&#x6B65;&#x9A5F;&#x4E0D;&#x96E3;&#x4F46;&#x975E;&#x5E38;&#x7E41;&#x96DC;&#xFF0C;&#x5F88;&#x96E3;&#x60F3;&#x5230;&#x6709;&#x4EC0;&#x9EBC;&#x539F;&#x56E0;&#x6703;&#x8B93; AWS &#x4E0D;&#x51C6;&#x4F7F;&#x7528;&#x8005;&#x4FEE;&#x6539; security group &#x7684; description&#x3002;</p>
 
 			  		
 			  		<!-- google Adsense -->

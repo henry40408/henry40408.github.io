@@ -358,6 +358,188 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://henry40408.com/prevent-dot-dot-in-react-native/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Heng-Yi Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Life is a YOLO Game">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/prevent-dot-dot-in-react-native/" class="post-title-link" itemprop="url">在 React Native 裡避免大量的 ../../</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2016-05-25 00:00:00" itemprop="dateCreated datePublished" datetime="2016-05-25T00:00:00+08:00">2016-05-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React-Native/" itemprop="url" rel="index"><span itemprop="name">React Native</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2>問題</h2>
+<p>React Native 採用 ES6 做為開發語言，而 ES6 的 <code>import</code> 語法指定檔案時採用相對路徑。如果採用 <span class="exturl" data-url="aHR0cDovL3JlZHV4LmpzLm9yZy8=" title="http://redux.js.org/">Redux<i class="fa fa-external-link"></i></span> 架構開發，很快地 <code>Component</code> 就會開始出現以下一堆亂七八糟的 <code>import</code> 語句。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> DoSomething <span class="keyword">from</span> <span class="string">'../actions/DoSomething'</span>;</span><br><span class="line"><span class="keyword">import</span> DoAnotherThing <span class="keyword">from</span> <span class="string">'../actions/DoAnotherThing'</span>;</span><br></pre></td></tr></table></figure>
+<p>如果是從 HTML4 時代就開始寫 JavaScript 的工程師，乍看之下沒有什麼不好，因為絕對路徑與相對路徑的好壞在 HTML4 的時代就吵過一次，最後的結論也都是有好有壞。<strong>但 React Native 不是 ES5</strong>，規模很容易膨脹到超過傳統 ES5 專案的程度，因此應該另尋專為大型專案設計的解決方法。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/prevent-dot-dot-in-react-native/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://henry40408.com/react-native-screenshot-with-fastlane/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -420,7 +602,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -473,7 +655,8 @@
 
       
         
-          <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><blockquote>
+          <h2>問題</h2>
+<blockquote>
 <p>App 上架一定要上傳螢幕截圖，我想要為 React Native 做自動螢幕截圖。</p>
 </blockquote>
 <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhY2Vib29rL3JlYWN0LW5hdGl2ZQ==" title="https://github.com/facebook/react-native">React Native<i class="fa fa-external-link"></i></span> 目前還是處於開發活躍期，官方文件混亂、第三方文件少，有些功能還要自己跳下去爬原始碼才知道。本文所描述的螢幕截圖，基本上官方的文件一丁點都沒有提到，網路上的資料也是片片斷斷非常稀少，讓我排列組合了一整天才有了今天的成果。</p>
@@ -602,7 +785,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -655,7 +838,9 @@
 
       
         
-          <h2 id="工作內容"><a href="#工作內容" class="headerlink" title="工作內容"></a>工作內容</h2><h3 id="1-整合-Fabric"><a href="#1-整合-Fabric" class="headerlink" title="1. 整合 Fabric"></a>1. 整合 <span class="exturl" data-url="aHR0cDovL2ZhYnJpYy5pby8=" title="http://fabric.io/">Fabric<i class="fa fa-external-link"></i></span></h3><p>Fabric 是 Twitter 旗下的行動應用程式開發平台，平台提供 <span class="exturl" data-url="aHR0cHM6Ly9mYWJyaWMuaW8va2l0cy9pb3MvY3Jhc2hseXRpY3M=" title="https://fabric.io/kits/ios/crashlytics">Crashlytics<i class="fa fa-external-link"></i></span> 負責錯誤回報與 <span class="exturl" data-url="aHR0cHM6Ly9mYWJyaWMuaW8va2l0cy9pb3MvYW5zd2Vycw==" title="https://fabric.io/kits/ios/answers">Answers<i class="fa fa-external-link"></i></span> 負責使用者行為分析。</p>
+          <h2>工作內容</h2>
+<h3>1. 整合 <span class="exturl" data-url="aHR0cDovL2ZhYnJpYy5pby8=" title="http://fabric.io/">Fabric<i class="fa fa-external-link"></i></span></h3>
+<p>Fabric 是 Twitter 旗下的行動應用程式開發平台，平台提供 <span class="exturl" data-url="aHR0cHM6Ly9mYWJyaWMuaW8va2l0cy9pb3MvY3Jhc2hseXRpY3M=" title="https://fabric.io/kits/ios/crashlytics">Crashlytics<i class="fa fa-external-link"></i></span> 負責錯誤回報與 <span class="exturl" data-url="aHR0cHM6Ly9mYWJyaWMuaW8va2l0cy9pb3MvYW5zd2Vycw==" title="https://fabric.io/kits/ios/answers">Answers<i class="fa fa-external-link"></i></span> 負責使用者行為分析。</p>
 <p>會使用 Crashlytics 是因為平常使用的 <span class="exturl" data-url="aHR0cHM6Ly9yb2xsYmFyLmNvbS8=" title="https://rollbar.com/">Rollbar<i class="fa fa-external-link"></i></span> 雖然有支援 JavaScript，但 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JvbGxiYXIvcm9sbGJhci5qcy9pc3N1ZXMvMTg1" title="https://github.com/rollbar/rollbar.js/issues/185">不支援 React Native<i class="fa fa-external-link"></i></span>；Answers 我必須承認使用起來跟 Google Analytics 別無二致，會使用 Answers 只是為了將日常工具 (Crashlytics + Answers) 都整合在同一個平台 (Fabric) 方便日後管理。</p>
           <!--noindex-->
           
@@ -782,7 +967,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -835,7 +1020,8 @@
 
       
         
-          <h2 id="工作內容"><a href="#工作內容" class="headerlink" title="工作內容"></a>工作內容</h2><ul>
+          <h2>工作內容</h2>
+<ul>
 <li>app 新功能大致開發完成，開始收斂修 bug，準備第一版送審</li>
 </ul>
           <!--noindex-->
@@ -963,7 +1149,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -1016,7 +1202,8 @@
 
       
         
-          <h2 id="工作內容"><a href="#工作內容" class="headerlink" title="工作內容"></a>工作內容</h2><ul>
+          <h2>工作內容</h2>
+<ul>
 <li>持續推進 app 其他元件的進度。</li>
 <li>下一週送審第一版後會開始重構，我隱約感覺這會是 React Native 的重頭戲，也會是下週分享的重點。</li>
 </ul>
@@ -1145,7 +1332,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -1198,7 +1385,8 @@
 
       
         
-          <h2 id="工作內容"><a href="#工作內容" class="headerlink" title="工作內容"></a>工作內容</h2><ul>
+          <h2>工作內容</h2>
+<ul>
 <li>棄用 <code>recompose</code>，改用 <code>redux</code> 重構 Sudo app</li>
 </ul>
           <!--noindex-->
@@ -1326,7 +1514,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -1379,11 +1567,14 @@
 
       
         
-          <h2 id="工作內容"><a href="#工作內容" class="headerlink" title="工作內容"></a>工作內容</h2><h3 id="1-完成-app-的自動化部署"><a href="#1-完成-app-的自動化部署" class="headerlink" title="1. 完成 app 的自動化部署"></a>1. 完成 app 的自動化部署</h3><ul>
+          <h2>工作內容</h2>
+<h3>1. 完成 app 的自動化部署</h3>
+<ul>
 <li>使用 <span class="exturl" data-url="aHR0cHM6Ly9mYXN0bGFuZS50b29scy8=" title="https://fastlane.tools/">fastlane<i class="fa fa-external-link"></i></span> 進行部署。</li>
 <li>使用 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuYXBwbGUuY29tL3Rlc3RmbGlnaHQv" title="https://developer.apple.com/testflight/">testflight<i class="fa fa-external-link"></i></span> 向測試人員發送通知與推送新版本。</li>
 </ul>
-<h3 id="2-app-主體"><a href="#2-app-主體" class="headerlink" title="2. app 主體"></a>2. app 主體</h3><ul>
+<h3>2. app 主體</h3>
+<ul>
 <li>將 app 改寫成 redux-like 架構，之所以加上 <em>-like</em> 是因為真正實作的工具是 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjZGxpdGUvcmVjb21wb3Nl" title="https://github.com/acdlite/recompose"><code>recompose</code><i class="fa fa-external-link"></i></span>。</li>
 </ul>
           <!--noindex-->
@@ -1511,7 +1702,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -1565,25 +1756,33 @@
       
         
           
-            <h1 id="工作內容"><a href="#工作內容" class="headerlink" title="工作內容"></a>工作內容</h1><ul>
-<li>上週<ul>
+            <h1>工作內容</h1>
+<ul>
+<li>上週
+<ul>
 <li>完成 Sudo app 的 <strong>職缺清單</strong>、<strong>職缺分類清單</strong>、<strong>其他篩選條件</strong> 介面。</li>
 </ul>
 </li>
-<li>本週<ul>
+<li>本週
+<ul>
 <li>完成 mockups 繪製的所有 app 介面。</li>
 <li>將 staging 的 API 實際橋接到 app 上。</li>
 </ul>
 </li>
 </ul>
-<h1 id="其他新東西"><a href="#其他新東西" class="headerlink" title="其他新東西"></a>其他新東西</h1><h2 id="1-研究-React-Native-的-flexbox-系統"><a href="#1-研究-React-Native-的-flexbox-系統" class="headerlink" title="1. 研究 React Native 的 flexbox 系統"></a>1. 研究 React Native 的 flexbox 系統</h2><p>React Native 雖號稱 <em>讓前端工程師不必另外學習其他程式語言 (Objective-C、Java) 就可以直接投入 mobile app 開發</em>。但實際投入開發之後，會發現很多 API 由於之後還是必須轉譯成 Objective-C，會發生很多異於 Objective-C 或異於 JavaScript 的行為，其中最容易發生誤差的即 flexbox。</p>
+<h1>其他新東西</h1>
+<h2>1. 研究 React Native 的 flexbox 系統</h2>
+<p>React Native 雖號稱 <em>讓前端工程師不必另外學習其他程式語言 (Objective-C、Java) 就可以直接投入 mobile app 開發</em>。但實際投入開發之後，會發現很多 API 由於之後還是必須轉譯成 Objective-C，會發生很多異於 Objective-C 或異於 JavaScript 的行為，其中最容易發生誤差的即 flexbox。</p>
 <p>採用 flexbox 雖然讓開發人員不需要學習新語言就可以上手，卻捨棄了 iOS 與 Android 原有的排版系統，並在排版的過程中發生非常嚴重的嵌套，幸虧 React Native 最後還是會轉譯回 Objective-C，效能損失不會太明顯。另外 flexbox 的標準還在草案階段，也造成 React Native 的排版系統日後可能還會有很大的變動。</p>
 <p>這也是上一週週耗費最多時間的部分。</p>
-<h2 id="2-研究-iOS-app-的-beta-releasing-system"><a href="#2-研究-iOS-app-的-beta-releasing-system" class="headerlink" title="2. 研究 iOS app 的 beta releasing system"></a>2. 研究 iOS app 的 beta releasing system</h2><p>由於 Apple 對於裝置的安全政策非常嚴格，除了部署 app 到裝置上需要有 Apple 官方發佈的證書，要具備特定資格才可以使用 Apple 官方的 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuYXBwbGUuY29tL3Rlc3RmbGlnaHQv" title="https://developer.apple.com/testflight/">Testflight<i class="fa fa-external-link"></i></span> 服務，來發布 app 的測試版給特定使用者。</p>
+<h2>2. 研究 iOS app 的 beta releasing system</h2>
+<p>由於 Apple 對於裝置的安全政策非常嚴格，除了部署 app 到裝置上需要有 Apple 官方發佈的證書，要具備特定資格才可以使用 Apple 官方的 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuYXBwbGUuY29tL3Rlc3RmbGlnaHQv" title="https://developer.apple.com/testflight/">Testflight<i class="fa fa-external-link"></i></span> 服務，來發布 app 的測試版給特定使用者。</p>
 <p>本週會需要 @rogi0318 支援提供 app 後台完整權限以研究完整的 Testflight 功能。</p>
-<h2 id="3-VIPER"><a href="#3-VIPER" class="headerlink" title="3. VIPER"></a>3. VIPER</h2><p>app 架構極度偏重 view，也導致傳統的 MVC 架構很容易往 Controller 傾斜，變成 <em>Massive Controller View</em>。<span class="exturl" data-url="aHR0cHM6Ly93d3cub2JqYy5pby9pc3N1ZXMvMTMtYXJjaGl0ZWN0dXJlL3ZpcGVyLw==" title="https://www.objc.io/issues/13-architecture/viper/">本篇文章<i class="fa fa-external-link"></i></span> 介紹的 VIPER，是在新近 app 開發人員之間流行起來的開發架構。</p>
+<h2>3. VIPER</h2>
+<p>app 架構極度偏重 view，也導致傳統的 MVC 架構很容易往 Controller 傾斜，變成 <em>Massive Controller View</em>。<span class="exturl" data-url="aHR0cHM6Ly93d3cub2JqYy5pby9pc3N1ZXMvMTMtYXJjaGl0ZWN0dXJlL3ZpcGVyLw==" title="https://www.objc.io/issues/13-architecture/viper/">本篇文章<i class="fa fa-external-link"></i></span> 介紹的 VIPER，是在新近 app 開發人員之間流行起來的開發架構。</p>
 <p>由於 VIPER 偏向 native (Objective-C or Java) 的開發架構，在實際開發上暫時不會採用。</p>
-<h2 id="4-Jenkins-Dokku"><a href="#4-Jenkins-Dokku" class="headerlink" title="4. Jenkins + Dokku"></a>4. Jenkins + Dokku</h2><p>本週研究 Jenkins 配合 Dokku 的部署流程。隨著 Docker 與 AWS 之間的協作架構愈來愈完整、參考資料愈來愈多，估計今年就會出現完整的 based-on-Docker 部署流程。現階段，最廣泛的 self-hosted CI/CD 服務仍以 Jenkins 為大宗，且還沒有出現足以撼動其地位的殺手應用，因此如果要架設 self-hosted CI/CD，還是以 Jenkins 為主。</p>
+<h2>4. Jenkins + Dokku</h2>
+<p>本週研究 Jenkins 配合 Dokku 的部署流程。隨著 Docker 與 AWS 之間的協作架構愈來愈完整、參考資料愈來愈多，估計今年就會出現完整的 based-on-Docker 部署流程。現階段，最廣泛的 self-hosted CI/CD 服務仍以 Jenkins 為大宗，且還沒有出現足以撼動其地位的殺手應用，因此如果要架設 self-hosted CI/CD，還是以 Jenkins 為主。</p>
 <p>reference: <span class="exturl" data-url="aHR0cHM6Ly90aG9tYXN0b3llLmJlLzIwMTUvcGxheS1mcmFtZXdvcmstY2Qv" title="https://thomastoye.be/2015/play-framework-cd/">https://thomastoye.be/2015/play-framework-cd/<i class="fa fa-external-link"></i></span></p>
 
           
@@ -1703,7 +1902,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -1882,7 +2081,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -1984,186 +2183,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://henry40408.com/clean-urls-in-drupal-7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Heng-Yi Wu">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Life is a YOLO Game">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/clean-urls-in-drupal-7/" class="post-title-link" itemprop="url">啟用 Drupal 7 簡潔網址時的地雷</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-
-              
-                
-              
-
-              <time title="創建時間：2015-12-10 00:00:00" itemprop="dateCreated datePublished" datetime="2015-12-10T00:00:00+08:00">2015-12-10</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新於</span>
-                
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Drupal/" itemprop="url" rel="index"><span itemprop="name">Drupal</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>很久沒使用 Drupal 7 開發網站了。最近搬遷一個舊 Drupal 網站的時候遇到一個很雷的問題。由於這個問題以前就遇到過，這次再遇到我決定把它記錄下來，一勞永逸，或多或少也可以幫助到受困於同樣問題的同道中人。</p>
-<p>但在開始之前，你必須先完成幾個必要步驟。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/clean-urls-in-drupal-7/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2212,7 +2231,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>

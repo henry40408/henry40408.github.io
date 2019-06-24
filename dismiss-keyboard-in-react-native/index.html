@@ -98,17 +98,17 @@
 
 
 
-  <meta name="description" content="問題iOS app 雖然會在使用者不再輸入文字時自動隱藏螢幕鍵盤，但鍵盤隱藏時有過場動畫，如果鍵盤的過場動畫與自訂動畫同時發生，就會有螢幕卡頓的情形。">
+  <meta name="description" content="問題 iOS app 雖然會在使用者不再輸入文字時自動隱藏螢幕鍵盤，但鍵盤隱藏時有過場動畫，如果鍵盤的過場動畫與自訂動畫同時發生，就會有螢幕卡頓的情形。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React Native 手動關閉螢幕鍵盤">
 <meta property="og:url" content="https://henry40408.com/dismiss-keyboard-in-react-native/index.html">
 <meta property="og:site_name" content="Life is a YOLO Game">
-<meta property="og:description" content="問題iOS app 雖然會在使用者不再輸入文字時自動隱藏螢幕鍵盤，但鍵盤隱藏時有過場動畫，如果鍵盤的過場動畫與自訂動畫同時發生，就會有螢幕卡頓的情形。">
+<meta property="og:description" content="問題 iOS app 雖然會在使用者不再輸入文字時自動隱藏螢幕鍵盤，但鍵盤隱藏時有過場動畫，如果鍵盤的過場動畫與自訂動畫同時發生，就會有螢幕卡頓的情形。">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-06-22T01:28:57.787Z">
+<meta property="og:updated_time" content="2019-06-24T14:03:00.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Native 手動關閉螢幕鍵盤">
-<meta name="twitter:description" content="問題iOS app 雖然會在使用者不再輸入文字時自動隱藏螢幕鍵盤，但鍵盤隱藏時有過場動畫，如果鍵盤的過場動畫與自訂動畫同時發生，就會有螢幕卡頓的情形。">
+<meta name="twitter:description" content="問題 iOS app 雖然會在使用者不再輸入文字時自動隱藏螢幕鍵盤，但鍵盤隱藏時有過場動畫，如果鍵盤的過場動畫與自訂動畫同時發生，就會有螢幕卡頓的情形。">
 
 
 
@@ -421,7 +421,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -473,12 +473,15 @@
       
 
       
-        <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>iOS app 雖然會在使用者不再輸入文字時自動隱藏螢幕鍵盤，但鍵盤隱藏時有過場動畫，如果鍵盤的過場動畫與自訂動畫同時發生，就會有螢幕卡頓的情形。</p>
+        <h2>問題</h2>
+<p>iOS app 雖然會在使用者不再輸入文字時自動隱藏螢幕鍵盤，但鍵盤隱藏時有過場動畫，如果鍵盤的過場動畫與自訂動畫同時發生，就會有螢幕卡頓的情形。</p>
 <a id="more"></a>
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>目前 React Native 官方文件還沒有揭露，但 React Native 其實已經有實作手動關閉螢幕鍵盤的 API 了。</p>
+<h2>解法</h2>
+<p>目前 React Native 官方文件還沒有揭露，但 React Native 其實已經有實作手動關閉螢幕鍵盤的 API 了。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> dismissKeyboard <span class="keyword">from</span> <span class="string">'dismissKeyboard'</span>;</span><br><span class="line">...</span><br><span class="line">dismissKeyboard();</span><br></pre></td></tr></table></figure>
 <p>如果螢幕鍵盤目前是開啟的狀態，在呼叫 <code>dismissKeyboard</code> 之後螢幕鍵盤就會被隱藏起來。</p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>React Native 更新的速度非常快，導致文件更新的速度遠遠落後程式碼。最快的方式還是直接 Google 關鍵字，然後回去參考原始碼。之所以要參考原始碼的原因在於有些程式碼可能會被標記為 <code>deprecated</code>，如此就必須另尋方法。</p>
+<h2>結語</h2>
+<p>React Native 更新的速度非常快，導致文件更新的速度遠遠落後程式碼。最快的方式還是直接 Google 關鍵字，然後回去參考原始碼。之所以要參考原始碼的原因在於有些程式碼可能會被標記為 <code>deprecated</code>，如此就必須另尋方法。</p>
 <p>另外，React Native 不要追最新的版本，尤其是 0.24 到 0.25 如果有使用任何第三方程式碼請注意第三方使用者有追上最新版本再進行更新。</p>
 
       
@@ -534,8 +537,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/truncates-extra-spacing-produced-by-letter-spacing/" rel="next" title="去除 letter-spacing 行末的多餘空白">
-                <i class="fa fa-chevron-left"></i> 去除 letter-spacing 行末的多餘空白
+              <a href="/prevent-dot-dot-in-react-native/" rel="next" title="在 React Native 裡避免大量的 ../../">
+                <i class="fa fa-chevron-left"></i> 在 React Native 裡避免大量的 ../../
               </a>
             
           </div>
@@ -544,8 +547,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/react-native-animations/" rel="prev" title="React Native 動畫初體驗">
-                React Native 動畫初體驗 <i class="fa fa-chevron-right"></i>
+              <a href="/truncates-extra-spacing-produced-by-letter-spacing/" rel="prev" title="去除 letter-spacing 行末的多餘空白">
+                去除 letter-spacing 行末的多餘空白 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -622,7 +625,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>
@@ -754,7 +757,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#問題"><span class="nav-number">1.</span> <span class="nav-text">問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解法"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#結語"><span class="nav-number">3.</span> <span class="nav-text">結語</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">結語</span></a></li></ol></div>
             
 
           </div>

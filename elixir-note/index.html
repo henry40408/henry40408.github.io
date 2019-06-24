@@ -98,17 +98,17 @@
 
 
 
-  <meta name="description" content="說文解字：雜記 就是沒有整理過的筆記，內容沒有結構而混亂，筆者想到什麼就寫什麼。 例句：這一篇文章是一篇雜記。  前言 Elixir 少說也研究了一個月，個人對於該語言揉合了 Ruby 與 erlang 的特性格外著迷。 Elixir 實務上是一種執行在 erlang VM 上的語言，而且已經完成了程式語言的 自舉 (bootstrap)。 以 Elixir 為例，所謂的自舉就是 Elixir">
+  <meta name="description" content="說文解字：雜記 就是沒有整理過的筆記，內容沒有結構而混亂，筆者想到什麼就寫什麼。 例句：這一篇文章是一篇雜記。  前言  Elixir 少說也研究了一個月，個人對於該語言揉合了 Ruby 與 erlang 的特性格外著迷。 Elixir 實務上是一種執行在 erlang VM 上的語言，而且已經完成了程式語言的 自舉 (bootstrap)。  以 Elixir 為例，所謂的自舉就是 Elixi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Elixir 雜記">
 <meta property="og:url" content="https://henry40408.com/elixir-note/index.html">
 <meta property="og:site_name" content="Life is a YOLO Game">
-<meta property="og:description" content="說文解字：雜記 就是沒有整理過的筆記，內容沒有結構而混亂，筆者想到什麼就寫什麼。 例句：這一篇文章是一篇雜記。  前言 Elixir 少說也研究了一個月，個人對於該語言揉合了 Ruby 與 erlang 的特性格外著迷。 Elixir 實務上是一種執行在 erlang VM 上的語言，而且已經完成了程式語言的 自舉 (bootstrap)。 以 Elixir 為例，所謂的自舉就是 Elixir">
+<meta property="og:description" content="說文解字：雜記 就是沒有整理過的筆記，內容沒有結構而混亂，筆者想到什麼就寫什麼。 例句：這一篇文章是一篇雜記。  前言  Elixir 少說也研究了一個月，個人對於該語言揉合了 Ruby 與 erlang 的特性格外著迷。 Elixir 實務上是一種執行在 erlang VM 上的語言，而且已經完成了程式語言的 自舉 (bootstrap)。  以 Elixir 為例，所謂的自舉就是 Elixi">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-06-22T01:28:57.787Z">
+<meta property="og:updated_time" content="2019-06-24T14:03:00.106Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Elixir 雜記">
-<meta name="twitter:description" content="說文解字：雜記 就是沒有整理過的筆記，內容沒有結構而混亂，筆者想到什麼就寫什麼。 例句：這一篇文章是一篇雜記。  前言 Elixir 少說也研究了一個月，個人對於該語言揉合了 Ruby 與 erlang 的特性格外著迷。 Elixir 實務上是一種執行在 erlang VM 上的語言，而且已經完成了程式語言的 自舉 (bootstrap)。 以 Elixir 為例，所謂的自舉就是 Elixir">
+<meta name="twitter:description" content="說文解字：雜記 就是沒有整理過的筆記，內容沒有結構而混亂，筆者想到什麼就寫什麼。 例句：這一篇文章是一篇雜記。  前言  Elixir 少說也研究了一個月，個人對於該語言揉合了 Ruby 與 erlang 的特性格外著迷。 Elixir 實務上是一種執行在 erlang VM 上的語言，而且已經完成了程式語言的 自舉 (bootstrap)。  以 Elixir 為例，所謂的自舉就是 Elixi">
 
 
 
@@ -421,7 +421,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -478,11 +478,14 @@
 <p>就是沒有整理過的筆記，內容沒有結構而混亂，筆者想到什麼就寫什麼。</p>
 <p>例句：這一篇文章是一篇雜記。</p>
 </blockquote>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<h2>前言</h2>
+<ul>
 <li>Elixir 少說也研究了一個月，個人對於該語言揉合了 Ruby 與 erlang 的特性格外著迷。</li>
-<li>Elixir 實務上是一種執行在 erlang VM 上的語言，而且已經完成了程式語言的 <u>自舉</u> (bootstrap)。<ul>
+<li>Elixir 實務上是一種執行在 erlang VM 上的語言，而且已經完成了程式語言的 <u>自舉</u> (bootstrap)。
+<ul>
 <li>以 Elixir 為例，所謂的自舉就是 Elixir 編譯器的絕大部分模組都已經可以使用純 Elixir 實作，只留下極少部分不得不使用 erlang 的部分，才會借助 erlang 完成。</li>
-<li>程式語言完成自舉有什麼好處？<ul>
+<li>程式語言完成自舉有什麼好處？
+<ul>
 <li>一是如果一項程式語言完成了自舉，那麼該語言的開發者相對來說就比較不需要擔心如果一開始實作該編譯器的語言有任何劇烈變動，會連帶影響到自己的專案。<span class="exturl" data-url="aHR0cDovL3Byb2dyYW1tZXJzLnN0YWNrZXhjaGFuZ2UuY29tL2EvMzA2NDIw" title="http://programmers.stackexchange.com/a/306420">ref.<i class="fa fa-external-link"></i></span></li>
 <li>二是自舉算是一項挑戰。如果一種語言可以完成自舉，代表這種語言在一定的程度上已經足以完成複雜的工作。<span class="exturl" data-url="aHR0cDovL3Byb2dyYW1tZXJzLnN0YWNrZXhjaGFuZ2UuY29tL2EvMzA2NDIx" title="http://programmers.stackexchange.com/a/306421">ref.<i class="fa fa-external-link"></i></span></li>
 </ul>
@@ -491,54 +494,71 @@
 </li>
 </ul>
 <a id="more"></a>
-<h2 id="名詞解釋"><a href="#名詞解釋" class="headerlink" title="名詞解釋"></a>名詞解釋</h2><h3 id="erlang"><a href="#erlang" class="headerlink" title="erlang"></a>erlang</h3><blockquote>
+<h2>名詞解釋</h2>
+<h3>erlang</h3>
+<blockquote>
 <p>Erlang is a programming language used to build massively scalable soft real-time systems with requirements on high availability. Some of its uses are in telecoms, banking, e-commerce, computer telephony and instant messaging. <strong>Erlang’s runtime system has built-in support for concurrency, distribution and fault tolerance</strong>. <span class="exturl" data-url="aHR0cDovL3d3dy5lcmxhbmcub3JnLw==" title="http://www.erlang.org/">ref.<i class="fa fa-external-link"></i></span></p>
 </blockquote>
-<h3 id="OTP"><a href="#OTP" class="headerlink" title="OTP"></a>OTP</h3><blockquote>
+<h3>OTP</h3>
+<blockquote>
 <p><strong>OTP (a.k.a. Open Telecom Platform) is set of Erlang libraries and design principles providing middle-ware to develop these systems</strong>. It includes its own distributed database, applications to interface towards other languages, debugging and release handling tools. <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2VybGFuZy9vdHA=" title="https://github.com/erlang/otp">ref.<i class="fa fa-external-link"></i></span></p>
 </blockquote>
-<h3 id="erlang-VM-BEAM"><a href="#erlang-VM-BEAM" class="headerlink" title="erlang VM / BEAM"></a>erlang VM / BEAM</h3><ul>
+<h3>erlang VM / BEAM</h3>
+<ul>
 <li>The Erlang runtime environment (a virtual machine, much like the Java virtual machine) means that code compiled on one architecture runs anywhere. <strong>The runtime system also allows code in a running system to be updated without interrupting the program</strong>.</li>
 <li>erlang 曾經有嘗試要編譯成 C 語言執行，現階段的做法是編譯成 byte code 在 erlang VM 上執行。</li>
 <li><u>Bogdan’s Erlang Abstract Machine</u> (a.k.a. BEAM) 是其中一種 erlang VM，現階段在 PC 上執行的 erlang VM 基本上都是 BEAM。</li>
 </ul>
-<h2 id="學習前準備"><a href="#學習前準備" class="headerlink" title="學習前準備"></a>學習前準備</h2><h3 id="必讀文章"><a href="#必讀文章" class="headerlink" title="必讀文章"></a>必讀文章</h3><p><span class="exturl" data-url="aHR0cHM6Ly9nb28uZ2wvREJFTTNU" title="https://goo.gl/DBEM3T">So You Want to be a Functional Programmer<i class="fa fa-external-link"></i></span> 共六個 part，適合已經在 OOP 世界浸淫已久的工程師閱讀。</p>
-<h3 id="忘記-OOP，徹底"><a href="#忘記-OOP，徹底" class="headerlink" title="忘記 OOP，徹底"></a>忘記 OOP，徹底</h3><p>學習經驗如果你曾經寫過 OOP，<strong>沒有任何妥協的空間，一定要把它全部忘光</strong>。請看看以下程式碼：</p>
+<h2>學習前準備</h2>
+<h3>必讀文章</h3>
+<p><span class="exturl" data-url="aHR0cHM6Ly9nb28uZ2wvREJFTTNU" title="https://goo.gl/DBEM3T">So You Want to be a Functional Programmer<i class="fa fa-external-link"></i></span> 共六個 part，適合已經在 OOP 世界浸淫已久的工程師閱讀。</p>
+<h3>忘記 OOP，徹底</h3>
+<p>學習經驗如果你曾經寫過 OOP，<strong>沒有任何妥協的空間，一定要把它全部忘光</strong>。請看看以下程式碼：</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Foo.bar(<span class="string">"baz"</span>)</span><br></pre></td></tr></table></figure>
 <p>如果沒有把 OOP 忘記，第一眼你會把上面這個函數呼叫解釋成呼叫 <code>Foo</code> object 或 <code>Foo</code> class 的 <code>bar</code> method。<strong>但在 Elixir 的世界裡沒有 class 或 object</strong>，以上這行程式如果以 OOP 的概念解釋一定錯。所以如果沒有把 OOP 的概念徹底忘記，很多 Elixir 的概念就很難內化，學起來就會很痛苦。</p>
-<h3 id="忘記迴圈"><a href="#忘記迴圈" class="headerlink" title="忘記迴圈"></a>忘記迴圈</h3><p>在 Elixir 你不必再煩惱到底是要用 <code>for</code>、<code>while</code> 還是 <code>do...while</code> 來寫迴圈，<strong>因為它們在 Elixir 的世界裡也都不存在</strong>。要完成重複性的邏輯操作，你只剩下遞迴 (recursion) 可以用。</p>
+<h3>忘記迴圈</h3>
+<p>在 Elixir 你不必再煩惱到底是要用 <code>for</code>、<code>while</code> 還是 <code>do...while</code> 來寫迴圈，<strong>因為它們在 Elixir 的世界裡也都不存在</strong>。要完成重複性的邏輯操作，你只剩下遞迴 (recursion) 可以用。</p>
 <blockquote>
 <p>想要學會遞迴，你必須先學會遞迴。</p>
 </blockquote>
 <p>這一句話很難理解嗎？天天看它，某天靈光乍現的時候你就學會遞迴了。</p>
-<h2 id="開始學習"><a href="#開始學習" class="headerlink" title="開始學習"></a>開始學習</h2><ul>
+<h2>開始學習</h2>
+<ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly9sZWFybnhpbnltaW51dGVzLmNvbS9kb2NzL2VsaXhpci8=" title="https://learnxinyminutes.com/docs/elixir/">Learn elixir in Y minutes<i class="fa fa-external-link"></i></span> 單純想看看 Elixir 語法長什麼樣子，或是忌諱一開始就花太多時間學習一門新語言可以先從這裡開始。</li>
 <li><span class="exturl" data-url="aHR0cDovL2VsaXhpci1sYW5nLm9yZy9nZXR0aW5nLXN0YXJ0ZWQvaW50cm9kdWN0aW9uLmh0bWw=" title="http://elixir-lang.org/getting-started/introduction.html">Getting started<i class="fa fa-external-link"></i></span> 官方文件永遠是最好的起點。</li>
 <li><span class="exturl" data-url="aHR0cHM6Ly9lbGl4aXJzY2hvb2wuY29tLw==" title="https://elixirschool.com/">Elixir School<i class="fa fa-external-link"></i></span> Elixir 社群維護的學習文件。</li>
 <li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldmVuMW0vMzAtZGF5cy1vZi1lbGl4aXI=" title="https://github.com/seven1m/30-days-of-elixir">30 Days of Elixir<i class="fa fa-external-link"></i></span> 我知道有些人很討厭 N 天學會 X 這種聳動的殺人標題，但單純看看無妨吧？</li>
 </ul>
-<h2 id="資源"><a href="#資源" class="headerlink" title="資源"></a>資源</h2><ul>
+<h2>資源</h2>
+<ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2g0Y2MvYXdlc29tZS1lbGl4aXI=" title="https://github.com/h4cc/awesome-elixir">awesome-elixir<i class="fa fa-external-link"></i></span> 偶爾可以來這裡挖寶。</li>
 <li><span class="exturl" data-url="aHR0cHM6Ly9lbGl4aXItc2xhY2tpbi5oZXJva3VhcHAuY29tLw==" title="https://elixir-slackin.herokuapp.com/">Elixir on Slack<i class="fa fa-external-link"></i></span> Elixir 官方的 Slack 社群，非常活躍。</li>
 <li><span class="exturl" data-url="aHR0cDovL3BsYXkuZWxpeGlyYnlleGFtcGxlLmNvbS8=" title="http://play.elixirbyexample.com/">Elixir playground<i class="fa fa-external-link"></i></span> 在瀏覽器玩玩 Elixir。</li>
 </ul>
-<h2 id="為什麼要學-Elixir？"><a href="#為什麼要學-Elixir？" class="headerlink" title="為什麼要學 Elixir？"></a>為什麼要學 Elixir？</h2><p>會想學習 Elixir 的人不外乎以下幾種。</p>
-<h3 id="第一種：終極目標在精通-erlang"><a href="#第一種：終極目標在精通-erlang" class="headerlink" title="第一種：終極目標在精通 erlang"></a>第一種：終極目標在精通 erlang</h3><p><span class="exturl" data-url="aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL2EvMzc5NjY5NDc=" title="http://stackoverflow.com/a/37966947">TL; DR - Start with Elixir<i class="fa fa-external-link"></i></span></p>
+<h2>為什麼要學 Elixir？</h2>
+<p>會想學習 Elixir 的人不外乎以下幾種。</p>
+<h3>第一種：終極目標在精通 erlang</h3>
+<p><span class="exturl" data-url="aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL2EvMzc5NjY5NDc=" title="http://stackoverflow.com/a/37966947">TL; DR - Start with Elixir<i class="fa fa-external-link"></i></span></p>
 <p>erlang 是非常純粹的 functional programming language，但就是因為太純粹了，寫起來非常地違背人類的直覺，<strong>從 Elixir 下手，慢慢地熟悉 functional programming 的概念之後，再轉換跑道到 erlang 更容易上手</strong>。</p>
 <blockquote>
 <p>但話說回來，如果目標擺在要精通 erlang，為什麼不要像忘記 OOP 一樣，要求自己一定要去熟悉 erlang 的語法呢？老實說，這並無不可；但單就我個人來說，程式語言語法從視覺所造成的錯離感 (e.g. 一直看到像外星語法一樣的 erlang，每次要修改程式的時候都不知道要從何下手) 所帶來的挫折，比起捨棄抽象的概念 (e.g. 徹底忘記 OOP) 來得更加強烈。</p>
 <p>尤其是當你 OOP 也沒有學得很好的時候 XD</p>
 </blockquote>
-<h3 id="第二種：單純想學習另外一種-functional-programming-language-的人"><a href="#第二種：單純想學習另外一種-functional-programming-language-的人" class="headerlink" title="第二種：單純想學習另外一種 functional programming language 的人"></a>第二種：單純想學習另外一種 functional programming language 的人</h3><p>如果你已經接觸過 haskell 了，<strong>我會建議你直上 erlang，跳過 Elixir</strong>。因為 Elixir 加入了太多非 functional programming language 的要素，這時學習 Elixir 老實說就不會有什麼太實質的幫助。Elixir 之所以會加入這些非 functional programming 的要素，其目的只是想讓 Elixir 的語法架構更接近 OOP language，讓新手上入不會這麼痛苦而已。</p>
+<h3>第二種：單純想學習另外一種 functional programming language 的人</h3>
+<p>如果你已經接觸過 haskell 了，<strong>我會建議你直上 erlang，跳過 Elixir</strong>。因為 Elixir 加入了太多非 functional programming language 的要素，這時學習 Elixir 老實說就不會有什麼太實質的幫助。Elixir 之所以會加入這些非 functional programming 的要素，其目的只是想讓 Elixir 的語法架構更接近 OOP language，讓新手上入不會這麼痛苦而已。</p>
 <p><strong>但該拿掉的一定拿掉、不該存在的它也不會存在</strong>，因此你不會在 Elixir 裡看到 class 或是 object。</p>
-<h3 id="第三種：之前寫過-Ruby，想要找一門-functional-programming-language-學習的人"><a href="#第三種：之前寫過-Ruby，想要找一門-functional-programming-language-學習的人" class="headerlink" title="第三種：之前寫過 Ruby，想要找一門 functional programming language 學習的人"></a>第三種：之前寫過 Ruby，想要找一門 functional programming language 學習的人</h3><p><strong>這種人對於 Elixir 來說簡直是 perfect match</strong>。</p>
+<h3>第三種：之前寫過 Ruby，想要找一門 functional programming language 學習的人</h3>
+<p><strong>這種人對於 Elixir 來說簡直是 perfect match</strong>。</p>
 <p>為什麼？Elixir 的語法跟 Ruby 長得根本快一模一樣。事實上，之所以會選擇 Elixir，其中一個很大的原因，就是我自己在學習 Elixir 之前剛好已經寫過了好一陣子的 Ruby，而且只寫 Ruby。因為已經非常熟悉了 Ruby 的語法架構，在掌握 Elixir 的「語感」時有很大的幫助。</p>
 <p><strong>但千萬不要把 Elixir 當成 Ruby 來學</strong>，兩者還是截然不同的語言，只是長得九分像而已。</p>
-<h2 id="我可以拿-Elixir-來做什麼？"><a href="#我可以拿-Elixir-來做什麼？" class="headerlink" title="我可以拿 Elixir 來做什麼？"></a>我可以拿 Elixir 來做什麼？</h2><p><strong>拿 <span class="exturl" data-url="aHR0cDovL3d3dy5waG9lbml4ZnJhbWV3b3JrLm9yZy8=" title="http://www.phoenixframework.org/">Phoenix framework<i class="fa fa-external-link"></i></span> 來寫 web application</strong>，目前想到的、玩過的只有這個。尋找 Elixir 的應用情境時，不妨把它當作 erlang 去想，只要是 <strong>高併發、需要平行運算、講求執行效率</strong> 的情境都是 Elixir 可以發揮的場合。</p>
+<h2>我可以拿 Elixir 來做什麼？</h2>
+<p><strong>拿 <span class="exturl" data-url="aHR0cDovL3d3dy5waG9lbml4ZnJhbWV3b3JrLm9yZy8=" title="http://www.phoenixframework.org/">Phoenix framework<i class="fa fa-external-link"></i></span> 來寫 web application</strong>，目前想到的、玩過的只有這個。尋找 Elixir 的應用情境時，不妨把它當作 erlang 去想，只要是 <strong>高併發、需要平行運算、講求執行效率</strong> 的情境都是 Elixir 可以發揮的場合。</p>
 <p>至於 erlang 與 Elixir 效能上的差異，由於還沒有遇到足以看出差異的大規模併發，所以我無法下結論。</p>
-<h2 id="Elixir-的社群發展？"><a href="#Elixir-的社群發展？" class="headerlink" title="Elixir 的社群發展？"></a>Elixir 的社群發展？</h2><p>由於時差的關係，我加入 Elixir Slack 之後，到了晚上我還必須手動把通知關掉，否則沒辦法睡覺，<strong>由此可見歪國人討論之熱烈</strong>，社群的活躍度基本上沒有問題。</p>
+<h2>Elixir 的社群發展？</h2>
+<p>由於時差的關係，我加入 Elixir Slack 之後，到了晚上我還必須手動把通知關掉，否則沒辦法睡覺，<strong>由此可見歪國人討論之熱烈</strong>，社群的活躍度基本上沒有問題。</p>
 <p>另外，一種語言能否成功，一項很重要的關鍵在各地的貢獻者，能否很順利地將自己寫的模組快速地貢獻出來。<strong>原來在 erlang 就有一套套件發佈平台 <span class="exturl" data-url="aHR0cHM6Ly9oZXgucG0v" title="https://hex.pm/">Hex<i class="fa fa-external-link"></i></span></strong>，Elixir 既然相容於 erlang VM，就直接沿用下去了。但也必須承認，如果與 Ruby 相比，Elixir 的套件數量的確望塵莫及。<strong>不過除了 Hex 上該有的都有了，再加上原本 OTP 就提供了不少的 library 跟 middleware，基本上也足以應付日常開發了</strong>。</p>
-<h2 id="Elixir-文章"><a href="#Elixir-文章" class="headerlink" title="Elixir 文章"></a>Elixir 文章</h2><ul>
+<h2>Elixir 文章</h2>
+<ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BsYXNzZWViZXJ0L2l0ZXJhdGluZy1pbi1lbGl4aXItOTBmZGMwMDA1ZGZj" title="https://medium.com/@lasseebert/iterating-in-elixir-90fdc0005dfc">Iterating in Elixir<i class="fa fa-external-link"></i></span> 還以為這篇文章單純在講 Elixir 的迭代，內文也以兩個例子闡述如果把 Elixir 的經驗拿到 Ruby 實作對於程式的架構有什麼好處。簡而言之，<strong>就是無論以什麼程式語言開發，心中都要常存 immutablility</strong>。</li>
 <li><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlnbmVyZHJhbmNoLmNvbS9ibG9nL2VsaXhpci1hbmQtaW8tbGlzdHMtcGFydC0xLWJ1aWxkaW5nLW91dHB1dC1lZmZpY2llbnRseS8=" title="https://www.bignerdranch.com/blog/elixir-and-io-lists-part-1-building-output-efficiently/">Elixir and IO Lists, Part 1: Building Output Efficiently<i class="fa fa-external-link"></i></span> 這篇我個人覺得非常地走火入魔 XD 從 <code>IO.puts</code> 開始檢討一般程式語言常用的 string concatenation 在記憶體的效能與 GC 的分配上有什麼樣的影響，最後以檔案操作為例，建議開發者盡量使用 List 來傳遞 IO 操作時所需要的參數。</li>
 <li><span class="exturl" data-url="aHR0cHM6Ly9zaW1vbmgxMDAwLmdpdGh1Yi5pby8yMDE2LzEwL2VsbS1waG9lbml4LWd1bHAv" title="https://simonh1000.github.io/2016/10/elm-phoenix-gulp/">Developing Elm using Gulp with Elixir / Phoenix<i class="fa fa-external-link"></i></span> 在 Elixir 裡使用 Elm。不過也不用這麼麻煩啦，Hex 上有一個 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3phbWJhbC9lbWw=" title="https://github.com/zambal/eml">eml<i class="fa fa-external-link"></i></span>，雖然是 Elixir 的實作，寫起來跟 Elm 非常像，喜歡 Elm 的開發者可以參考看看。</li>
@@ -546,19 +566,24 @@
 <li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmRyZXdvbHNvbi5vcmcvY29tcG9zYWJsZS1xdWVyaWVzLWVjdG8v" title="https://blog.drewolson.org/composable-queries-ecto/">Composable Queries with Ecto<i class="fa fa-external-link"></i></span> 以類似 ActiveRecord 的方式組合資料庫查詢。</li>
 <li><span class="exturl" data-url="aHR0cDovL3RoZXB1Z2F1dG9tYXRpYy5jb20vMjAxNS8xMC91bmRlcnN0YW5kaW5nLWVsaXhpci1tYWNyb3Mv" title="http://thepugautomatic.com/2015/10/understanding-elixir-macros/">Understanding Elixir macros<i class="fa fa-external-link"></i></span> Elixir 絕大多數的實作，都透過 macro 完成，由此可見 macro 在 Elixir 中位處非常基礎卻十分強大的地位。但就像蜘蛛人一樣，能力愈大、責任愈大，如何在不惡搞到自己的情況下，順利地使用 macro 將 Elixir 擴充成自己想要的樣子，就是一個很值得研究並一再研究下去的課題了。</li>
 </ul>
-<h2 id="Elixir-小撇步"><a href="#Elixir-小撇步" class="headerlink" title="Elixir 小撇步"></a>Elixir 小撇步</h2><ul>
-<li>取得現在時間 (使用 <code>Ecto</code>)<ol>
+<h2>Elixir 小撇步</h2>
+<ul>
+<li>取得現在時間 (使用 <code>Ecto</code>)
+<ol>
 <li>UTC <code>Ecto.DateTime.utc</code></li>
 <li>本地時間 <code>Ecto.DateTime.from_erl(:erlang.localtime)</code> 似乎由於這個方法的存在，Elixir 也懶得去擴充另外一支 function 來做同樣的事⋯⋯</li>
 </ol>
 </li>
 </ul>
-<h2 id="在-Phoenix-實作-soft-delete"><a href="#在-Phoenix-實作-soft-delete" class="headerlink" title="在 Phoenix 實作 soft delete"></a>在 Phoenix 實作 soft delete</h2><h3 id="事前假設"><a href="#事前假設" class="headerlink" title="事前假設"></a>事前假設</h3><ol>
+<h2>在 Phoenix 實作 soft delete</h2>
+<h3>事前假設</h3>
+<ol>
 <li>application name = <code>TodoApp</code></li>
 <li>table name = <code>todos</code></li>
 <li>model name = <code>Todo</code></li>
 </ol>
-<h3 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a>步驟</h3><p>新增 schema</p>
+<h3>步驟</h3>
+<p>新增 schema</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mix ecto.gen.migration add_soft_delete_to_todos</span><br></pre></td></tr></table></figure>
 <p>修改剛剛新增的 schema</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># priv/repo/migrations/XXXXXXXXXXXXXX_add_soft_deletable_to_todos.exs</span></span><br><span class="line"><span class="class"><span class="keyword">defmodule</span> <span class="title">TodoApp.Repo.Migrations.AddSoftDeletableToTodos</span></span> <span class="keyword">do</span></span><br><span class="line">  <span class="keyword">use</span> Ecto.Migration</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">change</span></span> <span class="keyword">do</span></span><br><span class="line">    <span class="comment"># ======</span></span><br><span class="line">    alter table(<span class="symbol">:todos</span>) <span class="keyword">do</span></span><br><span class="line">      add <span class="symbol">:deleted</span>, <span class="symbol">:boolean</span>, <span class="symbol">default:</span> <span class="keyword">false</span> <span class="comment"># 是否已被刪除</span></span><br><span class="line">      add <span class="symbol">:deleted_at</span>, <span class="symbol">:datetime</span> <span class="comment"># 什麼時候刪除的</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="comment"># ======</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
@@ -568,35 +593,42 @@
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">defmodule</span> <span class="title">TodoApp.TodoController</span></span> <span class="keyword">do</span></span><br><span class="line">  <span class="comment"># ...</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">index</span></span>(conn, _params) <span class="keyword">do</span></span><br><span class="line">    <span class="comment"># ======</span></span><br><span class="line">    <span class="comment"># 改用 Todo.undeleted 取得列表</span></span><br><span class="line">    todos = Todo |&gt; Todo.undeleted |&gt; Repo.all</span><br><span class="line">    <span class="comment"># ======</span></span><br><span class="line">    render(conn, <span class="string">"index.json"</span>, <span class="symbol">todos:</span> todos)</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">     </span><br><span class="line">  <span class="comment"># ...</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">show</span></span>(conn, %&#123;<span class="string">"id"</span> =&gt; id&#125;) <span class="keyword">do</span></span><br><span class="line">    <span class="comment"># ======</span></span><br><span class="line">    <span class="comment"># 改用 get_by! 同時篩選是否已刪除的欄位</span></span><br><span class="line">    todo = Repo.get_by!(Todo, <span class="symbol">id:</span> id, <span class="symbol">deleted:</span> <span class="keyword">false</span>)</span><br><span class="line">    <span class="comment"># ======</span></span><br><span class="line">    render(conn, <span class="string">"show.json"</span>, <span class="symbol">todo:</span> todo)</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># ...</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">delete</span></span>(conn, %&#123;<span class="string">"id"</span> =&gt; id&#125;) <span class="keyword">do</span></span><br><span class="line">    todo = Repo.get!(Todo, id)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Here we use delete! (with a bang) because we expect</span></span><br><span class="line">    <span class="comment"># it to always work (and if it does not, it will raise).</span></span><br><span class="line">    <span class="comment"># ======</span></span><br><span class="line">    <span class="comment">#Repo.delete!(todo) # 不用原來的 Repo.delete 函數</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 改用 Todo.soft_delete 配合 Repo.update!</span></span><br><span class="line">    changeset = todo |&gt; Todo.soft_delete</span><br><span class="line">    Repo.update!(changeset)</span><br><span class="line">    <span class="comment"># ======</span></span><br><span class="line"></span><br><span class="line">    send_resp(conn, <span class="symbol">:no_content</span>, <span class="string">""</span>)</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <p>修改 <code>TodoController</code> 的 test</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">defmodule</span> <span class="title">TodoApp.TodoControllerTest</span></span> <span class="keyword">do</span></span><br><span class="line">  <span class="comment"># ...</span></span><br><span class="line"></span><br><span class="line">  test <span class="string">"deletes chosen resource"</span>, %&#123;<span class="symbol">conn:</span> conn&#125; <span class="keyword">do</span></span><br><span class="line">    todo = Repo.insert! %Todo&#123;&#125;</span><br><span class="line">    conn = delete conn, todo_path(conn, <span class="symbol">:delete</span>, todo)</span><br><span class="line">    assert response(conn, <span class="number">204</span>)</span><br><span class="line">    <span class="comment"># ======</span></span><br><span class="line">    assert Repo.get_by(Todo, <span class="symbol">id:</span> todo.id, <span class="symbol">deleted:</span> <span class="keyword">true</span>) <span class="comment"># 改偵測記錄是否被標記已刪除</span></span><br><span class="line">    <span class="comment"># ======</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<h2 id="ElixirConf-2016-Leveling-Up-with-Ecto"><a href="#ElixirConf-2016-Leveling-Up-with-Ecto" class="headerlink" title="ElixirConf 2016 - Leveling Up with Ecto"></a>ElixirConf 2016 - Leveling Up with Ecto</h2><ul>
+<h2>ElixirConf 2016 - Leveling Up with Ecto</h2>
+<ul>
 <li>難度：入門 → 進階</li>
 <li>Ecto 主要由四大元件組成：<code>Repo</code>、<code>Query</code>、<code>Schema</code>、<code>Changeset</code></li>
-<li><code>Ecto.Repo</code> 是 Ecto 裡<strong>唯一一個 (one and only) 與資料源 (data source) 直接溝通</strong>的元件。<ul>
+<li><code>Ecto.Repo</code> 是 Ecto 裡<strong>唯一一個 (one and only) 與資料源 (data source) 直接溝通</strong>的元件。
+<ul>
 <li>這裡定義的資料源 (data source) 包括傳統的 RDBMS、NoSQL databases、key-value store…等。</li>
 <li>講者再三強調 <strong>Ecto 的資料源不限定 RDBMS</strong>，也可以與其他資料源串接。</li>
 <li>但我個人認為很快 Ecto 就會踏上 ActiveRecord 的後塵，變成 Ecto 專注處理資料庫，其他資料源則由其他專用的 adapter 處理⋯⋯</li>
 </ul>
 </li>
 <li><strong>一個 Repo 對應一個資料源</strong>，所以如果一個專案之前有 legacy database，但又必須與現在的資料庫並存，開發者可為這兩個資料庫設定各自的 Repo。拜 Repo 的設計所賜，<strong>即使是兩個使用不同 adapter的資料源也可以並存</strong> (例如 PostgreSQL 與 MySQL 並存)。</li>
-<li>如果要在 <code>Ecto.Query</code> 中<strong>使用變數</strong>，<strong>必須使用 <code>^</code> (pin operator) 把變數 pin 住</strong>，否則 <code>Ecto.Query</code> 會主動報錯並提醒開發者。<ul>
+<li>如果要在 <code>Ecto.Query</code> 中<strong>使用變數</strong>，<strong>必須使用 <code>^</code> (pin operator) 把變數 pin 住</strong>，否則 <code>Ecto.Query</code> 會主動報錯並提醒開發者。
+<ul>
 <li><span class="exturl" data-url="aHR0cDovL2VsaXhpci1sYW5nLm9yZy9nZXR0aW5nLXN0YXJ0ZWQvcGF0dGVybi1tYXRjaGluZy5odG1sI3RoZS1waW4tb3BlcmF0b3I=" title="http://elixir-lang.org/getting-started/pattern-matching.html#the-pin-operator">The pin operator<i class="fa fa-external-link"></i></span> in Elixir Getting Started</li>
 </ul>
 </li>
 <li><strong>永遠要告訴 <code>Ecto.Query</code> 你要 <code>select</code> 什麼</strong> (e.g. 整筆資料？某幾個欄位？)。</li>
-<li>對 <code>Repo.*all</code> (e.g. <code>Repo.insert_all</code>、<code>Repo.update_all</code>、<code>Repo.delete_all</code>) 有很大的自由，但要注意幾件事：<ol>
+<li>對 <code>Repo.*all</code> (e.g. <code>Repo.insert_all</code>、<code>Repo.update_all</code>、<code>Repo.delete_all</code>) 有很大的自由，但要注意幾件事：
+<ol>
 <li>永遠要告訴 <code>Ecto.Query</code> 你要 <code>select</code> 什麼？</li>
-<li>必須注意資料類型的問題。<ul>
+<li>必須注意資料類型的問題。
+<ul>
 <li>如果沒有使用 Schema 的話，我猜講者在這裡提出這件事只是要帶出使用 Schema 的好處。</li>
 </ul>
 </li>
 </ol>
 </li>
-<li><code>Ecto.Schema</code> 用來定義記錄被取出資料源之後要長什麼樣子、以及記錄要被灌入資料源之前要長什麼樣子。<ul>
+<li><code>Ecto.Schema</code> 用來定義記錄被取出資料源之後要長什麼樣子、以及記錄要被灌入資料源之前要長什麼樣子。
+<ul>
 <li>尤其是定義資料型態這件事，如果沒有 Schema，開發者必須在下 Query 時明確地告知 Ecto 每個欄位的類型，並在有可能類型通用時轉型。例如全部都是數字的行動電話號碼，如果 Ecto 自動轉型就會讓最前面的 0 跑掉，原來的 0912345678 變成 912345678，如果之後又以這筆記錄寫入資料庫就會是錯誤的結果</li>
 <li>Schema 對需要 association 的專案來說也更加方便。</li>
 </ul>
 </li>
-<li>在 Ecto 進行關聯查詢時，你必須要明確地 (explicitly) 告訴 Ecto 什麼時候要載入關聯性資料表的記錄。<ul>
+<li>在 Ecto 進行關聯查詢時，你必須要明確地 (explicitly) 告訴 Ecto 什麼時候要載入關聯性資料表的記錄。
+<ul>
 <li>使用 <span class="exturl" data-url="aHR0cHM6Ly9oZXhkb2NzLnBtL2VjdG8vRWN0by5RdWVyeS5odG1sI3ByZWxvYWQvMw==" title="https://hexdocs.pm/ecto/Ecto.Query.html#preload/3"><code>preload</code><i class="fa fa-external-link"></i></span> keyword。</li>
 <li>如果 Ecto 自作主張地預先載入關聯性資料庫的記錄，除了 <span class="exturl" data-url="aHR0cHM6Ly9paG93ZXIudHcvcmFpbHMvcGVyZm9ybWFuY2UuaHRtbCNzZWMw" title="https://ihower.tw/rails/performance.html#sec0">N+1 queries<i class="fa fa-external-link"></i></span> 的問題，甚至可能塞爆記憶體。</li>
 <li>否則你就會遇到 <code>Ecto.Association.NotLoaded</code> 的錯誤。</li>
@@ -746,7 +778,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>
@@ -878,7 +910,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#名詞解釋"><span class="nav-number">2.</span> <span class="nav-text">名詞解釋</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#erlang"><span class="nav-number">2.1.</span> <span class="nav-text">erlang</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OTP"><span class="nav-number">2.2.</span> <span class="nav-text">OTP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#erlang-VM-BEAM"><span class="nav-number">2.3.</span> <span class="nav-text">erlang VM / BEAM</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#學習前準備"><span class="nav-number">3.</span> <span class="nav-text">學習前準備</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#必讀文章"><span class="nav-number">3.1.</span> <span class="nav-text">必讀文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#忘記-OOP，徹底"><span class="nav-number">3.2.</span> <span class="nav-text">忘記 OOP，徹底</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#忘記迴圈"><span class="nav-number">3.3.</span> <span class="nav-text">忘記迴圈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#開始學習"><span class="nav-number">4.</span> <span class="nav-text">開始學習</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#資源"><span class="nav-number">5.</span> <span class="nav-text">資源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#為什麼要學-Elixir？"><span class="nav-number">6.</span> <span class="nav-text">為什麼要學 Elixir？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一種：終極目標在精通-erlang"><span class="nav-number">6.1.</span> <span class="nav-text">第一種：終極目標在精通 erlang</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二種：單純想學習另外一種-functional-programming-language-的人"><span class="nav-number">6.2.</span> <span class="nav-text">第二種：單純想學習另外一種 functional programming language 的人</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三種：之前寫過-Ruby，想要找一門-functional-programming-language-學習的人"><span class="nav-number">6.3.</span> <span class="nav-text">第三種：之前寫過 Ruby，想要找一門 functional programming language 學習的人</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我可以拿-Elixir-來做什麼？"><span class="nav-number">7.</span> <span class="nav-text">我可以拿 Elixir 來做什麼？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elixir-的社群發展？"><span class="nav-number">8.</span> <span class="nav-text">Elixir 的社群發展？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elixir-文章"><span class="nav-number">9.</span> <span class="nav-text">Elixir 文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elixir-小撇步"><span class="nav-number">10.</span> <span class="nav-text">Elixir 小撇步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-Phoenix-實作-soft-delete"><span class="nav-number">11.</span> <span class="nav-text">在 Phoenix 實作 soft delete</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事前假設"><span class="nav-number">11.1.</span> <span class="nav-text">事前假設</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步驟"><span class="nav-number">11.2.</span> <span class="nav-text">步驟</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ElixirConf-2016-Leveling-Up-with-Ecto"><span class="nav-number">12.</span> <span class="nav-text">ElixirConf 2016 - Leveling Up with Ecto</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">名詞解釋</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">erlang</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">OTP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">erlang VM / BEAM</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">學習前準備</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">必讀文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">忘記 OOP，徹底</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.3.</span> <span class="nav-text">忘記迴圈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">開始學習</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">資源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">為什麼要學 Elixir？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">6.1.</span> <span class="nav-text">第一種：終極目標在精通 erlang</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">6.2.</span> <span class="nav-text">第二種：單純想學習另外一種 functional programming language 的人</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">6.3.</span> <span class="nav-text">第三種：之前寫過 Ruby，想要找一門 functional programming language 學習的人</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">我可以拿 Elixir 來做什麼？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">8.</span> <span class="nav-text">Elixir 的社群發展？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">9.</span> <span class="nav-text">Elixir 文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">10.</span> <span class="nav-text">Elixir 小撇步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">11.</span> <span class="nav-text">在 Phoenix 實作 soft delete</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">11.1.</span> <span class="nav-text">事前假設</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">11.2.</span> <span class="nav-text">步驟</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">12.</span> <span class="nav-text">ElixirConf 2016 - Leveling Up with Ecto</span></a></li></ol></div>
             
 
           </div>

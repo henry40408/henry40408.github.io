@@ -98,17 +98,17 @@
 
 
 
-  <meta name="description" content="工作內容 持續推進 app 其他元件的進度。 下一週送審第一版後會開始重構，我隱約感覺這會是 React Native 的重頭戲，也會是下週分享的重點。">
+  <meta name="description" content="工作內容  持續推進 app 其他元件的進度。 下一週送審第一版後會開始重構，我隱約感覺這會是 React Native 的重頭戲，也會是下週分享的重點。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sudo 開發日記 2016-04-29">
 <meta property="og:url" content="https://henry40408.com/issue-2016-04-29/index.html">
 <meta property="og:site_name" content="Life is a YOLO Game">
-<meta property="og:description" content="工作內容 持續推進 app 其他元件的進度。 下一週送審第一版後會開始重構，我隱約感覺這會是 React Native 的重頭戲，也會是下週分享的重點。">
+<meta property="og:description" content="工作內容  持續推進 app 其他元件的進度。 下一週送審第一版後會開始重構，我隱約感覺這會是 React Native 的重頭戲，也會是下週分享的重點。">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-06-22T01:28:57.799Z">
+<meta property="og:updated_time" content="2019-06-24T14:03:00.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sudo 開發日記 2016-04-29">
-<meta name="twitter:description" content="工作內容 持續推進 app 其他元件的進度。 下一週送審第一版後會開始重構，我隱約感覺這會是 React Native 的重頭戲，也會是下週分享的重點。">
+<meta name="twitter:description" content="工作內容  持續推進 app 其他元件的進度。 下一週送審第一版後會開始重構，我隱約感覺這會是 React Native 的重頭戲，也會是下週分享的重點。">
 
 
 
@@ -421,7 +421,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -473,12 +473,15 @@
       
 
       
-        <h2 id="工作內容"><a href="#工作內容" class="headerlink" title="工作內容"></a>工作內容</h2><ul>
+        <h2>工作內容</h2>
+<ul>
 <li>持續推進 app 其他元件的進度。</li>
 <li>下一週送審第一版後會開始重構，我隱約感覺這會是 React Native 的重頭戲，也會是下週分享的重點。</li>
 </ul>
 <a id="more"></a>
-<h2 id="其他新東西"><a href="#其他新東西" class="headerlink" title="其他新東西"></a>其他新東西</h2><h2 id="1-關於-AWS-架構的反思"><a href="#1-關於-AWS-架構的反思" class="headerlink" title="1. 關於 AWS 架構的反思"></a>1. 關於 AWS 架構的反思</h2><p>最近迷上 AWS 那 <em>用多少，收多少</em> (一個月十美金撐著四個 php 網站 + 一個 Dokku 建立的 Heroku-like 平台，根本物超所值) 又極為彈性的架構，一股衝動上來想要把所有的現有架構全部搬到 AWS 上，卻落入了 <em>過度設計</em> 的陷阱。</p>
+<h2>其他新東西</h2>
+<h2>1. 關於 AWS 架構的反思</h2>
+<p>最近迷上 AWS 那 <em>用多少，收多少</em> (一個月十美金撐著四個 php 網站 + 一個 Dokku 建立的 Heroku-like 平台，根本物超所值) 又極為彈性的架構，一股衝動上來想要把所有的現有架構全部搬到 AWS 上，卻落入了 <em>過度設計</em> 的陷阱。</p>
 <p>上週曾試著使用 AWS Lambda 寫一個模擬 web cron 的小 app。在使用 AWS Lambda 之前，我是透過一個簡單的 Rails app 去達成一樣的目的。</p>
 <blockquote>
 <p>為什麼你不使用 Linux cron 就好了呢？</p>
@@ -491,7 +494,8 @@
 </ol>
 <p>於是，三個月之後，歷經 Linux cron、<span class="exturl" data-url="aHR0cHM6Ly93d3cuc2V0Y3JvbmpvYi5jb20v" title="https://www.setcronjob.com/">SetCronJob<i class="fa fa-external-link"></i></span>、AWS Lambda 之後，我又回到 Linux cron，配合 <span class="exturl" data-url="aHR0cHM6Ly91cHRpbWVyb2JvdC5jb20v" title="https://uptimerobot.com/">Uptime Robot<i class="fa fa-external-link"></i></span> 接收網站下線警告。這是我最初的架構，也是最穩定、最簡單的架構。</p>
 <blockquote>
-<p>工程師應該要想辦法降低自己的工作負載，而不是讓自己一直過勞。<br>– 佚名 <em>實際上是我忘記誰說的了 XD</em></p>
+<p>工程師應該要想辦法降低自己的工作負載，而不是讓自己一直過勞。
+– 佚名 <em>實際上是我忘記誰說的了 XD</em></p>
 </blockquote>
 <p>其實 AWS Lambda 讓我想起 Parse 之前推出的 Cloud code，兩者簡直是一模一樣的服務。只是隨著 Parse 被 Facebook 死刑定讞，那些過往雲煙就讓它隨風飄逝吧。</p>
 
@@ -636,7 +640,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>
@@ -768,7 +772,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#工作內容"><span class="nav-number">1.</span> <span class="nav-text">工作內容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他新東西"><span class="nav-number">2.</span> <span class="nav-text">其他新東西</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-關於-AWS-架構的反思"><span class="nav-number">3.</span> <span class="nav-text">1. 關於 AWS 架構的反思</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">工作內容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">其他新東西</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">1. 關於 AWS 架構的反思</span></a></li></ol></div>
             
 
           </div>

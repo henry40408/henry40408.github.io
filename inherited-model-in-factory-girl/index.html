@@ -98,17 +98,17 @@
 
 
 
-  <meta name="description" content="問題例如以下 Ruby on Rails 程式碼。 1234567class Member &amp;lt; ActiveRecord::Base  # has a string column named `email`endclass Admin &amp;lt; Member  # ...end Member 與 Admin 兩個 Rails model 之間有繼承關係，那它們的 factory_girl F">
+  <meta name="description" content="問題 例如以下 Ruby on Rails 程式碼。 1234567class Member &amp;lt; ActiveRecord::Base  # has a string column named `email`endclass Admin &amp;lt; Member  # ...end Member 與 Admin 兩個 Rails model 之間有繼承關係，那它們的 factory_girl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何在 factory_girl 中為有繼承關係的 Rails model 定義 Factory">
 <meta property="og:url" content="https://henry40408.com/inherited-model-in-factory-girl/index.html">
 <meta property="og:site_name" content="Life is a YOLO Game">
-<meta property="og:description" content="問題例如以下 Ruby on Rails 程式碼。 1234567class Member &amp;lt; ActiveRecord::Base  # has a string column named `email`endclass Admin &amp;lt; Member  # ...end Member 與 Admin 兩個 Rails model 之間有繼承關係，那它們的 factory_girl F">
+<meta property="og:description" content="問題 例如以下 Ruby on Rails 程式碼。 1234567class Member &amp;lt; ActiveRecord::Base  # has a string column named `email`endclass Admin &amp;lt; Member  # ...end Member 與 Admin 兩個 Rails model 之間有繼承關係，那它們的 factory_girl">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-06-22T01:28:57.799Z">
+<meta property="og:updated_time" content="2019-06-24T14:03:00.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何在 factory_girl 中為有繼承關係的 Rails model 定義 Factory">
-<meta name="twitter:description" content="問題例如以下 Ruby on Rails 程式碼。 1234567class Member &amp;lt; ActiveRecord::Base  # has a string column named `email`endclass Admin &amp;lt; Member  # ...end Member 與 Admin 兩個 Rails model 之間有繼承關係，那它們的 factory_girl F">
+<meta name="twitter:description" content="問題 例如以下 Ruby on Rails 程式碼。 1234567class Member &amp;lt; ActiveRecord::Base  # has a string column named `email`endclass Admin &amp;lt; Member  # ...end Member 與 Admin 兩個 Rails model 之間有繼承關係，那它們的 factory_girl">
 
 
 
@@ -421,7 +421,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -473,11 +473,13 @@
       
 
       
-        <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>例如以下 Ruby on Rails 程式碼。</p>
+        <h2>問題</h2>
+<p>例如以下 Ruby on Rails 程式碼。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Member</span> &lt; ActiveRecord::Base</span></span><br><span class="line">  <span class="comment"># has a string column named `email`</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Admin</span> &lt; Member</span></span><br><span class="line">  <span class="comment"># ...</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <p><code>Member</code> 與 <code>Admin</code> 兩個 Rails model 之間有繼承關係，那它們的 <code>factory_girl</code> Factory 要怎麼寫呢？</p>
 <a id="more"></a>
-<h2 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FactoryGirl.define <span class="keyword">do</span></span><br><span class="line">  factory <span class="symbol">:member</span> <span class="keyword">do</span> <span class="comment"># Member model 的 factory</span></span><br><span class="line">    email &#123; Faker::Internet.email &#125;</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  factory <span class="symbol">:admin</span>, <span class="class"><span class="keyword">class</span>: <span class="title">Owner</span>, <span class="title">parent</span>: :<span class="title">member</span></span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h2>解答</h2>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FactoryGirl.define <span class="keyword">do</span></span><br><span class="line">  factory <span class="symbol">:member</span> <span class="keyword">do</span> <span class="comment"># Member model 的 factory</span></span><br><span class="line">    email &#123; Faker::Internet.email &#125;</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  factory <span class="symbol">:admin</span>, <span class="class"><span class="keyword">class</span>: <span class="title">Owner</span>, <span class="title">parent</span>: :<span class="title">member</span></span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <p>如果照著以上 code 定義 factory，則 <code>Owner</code> 的 factory 會繼承 <code>Member</code> factory 定義的所有欄位 (例如 <code>email</code>)。</p>
 <p>參考資料：<span class="exturl" data-url="aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3EvMTMzNDM4NzY=" title="http://stackoverflow.com/q/13343876">how to define factories with a inheritance user model<i class="fa fa-external-link"></i></span></p>
 
@@ -534,8 +536,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/react-native-touchables/" rel="next" title="React Native 的觸控區域">
-                <i class="fa fa-chevron-left"></i> React Native 的觸控區域
+              <a href="/react-native-upgrade-and-flexbox/" rel="next" title="React Native 從 0.28.x 升級與 flexbox">
+                <i class="fa fa-chevron-left"></i> React Native 從 0.28.x 升級與 flexbox
               </a>
             
           </div>
@@ -622,7 +624,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>
@@ -754,7 +756,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#問題"><span class="nav-number">1.</span> <span class="nav-text">問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解答"><span class="nav-number">2.</span> <span class="nav-text">解答</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">解答</span></a></li></ol></div>
             
 
           </div>

@@ -98,17 +98,17 @@
 
 
 
-  <meta name="description" content="問題React Native 採用 ES6 做為開發語言，而 ES6 的 import 語法指定檔案時採用相對路徑。如果採用 Redux 架構開發，很快地 Component 就會開始出現以下一堆亂七八糟的 import 語句。 12import DoSomething from &apos;../actions/DoSomething&apos;;import DoAnotherThing from &apos;../act">
+  <meta name="description" content="問題 React Native 採用 ES6 做為開發語言，而 ES6 的 import 語法指定檔案時採用相對路徑。如果採用 Redux 架構開發，很快地 Component 就會開始出現以下一堆亂七八糟的 import 語句。 12import DoSomething from &apos;../actions/DoSomething&apos;;import DoAnotherThing from &apos;../ac">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在 React Native 裡避免大量的 ..&#x2F;..&#x2F;">
 <meta property="og:url" content="https://henry40408.com/prevent-dot-dot-in-react-native/index.html">
 <meta property="og:site_name" content="Life is a YOLO Game">
-<meta property="og:description" content="問題React Native 採用 ES6 做為開發語言，而 ES6 的 import 語法指定檔案時採用相對路徑。如果採用 Redux 架構開發，很快地 Component 就會開始出現以下一堆亂七八糟的 import 語句。 12import DoSomething from &apos;../actions/DoSomething&apos;;import DoAnotherThing from &apos;../act">
+<meta property="og:description" content="問題 React Native 採用 ES6 做為開發語言，而 ES6 的 import 語法指定檔案時採用相對路徑。如果採用 Redux 架構開發，很快地 Component 就會開始出現以下一堆亂七八糟的 import 語句。 12import DoSomething from &apos;../actions/DoSomething&apos;;import DoAnotherThing from &apos;../ac">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-06-22T01:28:57.799Z">
+<meta property="og:updated_time" content="2019-06-24T14:03:00.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在 React Native 裡避免大量的 ..&#x2F;..&#x2F;">
-<meta name="twitter:description" content="問題React Native 採用 ES6 做為開發語言，而 ES6 的 import 語法指定檔案時採用相對路徑。如果採用 Redux 架構開發，很快地 Component 就會開始出現以下一堆亂七八糟的 import 語句。 12import DoSomething from &apos;../actions/DoSomething&apos;;import DoAnotherThing from &apos;../act">
+<meta name="twitter:description" content="問題 React Native 採用 ES6 做為開發語言，而 ES6 的 import 語法指定檔案時採用相對路徑。如果採用 Redux 架構開發，很快地 Component 就會開始出現以下一堆亂七八糟的 import 語句。 12import DoSomething from &apos;../actions/DoSomething&apos;;import DoAnotherThing from &apos;../ac">
 
 
 
@@ -421,7 +421,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -473,21 +473,25 @@
       
 
       
-        <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>React Native 採用 ES6 做為開發語言，而 ES6 的 <code>import</code> 語法指定檔案時採用相對路徑。如果採用 <span class="exturl" data-url="aHR0cDovL3JlZHV4LmpzLm9yZy8=" title="http://redux.js.org/">Redux<i class="fa fa-external-link"></i></span> 架構開發，很快地 <code>Component</code> 就會開始出現以下一堆亂七八糟的 <code>import</code> 語句。</p>
+        <h2>問題</h2>
+<p>React Native 採用 ES6 做為開發語言，而 ES6 的 <code>import</code> 語法指定檔案時採用相對路徑。如果採用 <span class="exturl" data-url="aHR0cDovL3JlZHV4LmpzLm9yZy8=" title="http://redux.js.org/">Redux<i class="fa fa-external-link"></i></span> 架構開發，很快地 <code>Component</code> 就會開始出現以下一堆亂七八糟的 <code>import</code> 語句。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> DoSomething <span class="keyword">from</span> <span class="string">'../actions/DoSomething'</span>;</span><br><span class="line"><span class="keyword">import</span> DoAnotherThing <span class="keyword">from</span> <span class="string">'../actions/DoAnotherThing'</span>;</span><br></pre></td></tr></table></figure>
 <p>如果是從 HTML4 時代就開始寫 JavaScript 的工程師，乍看之下沒有什麼不好，因為絕對路徑與相對路徑的好壞在 HTML4 的時代就吵過一次，最後的結論也都是有好有壞。<strong>但 React Native 不是 ES5</strong>，規模很容易膨脹到超過傳統 ES5 專案的程度，因此應該另尋專為大型專案設計的解決方法。</p>
 <a id="more"></a>
-<h2 id="他山之石"><a href="#他山之石" class="headerlink" title="他山之石"></a>他山之石</h2><p>讓我們來看看 Python 與 Java 的 <code>import</code> 語句。</p>
+<h2>他山之石</h2>
+<p>讓我們來看看 Python 與 Java 的 <code>import</code> 語句。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> flask_sqlalchemy <span class="keyword">import</span> SQLAlchemy</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> app <span class="keyword">import</span> MyApp</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> butterknife.BindView;</span><br><span class="line"><span class="keyword">import</span> butterknife.BindViews;</span><br><span class="line"><span class="keyword">import</span> butterknife.ButterKnife;</span><br><span class="line"><span class="keyword">import</span> butterknife.OnClick;</span><br><span class="line"><span class="keyword">import</span> butterknife.OnItemClick;</span><br><span class="line"><span class="keyword">import</span> butterknife.OnLongClick;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tw.com.sudo.JavaProject.DummyClass;</span><br></pre></td></tr></table></figure>
 <p>Python 跟 Java 都號稱專為大型專案設計，而他們的 <code>import</code> 語法也驚人地相似。簡而言之，它們原理就是 <strong>以專案目錄為起點，去定位被 import 的檔案位置</strong>。因此無論你的檔案怎麼搬動，只要還在專案目錄下，<code>import</code> 語句的起點都不會改變，讓重構的意願提高。</p>
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>如果是 React Native，<strong>你什麼事都不必做</strong>，因為 React Native 已經內建了從專案目錄計算 import 路徑的功能。雖然 React Native 已經支援了相關功能，但由於官方文件並沒有明確說明，只有 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhY2Vib29rL3JlYWN0LW5hdGl2ZS9pc3N1ZXMvMzA5OQ==" title="https://github.com/facebook/react-native/issues/3099">相關的 issue<i class="fa fa-external-link"></i></span>，具體的方法是在 <span class="exturl" data-url="aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3F1ZXN0aW9ucy8zMDA0MDUzNC9sb2NhbC1yZXF1aXJlLXBhdGhzLWZvci1yZWFjdC1uYXRpdmU=" title="http://stackoverflow.com/questions/30040534/local-require-paths-for-react-native">StackOverflow<i class="fa fa-external-link"></i></span> 上找到的，因此如果要使用在 production 上要特別小心。</p>
+<h2>解法</h2>
+<p>如果是 React Native，<strong>你什麼事都不必做</strong>，因為 React Native 已經內建了從專案目錄計算 import 路徑的功能。雖然 React Native 已經支援了相關功能，但由於官方文件並沒有明確說明，只有 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhY2Vib29rL3JlYWN0LW5hdGl2ZS9pc3N1ZXMvMzA5OQ==" title="https://github.com/facebook/react-native/issues/3099">相關的 issue<i class="fa fa-external-link"></i></span>，具體的方法是在 <span class="exturl" data-url="aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3F1ZXN0aW9ucy8zMDA0MDUzNC9sb2NhbC1yZXF1aXJlLXBhdGhzLWZvci1yZWFjdC1uYXRpdmU=" title="http://stackoverflow.com/questions/30040534/local-require-paths-for-react-native">StackOverflow<i class="fa fa-external-link"></i></span> 上找到的，因此如果要使用在 production 上要特別小心。</p>
 <p>如果你要嘗鮮，以下是具體寫法。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/foo/DummyClass.js</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DummyClass</span> </span>&#123; ... &#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> DummyClass;</span><br></pre></td></tr></table></figure>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// src/package.json</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"@src"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/components/Bar.js</span></span><br><span class="line"><span class="keyword">import</span> DummyClass <span class="keyword">from</span> <span class="string">'@src/foo/DummyClass'</span>;</span><br></pre></td></tr></table></figure>
 <p>整體而言就是透過 <code>package.json</code> 去為 <code>package.json</code> 的目錄命名 (在此命名為 <code>@src</code>，越特別越好，不然可能會與其他來自 npm 的 package 撞名)，之後所有在專案下的 ES6 檔案的 <code>import</code> 路徑就會多一個以 <code>@src</code> 開頭的路徑，起點從 <code>src/</code> 開始。</p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>掰掰，<code>../../</code>。</p>
+<h2>結語</h2>
+<p>掰掰，<code>../../</code>。</p>
 
       
     </div>
@@ -552,8 +556,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/truncates-extra-spacing-produced-by-letter-spacing/" rel="prev" title="去除 letter-spacing 行末的多餘空白">
-                去除 letter-spacing 行末的多餘空白 <i class="fa fa-chevron-right"></i>
+              <a href="/dismiss-keyboard-in-react-native/" rel="prev" title="React Native 手動關閉螢幕鍵盤">
+                React Native 手動關閉螢幕鍵盤 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -630,7 +634,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>
@@ -762,7 +766,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#問題"><span class="nav-number">1.</span> <span class="nav-text">問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#他山之石"><span class="nav-number">2.</span> <span class="nav-text">他山之石</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解法"><span class="nav-number">3.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#結語"><span class="nav-number">4.</span> <span class="nav-text">結語</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">他山之石</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">結語</span></a></li></ol></div>
             
 
           </div>

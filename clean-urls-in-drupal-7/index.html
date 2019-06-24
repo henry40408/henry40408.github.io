@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="Life is a YOLO Game">
 <meta property="og:description" content="很久沒使用 Drupal 7 開發網站了。最近搬遷一個舊 Drupal 網站的時候遇到一個很雷的問題。由於這個問題以前就遇到過，這次再遇到我決定把它記錄下來，一勞永逸，或多或少也可以幫助到受困於同樣問題的同道中人。 但在開始之前，你必須先完成幾個必要步驟。">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-06-22T01:28:57.787Z">
+<meta property="og:updated_time" content="2019-06-24T14:03:00.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="啟用 Drupal 7 簡潔網址時的地雷">
 <meta name="twitter:description" content="很久沒使用 Drupal 7 開發網站了。最近搬遷一個舊 Drupal 網站的時候遇到一個很雷的問題。由於這個問題以前就遇到過，這次再遇到我決定把它記錄下來，一勞永逸，或多或少也可以幫助到受困於同樣問題的同道中人。 但在開始之前，你必須先完成幾個必要步驟。">
@@ -421,7 +421,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -476,13 +476,18 @@
         <p>很久沒使用 Drupal 7 開發網站了。最近搬遷一個舊 Drupal 網站的時候遇到一個很雷的問題。由於這個問題以前就遇到過，這次再遇到我決定把它記錄下來，一勞永逸，或多或少也可以幫助到受困於同樣問題的同道中人。</p>
 <p>但在開始之前，你必須先完成幾個必要步驟。</p>
 <a id="more"></a>
-<h2 id="必要步驟"><a href="#必要步驟" class="headerlink" title="必要步驟"></a>必要步驟</h2><h3 id="第一步，啟用-mod-rewrite，如果你是使用-Apache2-的話"><a href="#第一步，啟用-mod-rewrite，如果你是使用-Apache2-的話" class="headerlink" title="第一步，啟用 mod_rewrite，如果你是使用 Apache2 的話"></a>第一步，啟用 <code>mod_rewrite</code>，如果你是使用 Apache2 的話</h3><p><strong>Ubuntu 14.04 預設不會啟用</strong>，所以這一點要特別注意。</p>
+<h2>必要步驟</h2>
+<h3>第一步，啟用 <code>mod_rewrite</code>，如果你是使用 Apache2 的話</h3>
+<p><strong>Ubuntu 14.04 預設不會啟用</strong>，所以這一點要特別注意。</p>
 <p>如果是使用 nginx，可以參考<span class="exturl" data-url="aHR0cHM6Ly93d3cubmdpbnguY29tL3Jlc291cmNlcy93aWtpL3N0YXJ0L3RvcGljcy9yZWNpcGVzL2RydXBhbC8=" title="https://www.nginx.com/resources/wiki/start/topics/recipes/drupal/">官方網站<i class="fa fa-external-link"></i></span>。</p>
-<h3 id="第二步，確定在-Apache2-的設定檔中有開啟-AllowOverride"><a href="#第二步，確定在-Apache2-的設定檔中有開啟-AllowOverride" class="headerlink" title="第二步，確定在 Apache2 的設定檔中有開啟 AllowOverride"></a>第二步，確定在 Apache2 的設定檔中有開啟 <code>AllowOverride</code></h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;Directory [網站跟目錄]&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="attribute">AllowOverride</span> <span class="literal">All</span></span><br><span class="line">    ...</span><br><span class="line"><span class="section">&lt;/Directory&gt;</span></span><br></pre></td></tr></table></figure>
+<h3>第二步，確定在 Apache2 的設定檔中有開啟 <code>AllowOverride</code></h3>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;Directory [網站跟目錄]&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="attribute">AllowOverride</span> <span class="literal">All</span></span><br><span class="line">    ...</span><br><span class="line"><span class="section">&lt;/Directory&gt;</span></span><br></pre></td></tr></table></figure>
 <p>如果沒有做這一步，網站的 <code>.htaccess</code> 裡的設定 Apache2 會讀取不到。如果你的設定是放在 <code>&lt;VirtualHost&gt;</code> 標籤中，請確定這一組 <code>&lt;Directory&gt;</code> 標籤放在裡面，不然重新啟動的時候會過不了設定檔案測試。</p>
-<h3 id="第三步，重新啟動伺服器"><a href="#第三步，重新啟動伺服器" class="headerlink" title="第三步，重新啟動伺服器"></a>第三步，<strong>重新啟動伺服器</strong></h3><p>不管你是用 Apache2 或 nginx。<strong>如果閃神一定會遺漏這一步</strong>，尤其是困在一個問題上太久一定會精神渙散，少了這一步之前無論做多少設定都是做白工。</p>
+<h3>第三步，<strong>重新啟動伺服器</strong></h3>
+<p>不管你是用 Apache2 或 nginx。<strong>如果閃神一定會遺漏這一步</strong>，尤其是困在一個問題上太久一定會精神渙散，少了這一步之前無論做多少設定都是做白工。</p>
 <p>如果以上步驟都完成了，進到設定還是找不到 <code>Enable clean URLs</code> 的勾選按鈕，那你就遇到跟我一樣的問題。</p>
-<h2 id="Drupal-官方討論區提供的解法"><a href="#Drupal-官方討論區提供的解法" class="headerlink" title="Drupal 官方討論區提供的解法"></a>Drupal 官方討論區提供的解法</h2><blockquote>
+<h2>Drupal 官方討論區提供的解法</h2>
+<blockquote>
 <p>Try navigating to “/admin/config/search/clean-urls” (remove the ?q= from the URL). It sounds silly but it worked for me.</p>
 <p>– <span class="exturl" data-url="aHR0cHM6Ly93d3cuZHJ1cGFsLm9yZy9ub2RlLzE3MTk0NzYjY29tbWVudC02OTIzNTcy" title="https://www.drupal.org/node/1719476#comment-6923572">DaisyMaeH’s comment<i class="fa fa-external-link"></i></span></p>
 </blockquote>
@@ -632,7 +637,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>
@@ -764,7 +769,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#必要步驟"><span class="nav-number">1.</span> <span class="nav-text">必要步驟</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步，啟用-mod-rewrite，如果你是使用-Apache2-的話"><span class="nav-number">1.1.</span> <span class="nav-text">第一步，啟用 mod_rewrite，如果你是使用 Apache2 的話</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步，確定在-Apache2-的設定檔中有開啟-AllowOverride"><span class="nav-number">1.2.</span> <span class="nav-text">第二步，確定在 Apache2 的設定檔中有開啟 AllowOverride</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步，重新啟動伺服器"><span class="nav-number">1.3.</span> <span class="nav-text">第三步，重新啟動伺服器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Drupal-官方討論區提供的解法"><span class="nav-number">2.</span> <span class="nav-text">Drupal 官方討論區提供的解法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">必要步驟</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">第一步，啟用 mod_rewrite，如果你是使用 Apache2 的話</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">第二步，確定在 Apache2 的設定檔中有開啟 AllowOverride</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">第三步，重新啟動伺服器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Drupal 官方討論區提供的解法</span></a></li></ol></div>
             
 
           </div>

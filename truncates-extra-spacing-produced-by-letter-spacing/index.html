@@ -98,17 +98,17 @@
 
 
 
-  <meta name="description" content="問題letter-spacing 會在 所有字元的尾端 都加上空白以達成字元間隔的效果。但事實上我們需要的只有 在字元與字元間 插入空白即可，最後的字元其實不需要加上空白。因此我們需要做一些 hack 來調整。">
+  <meta name="description" content="問題 letter-spacing 會在 所有字元的尾端 都加上空白以達成字元間隔的效果。但事實上我們需要的只有 在字元與字元間 插入空白即可，最後的字元其實不需要加上空白。因此我們需要做一些 hack 來調整。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="去除 letter-spacing 行末的多餘空白">
 <meta property="og:url" content="https://henry40408.com/truncates-extra-spacing-produced-by-letter-spacing/index.html">
 <meta property="og:site_name" content="Life is a YOLO Game">
-<meta property="og:description" content="問題letter-spacing 會在 所有字元的尾端 都加上空白以達成字元間隔的效果。但事實上我們需要的只有 在字元與字元間 插入空白即可，最後的字元其實不需要加上空白。因此我們需要做一些 hack 來調整。">
+<meta property="og:description" content="問題 letter-spacing 會在 所有字元的尾端 都加上空白以達成字元間隔的效果。但事實上我們需要的只有 在字元與字元間 插入空白即可，最後的字元其實不需要加上空白。因此我們需要做一些 hack 來調整。">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-06-22T01:28:57.799Z">
+<meta property="og:updated_time" content="2019-06-24T14:03:00.118Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="去除 letter-spacing 行末的多餘空白">
-<meta name="twitter:description" content="問題letter-spacing 會在 所有字元的尾端 都加上空白以達成字元間隔的效果。但事實上我們需要的只有 在字元與字元間 插入空白即可，最後的字元其實不需要加上空白。因此我們需要做一些 hack 來調整。">
+<meta name="twitter:description" content="問題 letter-spacing 會在 所有字元的尾端 都加上空白以達成字元間隔的效果。但事實上我們需要的只有 在字元與字元間 插入空白即可，最後的字元其實不需要加上空白。因此我們需要做一些 hack 來調整。">
 
 
 
@@ -421,7 +421,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -473,12 +473,15 @@
       
 
       
-        <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p><code>letter-spacing</code> 會在 <strong>所有字元的尾端</strong> 都加上空白以達成字元間隔的效果。但事實上我們需要的只有 <strong>在字元與字元間</strong> 插入空白即可，最後的字元其實不需要加上空白。因此我們需要做一些 hack 來調整。</p>
+        <h2>問題</h2>
+<p><code>letter-spacing</code> 會在 <strong>所有字元的尾端</strong> 都加上空白以達成字元間隔的效果。但事實上我們需要的只有 <strong>在字元與字元間</strong> 插入空白即可，最後的字元其實不需要加上空白。因此我們需要做一些 hack 來調整。</p>
 <a id="more"></a>
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>善用 <code>margin-right</code>。<code>letter-spacing</code> 設定多少，就以多少的 <code>margin-right</code> 回補。舉個例子，如果 <code>letter-spacing</code> 設定 <code>2rem</code>，<code>margin-right</code> 就設定 <code>-2rem</code> 回補，就可以把文字的位置調整回視覺上應該出現的位置。</p>
+<h2>解法</h2>
+<p>善用 <code>margin-right</code>。<code>letter-spacing</code> 設定多少，就以多少的 <code>margin-right</code> 回補。舉個例子，如果 <code>letter-spacing</code> 設定 <code>2rem</code>，<code>margin-right</code> 就設定 <code>-2rem</code> 回補，就可以把文字的位置調整回視覺上應該出現的位置。</p>
 <p><span class="exturl" data-url="aHR0cHM6Ly9qc2ZpZGRsZS5uZXQvNDR5dHFuODEv" title="https://jsfiddle.net/44ytqn81/">letter-spacing on JSFiddle<i class="fa fa-external-link"></i></span></p>
 <p>上面的文字沒有進行調整，整串文字往左邊歪；下面的文字經過調整，看起來就有置中了。</p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>由於這是一個 CSS hack，不排除未來會有任何修正。但在 React Native 中，所有的樣式都會被轉譯成 native 的樣式，如果 native 的 API 沒有被修改，我們就可以確保這樣的 CSS hack 也不會有太劇烈的改變。</p>
+<h2>結語</h2>
+<p>由於這是一個 CSS hack，不排除未來會有任何修正。但在 React Native 中，所有的樣式都會被轉譯成 native 的樣式，如果 native 的 API 沒有被修改，我們就可以確保這樣的 CSS hack 也不會有太劇烈的改變。</p>
 
       
     </div>
@@ -533,8 +536,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/prevent-dot-dot-in-react-native/" rel="next" title="在 React Native 裡避免大量的 ../../">
-                <i class="fa fa-chevron-left"></i> 在 React Native 裡避免大量的 ../../
+              <a href="/dismiss-keyboard-in-react-native/" rel="next" title="React Native 手動關閉螢幕鍵盤">
+                <i class="fa fa-chevron-left"></i> React Native 手動關閉螢幕鍵盤
               </a>
             
           </div>
@@ -543,8 +546,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/dismiss-keyboard-in-react-native/" rel="prev" title="React Native 手動關閉螢幕鍵盤">
-                React Native 手動關閉螢幕鍵盤 <i class="fa fa-chevron-right"></i>
+              <a href="/react-native-animations/" rel="prev" title="React Native 動畫初體驗">
+                React Native 動畫初體驗 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -621,7 +624,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>
@@ -753,7 +756,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#問題"><span class="nav-number">1.</span> <span class="nav-text">問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解法"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#結語"><span class="nav-number">3.</span> <span class="nav-text">結語</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">結語</span></a></li></ol></div>
             
 
           </div>

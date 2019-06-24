@@ -98,17 +98,17 @@
 
 
 
-  <meta name="description" content="moment.js 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 (new Date()).getFullYear()，如果使用 moment.js 我可以只寫 moment().get(&amp;#39;year&amp;#39;)，可讀性增強許多。">
+  <meta name="description" content="moment.js 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 (new Date()).getFullYear()，如果使用 moment.js 我可以只寫 moment().get(&apos;year&apos;)，可讀性增強許多。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在 React Native 中使用 moment.js 無法載入語系檔案">
 <meta property="og:url" content="https://henry40408.com/react-native-moment-locale/index.html">
 <meta property="og:site_name" content="Life is a YOLO Game">
-<meta property="og:description" content="moment.js 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 (new Date()).getFullYear()，如果使用 moment.js 我可以只寫 moment().get(&amp;#39;year&amp;#39;)，可讀性增強許多。">
+<meta property="og:description" content="moment.js 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 (new Date()).getFullYear()，如果使用 moment.js 我可以只寫 moment().get(&apos;year&apos;)，可讀性增強許多。">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-06-22T01:28:57.799Z">
+<meta property="og:updated_time" content="2019-06-24T14:03:00.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在 React Native 中使用 moment.js 無法載入語系檔案">
-<meta name="twitter:description" content="moment.js 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 (new Date()).getFullYear()，如果使用 moment.js 我可以只寫 moment().get(&amp;#39;year&amp;#39;)，可讀性增強許多。">
+<meta name="twitter:description" content="moment.js 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 (new Date()).getFullYear()，如果使用 moment.js 我可以只寫 moment().get(&apos;year&apos;)，可讀性增強許多。">
 
 
 
@@ -421,7 +421,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -473,11 +473,13 @@
       
 
       
-        <p><span class="exturl" data-url="aHR0cDovL21vbWVudGpzLmNvbS8=" title="http://momentjs.com/">moment.js<i class="fa fa-external-link"></i></span> 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 <code>(new Date()).getFullYear()</code>，如果使用 moment.js 我可以只寫 <code>moment().get(&#39;year&#39;)</code>，可讀性增強許多。</p>
+        <p><span class="exturl" data-url="aHR0cDovL21vbWVudGpzLmNvbS8=" title="http://momentjs.com/">moment.js<i class="fa fa-external-link"></i></span> 是很常見的日期時間 library，友善的 API 與極佳的執行效率是它的兩大賣點。例如 <code>(new Date()).getFullYear()</code>，如果使用 moment.js 我可以只寫 <code>moment().get('year')</code>，可讀性增強許多。</p>
 <a id="more"></a>
-<h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>React Native 0.29.x 預設使用 ES6，並支援 <code>import</code> 語法。問題出在如果遵照官方網站的說明去載入語系檔，會發生找不到模組 (cannot find module) 的錯誤。推測可能是 moment.js 從 ES5 移植到 ES6 沒有轉換完全。</p>
+<h2>問題</h2>
+<p>React Native 0.29.x 預設使用 ES6，並支援 <code>import</code> 語法。問題出在如果遵照官方網站的說明去載入語系檔，會發生找不到模組 (cannot find module) 的錯誤。推測可能是 moment.js 從 ES5 移植到 ES6 沒有轉換完全。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> moment <span class="keyword">from</span> <span class="string">'moment'</span>;</span><br><span class="line">moment.locale(<span class="string">'zh-tw'</span>); <span class="comment">// 這一行會出錯</span></span><br><span class="line"><span class="built_in">console</span>.log(moment.months());</span><br></pre></td></tr></table></figure>
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>GitHub 上已經有人回報相關錯誤，參考 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhY2Vib29rL3JlYWN0LW5hdGl2ZS9pc3N1ZXMvMTYyOQ==" title="https://github.com/facebook/react-native/issues/1629">facebook/react-native#1629<i class="fa fa-external-link"></i></span> 得出以下解法。</p>
+<h2>解法</h2>
+<p>GitHub 上已經有人回報相關錯誤，參考 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhY2Vib29rL3JlYWN0LW5hdGl2ZS9pc3N1ZXMvMTYyOQ==" title="https://github.com/facebook/react-native/issues/1629">facebook/react-native#1629<i class="fa fa-external-link"></i></span> 得出以下解法。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> moment <span class="keyword">from</span> <span class="string">'moment'</span>;</span><br><span class="line"><span class="keyword">import</span> momentLocale <span class="keyword">from</span> <span class="string">'moment/locale/zh-tw'</span>; <span class="comment">// 多這一行</span></span><br><span class="line">moment.updateLocale(<span class="string">'zh-tw'</span>, momentLocale); <span class="comment">// 改這一行</span></span><br><span class="line"><span class="built_in">console</span>.log(moment.months());</span><br></pre></td></tr></table></figure>
 <p>原理是使用 ES6 的語法將語系檔案手動載入之後使用 <code>updateLocale</code> 手動覆寫。issue 中的 <code>locale([locale_name], [locale_hash])</code> 已經被 deprecated，必須改用 <code>updateLocale</code>。</p>
 
@@ -544,8 +546,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/notify-after-rspec-command-finished/" rel="prev" title="當 iTerm 執行完 RSpec 之後彈出通知">
-                當 iTerm 執行完 RSpec 之後彈出通知 <i class="fa fa-chevron-right"></i>
+              <a href="/react-native-touchables/" rel="prev" title="React Native 的觸控區域">
+                React Native 的觸控區域 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -622,7 +624,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>
@@ -754,7 +756,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#問題"><span class="nav-number">1.</span> <span class="nav-text">問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解法"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a></li></ol></div>
             
 
           </div>

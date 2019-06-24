@@ -126,7 +126,7 @@
 <meta property="og:image" content="https://henry40408.com/hahow-blue-green-deployment/0*xghK08LWdA1W9HNB.png">
 <meta property="og:image" content="https://henry40408.com/hahow-blue-green-deployment/0*1MYRBcuLoN_ZMxgI.png">
 <meta property="og:image" content="https://henry40408.com/hahow-blue-green-deployment/0*cyzdw815K1gGB5cQ.png">
-<meta property="og:updated_time" content="2019-06-22T01:28:57.787Z">
+<meta property="og:updated_time" content="2019-06-24T14:03:00.106Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="淺談 Hahow 藍綠部署">
 <meta name="twitter:description" content="故事要從老師透過客服回報的一個 bug 開始說起…  老師 A 從自己的課程（Course）下刪除了一筆課程單元（Lecture），後台顯示的課程單元總數卻沒有變化（課程單元總數在某一筆課程單元被刪除後應該要減一）。  Hahow 會實作藍綠部署，主要目的就是要解決這個 bug 背後真正的問題。">
@@ -443,7 +443,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -501,12 +501,14 @@
 </blockquote>
 <p>Hahow 會實作藍綠部署，主要目的就是要解決這個 bug 背後真正的問題。</p>
 <a id="more"></a>
-<h3 id="環境介紹"><a href="#環境介紹" class="headerlink" title="環境介紹"></a>環境介紹</h3><p>在切入本文前，由於會在文中被頻繁地提及，因此先快速且簡短地帶過 Hahow 目前的 infrastructure。</p>
+<h3>環境介紹</h3>
+<p>在切入本文前，由於會在文中被頻繁地提及，因此先快速且簡短地帶過 Hahow 目前的 infrastructure。</p>
 <img src="/hahow-blue-green-deployment/1*ADmLntt1LYxyosjsXsi2vg.png" title="Hahow 目前的 infrastructure">
 <p>從 client-server 架構的角度切入，Hahow 目前只有一台 API server 搭配一組 MongoDB cluster 處理來自前端的所有請求。MongoDB cluster 是透過 <span class="exturl" data-url="aHR0cHM6Ly93d3cubW9uZ29kYi5jb20vY2xvdWQ=" title="https://www.mongodb.com/cloud">MongoDB Cloud<i class="fa fa-external-link"></i></span> 架設的 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1vbmdvZGIuY29tL21hbnVhbC9yZXBsaWNhdGlvbi8=" title="https://docs.mongodb.com/manual/replication/">replication set<i class="fa fa-external-link"></i></span>，內含一台 master 與兩台 slave，三台 database instance 都跑在同一台 GCE instance 上；API server 則是在 Docker container 裡執行，host 在另外一台獨立的 GCE 上。</p>
 <p>從 infrastructure 的角度切入，Hahow 以 GCE 為基礎，在上面安裝 Docker engine，然後以 Docker container 的形式執行 nginx server、API server。其中 nginx server 以 reverse proxy 的形式，連接 API server 與 sidekicks。而 API server 與 sidekicks 則透過 Docker container networking 與 HTTP API 互通有無。外界可以透過 nginx server 讀取 sidekicks 的資料，但只有 API server 有權限寫入。</p>
 <p>另外還有執行在獨立 GCE 上的 Jenkins，負責發動軟體部署，並透過 agent 存取執行 API server 的 Docker host，有完整權限訪問 Docker host 上所有的 port 與讀寫特定檔案。</p>
-<h3 id="抽絲剝繭"><a href="#抽絲剝繭" class="headerlink" title="抽絲剝繭"></a>抽絲剝繭</h3><p>第一步當然是進 MongoDB 確認資料是否毀損或是有不一致。在開始說明資料庫的情形以前，要先解釋一下 Hahow 如何在資料庫裡存放課程（Course）與課程單元（Lecture）。首先 Course 底下會有一個 <code>lectures</code> 陣列，保存該課程所有 Lecture 的 ObjectId（一種 MongoDB 的資料類型，相當於關聯式資料庫的 primary key），並有一個 <code>course</code> 欄位反向連回課程 Course。調查的結果，出錯的 Course <code>lectures</code> 底下已經找不到被刪除的 Lecture 的 ObjectId，但以 <em>出錯的 Course 的 ObjectId</em> 為查詢條件反向撈出所有 Lecture，赫然發現應該已經被刪除的 Lecture 居然還在資料庫裡！</p>
+<h3>抽絲剝繭</h3>
+<p>第一步當然是進 MongoDB 確認資料是否毀損或是有不一致。在開始說明資料庫的情形以前，要先解釋一下 Hahow 如何在資料庫裡存放課程（Course）與課程單元（Lecture）。首先 Course 底下會有一個 <code>lectures</code> 陣列，保存該課程所有 Lecture 的 ObjectId（一種 MongoDB 的資料類型，相當於關聯式資料庫的 primary key），並有一個 <code>course</code> 欄位反向連回課程 Course。調查的結果，出錯的 Course <code>lectures</code> 底下已經找不到被刪除的 Lecture 的 ObjectId，但以 <em>出錯的 Course 的 ObjectId</em> 為查詢條件反向撈出所有 Lecture，赫然發現應該已經被刪除的 Lecture 居然還在資料庫裡！</p>
 <p>掌握資料庫的情形後，再來檢視 API server 刪除課程單元的程式邏輯，假設老師要刪除 Lecture #2：</p>
 <img src="/hahow-blue-green-deployment/0*cUEHsKzEEu3Wlcov.gif" title="正常運作的刪除課程單元的程式邏輯">
 <p>程序是先將 Lecture 的 ObjectId 從 Course 的 <code>lectures</code> 陣列中刪除，再從資料庫刪除 Lecture。但如果在執行第一步之後被 <em>某事件</em> 截斷，而無法執行到第二步呢？</p>
@@ -514,13 +516,18 @@
 <p>由於第二步永遠不會被執行，因此 Course 的 <code>lectures</code> 陣列雖然找不到被刪除的課程單元 Lecture，但由於 Lecture #2 沒有被真正刪除，所以如果以 <em>Course 的 ObjectId 為查詢條件撈出所有 Lecture 並計算其數量</em>，就會得到前後數量不一致的結果。</p>
 <p>至於是什麼事件，其實第二張圖已經提前洩漏答案了 (interrupted by deployment)，就是軟體部署（software deployment）。在掌握資料庫內的資料變化後，我們立刻著手查詢 API server 在 Sentry 的 error log、nginx 的 error log，在 bug 發生的前後都沒有找到有強烈關聯的 exception 或 error message。最後抱著姑且一試的心態，翻查了一下 Jenkins 的建置日誌，發現 bug 發生前兩分鐘有執行過一次軟體部署。在 local 端使用一些取巧的方式重現 bug 後（e.g. 使用 <code>setTimeout</code> 拉長 request 的時間然後強制關閉 API server），我們有八九成的把握確定應該就是部署新程式導致這個資料不一致的 bug。</p>
 <p>問題找到了，那要怎麼解決這個 bug 呢？我們有想到幾個方法：</p>
-<h4 id="原子化"><a href="#原子化" class="headerlink" title="原子化"></a>原子化</h4><p>所謂的 <em>原子化</em>，指的是將好幾筆寫入資料庫的操作打包成一次寫入，如果失敗就將資料庫還原到寫入被發動前的狀態。使用 MongoDB 提供的 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1vbmdvZGIuY29tL3YyLjYvcmVmZXJlbmNlL29wZXJhdG9yL3VwZGF0ZS9pc29sYXRlZC8=" title="https://docs.mongodb.com/v2.6/reference/operator/update/isolated/">\$isolated<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1vbmdvZGIuY29tL3YyLjYvcmVmZXJlbmNlL29wZXJhdG9yL3VwZGF0ZS9pc29sYXRlZC8=" title="https://docs.mongodb.com/v2.6/reference/operator/update/isolated/">operator<i class="fa fa-external-link"></i></span> 理論上就可以解決這個問題，算是一個治本的方法，問題是如果要找出所有的資料庫操作並加上 <code>$isolated</code>，曠日費時、緩不濟急，來不及改完的 API 可能又會發生一樣的錯誤。</p>
-<h4 id="讀寫分離"><a href="#讀寫分離" class="headerlink" title="讀寫分離"></a>讀寫分離</h4><p>礙於團隊裡沒有人研究過 MongoDB 的讀寫分離，第一要花時間研究，跟原子化一樣緩不濟急；二是會動到資料庫的本體架構，風險比原子化更大。</p>
-<h4 id="藍綠部署"><a href="#藍綠部署" class="headerlink" title="藍綠部署"></a>藍綠部署</h4><p>會想到這套解決方案，主要是我上一份工作離職前的最後一個 task，就是跟 DevOps 一起完成主機的藍綠部署，所以印象特別深刻（箇中血淚礙於篇幅只好跳過）。如果實作藍綠部署，首先是 API server 本身不用立刻實作原子化，也不會動到資料庫的本體架構，因此風險遠遠小於讀寫分離，又不會像原子化那樣緩不濟急。但為什麼藍綠部署可以解決開頭提到的 bug 呢？又，什麼是藍綠部署？</p>
+<h4>原子化</h4>
+<p>所謂的 <em>原子化</em>，指的是將好幾筆寫入資料庫的操作打包成一次寫入，如果失敗就將資料庫還原到寫入被發動前的狀態。使用 MongoDB 提供的 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1vbmdvZGIuY29tL3YyLjYvcmVmZXJlbmNlL29wZXJhdG9yL3VwZGF0ZS9pc29sYXRlZC8=" title="https://docs.mongodb.com/v2.6/reference/operator/update/isolated/">$isolated<i class="fa fa-external-link"></i></span> <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1vbmdvZGIuY29tL3YyLjYvcmVmZXJlbmNlL29wZXJhdG9yL3VwZGF0ZS9pc29sYXRlZC8=" title="https://docs.mongodb.com/v2.6/reference/operator/update/isolated/">operator<i class="fa fa-external-link"></i></span> 理論上就可以解決這個問題，算是一個治本的方法，問題是如果要找出所有的資料庫操作並加上 <code>$isolated</code>，曠日費時、緩不濟急，來不及改完的 API 可能又會發生一樣的錯誤。</p>
+<h4>讀寫分離</h4>
+<p>礙於團隊裡沒有人研究過 MongoDB 的讀寫分離，第一要花時間研究，跟原子化一樣緩不濟急；二是會動到資料庫的本體架構，風險比原子化更大。</p>
+<h4>藍綠部署</h4>
+<p>會想到這套解決方案，主要是我上一份工作離職前的最後一個 task，就是跟 DevOps 一起完成主機的藍綠部署，所以印象特別深刻（箇中血淚礙於篇幅只好跳過）。如果實作藍綠部署，首先是 API server 本身不用立刻實作原子化，也不會動到資料庫的本體架構，因此風險遠遠小於讀寫分離，又不會像原子化那樣緩不濟急。但為什麼藍綠部署可以解決開頭提到的 bug 呢？又，什麼是藍綠部署？</p>
 <p>在說明 Hahow 的實作方式之前，讓我先短暫地介紹一下藍綠部署。</p>
-<h3 id="藍綠部署-1"><a href="#藍綠部署-1" class="headerlink" title="藍綠部署"></a>藍綠部署</h3><p>當 server 有新功能完成，或有 bug 被修復，必須經過一個 _程序_ 將新版本的 server 推送上線，該 _程序_ 即軟體部署（software deployment），而藍綠部署（blue-green deployment）是其中一種。</p>
+<h3>藍綠部署</h3>
+<p>當 server 有新功能完成，或有 bug 被修復，必須經過一個 <em>程序</em> 將新版本的 server 推送上線，該 <em>程序</em> 即軟體部署（software deployment），而藍綠部署（blue-green deployment）是其中一種。</p>
 <blockquote>
-<p>As you prepare a new version of your software, deployment and the final stage of testing takes place in the environment that is not live: in this example, Green. Once you have deployed and fully tested the software in Green, you switch the router so all incoming requests now go to Green instead of Blue. Green is now live, and Blue is idle. <br>-  <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmNsb3VkZm91bmRyeS5vcmcvZGV2Z3VpZGUvZGVwbG95LWFwcHMvYmx1ZS1ncmVlbi5odG1s" title="https://docs.cloudfoundry.org/devguide/deploy-apps/blue-green.html">Using Blue-Green Deployment to Reduce Downtime and Risk<i class="fa fa-external-link"></i></span></p>
+<p>As you prepare a new version of your software, deployment and the final stage of testing takes place in the environment that is not live: in this example, Green. Once you have deployed and fully tested the software in Green, you switch the router so all incoming requests now go to Green instead of Blue. Green is now live, and Blue is idle. 
+-  <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmNsb3VkZm91bmRyeS5vcmcvZGV2Z3VpZGUvZGVwbG95LWFwcHMvYmx1ZS1ncmVlbi5odG1s" title="https://docs.cloudfoundry.org/devguide/deploy-apps/blue-green.html">Using Blue-Green Deployment to Reduce Downtime and Risk<i class="fa fa-external-link"></i></span></p>
 </blockquote>
 <p>一次藍綠部署大致可分為四個階段，分別是啟動、健檢、切換、終止。</p>
 <ol>
@@ -531,7 +538,8 @@
 </ol>
 <p>只看到新舊，那麼藍綠在哪呢？事實上，藍綠只是代號。假設今天舊版 server 是綠，那麼新版 server 就是藍，下一次部署就藍綠互換，週而復始、生生不息。藍綠部署的核心精神是，部署被發動後，舊版 server 不應處理新進的請求，而是轉交新版 server 處理。如果對藍綠部署的細節有興趣，可以參考 DigitalOcean 的 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGlnaXRhbG9jZWFuLmNvbS9jb21tdW5pdHkvdHV0b3JpYWxzL2hvdy10by11c2UtYmx1ZS1ncmVlbi1kZXBsb3ltZW50cy10by1yZWxlYXNlLXNvZnR3YXJlLXNhZmVseQ==" title="https://www.digitalocean.com/community/tutorials/how-to-use-blue-green-deployments-to-release-software-safely">How To Use Blue-Green Deployments to Release Software Safely<i class="fa fa-external-link"></i></span> 與 Martin Fowler 的 <span class="exturl" data-url="aHR0cHM6Ly9tYXJ0aW5mb3dsZXIuY29tL2JsaWtpL0JsdWVHcmVlbkRlcGxveW1lbnQuaHRtbA==" title="https://martinfowler.com/bliki/BlueGreenDeployment.html">BlueGreenDeployment<i class="fa fa-external-link"></i></span>。</p>
 <p>大致了解藍綠部署的原理與核心精神，接下來介紹 Hahow 風格的藍綠部署。</p>
-<h3 id="Hahow-的藍綠部署"><a href="#Hahow-的藍綠部署" class="headerlink" title="Hahow 的藍綠部署"></a>Hahow 的藍綠部署</h3><p>在介紹 Hahow 的藍綠部署前，先簡單帶過常見的藍綠部署，以及 Hahow 為什麼不照做就好。</p>
+<h3>Hahow 的藍綠部署</h3>
+<p>在介紹 Hahow 的藍綠部署前，先簡單帶過常見的藍綠部署，以及 Hahow 為什麼不照做就好。</p>
 <img src="/hahow-blue-green-deployment/0*ajnoN8cfnuT3-Av0.png" title="常見的藍綠部署">
 <p>常見的藍綠部署，通常會在所有主機前掛上一台高可用性（high availability，幾乎不會下線或下線的時間短到足以忽略）的 load balancer（e.g. AWS 的 ELB、GCP 的 Google Load Balancer）統一接受、分發外部流量，然後以虛擬主機（e.g. AWS 的 EC2、GCP 的 GCE）為單位做藍綠部署。基於成本、infrastructure 與趨勢的考量，Hahow 決定不直接採用：</p>
 <ol>
@@ -542,22 +550,28 @@
 <p>一圖勝千言，先上一張 GIF：</p>
 <img src="/hahow-blue-green-deployment/1*NyTna9kIXF68yM2LUkLLKw.gif" title="Hahow 的藍綠部署">
 <p>Hahow 的藍綠部署主要牽涉三個角色，Docker、nginx 與 Jenkins。其中最最重要的角色是 nginx，因為它肩負著縮短下線時間的使命。現在讓我們一張一張分解上面這張 GIF，標題前方括號內對應藍綠部署的四個步驟：</p>
-<h4 id="初始狀態"><a href="#初始狀態" class="headerlink" title="初始狀態"></a>初始狀態</h4><img src="/hahow-blue-green-deployment/0*hBj6qcPAjmVWKeji.png" title="藍綠部署開始前的初始狀態">
+<h4>初始狀態</h4>
+<img src="/hahow-blue-green-deployment/0*hBj6qcPAjmVWKeji.png" title="藍綠部署開始前的初始狀態">
 <p>本次藍綠部署開始前的狀態，目前在線上提供服務的是版本號 v1 的 server，代號是綠色。由於 API server 在 Docker container 裡執行，因此 Docker container 加上 API server 整體代稱 green container；左下角的箭頭代表使用者，黑色箭頭代表外部流量，綠色箭頭則是以 green container 為目標的外部流量；green container 與 blue container 以黑與白分別代表已關閉與已啟用的狀態。</p>
-<h4 id="啟動-健檢-Jenkins-啟動新版-server"><a href="#啟動-健檢-Jenkins-啟動新版-server" class="headerlink" title="[啟動/健檢] Jenkins 啟動新版  server"></a>[啟動/健檢] Jenkins 啟動新版  server</h4><img src="/hahow-blue-green-deployment/0*3aen_zk2lO_8jE5f.png" title="Jenkins 部署並啟動包含新版 server 的 Docker container">
+<h4>[啟動/健檢] Jenkins 啟動新版  server</h4>
+<img src="/hahow-blue-green-deployment/0*3aen_zk2lO_8jE5f.png" title="Jenkins 部署並啟動包含新版 server 的 Docker container">
 <p>Jenkins 啟動包含版本號為 v2 的 API server 的 Docker container，代稱 blue container，並開始對 blue container 執行健康檢查，注意此時外部流量還是繼續流向 green container。</p>
 <p>Hahow 透過呼叫非公開的 API 檢查 server 是否已經進入備戰狀態。假設 Jenkins 收到 server 回傳 <code>OK</code>，則代表萬事俱備；反之 Jenkins 不會收到任何回應，則代表 server 仍在啟動中。</p>
-<h4 id="健檢-Blue-container-沒有通過健康檢查"><a href="#健檢-Blue-container-沒有通過健康檢查" class="headerlink" title="[健檢] Blue container 沒有通過健康檢查"></a>[健檢] Blue container 沒有通過健康檢查</h4><img src="/hahow-blue-green-deployment/0*j3zTqbJzLtL-z6om.png" title="Blue container 沒有通過健康檢查">
+<h4>[健檢] Blue container 沒有通過健康檢查</h4>
+<img src="/hahow-blue-green-deployment/0*j3zTqbJzLtL-z6om.png" title="Blue container 沒有通過健康檢查">
 <p>天有不測風雲，code 有旦夕禍福。假設今天 v2 的 API server 有 bug 而無法正常啟動，且 Jenkins 重複嘗試數次後始終無法得到回應（以大大的紅叉叉表示），blue container 關閉，以啟用 v2 為目標的藍綠部署在此宣告失敗。</p>
 <img src="/hahow-blue-green-deployment/0*XoOy-W8kSLZ9vXiU.png" title="Blue container 回到關閉的狀態，green container 繼續處理外部流量">
 <p>由於 Hahow 的 API server 需要在啟動時建立與 MongoDB 的連線，不可能在瞬間就啟動完成，因此 Jenkins 會設定一個時限（timeout），如果沒有在時限內得到回應，就會再嘗試一次。但也不是無限次數的重複下去，否則如果真是 API server 有 bug，那本次藍綠部署就永遠沒有結束的一天了。在重複嘗試一定次數後，如果還是沒有得到新版 server 的回應，那本次部署宣告失敗。Hahow 每次藍綠部署最多會嘗試 10 次、每次 3 秒，總共 30 秒，30 秒後如果還是沒有回應就會宣告失敗，所以可以確定每次部署最長不會超過 30 秒。</p>
 <p>注意如果 blue container 的健康檢查沒有通過，green container 還是會繼續留在線上處理外部流量。</p>
-<h4 id="啟動-健檢-Jenkins-部署修正-v2-bug-的-v3"><a href="#啟動-健檢-Jenkins-部署修正-v2-bug-的-v3" class="headerlink" title="[啟動/健檢] Jenkins 部署修正 v2 bug 的  v3"></a>[啟動/健檢] Jenkins 部署修正 v2 bug 的  v3</h4><p>工程師發現 v2 無法成功部署，迅速地修正 bug、通過 code review，透過 CI 打包成 v3 的 Docker image 後，再次嘗試部署。</p>
+<h4>[啟動/健檢] Jenkins 部署修正 v2 bug 的  v3</h4>
+<p>工程師發現 v2 無法成功部署，迅速地修正 bug、通過 code review，透過 CI 打包成 v3 的 Docker image 後，再次嘗試部署。</p>
 <img src="/hahow-blue-green-deployment/0*7U0LRtmW4qoJ9Mbd.png" title="Jenkins 部署修正 v2 bug 的 v3 server">
 <p>一樣由 Jenkins 部署與啟動，並開始健康檢查，健康檢查的細節如前文所示，不再贅述。</p>
-<h4 id="健檢-Blue-container-通過健康檢查"><a href="#健檢-Blue-container-通過健康檢查" class="headerlink" title="[健檢] Blue container 通過健康檢查"></a>[健檢] Blue container 通過健康檢查</h4><img src="/hahow-blue-green-deployment/0*iok9K5PSG1cSJS__.png" title="Blue container 通過健康檢查">
+<h4>[健檢] Blue container 通過健康檢查</h4>
+<img src="/hahow-blue-green-deployment/0*iok9K5PSG1cSJS__.png" title="Blue container 通過健康檢查">
 <p>Jenkins 在 v3 啟動不久就收到 <code>OK</code> 的回應，代表 blue container 通過健康檢查。於是 Jenkins 開始執行下一步，讓 blue container 上線，並將外部流量導向 blue container。</p>
-<h4 id="切換-Jenkins-對-nginx-發出訊號要求重啟"><a href="#切換-Jenkins-對-nginx-發出訊號要求重啟" class="headerlink" title="[切換] Jenkins 對 nginx  發出訊號要求重啟"></a>[切換] Jenkins 對 nginx  發出訊號要求重啟</h4><p>再繼續下去之前，如果對 nginx 的 reverse proxy 不甚熟悉，建議可先服用 DigitalOcean 的概念文 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGlnaXRhbG9jZWFuLmNvbS9jb21tdW5pdHkvdHV0b3JpYWxzL3VuZGVyc3RhbmRpbmctbmdpbngtaHR0cC1wcm94eWluZy1sb2FkLWJhbGFuY2luZy1idWZmZXJpbmctYW5kLWNhY2hpbmc=" title="https://www.digitalocean.com/community/tutorials/understanding-nginx-http-proxying-load-balancing-buffering-and-caching">Understanding Nginx HTTP Proxying, Load Balancing, Buffering, and Caching<i class="fa fa-external-link"></i></span> 與實作文 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGlnaXRhbG9jZWFuLmNvbS9jb21tdW5pdHkvdHV0b3JpYWxzL2hvdy10by1jb25maWd1cmUtbmdpbngtYXMtYS13ZWItc2VydmVyLWFuZC1yZXZlcnNlLXByb3h5LWZvci1hcGFjaGUtb24tb25lLXVidW50dS0xNi0wNC1zZXJ2ZXI=" title="https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-web-server-and-reverse-proxy-for-apache-on-one-ubuntu-16-04-server">How To Configure Nginx as a Web Server and Reverse Proxy for Apache on One Ubuntu 16.04 Server<i class="fa fa-external-link"></i></span>。</p>
+<h4>[切換] Jenkins 對 nginx  發出訊號要求重啟</h4>
+<p>再繼續下去之前，如果對 nginx 的 reverse proxy 不甚熟悉，建議可先服用 DigitalOcean 的概念文 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGlnaXRhbG9jZWFuLmNvbS9jb21tdW5pdHkvdHV0b3JpYWxzL3VuZGVyc3RhbmRpbmctbmdpbngtaHR0cC1wcm94eWluZy1sb2FkLWJhbGFuY2luZy1idWZmZXJpbmctYW5kLWNhY2hpbmc=" title="https://www.digitalocean.com/community/tutorials/understanding-nginx-http-proxying-load-balancing-buffering-and-caching">Understanding Nginx HTTP Proxying, Load Balancing, Buffering, and Caching<i class="fa fa-external-link"></i></span> 與實作文 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGlnaXRhbG9jZWFuLmNvbS9jb21tdW5pdHkvdHV0b3JpYWxzL2hvdy10by1jb25maWd1cmUtbmdpbngtYXMtYS13ZWItc2VydmVyLWFuZC1yZXZlcnNlLXByb3h5LWZvci1hcGFjaGUtb24tb25lLXVidW50dS0xNi0wNC1zZXJ2ZXI=" title="https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-web-server-and-reverse-proxy-for-apache-on-one-ubuntu-16-04-server">How To Configure Nginx as a Web Server and Reverse Proxy for Apache on One Ubuntu 16.04 Server<i class="fa fa-external-link"></i></span>。</p>
 <img src="/hahow-blue-green-deployment/0*L3aNTbsrdiwveySq.png" title="Jenkins 對 nginx 發出信號要求重啟">
 <p>確定 blue container 進入備戰狀態後，Jenkins 此時會向 nginx 發出訊號要求其重啟，指令非常簡短：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
@@ -569,7 +583,8 @@
 <p>後來我們發現了 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hhc2hpY29ycC9jb25zdWwtdGVtcGxhdGU=" title="https://github.com/hashicorp/consul-template">consul-template<i class="fa fa-external-link"></i></span> 這支好用的小工具，再度調整流程，在 nginx 的 container 裡放置一支 consul-template，並在藍綠部署時讓 consul-template 監聽 Consul 內的變化，自動地生成 nginx 設定檔。藉此讓生成設定檔與重啟 nginx 這兩件工作化整為零，交由 Consul 與 consul-template 全權負責，實現藍綠部署在 nginx 這一段的流程的全自動化。</p>
 <p>nginx 收到重啟指令後、正式重啟前會先檢查設定檔，如果 shell script 竄改後的設定檔還是有語法錯誤或是檔案缺失，nginx 就會拒絕重啟，繼續使用原來的設定檔。當然 nginx 執行驗證程序時也不會下線，因此如果真的設定檔驗證失敗，nginx 會使用原來的設定檔將外部流量繼續導向 green container。</p>
 <p>如果 shell script 竄改的設定檔通過 nginx 驗證，那就會開始整個藍綠部署最重要的一步，漸進式地替換掉 nginx 的 child process。</p>
-<h4 id="切換-nginx-逐一替換掉-child-process"><a href="#切換-nginx-逐一替換掉-child-process" class="headerlink" title="[切換] nginx 逐一替換掉 child process"></a>[切換] nginx 逐一替換掉 child process</h4><p>先引用一段 nginx 文件，是關於 nginx master process 與 child process 的分工與關係：</p>
+<h4>[切換] nginx 逐一替換掉 child process</h4>
+<p>先引用一段 nginx 文件，是關於 nginx master process 與 child process 的分工與關係：</p>
 <blockquote>
 <p>nginx has one master process and several worker processes. The main purpose of the master process is to read and evaluate configuration, and maintain worker processes. Worker processes do actual processing of requests.</p>
 <ul>
@@ -593,17 +608,22 @@
 <img src="/hahow-blue-green-deployment/0*xghK08LWdA1W9HNB.png" title="完成 child process 的替換，現在外部已經無法存取舊 API server（green container）了">
 <p>以上系列圖是 nginx 重啟時的詳細過程。紫色箭頭是 master process 對 child process 發出的內部信號，藍色與綠色箭頭分別代表以 blue container 與 green container 為目的地的外部流量。隨著系列圖一張接著一張，會發現綠色的箭頭慢慢變少，而藍色的箭頭取而代之，最後只剩下藍色的箭頭，代表 blue container 開始接收所有外部流量，green container 功成身退。</p>
 <p>最後，是時候讓 green container 宣告退休了。</p>
-<h4 id="終止-Jenkins-終止-v1-server"><a href="#終止-Jenkins-終止-v1-server" class="headerlink" title="[終止] Jenkins 終止 v1 server"></a>[終止] Jenkins 終止 v1 server</h4><img src="/hahow-blue-green-deployment/0*1MYRBcuLoN_ZMxgI.png" title="Jenkins 要求 v1 server 在時限內關閉">
+<h4>[終止] Jenkins 終止 v1 server</h4>
+<img src="/hahow-blue-green-deployment/0*1MYRBcuLoN_ZMxgI.png" title="Jenkins 要求 v1 server 在時限內關閉">
 <p>nginx 完成重啟程序後，Jenkins 就會對 green container 下達指令，要求它在時限內關閉：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># docker stop -t 5 green</span><br></pre></td></tr></table></figure>
 <p><code>-t</code> 選項後面帶著一個數字，單位是秒，限定 Docker container 必須在幾秒內關閉。如果 container 沒有在時限內主動關閉，那 Docker 就會在超時後強制關閉 container。green container 關閉後，至此完成一次藍綠部署，期間沒有發生任何服務下線的情形，最後附上一張藍綠部署的最終狀態示意圖：</p>
 <img src="/hahow-blue-green-deployment/0*cyzdw815K1gGB5cQ.png" title="本次藍綠部署的最終狀態">
 <p>示意圖上方的 green container 變成黑色，代表 container 已關閉並離線，而箭頭所代表的外部流量全部流向 blue container。</p>
-<h3 id="待改進之處與未來展望"><a href="#待改進之處與未來展望" class="headerlink" title="待改進之處與未來展望"></a>待改進之處與未來展望</h3><h4 id="將關閉的控制權還給-server"><a href="#將關閉的控制權還給-server" class="headerlink" title="將關閉的控制權還給 server"></a>將關閉的控制權還給 server</h4><p>Hahow 藍綠部署的最後一步，是透過 Docker 加上時限參數，要求 container 在時限內關閉，否則就會強制關閉。此做法會有一個極有可能在未來發生的問題，如果今天 API server 就是這麼繁忙，在關閉之前還有非常大量的 HTTP request 必須要消化掉，而無法在時限內關閉怎麼辦？如果 Docker 此時強制將 API server 關閉，那就有機率地會發生所一開始提到的問題。</p>
+<h3>待改進之處與未來展望</h3>
+<h4>將關閉的控制權還給 server</h4>
+<p>Hahow 藍綠部署的最後一步，是透過 Docker 加上時限參數，要求 container 在時限內關閉，否則就會強制關閉。此做法會有一個極有可能在未來發生的問題，如果今天 API server 就是這麼繁忙，在關閉之前還有非常大量的 HTTP request 必須要消化掉，而無法在時限內關閉怎麼辦？如果 Docker 此時強制將 API server 關閉，那就有機率地會發生所一開始提到的問題。</p>
 <p>要避免這個問題最好的方式，就是不要透過 Docker 加上時限參數關閉 API server，而是透過 Docker 轉發訊號給 API server，讓 API server 消化掉 HTTP requests 後自己發動關閉程序（e.g. 關閉資料庫連線），最後自己退出。Docker 只要靜靜地在旁邊等 API server 自己關閉就好了。</p>
-<h4 id="如果要修改-nginx-本身的設定檔，還是會有服務下線的時間"><a href="#如果要修改-nginx-本身的設定檔，還是會有服務下線的時間" class="headerlink" title="如果要修改 nginx 本身的設定檔，還是會有服務下線的時間"></a>如果要修改 nginx 本身的設定檔，還是會有服務下線的時間</h4><p>例如修改 nginx 設定檔內 <code>location</code> 之類的路由規則，就必須重新部署 nginx，下線時間就躲不掉了。解決的方案有一是對 nginx 也做藍綠部署，前面掛一台更穩定的 load balancer，例如 HAProxy；二是將 nginx 的設定檔抽出來另外存放，透過另外一個 Docker container 產生新版設定檔後再餵給 nginx。</p>
+<h4>如果要修改 nginx 本身的設定檔，還是會有服務下線的時間</h4>
+<p>例如修改 nginx 設定檔內 <code>location</code> 之類的路由規則，就必須重新部署 nginx，下線時間就躲不掉了。解決的方案有一是對 nginx 也做藍綠部署，前面掛一台更穩定的 load balancer，例如 HAProxy；二是將 nginx 的設定檔抽出來另外存放，透過另外一個 Docker container 產生新版設定檔後再餵給 nginx。</p>
 <p>第二個方法的問題在於現在 nginx 的設定檔被分成兩個部分，分別是藍綠部署時固定不動的部分（e.g. <code>location</code> 的路由規則），以及藍綠部署時會變化的部分（e.g. 包含 <code></code> 變數的那一行）。要怎麼適當地切割這兩個部分並維持藍綠部署繼續運作，有待研究。</p>
-<h4 id="nginx-本身不適合當作-load-balancer-來用"><a href="#nginx-本身不適合當作-load-balancer-來用" class="headerlink" title="nginx 本身不適合當作 load balancer  來用"></a>nginx 本身不適合當作 load balancer  來用</h4><p>前面有說到，常見的藍綠部署前面會掛一台 load balancer 來接收並分發外部流量。現在可以只用 nginx 充當藍綠部署的 load balancer，是因為現在 Hahow 的流量還沒有大到切換時由於 nginx 或 API server 所暫存的資料量太大，而切換不順暢或完全切換不過去的問題。但如果 Hahow 的流量與連線數持續成長下去，總有一天還是會遇到這個 happy problem。</p>
+<h4>nginx 本身不適合當作 load balancer  來用</h4>
+<p>前面有說到，常見的藍綠部署前面會掛一台 load balancer 來接收並分發外部流量。現在可以只用 nginx 充當藍綠部署的 load balancer，是因為現在 Hahow 的流量還沒有大到切換時由於 nginx 或 API server 所暫存的資料量太大，而切換不順暢或完全切換不過去的問題。但如果 Hahow 的流量與連線數持續成長下去，總有一天還是會遇到這個 happy problem。</p>
 <p>與 nginx 相比，可以承載更大流量與更穩定的 HAProxy 或 Google Load Balancer 都是更好的選擇。隨著 Hahow 現在的流量與連線數還在穩定成長，總有一天還是要實作 load balancer。如果到時候的目標是轉移到 GKE 上，那與 GKE 高度整合的 Google Load Balancer 就是最好的選擇；但如果因為一些不可抗力因素必須留在 GCE 上，或無法使用 Google Load Balancer，HAProxy 就必須列入考慮了。</p>
 
       
@@ -747,7 +767,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>
@@ -879,7 +899,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#環境介紹"><span class="nav-number">1.</span> <span class="nav-text">環境介紹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽絲剝繭"><span class="nav-number">2.</span> <span class="nav-text">抽絲剝繭</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原子化"><span class="nav-number">2.1.</span> <span class="nav-text">原子化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#讀寫分離"><span class="nav-number">2.2.</span> <span class="nav-text">讀寫分離</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#藍綠部署"><span class="nav-number">2.3.</span> <span class="nav-text">藍綠部署</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#藍綠部署-1"><span class="nav-number">3.</span> <span class="nav-text">藍綠部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hahow-的藍綠部署"><span class="nav-number">4.</span> <span class="nav-text">Hahow 的藍綠部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#初始狀態"><span class="nav-number">4.1.</span> <span class="nav-text">初始狀態</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#啟動-健檢-Jenkins-啟動新版-server"><span class="nav-number">4.2.</span> <span class="nav-text">[啟動/健檢] Jenkins 啟動新版  server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#健檢-Blue-container-沒有通過健康檢查"><span class="nav-number">4.3.</span> <span class="nav-text">[健檢] Blue container 沒有通過健康檢查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#啟動-健檢-Jenkins-部署修正-v2-bug-的-v3"><span class="nav-number">4.4.</span> <span class="nav-text">[啟動/健檢] Jenkins 部署修正 v2 bug 的  v3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#健檢-Blue-container-通過健康檢查"><span class="nav-number">4.5.</span> <span class="nav-text">[健檢] Blue container 通過健康檢查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#切換-Jenkins-對-nginx-發出訊號要求重啟"><span class="nav-number">4.6.</span> <span class="nav-text">[切換] Jenkins 對 nginx  發出訊號要求重啟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#切換-nginx-逐一替換掉-child-process"><span class="nav-number">4.7.</span> <span class="nav-text">[切換] nginx 逐一替換掉 child process</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#終止-Jenkins-終止-v1-server"><span class="nav-number">4.8.</span> <span class="nav-text">[終止] Jenkins 終止 v1 server</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#待改進之處與未來展望"><span class="nav-number">5.</span> <span class="nav-text">待改進之處與未來展望</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#將關閉的控制權還給-server"><span class="nav-number">5.1.</span> <span class="nav-text">將關閉的控制權還給 server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如果要修改-nginx-本身的設定檔，還是會有服務下線的時間"><span class="nav-number">5.2.</span> <span class="nav-text">如果要修改 nginx 本身的設定檔，還是會有服務下線的時間</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nginx-本身不適合當作-load-balancer-來用"><span class="nav-number">5.3.</span> <span class="nav-text">nginx 本身不適合當作 load balancer  來用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">環境介紹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">抽絲剝繭</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">原子化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">讀寫分離</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">藍綠部署</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">藍綠部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">Hahow 的藍綠部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.1.</span> <span class="nav-text">初始狀態</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.2.</span> <span class="nav-text">[啟動/健檢] Jenkins 啟動新版  server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.3.</span> <span class="nav-text">[健檢] Blue container 沒有通過健康檢查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.4.</span> <span class="nav-text">[啟動/健檢] Jenkins 部署修正 v2 bug 的  v3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.5.</span> <span class="nav-text">[健檢] Blue container 通過健康檢查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.6.</span> <span class="nav-text">[切換] Jenkins 對 nginx  發出訊號要求重啟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.7.</span> <span class="nav-text">[切換] nginx 逐一替換掉 child process</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.8.</span> <span class="nav-text">[終止] Jenkins 終止 v1 server</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">待改進之處與未來展望</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.1.</span> <span class="nav-text">將關閉的控制權還給 server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.2.</span> <span class="nav-text">如果要修改 nginx 本身的設定檔，還是會有服務下線的時間</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.3.</span> <span class="nav-text">nginx 本身不適合當作 load balancer  來用</span></a></li></ol></li></ol></div>
             
 
           </div>

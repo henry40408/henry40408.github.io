@@ -98,17 +98,17 @@
 
 
 
-  <meta name="description" content="樣式上的差異在 React Native，如果需要觸控區域，我們有兩個選擇：&amp;lt;TouchableWithoutFeedback /&amp;gt; 與 &amp;lt;TouchableHighlight /&amp;gt;。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。 實際使用之後，我發現兩者另外一項區別在於 &amp;lt;TouchableWithou">
+  <meta name="description" content="樣式上的差異 在 React Native，如果需要觸控區域，我們有兩個選擇：&amp;lt;TouchableWithoutFeedback /&amp;gt; 與 &amp;lt;TouchableHighlight /&amp;gt;。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。 實際使用之後，我發現兩者另外一項區別在於 &amp;lt;TouchableWitho">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React Native 的觸控區域">
 <meta property="og:url" content="https://henry40408.com/react-native-touchables/index.html">
 <meta property="og:site_name" content="Life is a YOLO Game">
-<meta property="og:description" content="樣式上的差異在 React Native，如果需要觸控區域，我們有兩個選擇：&amp;lt;TouchableWithoutFeedback /&amp;gt; 與 &amp;lt;TouchableHighlight /&amp;gt;。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。 實際使用之後，我發現兩者另外一項區別在於 &amp;lt;TouchableWithou">
+<meta property="og:description" content="樣式上的差異 在 React Native，如果需要觸控區域，我們有兩個選擇：&amp;lt;TouchableWithoutFeedback /&amp;gt; 與 &amp;lt;TouchableHighlight /&amp;gt;。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。 實際使用之後，我發現兩者另外一項區別在於 &amp;lt;TouchableWitho">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-06-22T01:28:57.799Z">
+<meta property="og:updated_time" content="2019-06-24T14:03:00.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Native 的觸控區域">
-<meta name="twitter:description" content="樣式上的差異在 React Native，如果需要觸控區域，我們有兩個選擇：&amp;lt;TouchableWithoutFeedback /&amp;gt; 與 &amp;lt;TouchableHighlight /&amp;gt;。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。 實際使用之後，我發現兩者另外一項區別在於 &amp;lt;TouchableWithou">
+<meta name="twitter:description" content="樣式上的差異 在 React Native，如果需要觸控區域，我們有兩個選擇：&amp;lt;TouchableWithoutFeedback /&amp;gt; 與 &amp;lt;TouchableHighlight /&amp;gt;。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。 實際使用之後，我發現兩者另外一項區別在於 &amp;lt;TouchableWitho">
 
 
 
@@ -421,7 +421,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-06-22 09:28:57" itemprop="dateModified" datetime="2019-06-22T09:28:57+08:00">2019-06-22</time>
+                <time title="修改時間：2019-06-24 22:03:00" itemprop="dateModified" datetime="2019-06-24T22:03:00+08:00">2019-06-24</time>
               
             
           </span>
@@ -473,10 +473,12 @@
       
 
       
-        <h2 id="樣式上的差異"><a href="#樣式上的差異" class="headerlink" title="樣式上的差異"></a>樣式上的差異</h2><p>在 React Native，如果需要觸控區域，我們有兩個選擇：<code>&lt;TouchableWithoutFeedback /&gt;</code> 與 <code>&lt;TouchableHighlight /&gt;</code>。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。</p>
+        <h2>樣式上的差異</h2>
+<p>在 React Native，如果需要觸控區域，我們有兩個選擇：<code>&lt;TouchableWithoutFeedback /&gt;</code> 與 <code>&lt;TouchableHighlight /&gt;</code>。根據文件，官方並不希望我們使用前者，原因基於前者不會對觸控產生回饋，會讓使用者對觸控是否有效產生不必要的誤解。</p>
 <p>實際使用之後，我發現兩者另外一項區別在於 <code>&lt;TouchableWithoutFeedback /&gt;</code> 沒有預設樣式，實際使用起來就像是一個隱形的容器，包住內部的元素，但又不會與內部的容器互相影響；而 <code>&lt;TouchableHighlight /&gt;</code> 本身則會形成一個區塊，會與內部的元素相互影響。至於之前的版本曾經有使用者提出 <code>&lt;TouchableHighlight /&gt;</code> 可能是為了產生回饋的視覺效果，而有效能上的問題。但在 <code>0.28.x</code> 之後，至少我實際使用到現在還沒有遇到嚴重的效能問題，即使是在最複雜的編輯履歷頁面也沒有。</p>
 <a id="more"></a>
-<h2 id="lt-View-gt-與自訂-component-的規格差異"><a href="#lt-View-gt-與自訂-component-的規格差異" class="headerlink" title="&lt;View /&gt; 與自訂 component 的規格差異"></a><code>&lt;View /&gt;</code> 與自訂 component 的規格差異</h2><p>官方文件建議如果要在 <code>Touchable</code> 系列裡使用多個 component，如以下的形式，直接寫是行不通的。</p>
+<h2><code>&lt;View /&gt;</code> 與自訂 component 的規格差異</h2>
+<p>官方文件建議如果要在 <code>Touchable</code> 系列裡使用多個 component，如以下的形式，直接寫是行不通的。</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;TouchableHighlight&gt;</span><br><span class="line">  &lt;ChildOne /&gt;</span><br><span class="line">  &lt;ChildTwo /&gt;</span><br><span class="line">&lt;<span class="regexp">/TouchableHighlight&gt;</span></span><br></pre></td></tr></table></figure>
 <p>必須改寫成以下形式。</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;TouchableHighlight&gt;</span><br><span class="line">  &lt;View&gt;</span><br><span class="line">    &lt;ChildOne /&gt;</span><br><span class="line">    &lt;ChildTwo /&gt;</span><br><span class="line">  &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>TouchableHighlight&gt;</span><br></pre></td></tr></table></figure>
@@ -542,8 +544,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/react-native-upgrade-and-flexbox/" rel="next" title="React Native 從 0.28.x 升級與 flexbox">
-                <i class="fa fa-chevron-left"></i> React Native 從 0.28.x 升級與 flexbox
+              <a href="/react-native-moment-locale/" rel="next" title="在 React Native 中使用 moment.js 無法載入語系檔案">
+                <i class="fa fa-chevron-left"></i> 在 React Native 中使用 moment.js 無法載入語系檔案
               </a>
             
           </div>
@@ -552,8 +554,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/inherited-model-in-factory-girl/" rel="prev" title="如何在 factory_girl 中為有繼承關係的 Rails model 定義 Factory">
-                如何在 factory_girl 中為有繼承關係的 Rails model 定義 Factory <i class="fa fa-chevron-right"></i>
+              <a href="/notify-after-rspec-command-finished/" rel="prev" title="當 iTerm 執行完 RSpec 之後彈出通知">
+                當 iTerm 執行完 RSpec 之後彈出通知 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -630,7 +632,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>
@@ -762,7 +764,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#樣式上的差異"><span class="nav-number">1.</span> <span class="nav-text">樣式上的差異</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-View-gt-與自訂-component-的規格差異"><span class="nav-number">2.</span> <span class="nav-text">&lt;View /&gt; 與自訂 component 的規格差異</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">樣式上的差異</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">&lt;View /&gt; 與自訂 component 的規格差異</span></a></li></ol></div>
             
 
           </div>
