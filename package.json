@@ -11,6 +11,7 @@
     "deploy": "npm run generate && gh-pages -b master -d public"
   },
   "dependencies": {
+    "ajv": "^5.0.0",
     "hexo": "^3.8.0",
     "hexo-cli": "^1.1.0",
     "hexo-generator-amp": "^3.1.2",
