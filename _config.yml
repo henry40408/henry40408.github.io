@@ -198,3 +198,7 @@ markdown:
     linkify: true
     typographer: true
     quotes: '“”‘’'
+
+lazyload:
+  enable: true 
+  onlypost: false
