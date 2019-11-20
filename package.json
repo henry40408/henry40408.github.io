@@ -6,6 +6,7 @@
     "version": "3.8.0"
   },
   "scripts": {
+    "clean": "hexo clean",
     "start": "hexo server",
     "generate": "hexo generate",
     "deploy": "npm run generate && gh-pages -b master -d public"
