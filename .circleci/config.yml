@@ -2,11 +2,24 @@ version: 2
 
 jobs:
   build:
-    branches:
-      only:
-        - develop
     docker:
-      - image: circleci/node:carbon
+      - image: circleci/node:dubnium
+    steps:
+      - checkout
+      - run: |
+          git submodule init
+          git submodule update --remote
+      - restore_cache:
+          key: npm-{{ checksum "package-lock.json" }}
+      - run: npm ci
+      - save_cache:
+          key: npm-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+      - run: npm run generate
+  deploy:
+    docker:
+      - image: circleci/node:dubnium
     steps:
       - checkout
       - run: |
@@ -23,3 +36,16 @@ jobs:
           git config --global user.email 'sayhi@circleci.com'
           git config --global user.name 'CircleCI'
       - run: npm run deploy
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - develop
