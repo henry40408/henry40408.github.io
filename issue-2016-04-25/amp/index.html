@@ -10,27 +10,21 @@
 	<meta property="og:type" content="article">
 	<meta property="og:url" content="https://henry40408.com/issue-2016-04-25/">
 	
-		<meta property="og:image" content="/amp-dist/life-is-a-yolo-game-so-play-it-well.png">
+		<meta property="og:image" content="/amp-dist/avatar.png">
 	
 	<meta property="og:site_name" content="Life is a YOLO Game">
 	
-		<meta property="og:description" content="&lt;h2&gt;工作內容&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;棄用 &lt;code&gt;recompose&lt;/code&gt;，改用 &lt;code&gt;redux&lt;/code&gt; 重構 Sudo app&lt;/li&gt;
-&lt;/ul&gt;">
+		<meta property="og:description" content="&lt;h2&gt;工作內容&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;棄用 &lt;code&gt;recompose&lt;/code&gt;，改用 &lt;code&gt;redux&lt;/code&gt; 重構 Sudo app&lt;/li&gt;&lt;/ul&gt;">
 	
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="Life is a YOLO Game">
 	<meta name="twitter:url" content="https://henry40408.com/issue-2016-04-25/">
 	<meta name="twitter:title" content="Sudo 開發日記 2016-04-25 - Life is a YOLO Game">
 	
-		<meta name="twitter:description" content="&lt;h2&gt;工作內容&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;棄用 &lt;code&gt;recompose&lt;/code&gt;，改用 &lt;code&gt;redux&lt;/code&gt; 重構 Sudo app&lt;/li&gt;
-&lt;/ul&gt;">
+		<meta name="twitter:description" content="&lt;h2&gt;工作內容&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;棄用 &lt;code&gt;recompose&lt;/code&gt;，改用 &lt;code&gt;redux&lt;/code&gt; 重構 Sudo app&lt;/li&gt;&lt;/ul&gt;">
 	
     
-    	<meta name="twitter:image" content="/amp-dist/life-is-a-yolo-game-so-play-it-well.png">
+    	<meta name="twitter:image" content="/amp-dist/avatar.png">
 	
 	
 	
@@ -58,21 +52,18 @@
 			"@type": "BlogPosting",
 			"headline": "Sudo 開發日記 2016-04-25",
 			
-			"description": "&lt;h2&gt;工作內容&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;棄用 &lt;code&gt;recompose&lt;/code&gt;，改用 &lt;code&gt;redux&lt;/code&gt; 重構 Sudo app&lt;/li&gt;
-&lt;/ul&gt;",
+			"description": "&lt;h2&gt;工作內容&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;棄用 &lt;code&gt;recompose&lt;/code&gt;，改用 &lt;code&gt;redux&lt;/code&gt; 重構 Sudo app&lt;/li&gt;&lt;/ul&gt;",
 			
 			"mainEntityOfPage":{
 			    "@type":"WebPage",
 			    "@id":"https://henry40408.com/issue-2016-04-25/"
 			},
 			"datePublished": "2016-04-26T16:00:00.000Z",
-			"dateModified": "2019-10-22T02:19:22.910Z",
+			"dateModified": "2019-11-20T06:08:48.328Z",
 			
 			"image": {
 				"@type": "ImageObject",
-				"url": "/amp-dist/life-is-a-yolo-game-so-play-it-well.png",
+				"url": "/amp-dist/avatar.png",
 				"width" : "1200",
 				"height" : "630"
 			},
@@ -1822,7 +1813,7 @@ h6.categories {
 						
 			          	<div class="header-thumb flx">
 			          		<div class="thumbImg-w circle">
-			          			<amp-img class="thumbImg" layout="fixed" width="190" height="100" src="/amp-dist/life-is-a-yolo-game-so-play-it-well.png">
+			          			<amp-img class="thumbImg" layout="fixed" width="190" height="100" src="/amp-dist/avatar.png">
 			          			</amp-img>
 			          		</div>
 			          	</div>
@@ -1858,33 +1849,7 @@ h6.categories {
                     
                     
 			    	<!-- content -->
-			  		<h2>&#x5DE5;&#x4F5C;&#x5167;&#x5BB9;</h2>
-<ul>
-<li>&#x68C4;&#x7528; <code>recompose</code>&#xFF0C;&#x6539;&#x7528; <code>redux</code> &#x91CD;&#x69CB; Sudo app</li>
-</ul>
-<a id="more"></a>
-<h2>&#x5176;&#x4ED6;&#x65B0;&#x6771;&#x897F;</h2>
-<h3>1. JSX &#x8D85;&#x7D1A;&#x61F6;&#x4EBA;&#x8A9E;&#x6CD5;</h3>
-<p>&#x5728; React JSX&#xFF0C;&#x6211;&#x5011;&#x5E38;&#x5E38;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x8A9E;&#x6CD5;&#x53BB;&#x5206;&#x767C; props&#xFF1A;</p>
-<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Component alpha={alpha} beta={beta} gamma={gamma} /&gt;</span><br></pre></td></tr></tbody></table></figure>
-<p>&#x4F46;&#x6211;&#x5FD8;&#x8A18;&#x5728;&#x54EA;&#x88E1;&#x767C;&#x73FE;&#x4E86;&#x4E00;&#x500B;&#x8D85;&#x7D1A;&#x61F6;&#x4EBA;&#x5BEB;&#x6CD5;&#xFF0C;&#x7531;&#x65BC;&#x4F7F;&#x7528;&#x5230; ES6 &#x7684; object destructuring&#xFF0C;&#x524D;&#x63D0;&#x662F; &#x4F60;&#x7684; property name &#x5FC5;&#x9808;&#x8DDF; variable name &#x76F8;&#x540C;&#xFF1A;</p>
-<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Component {...{ alpha, beta, gamma } } /&gt;</span><br></pre></td></tr></tbody></table></figure>
-<p>&#x5920;&#x61F6;&#x5920;&#x7C21;&#x6F54;&#x3002;</p>
-<h3>2. .gitignore &#x8207; LICENSE &#x7522;&#x751F;&#x5668;</h3>
-<ul>
-<li><span class="exturl" data-url="aHR0cDovL2dpdGlnbm9yZS5pbw==" title="http://gitignore.io">gitignore.io<i class="fa fa-external-link"></i></span>: <span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2l0aWdub3JlLmlvLw==" title="https://www.gitignore.io/">https://www.gitignore.io/<i class="fa fa-external-link"></i></span></li>
-</ul>
-<p>&#x4EE5;&#x524D;&#x66FE;&#x7D93;&#x5728; JetBrains &#x7CFB;&#x5217;&#x7522;&#x54C1;&#x4F7F;&#x7528;&#x904E;&#x985E;&#x4F3C;&#x7684; plugin&#xFF0C;&#x628A;&#x81EA;&#x5DF1;&#x73FE;&#x5728;&#x4F7F;&#x7528;&#x7684;&#x5DE5;&#x5177;&#x6216;&#x8A9E;&#x8A00;&#x52FE;&#x8D77;&#x4F86; .gitignore &#x5C31;&#x5E6B;&#x4F60;&#x7522;&#x751F;&#x597D;&#x4E86;&#xFF0C;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#xFF0C;&#x6C92;&#x60F3;&#x5230;&#x6709; web application &#x7248;&#x672C;&#xFF0C;&#x56DE;&#x50B3;&#x503C;&#x9084;&#x662F; plain text&#xFF0C;&#x975E;&#x5E38;&#x9069;&#x5408;&#x8DDF; curl &#x6574;&#x5408;&#x6210; command line &#x5DE5;&#x5177;&#x3002;</p>
-<ul>
-<li>lincese command: <span class="exturl" data-url="aHR0cHM6Ly9uaXNoYW50aHMuZ2l0aHViLmlvL2xpY2Vuc2Uv" title="https://nishanths.github.io/license/">https://nishanths.github.io/license/<i class="fa fa-external-link"></i></span></li>
-</ul>
-<p>&#x65E2;&#x7136;&#x6709;&#x4EBA;&#x63D0;&#x4F9B;&#x81EA;&#x52D5;&#x751F;&#x6210; .gitignore &#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x8209;&#x4E00;&#x53CD;&#x4E09;&#x662F;&#x5426;&#x6709;&#x4EBA;&#x63D0;&#x4F9B;&#x81EA;&#x52D5;&#x751F;&#x6210; LICENSE &#x7684;&#x5DE5;&#x5177;&#x5462;&#xFF1F;&#x9084;&#x771F;&#x7684;&#x6709;&#xFF0C;&#x800C;&#x4E14;&#x76F4;&#x63A5;&#x5E6B;&#x4F60;&#x6574;&#x5408;&#x6210; command line &#x5DE5;&#x5177;&#x4E86;&#x3002;&#x900F;&#x904E; homebrew &#x5C31;&#x53EF;&#x4EE5;&#x5B89;&#x88DD;&#x4F7F;&#x7528;&#x3002;</p>
-<h3>3. Docker &#x5B89;&#x5168;&#x5EFA;&#x8B70;&#x66F8;</h3>
-<ul>
-<li>Docker Bench for Security: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvY2tlci9kb2NrZXItYmVuY2gtc2VjdXJpdHk=" title="https://github.com/docker/docker-bench-security">https://github.com/docker/docker-bench-security<i class="fa fa-external-link"></i></span></li>
-</ul>
-<p>&#x6700;&#x8FD1;&#x5FC3;&#x8840;&#x4F86;&#x6F6E;&#xFF0C;&#x60F3;&#x7814;&#x7A76; Docker &#x5B89;&#x5168;&#x6027;&#x8A2D;&#x5B9A;&#xFF0C;google &#x624D;&#x767C;&#x73FE; Docker &#x5B98;&#x65B9;&#x5DF2;&#x7D93; release &#x51FA;&#x4E00;&#x5957;&#x81EA;&#x5DF1;&#x958B;&#x767C;&#x7684;&#x5B89;&#x5168;&#x6027;&#x6AA2;&#x6E2C;&#x5DE5;&#x5177; Docker Bench for Security&#x3002;&#x9019;&#x4E00;&#x5957;&#x5DE5;&#x5177;&#x975E;&#x5E38;&#x7C21;&#x55AE;&#xFF0C;&#x7B2C;&#x4E00;&#x6B65;&#x5728;&#x4F60;&#x7684; docker machine &#x4E0A;&#x628A;&#x5B83; git clone &#x4E0B;&#x4F86;&#xFF0C;&#x7B2C;&#x4E8C;&#x6B65; sudo <span class="exturl" data-url="aHR0cDovL2RvY2tlci1iZW5jaC1zZWN1cml0eS5zaA==" title="http://docker-bench-security.sh">docker-bench-security.sh<i class="fa fa-external-link"></i></span> &#x5B83;&#x5C31;&#x6703;&#x7522;&#x751F;&#x4E00;&#x5F35;&#x5B89;&#x5168;&#x6027;&#x5EFA;&#x8B70;&#x7684;&#x6E05;&#x55AE;&#x7D66;&#x4F60;&#x3002;</p>
-
+			  		<h2>&#x5DE5;&#x4F5C;&#x5167;&#x5BB9;</h2><ul><li>&#x68C4;&#x7528; <code>recompose</code>&#xFF0C;&#x6539;&#x7528; <code>redux</code> &#x91CD;&#x69CB; Sudo app</li></ul><a id="more"></a><h2>&#x5176;&#x4ED6;&#x65B0;&#x6771;&#x897F;</h2><h3>1. JSX &#x8D85;&#x7D1A;&#x61F6;&#x4EBA;&#x8A9E;&#x6CD5;</h3><p>&#x5728; React JSX&#xFF0C;&#x6211;&#x5011;&#x5E38;&#x5E38;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x8A9E;&#x6CD5;&#x53BB;&#x5206;&#x767C; props&#xFF1A;</p><figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Component alpha={alpha} beta={beta} gamma={gamma} /&gt;</span><br></pre></td></tr></tbody></table></figure><p>&#x4F46;&#x6211;&#x5FD8;&#x8A18;&#x5728;&#x54EA;&#x88E1;&#x767C;&#x73FE;&#x4E86;&#x4E00;&#x500B;&#x8D85;&#x7D1A;&#x61F6;&#x4EBA;&#x5BEB;&#x6CD5;&#xFF0C;&#x7531;&#x65BC;&#x4F7F;&#x7528;&#x5230; ES6 &#x7684; object destructuring&#xFF0C;&#x524D;&#x63D0;&#x662F; &#x4F60;&#x7684; property name &#x5FC5;&#x9808;&#x8DDF; variable name &#x76F8;&#x540C;&#xFF1A;</p><figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Component {...{ alpha, beta, gamma } } /&gt;</span><br></pre></td></tr></tbody></table></figure><p>&#x5920;&#x61F6;&#x5920;&#x7C21;&#x6F54;&#x3002;</p><h3>2. .gitignore &#x8207; LICENSE &#x7522;&#x751F;&#x5668;</h3><ul><li><span class="exturl" data-url="aHR0cDovL2dpdGlnbm9yZS5pbw==" title="http://gitignore.io">gitignore.io<i class="fa fa-external-link"></i></span>: <span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2l0aWdub3JlLmlvLw==" title="https://www.gitignore.io/">https://www.gitignore.io/<i class="fa fa-external-link"></i></span></li></ul><p>&#x4EE5;&#x524D;&#x66FE;&#x7D93;&#x5728; JetBrains &#x7CFB;&#x5217;&#x7522;&#x54C1;&#x4F7F;&#x7528;&#x904E;&#x985E;&#x4F3C;&#x7684; plugin&#xFF0C;&#x628A;&#x81EA;&#x5DF1;&#x73FE;&#x5728;&#x4F7F;&#x7528;&#x7684;&#x5DE5;&#x5177;&#x6216;&#x8A9E;&#x8A00;&#x52FE;&#x8D77;&#x4F86; .gitignore &#x5C31;&#x5E6B;&#x4F60;&#x7522;&#x751F;&#x597D;&#x4E86;&#xFF0C;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#xFF0C;&#x6C92;&#x60F3;&#x5230;&#x6709; web application &#x7248;&#x672C;&#xFF0C;&#x56DE;&#x50B3;&#x503C;&#x9084;&#x662F; plain text&#xFF0C;&#x975E;&#x5E38;&#x9069;&#x5408;&#x8DDF; curl &#x6574;&#x5408;&#x6210; command line &#x5DE5;&#x5177;&#x3002;</p><ul><li>lincese command: <span class="exturl" data-url="aHR0cHM6Ly9uaXNoYW50aHMuZ2l0aHViLmlvL2xpY2Vuc2Uv" title="https://nishanths.github.io/license/">https://nishanths.github.io/license/<i class="fa fa-external-link"></i></span></li></ul><p>&#x65E2;&#x7136;&#x6709;&#x4EBA;&#x63D0;&#x4F9B;&#x81EA;&#x52D5;&#x751F;&#x6210; .gitignore &#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x8209;&#x4E00;&#x53CD;&#x4E09;&#x662F;&#x5426;&#x6709;&#x4EBA;&#x63D0;&#x4F9B;&#x81EA;&#x52D5;&#x751F;&#x6210; LICENSE &#x7684;&#x5DE5;&#x5177;&#x5462;&#xFF1F;&#x9084;&#x771F;&#x7684;&#x6709;&#xFF0C;&#x800C;&#x4E14;&#x76F4;&#x63A5;&#x5E6B;&#x4F60;&#x6574;&#x5408;&#x6210; command line &#x5DE5;&#x5177;&#x4E86;&#x3002;&#x900F;&#x904E; homebrew &#x5C31;&#x53EF;&#x4EE5;&#x5B89;&#x88DD;&#x4F7F;&#x7528;&#x3002;</p><h3>3. Docker &#x5B89;&#x5168;&#x5EFA;&#x8B70;&#x66F8;</h3><ul><li>Docker Bench for Security: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvY2tlci9kb2NrZXItYmVuY2gtc2VjdXJpdHk=" title="https://github.com/docker/docker-bench-security">https://github.com/docker/docker-bench-security<i class="fa fa-external-link"></i></span></li></ul><p>&#x6700;&#x8FD1;&#x5FC3;&#x8840;&#x4F86;&#x6F6E;&#xFF0C;&#x60F3;&#x7814;&#x7A76; Docker &#x5B89;&#x5168;&#x6027;&#x8A2D;&#x5B9A;&#xFF0C;google &#x624D;&#x767C;&#x73FE; Docker &#x5B98;&#x65B9;&#x5DF2;&#x7D93; release &#x51FA;&#x4E00;&#x5957;&#x81EA;&#x5DF1;&#x958B;&#x767C;&#x7684;&#x5B89;&#x5168;&#x6027;&#x6AA2;&#x6E2C;&#x5DE5;&#x5177; Docker Bench for Security&#x3002;&#x9019;&#x4E00;&#x5957;&#x5DE5;&#x5177;&#x975E;&#x5E38;&#x7C21;&#x55AE;&#xFF0C;&#x7B2C;&#x4E00;&#x6B65;&#x5728;&#x4F60;&#x7684; docker machine &#x4E0A;&#x628A;&#x5B83; git clone &#x4E0B;&#x4F86;&#xFF0C;&#x7B2C;&#x4E8C;&#x6B65; sudo <span class="exturl" data-url="aHR0cDovL2RvY2tlci1iZW5jaC1zZWN1cml0eS5zaA==" title="http://docker-bench-security.sh">docker-bench-security.sh<i class="fa fa-external-link"></i></span> &#x5B83;&#x5C31;&#x6703;&#x7522;&#x751F;&#x4E00;&#x5F35;&#x5B89;&#x5168;&#x6027;&#x5EFA;&#x8B70;&#x7684;&#x6E05;&#x55AE;&#x7D66;&#x4F60;&#x3002;</p>
 			  		
 			  		<!-- google Adsense -->
 			  		
