@@ -28,7 +28,7 @@
     "hexo-lazyload-image": "^1.0.4",
     "hexo-renderer-markdown-it": "^3.4.1",
     "hexo-renderer-sass": "^0.4.0",
-    "hexo-renderer-stylus": "^0.3.3",
+    "hexo-renderer-stylus": "^1.1.0",
     "hexo-server": "^0.3.3"
   },
   "devDependencies": {
