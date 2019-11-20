@@ -174,7 +174,7 @@ generator_amp:
     width: 180
     height: 180
   substituteTitleImage:
-    path: life-is-a-yolo-game-so-play-it-well.png
+    path: avatar.png
     width: 1200
     height: 630
   warningLog: false   # To display warning, please set true.
