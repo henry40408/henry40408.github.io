@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://henry40408.com/"/>
-  <updated>2019-11-20T06:53:54.792Z</updated>
+  <updated>2019-11-26T06:55:12.148Z</updated>
   <id>https://henry40408.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://henry40408.com/weekly-27/"/>
     <id>https://henry40408.com/weekly-27/</id>
     <published>2019-06-23T11:52:20.000Z</published>
-    <updated>2019-11-20T06:53:54.792Z</updated>
+    <updated>2019-11-26T06:55:12.148Z</updated>
     
     <summary type="html">
     
@@ -39,7 +39,7 @@
     <link href="https://henry40408.com/weekly-26/"/>
     <id>https://henry40408.com/weekly-26/</id>
     <published>2019-06-15T16:00:00.000Z</published>
-    <updated>2019-11-20T06:53:54.772Z</updated>
+    <updated>2019-11-26T06:55:12.136Z</updated>
     
     <summary type="html">
     
@@ -57,7 +57,7 @@
     <link href="https://henry40408.com/weekly-25/"/>
     <id>https://henry40408.com/weekly-25/</id>
     <published>2019-06-14T16:00:00.000Z</published>
-    <updated>2019-11-20T06:53:54.768Z</updated>
+    <updated>2019-11-26T06:55:12.136Z</updated>
     
     <summary type="html">
     
@@ -75,7 +75,7 @@
     <link href="https://henry40408.com/meaning-of-title/"/>
     <id>https://henry40408.com/meaning-of-title/</id>
     <published>2019-01-13T22:42:41.015Z</published>
-    <updated>2019-11-20T06:53:54.724Z</updated>
+    <updated>2019-11-26T06:55:12.120Z</updated>
     
     <summary type="html">
     
@@ -93,7 +93,7 @@
     <link href="https://henry40408.com/weekly-2/"/>
     <id>https://henry40408.com/weekly-2/</id>
     <published>2018-12-24T04:36:05.913Z</published>
-    <updated>2019-11-20T06:53:54.756Z</updated>
+    <updated>2019-11-26T06:55:12.128Z</updated>
     
     <summary type="html">
     
@@ -111,7 +111,7 @@
     <link href="https://henry40408.com/weekly-1/"/>
     <id>https://henry40408.com/weekly-1/</id>
     <published>2018-12-16T22:18:54.120Z</published>
-    <updated>2019-11-20T06:53:54.748Z</updated>
+    <updated>2019-11-26T06:55:12.124Z</updated>
     
     <summary type="html">
     
@@ -129,7 +129,7 @@
     <link href="https://henry40408.com/2018-july-week-4/"/>
     <id>https://henry40408.com/2018-july-week-4/</id>
     <published>2018-07-21T16:00:00.000Z</published>
-    <updated>2019-11-20T06:53:54.692Z</updated>
+    <updated>2019-11-26T06:55:12.108Z</updated>
     
     <summary type="html">
     
@@ -147,7 +147,7 @@
     <link href="https://henry40408.com/probot/"/>
     <id>https://henry40408.com/probot/</id>
     <published>2017-12-21T06:23:08.549Z</published>
-    <updated>2019-11-20T06:53:54.732Z</updated>
+    <updated>2019-11-26T06:55:12.120Z</updated>
     
     <summary type="html">
     
@@ -165,7 +165,7 @@
     <link href="https://henry40408.com/hahow-blue-green-deployment/"/>
     <id>https://henry40408.com/hahow-blue-green-deployment/</id>
     <published>2017-08-15T18:58:31.371Z</published>
-    <updated>2019-11-20T06:53:54.696Z</updated>
+    <updated>2019-11-26T06:55:12.108Z</updated>
     
     <summary type="html">
     
@@ -183,7 +183,7 @@
     <link href="https://henry40408.com/drupal-s3-imce.html/"/>
     <id>https://henry40408.com/drupal-s3-imce.html/</id>
     <published>2017-06-13T16:00:00.000Z</published>
-    <updated>2019-11-20T06:53:54.696Z</updated>
+    <updated>2019-11-26T06:55:12.108Z</updated>
     
     <summary type="html">
     
@@ -197,11 +197,29 @@
   </entry>
   
   <entry>
+    <title>Terraform 雜記</title>
+    <link href="https://henry40408.com/terraform-note/"/>
+    <id>https://henry40408.com/terraform-note/</id>
+    <published>2017-03-05T16:00:00.000Z</published>
+    <updated>2019-11-26T06:55:12.124Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==&quot; data-original=&quot;/terraform-note/terraform-note.png&quot; title=&quot;Terraform&quot;&gt;&lt;p&gt;最近在鼓搗 &lt;a href=&quot;https://www.terraform.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Terraform&lt;/a&gt;，遇到了幾個 Terraform 還沒有解決的問題，在此一併跟使用上的小技巧一起記錄下來，希望可以幫助到也想要嘗試看看 Terraform 的同好。&lt;/p&gt;&lt;p&gt;這篇不會包含 Terraform 的 Getting Started，請移駕 &lt;a href=&quot;https://www.terraform.io/intro/getting-started/install.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Terraform 官網&lt;/a&gt;。通常我會建議初學者將 Terraform 實際應用到 AWS 上。&lt;/p&gt;&lt;ol&gt;&lt;li&gt;首先 AWS 非常便宜。&lt;strong&gt;如果我沒記錯的話不滿一小時的時間會被加總，加總後不滿一小時以一小時計&lt;/strong&gt;，例如開 3 次每次 10 分鐘，月底計費的時候就會加總成 30 分鐘，只收一個小時的錢。&lt;/li&gt;&lt;li&gt;再來 Terraform 也可以很方便地 destroy 掉任何 Terraform 留下的痕跡，當然已經建立的 EC2 instance 等 resource 也不會受到 Terraform 的操作影響。&lt;/li&gt;&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://henry40408.com/categories/DevOps/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>從 Cloudflare 搬家到 AWS，而且是「徹底搬家」</title>
     <link href="https://henry40408.com/migrate-from-cloudflare-to-aws/"/>
     <id>https://henry40408.com/migrate-from-cloudflare-to-aws/</id>
     <published>2017-03-05T16:00:00.000Z</published>
-    <updated>2019-11-20T06:53:54.728Z</updated>
+    <updated>2019-11-26T06:55:12.120Z</updated>
     
     <summary type="html">
     
@@ -219,7 +237,7 @@
     <link href="https://henry40408.com/replace-security-groups-in-terraform/"/>
     <id>https://henry40408.com/replace-security-groups-in-terraform/</id>
     <published>2017-03-05T16:00:00.000Z</published>
-    <updated>2019-11-20T06:53:54.740Z</updated>
+    <updated>2019-11-26T06:55:12.124Z</updated>
     
     <summary type="html">
     
@@ -233,29 +251,11 @@
   </entry>
   
   <entry>
-    <title>Terraform 雜記</title>
-    <link href="https://henry40408.com/terraform-note/"/>
-    <id>https://henry40408.com/terraform-note/</id>
-    <published>2017-03-05T16:00:00.000Z</published>
-    <updated>2019-11-20T06:53:54.740Z</updated>
-    
-    <summary type="html">
-    
-      &lt;img src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==&quot; data-original=&quot;/terraform-note/terraform-note.png&quot; title=&quot;Terraform&quot;&gt;&lt;p&gt;最近在鼓搗 &lt;a href=&quot;https://www.terraform.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Terraform&lt;/a&gt;，遇到了幾個 Terraform 還沒有解決的問題，在此一併跟使用上的小技巧一起記錄下來，希望可以幫助到也想要嘗試看看 Terraform 的同好。&lt;/p&gt;&lt;p&gt;這篇不會包含 Terraform 的 Getting Started，請移駕 &lt;a href=&quot;https://www.terraform.io/intro/getting-started/install.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Terraform 官網&lt;/a&gt;。通常我會建議初學者將 Terraform 實際應用到 AWS 上。&lt;/p&gt;&lt;ol&gt;&lt;li&gt;首先 AWS 非常便宜。&lt;strong&gt;如果我沒記錯的話不滿一小時的時間會被加總，加總後不滿一小時以一小時計&lt;/strong&gt;，例如開 3 次每次 10 分鐘，月底計費的時候就會加總成 30 分鐘，只收一個小時的錢。&lt;/li&gt;&lt;li&gt;再來 Terraform 也可以很方便地 destroy 掉任何 Terraform 留下的痕跡，當然已經建立的 EC2 instance 等 resource 也不會受到 Terraform 的操作影響。&lt;/li&gt;&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="DevOps" scheme="https://henry40408.com/categories/DevOps/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>MongoDB 與 Mongoose 執行測試時注意刪除 database 同時也會刪除 collection 的 index</title>
     <link href="https://henry40408.com/mongoose-collection-index/"/>
     <id>https://henry40408.com/mongoose-collection-index/</id>
     <published>2017-02-03T16:00:00.000Z</published>
-    <updated>2019-11-20T06:53:54.728Z</updated>
+    <updated>2019-11-26T06:55:12.120Z</updated>
     
     <summary type="html">
     
@@ -273,7 +273,7 @@
     <link href="https://henry40408.com/twil-4/"/>
     <id>https://henry40408.com/twil-4/</id>
     <published>2017-01-02T16:00:00.000Z</published>
-    <updated>2019-11-20T06:53:54.748Z</updated>
+    <updated>2019-11-26T06:55:12.124Z</updated>
     
     <summary type="html">
     
@@ -291,7 +291,7 @@
     <link href="https://henry40408.com/twil-3/"/>
     <id>https://henry40408.com/twil-3/</id>
     <published>2016-11-14T16:00:00.000Z</published>
-    <updated>2019-11-20T06:53:54.744Z</updated>
+    <updated>2019-11-26T06:55:12.124Z</updated>
     
     <summary type="html">
     
@@ -309,7 +309,7 @@
     <link href="https://henry40408.com/twil-2/"/>
     <id>https://henry40408.com/twil-2/</id>
     <published>2016-10-29T16:00:00.000Z</published>
-    <updated>2019-11-20T06:53:54.744Z</updated>
+    <updated>2019-11-26T06:55:12.124Z</updated>
     
     <summary type="html">
     
@@ -327,7 +327,7 @@
     <link href="https://henry40408.com/twil-1/"/>
     <id>https://henry40408.com/twil-1/</id>
     <published>2016-10-20T16:00:00.000Z</published>
-    <updated>2019-11-20T06:53:54.744Z</updated>
+    <updated>2019-11-26T06:55:12.124Z</updated>
     
     <summary type="html">
     
@@ -345,7 +345,7 @@
     <link href="https://henry40408.com/elixir-note/"/>
     <id>https://henry40408.com/elixir-note/</id>
     <published>2016-10-16T16:00:00.000Z</published>
-    <updated>2019-11-20T06:53:54.696Z</updated>
+    <updated>2019-11-26T06:55:12.108Z</updated>
     
     <summary type="html">
     
@@ -363,7 +363,7 @@
     <link href="https://henry40408.com/kitchen-and-packer/"/>
     <id>https://henry40408.com/kitchen-and-packer/</id>
     <published>2016-09-01T03:28:00.000Z</published>
-    <updated>2019-11-20T06:53:54.724Z</updated>
+    <updated>2019-11-26T06:55:12.120Z</updated>
     
     <summary type="html">
     
