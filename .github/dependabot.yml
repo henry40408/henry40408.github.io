@@ -1,0 +1,19 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "00:00"
+    timezone: Asia/Taipei
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: hexo
+    versions:
+    - 5.3.0
+  - dependency-name: lodash
+    versions:
+    - 4.17.20
+  - dependency-name: hexo-lazyload-image
+    versions:
+    - 1.0.9
