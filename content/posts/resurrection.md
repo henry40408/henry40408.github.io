@@ -9,9 +9,9 @@ Here are my considerations:
 
 ## Choosing a Long-Standing Static Website Generator
 
-I chose [Hugo](https://github.com/gohugoio/hugo).
+I choose [Hugo](https://github.com/gohugoio/hugo).
 
-Although I am fond of HTML5 and vanilla JavaScript and initially wanted to build my new blog solely with them, I faced several challenges that I would have had to handle myself, such as generating an RSS feed. Hugo takes care of these for me.
+Although I am fond of HTML5 and vanilla JavaScript and initially wanted to build my new blog solely with them, I face several challenges that I would have had to handle myself, such as generating an RSS feed. Hugo takes care of these for me.
 
 By the way, I have a strong preference for single-binary, cross-platform applications. When faced with the choice between a tool written in Go or Rust and one that relies on Python or Ruby, I will undoubtedly opt for the former. This preference led me to rule out Jekyll or Pelican this time.
 
@@ -25,10 +25,10 @@ We live in a busy world today. Attention has become a scarce resource, so I need
 
 Thanks to [ChatGPT](https://chat.openai.com). It's like the Tower of Babel for me: it helps me express myself in a common language and reach more people who don't use Traditional Chinese.
 
-It aids in rephrasing "Chinese-English" and catching grammar errors. I almost always learn new things from its suggestions.
+It helps in rephrasing "Chinese-English" and catching grammar errors. I nearly always learn something new from its suggestions.
 
 There is an opinion out there that AI (or LLMs, to be precise) will deteriorate human performance in self-expression. I disagree. We are already reliant on many tools in various aspects. We don’t walk or run long distances like Pheidippides did because we have cars now. I will express my thoughts on this matter in another post.
 
-# Conclusion
+# Final
 
 I hope to go further with my blog this time.
