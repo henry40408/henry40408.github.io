@@ -2,3 +2,13 @@ baseURL = 'https://henry40408.com'
 languageCode = 'en-us'
 title = "Heng-Yi Wu's BLOG"
 theme = 'ananke'
+enableEmoji = true
+[menus]
+[[menus.main]]
+name = 'Home'
+pageRef = '/'
+weight = 10
+[[menus.main]]
+name = 'About'
+pageRef = '/about'
+weight = 20
