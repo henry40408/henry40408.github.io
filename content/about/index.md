@@ -3,7 +3,9 @@ title = 'About'
 toc = true
 +++
 
-:wave: Hi, I am Heng-Yi Wu, and I live in Taipei, Taiwan. :taiwan:
+![Avatar](/avatar.jpg)
+
+:wave: Hi, I am Heng-Yi Wu. I live in Taipei, Taiwan. :taiwan:
 
 # :briefcase: Work Experience
 
@@ -61,7 +63,7 @@ I hope that one day, LLMs will become censorship-free and truly open, meaning I 
 
 > The idea of linguistic relativity, also known as the Sapir–Whorf hypothesis (/səˌpɪər ˈhwɔːrf/ sə-PEER WHORF), the Whorf hypothesis, or Whorfianism, is a principle suggesting that the structure of a language influences its speakers' worldview or cognition, and thus individuals' languages determine or shape their perceptions of the world. - [Wikipedia](https://en.wikipedia.org/wiki/Linguistic_relativity)
 
-To encourage out-of-the-box thinking when building things, I enjoy experimenting with new programming languages. In addition to the notorious Haskell, I've also tried Elixir, a functional programming language that borrows many syntax elements from Ruby.
+To encourage out-of-the-box thinking when building things, I enjoy experimenting with new programming languages. In addition to the notorious Haskell, I've also tried [Elixir](https://elixir-lang.org), a functional programming language that borrows many syntax elements from Ruby.
 
 Recently, I've been dedicating most of my time to Rust, aiming to familiarize myself with memory safety. I also invest time in Nix and NixOS, striving to build a reproducible development environment for daily use.
 
