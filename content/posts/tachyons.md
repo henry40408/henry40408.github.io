@@ -1,7 +1,6 @@
 +++
 title = 'Tachyons'
 date = 2024-02-18T03:29:00+08:00
-#draft = true
 +++
 
 I discovered this [Tachyons](https://tachyons.io), a CSS library, while using [Ananke](https://github.com/theNewDynamic/gohugo-theme-ananke) as my blog theme. It reminds me of [tailwindcss](https://tailwindcss.com), but it seems it doesn't require an asset pipeline.
