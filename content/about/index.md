@@ -9,11 +9,11 @@ toc = true
 
 # :briefcase: Work Experience
 
-## :robot: January 2021 - Present
+## :robot: January 2022 - Present
 
 I am currently working at an AI company, where I primarily use JavaScript and Node.js.
 
-## :page_facing_up: February 2020 - January 2021
+## :page_facing_up: February 2020 - January 2022
 
 I worked at a resume-building company, primarily using Ruby on Rails.
 
