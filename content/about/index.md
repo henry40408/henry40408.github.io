@@ -9,9 +9,13 @@ toc = true
 
 # :briefcase: Work Experience
 
-## :robot: January 2022 - Present
+## :chains: April 2022 - Present
 
-I am currently working at an AI company, where I primarily use JavaScript and Node.js.
+I am currently working at a blockchain company, where I primarily use JavaScript and Node.js.
+
+## :robot: January 2022 - April 2022
+
+I worked at an AI company, where I primarily use JavaScript and Node.js.
 
 ## :page_facing_up: February 2020 - January 2022
 
