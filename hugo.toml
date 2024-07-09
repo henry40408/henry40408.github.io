@@ -1,7 +1,7 @@
 baseURL = 'https://henry40408.com'
 languageCode = 'en-us'
 title = "Heng-Yi Wu's BLOG"
-theme = 'ananke'
+theme = 'PaperMod'
 enableEmoji = true
 
 [menus]
