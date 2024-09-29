@@ -3,6 +3,7 @@ languageCode = 'en-us'
 title = "Heng-Yi Wu's BLOG"
 theme = 'PaperMod'
 enableEmoji = true
+relativeURLs = true
 
 [menus]
 
