@@ -103,4 +103,4 @@ ipfs pin add /ipns/k51qzi5uqu5dgy6fu9073kabgj2nuq3qyo4f2rcnn4380z6n8i4v2lvo8dln6
 
 # Closing Words
 
-The key is sharing the private key between IPFS nodes. I hope this post will help you. From now on, although my website will still be hosted on GitHub Pages as [henry40408.com](henry40408.com), I suggest everyone access [henry40408.eth.limo](https://henry40408.eth.limo) instead. It not only helps make my website more persistent but also helps IPFS thrive.
+The key is sharing the private key between IPFS nodes. I hope this post will help you. From now on, although my website will still be hosted on GitHub Pages as [henry40408.com](https://henry40408.com), I suggest everyone access [henry40408.eth.limo](https://henry40408.eth.limo) instead. It not only helps make my website more persistent but also helps IPFS thrive.
