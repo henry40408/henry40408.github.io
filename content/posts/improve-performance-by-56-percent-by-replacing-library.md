@@ -3,9 +3,13 @@ title = "Improve Performance by 56% by Replacing Library"
 date = 2024-06-20T21:28:18+08:00
 +++
 
+## Background
+
 I have a side project called "[comics](https://github.com/henry40408/comics)." It’s a simple HTTP server that serves comics so I can access them anywhere. According to the [Chrome documentation](https://web.dev/articles/browser-level-image-lazy-loading), to make images lazy-loaded, the server needs to run an initial scan and retrieve the dimensions of images when it starts. However, its performance is poor on my NAS, which uses HDD drives.
 
 Initially, I used the [image-rs](https://github.com/image-rs/image) library, which I found widely recommended online.
+
+## Benchmark
 
 After adding tracing to my code, I discovered that retrieving image dimensions during the initial scan took most of the time, which makes sense since it's the server's main task during this phase. However, I noticed the server's performance varies with the size of the images. Digging deeper, I found that the performance of image-rs degrades as image size increases. Here’s a code snippet that shows this issue:
 
@@ -107,6 +111,8 @@ As the results show, imsz performs consistently regardless of the image size.
 
 I tried to understand how imsz gets the dimensions of an image, but it looks like I need to know about the JPEG format. To me, it just seems like [looking for and reading specific bytes](https://github.com/panzi/imsz/blob/91b294c1388e37d1d55cfdda4a9d503578aef10e/src/lib.rs#L801-L831). All I can do is appreciate the maintainer's work.
 
+## Results
+
 Here are the results of benchmarking image-rs and imsz:
 
 | Command                         | Mean [ms] | Min [ms] | Max [ms] |         Relative |
@@ -118,6 +124,6 @@ As expected, imsz outperforms image-rs.
 
 As the results show, no matter how big the image is, imsz performs consistently. Finally, I [replaced image-rs with imsz](https://github.com/henry40408/comics/pull/65) and saw a 56% performance improvement on my NAS.
 
-## Conclusion
+## Closing Words
 
 In conclusion, it's always rewarding to dig deeper to improve performance. By switching from image-rs to imsz, I achieved a significant performance boost. Exploring and understanding the underlying code can lead to substantial improvements.

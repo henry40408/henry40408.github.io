@@ -15,7 +15,7 @@ On February 14, 2024, while playing Dead Cells, I noticed some stages were avail
 
 This was strange because I had just played Dead Cells during the Lunar New Year, so I definitely owned a copy of the game since 2019. Eventually, I realized I was affected by the notorious "cross-region" issue, which applies to every e-shop selling digital copies, including Steam and PlayStation. This was my first encounter with the issue and a financial loss.
 
-# Final
+## Closing Words
 
 I don't personally have a solution to this problem.
 

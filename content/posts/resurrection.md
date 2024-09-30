@@ -29,6 +29,6 @@ It helps in rephrasing "Chinese-English" and catching grammar errors. I nearly a
 
 There is an opinion out there that AI (or LLMs, to be precise) will deteriorate human performance in self-expression. I disagree. We are already reliant on many tools in various aspects. We don’t walk or run long distances like Pheidippides did because we have cars now. I will express my thoughts on this matter in another post.
 
-# Final
+## Closing Words
 
 I hope to go further with my blog this time.

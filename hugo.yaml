@@ -1,0 +1,45 @@
+baseURL: https://henry40408.com
+enableEmoji: true
+languageCode: en-us
+relativeURLs: true
+theme: PaperMod
+title: Heng-Yi Wu's BLOG
+
+menus:
+  main:
+    - name: Home
+      pageRef: /
+      weight: 10
+    - name: Archives
+      pageRef: /archives
+      weight: 20
+    - name: Search
+      pageRef: /search
+      weight: 30
+    - name: About
+      pageRef: /about
+      weight: 40
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
+
+params:
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+  TocOpen: true
+  author: henry40408
+  favicon: favicon.ico
+  homeInfoParams:
+    Title: Hi there ?
+    Content: Welcome to my blog
+  socialIcons:
+    - name: rss
+      url: /index.xml
+    - name: github
+      url: https://github.com/henry40408
+    - name: mastodon
+      url: https://mastodon.social/@henry40408

@@ -3,19 +3,21 @@ title = 'Single Question in Interview'
 date = 2024-09-29T16:19:06+08:00
 +++
 
+## The Question
+
 > "Tell me about some of the most difficult problems you worked on and how you solved them." - [Elon Musk asks this question at every interview to spot a liar—why science says it actually works](https://www.cnbc.com/2021/01/26/elon-musk-favorite-job-interview-question-to-ask-to-spot-a-liar-science-says-it-actually-works.html)
 
 Credit to Elon Musk.
 
 From this question, I can find answers to the following questions:
 
-## How difficult is the problem?
+### How difficult is the problem?
 
 It's subjective. As a back-end engineer, centering a div is more difficult than finding a race condition in the back-end server, though race conditions are challenging even for back-end engineers.
 
 However, some candidates fail at this stage because they've never faced sufficiently difficult problems in their careers. For juniors, this is acceptable; but for those claiming to be seniors, it's a serious issue. I once heard of a candidate applying for a senior position who had only implemented basic CRUD operations throughout their career. While CRUD can be tricky due to complex business logic and validation, their work involved such simple CRUD that they could just call `rails generate controller order` and consider it done.
 
-## Does their supervisor trust them enough to assign the most difficult problems?
+### Does their supervisor trust them enough to assign the most difficult problems?
 
 Sometimes someone is qualified, but their supervisor is hesitant to give them difficult problems for various reasons, and I aim to understand why.
 
@@ -25,7 +27,7 @@ However, one afternoon, the junior approached me, having found the root cause of
 
 This was beneficial for me as well, as I could finally delegate some tasks to my colleagues.
 
-## How hard do they try to find the root cause?
+### How hard do they try to find the root cause?
 
 Engineers are inherently lazy, which can be a virtue, but sometimes it becomes a liability.
 
@@ -33,13 +35,13 @@ At the AI company, one of my supervisors was a former engineer turned product ma
 
 Eventually, when reporting a problem and solution, my product manager suggested his own solution, but I rejected it because it wouldn't address the root cause. Checkmate.
 
-## How do they fix the problem?
+### How do they fix the problem?
 
 Engineers are sometimes too lazy to ask others to fix problems on their end. At the AI company, I often found that if the front-end implemented data type limits, validation, or helpful text in the interface, many back-end errors could be prevented, improving user experience with clear instructions. As a former full-stack engineer, I occasionally suggested solutions to the front-end team. Fortunately, my front-end colleagues were open-minded, leading to problem resolution and improved user experience.
 
 Candidates might have worked in toxic environments where divisions compete, e.g., "Time is limited, so why should I fix your problem?" If I discover a candidate has worked in such an environment, I focus on whether they were affected negatively or tried to fight against the toxicity. At the AI company, interacting with other divisions was frustrating because they often lacked time to fix their own problems, forcing us to create workarounds. While not optimal, it gave us full control over our infrastructure.
 
-## How do they prevent the problem from recurring?
+### How do they prevent the problem from recurring?
 
 Early in my engineering career, I disliked this question because it seemed to imply a lack of trust in my ability to avoid repeating mistakes. However, I gradually realized it wasn't an implication but an inevitable outcome if I didn't have an answer. Without proper fixes, problems tend to resurface in different forms.
 
