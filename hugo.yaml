@@ -34,7 +34,7 @@ params:
   author: henry40408
   favicon: favicon.ico
   homeInfoParams:
-    Title: Hi there ?
+    Title: Hi there 👋
     Content: Welcome to my blog
   socialIcons:
     - name: rss
