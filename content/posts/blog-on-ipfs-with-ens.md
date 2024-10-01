@@ -50,9 +50,7 @@ Here is the tricky part that I spent most of my time figuring out. I will briefl
 
 ### Content on IPFS is NOT Permanent
 
-Every piece of content on IPFS will perish if no one accesses it for a while, and the last IPFS node which caches it runs garbage collection. It will be lost forever in the IPFS network, so the statement that content on IPFS is permanent is semi-correct. If it's popular, it will be nearly permanent on the IPFS network; but if it's rarely accessed, it will be lost. So if someone claims that content is permanent, it's not true. Even the inventor [Juan Benet](https://juan.benet.ai/) initially claimed that IPFS is permanent in his [talk](https://sourcegraph.com/blog/ipfs-the-permanent-web-by-juan-benet), which I think is misleading:
-
-{{< youtube id=Fa4pckodM9g loading=lazy >}}
+Every piece of content on IPFS will perish if no one accesses it for a while, and the last IPFS node which caches it runs garbage collection. It will be lost forever in the IPFS network, so the statement that content on IPFS is permanent is semi-correct. If it's popular, it will be nearly permanent on the IPFS network; but if it's rarely accessed, it will be lost. So if someone claims that content is permanent, it's not true. Even the inventor [Juan Benet](https://juan.benet.ai/) initially claimed that IPFS is permanent in his [talk](https://sourcegraph.com/blog/ipfs-the-permanent-web-by-juan-benet), which I think is misleading.
 
 On the IPFS website, there is a page called [Persistence, permanence, and pinning](https://docs.ipfs.tech/concepts/persistence/), which explains the differences and how IPFS works. I highly recommend that everyone who wants to get involved in the IPFS network should read it.
 
