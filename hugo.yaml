@@ -32,6 +32,7 @@ params:
   ShowToc: true
   TocOpen: true
   author: henry40408
+  defaultTheme: auto
   favicon: favicon.ico
   homeInfoParams:
     Title: Hi there 👋
