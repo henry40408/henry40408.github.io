@@ -30,6 +30,7 @@ params:
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
   ShowToc: true
+  Social: true
   TocOpen: true
   author: henry40408
   defaultTheme: auto
