@@ -35,11 +35,6 @@ params:
   author: henry40408
   defaultTheme: auto
   favicon: favicon.ico
-  homeInfoParams:
-    Title: Hi there 👋
-    Content: |
-      Welcome to my blog. Please access it using the URL [henry40408.eth.limo](https://henry40408.eth.limo) to help my blog get more caching and support the growth of IPFS.
-      Additionally, I've deployed a backup on GitHub Pages, which you can access through [henry40408.com](https://henry40408.com).
   socialIcons:
     - name: rss
       url: /index.xml
