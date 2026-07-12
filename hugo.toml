@@ -1,3 +1,36 @@
-baseURL = 'https://example.org/'
-locale = 'en-us'
-title = 'My New Hugo Project'
+# Base URL used when generating links to your pages
+baseURL = "https://henry40408.com/"
+
+# The name of this wonderful theme ;-).
+theme = 'hugo-bearblog'
+
+# Basic metadata configuration for your blog.
+title = "henry40408"
+author = "Heng-Yi Wu"
+locale = "en-US"
+
+# Generate a nice robots.txt for SEO
+enableRobotsTXT = true
+
+# Generate "Bearblog"-like URLs !only!, see https://bearblog.dev/.
+disableKinds = ["taxonomy"]
+ignoreErrors = ["error-disable-taxonomy"]
+
+[permalinks]
+  blog = "/:slug/"
+  tags = "/blog/:slug"
+
+[params]
+  # The "description" of your website. This is used in the meta data of your generated html.
+  description = "henry40408's personal blog"
+
+  # Another "title". Used as the site_name on Hugo's internal opengraph template.
+  title = "henry40408"
+
+# Configure markup highlighter to match "Bearblog" aesthetics.
+[markup]
+  [markup.highlight]
+    style = 'friendly'
+    lineNos = true
+    lineNumbersInTable = false
+    codeFences = true
