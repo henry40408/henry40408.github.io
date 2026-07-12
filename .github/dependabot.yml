@@ -1,0 +1,13 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # Wait 7 days after a release before opening an update PR, so that
+    # freshly-published (potentially compromised) versions have time to be
+    # caught and yanked first.
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: "chore"
