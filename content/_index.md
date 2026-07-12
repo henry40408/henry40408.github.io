@@ -1,13 +1,9 @@
 +++
-title = "Home"
+title = "首頁"
 menu = "main"
 weight = 1
 +++
 
-# Hi, I'm henry40408
+# 嗨，我是 Henry
 
-Welcome to my personal blog, built with [Hugo](https://gohugo.io/) and the
-[Bear Blog](https://github.com/janraasch/hugo-bearblog) theme — no JavaScript,
-almost no CSS, just fast, readable content.
-
-Head over to the [blog](/blog/) to read the latest posts.
+部落格在 [blog](/blog/)。
