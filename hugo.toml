@@ -7,7 +7,7 @@ theme = 'hugo-bearblog'
 # Basic metadata configuration for your blog.
 title = "henry40408"
 author = "Heng-Yi Wu"
-locale = "en-US"
+locale = "zh-TW"
 
 # Generate a nice robots.txt for SEO
 enableRobotsTXT = true
