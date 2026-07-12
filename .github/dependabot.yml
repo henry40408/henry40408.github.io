@@ -11,3 +11,8 @@ updates:
       default-days: 7
     commit-message:
       prefix: "chore"
+    # Bundle all github-actions updates into a single PR per run.
+    groups:
+      github-actions:
+        patterns:
+          - "*"
