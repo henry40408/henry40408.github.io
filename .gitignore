@@ -1,0 +1,14 @@
+# Hugo build output
+/public/
+
+# Hugo generated resources (image processing, SCSS/PostCSS, etc.)
+/resources/_gen/
+
+# Hugo build lock file
+.hugo_build.lock
+
+# Hugo stats (used by PurgeCSS / Tailwind)
+hugo_stats.json
+
+# macOS
+.DS_Store
